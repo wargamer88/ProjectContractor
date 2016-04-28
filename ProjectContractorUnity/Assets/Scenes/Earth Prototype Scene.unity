@@ -96,6 +96,7 @@ GameObject:
   - 33: {fileID: 3584161}
   - 136: {fileID: 3584160}
   - 23: {fileID: 3584159}
+  - 114: {fileID: 3584162}
   m_Layer: 0
   m_Name: Seoul
   m_TagString: Untagged
@@ -159,6 +160,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 3584157}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3584162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3584157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &99255958
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +182,7 @@ GameObject:
   - 33: {fileID: 99255962}
   - 136: {fileID: 99255961}
   - 23: {fileID: 99255960}
+  - 114: {fileID: 99255963}
   m_Layer: 0
   m_Name: Reykjavik
   m_TagString: Untagged
@@ -233,6 +246,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 99255958}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &99255963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 99255958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &113498270
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +268,7 @@ GameObject:
   - 33: {fileID: 113498274}
   - 136: {fileID: 113498273}
   - 23: {fileID: 113498272}
+  - 114: {fileID: 113498275}
   m_Layer: 0
   m_Name: Rome
   m_TagString: Untagged
@@ -307,6 +332,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 113498270}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &113498275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 113498270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &115950706
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +393,7 @@ SphereCollider:
   m_GameObject: {fileID: 115950706}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
@@ -376,10 +412,11 @@ Transform:
   m_GameObject: {fileID: 115950706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_LocalScale: {x: 1.11111116, y: 1.11111116, z: 1.11111116}
+  m_Children:
+  - {fileID: 473535371}
+  m_Father: {fileID: 2042359060}
+  m_RootOrder: 0
 --- !u!1 &154352041
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +428,7 @@ GameObject:
   - 33: {fileID: 154352045}
   - 136: {fileID: 154352044}
   - 23: {fileID: 154352043}
+  - 114: {fileID: 154352046}
   m_Layer: 0
   m_Name: Copenhagen
   m_TagString: Untagged
@@ -454,6 +492,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154352041}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &154352046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154352041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &263066329
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +514,7 @@ GameObject:
   - 33: {fileID: 263066333}
   - 136: {fileID: 263066332}
   - 23: {fileID: 263066331}
+  - 114: {fileID: 263066334}
   m_Layer: 0
   m_Name: London
   m_TagString: Untagged
@@ -528,6 +578,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263066329}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &263066334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263066329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &295068618
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +600,7 @@ GameObject:
   - 33: {fileID: 295068622}
   - 136: {fileID: 295068621}
   - 23: {fileID: 295068620}
+  - 114: {fileID: 295068623}
   m_Layer: 0
   m_Name: Amsterdam
   m_TagString: Untagged
@@ -602,6 +664,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 295068618}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &295068623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 295068618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &377998199
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +686,7 @@ GameObject:
   - 33: {fileID: 377998203}
   - 136: {fileID: 377998202}
   - 23: {fileID: 377998201}
+  - 114: {fileID: 377998204}
   m_Layer: 0
   m_Name: Jakarta
   m_TagString: Untagged
@@ -676,6 +750,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 377998199}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &377998204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 377998199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &413764670
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +772,7 @@ GameObject:
   - 33: {fileID: 413764674}
   - 136: {fileID: 413764673}
   - 23: {fileID: 413764672}
+  - 114: {fileID: 413764675}
   m_Layer: 0
   m_Name: Miami
   m_TagString: Untagged
@@ -750,6 +836,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 413764670}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &413764675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 413764670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &425718457
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +858,7 @@ GameObject:
   - 33: {fileID: 425718461}
   - 136: {fileID: 425718460}
   - 23: {fileID: 425718459}
+  - 114: {fileID: 425718462}
   m_Layer: 0
   m_Name: San Juan
   m_TagString: Untagged
@@ -824,6 +922,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 425718457}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &425718462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 425718457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &473535370
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,8 +955,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 473535370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.80574632, y: 7.38720608, z: -8.62118816}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -.28057465, y: .738720596, z: -.86211884}
+  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children:
   - {fileID: 99255959}
   - {fileID: 263066330}
@@ -877,8 +986,8 @@ Transform:
   - {fileID: 1524664536}
   - {fileID: 1628978853}
   - {fileID: 2142032774}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 115950710}
+  m_RootOrder: 0
 --- !u!1 &508023799
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +999,7 @@ GameObject:
   - 33: {fileID: 508023803}
   - 136: {fileID: 508023802}
   - 23: {fileID: 508023801}
+  - 114: {fileID: 508023804}
   m_Layer: 0
   m_Name: Nairobi
   m_TagString: Untagged
@@ -953,6 +1063,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 508023799}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &508023804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 508023799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &510369722
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +1085,7 @@ GameObject:
   - 33: {fileID: 510369726}
   - 136: {fileID: 510369725}
   - 23: {fileID: 510369724}
+  - 114: {fileID: 510369727}
   m_Layer: 0
   m_Name: Stockholm
   m_TagString: Untagged
@@ -1027,6 +1149,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 510369722}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &510369727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 510369722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &553678337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1171,7 @@ GameObject:
   - 33: {fileID: 553678341}
   - 136: {fileID: 553678340}
   - 23: {fileID: 553678339}
+  - 114: {fileID: 553678342}
   m_Layer: 0
   m_Name: Hongkong
   m_TagString: Untagged
@@ -1101,6 +1235,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 553678337}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &553678342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 553678337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &743968247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,6 +1257,7 @@ GameObject:
   - 33: {fileID: 743968251}
   - 136: {fileID: 743968250}
   - 23: {fileID: 743968249}
+  - 114: {fileID: 743968252}
   m_Layer: 0
   m_Name: Tokyo
   m_TagString: Untagged
@@ -1175,6 +1321,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 743968247}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &743968252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 743968247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &764040091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1343,7 @@ GameObject:
   - 33: {fileID: 764040095}
   - 136: {fileID: 764040094}
   - 23: {fileID: 764040093}
+  - 114: {fileID: 764040096}
   m_Layer: 0
   m_Name: Montreal
   m_TagString: Untagged
@@ -1249,6 +1407,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 764040091}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &764040096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764040091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &765344801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,6 +1429,7 @@ GameObject:
   - 33: {fileID: 765344805}
   - 136: {fileID: 765344804}
   - 23: {fileID: 765344803}
+  - 114: {fileID: 765344806}
   m_Layer: 0
   m_Name: Dakar
   m_TagString: Untagged
@@ -1323,6 +1493,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 765344801}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &765344806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 765344801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &919333741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,6 +1601,7 @@ GameObject:
   - 33: {fileID: 1022968332}
   - 136: {fileID: 1022968331}
   - 23: {fileID: 1022968330}
+  - 114: {fileID: 1022968333}
   m_Layer: 0
   m_Name: Santiago
   m_TagString: Untagged
@@ -1483,6 +1665,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1022968328}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1022968333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1022968328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1049836532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,6 +1687,7 @@ GameObject:
   - 33: {fileID: 1049836536}
   - 136: {fileID: 1049836535}
   - 23: {fileID: 1049836534}
+  - 114: {fileID: 1049836537}
   m_Layer: 0
   m_Name: Rio De Janeiro
   m_TagString: Untagged
@@ -1557,6 +1751,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1049836532}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1049836537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1049836532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1188106755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,6 +1773,7 @@ GameObject:
   - 33: {fileID: 1188106759}
   - 136: {fileID: 1188106758}
   - 23: {fileID: 1188106757}
+  - 114: {fileID: 1188106760}
   m_Layer: 0
   m_Name: San Francisco
   m_TagString: Untagged
@@ -1631,6 +1837,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1188106755}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1188106760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1188106755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1265105200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1859,7 @@ GameObject:
   - 33: {fileID: 1265105204}
   - 136: {fileID: 1265105203}
   - 23: {fileID: 1265105202}
+  - 114: {fileID: 1265105205}
   m_Layer: 0
   m_Name: Las Vegas
   m_TagString: Untagged
@@ -1705,6 +1923,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1265105200}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1265105205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1265105200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1464606950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,6 +1945,7 @@ GameObject:
   - 33: {fileID: 1464606954}
   - 136: {fileID: 1464606953}
   - 23: {fileID: 1464606952}
+  - 114: {fileID: 1464606955}
   m_Layer: 0
   m_Name: Dubai
   m_TagString: Untagged
@@ -1779,6 +2009,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1464606950}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1464606955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464606950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1524664535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,6 +2031,7 @@ GameObject:
   - 33: {fileID: 1524664539}
   - 136: {fileID: 1524664538}
   - 23: {fileID: 1524664537}
+  - 114: {fileID: 1524664540}
   m_Layer: 0
   m_Name: Honolulu
   m_TagString: Untagged
@@ -1853,6 +2095,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1524664535}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1524664540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1524664535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628978852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,6 +2117,7 @@ GameObject:
   - 33: {fileID: 1628978856}
   - 136: {fileID: 1628978855}
   - 23: {fileID: 1628978854}
+  - 114: {fileID: 1628978857}
   m_Layer: 0
   m_Name: Sydney
   m_TagString: Untagged
@@ -1927,6 +2181,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1628978852}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1628978857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1628978852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1812739038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,6 +2203,7 @@ GameObject:
   - 33: {fileID: 1812739042}
   - 136: {fileID: 1812739041}
   - 23: {fileID: 1812739040}
+  - 114: {fileID: 1812739043}
   m_Layer: 0
   m_Name: Cairo
   m_TagString: Untagged
@@ -2001,6 +2267,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1812739038}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1812739043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1812739038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1831474638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,6 +2289,7 @@ GameObject:
   - 33: {fileID: 1831474641}
   - 136: {fileID: 1831474640}
   - 23: {fileID: 1831474639}
+  - 114: {fileID: 1831474643}
   m_Layer: 0
   m_Name: New York
   m_TagString: Untagged
@@ -2075,6 +2353,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 473535371}
   m_RootOrder: 11
+--- !u!114 &1831474643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1831474638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1881596540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,6 +2373,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1881596542}
   - 108: {fileID: 1881596541}
+  - 114: {fileID: 1881596543}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2135,6 +2425,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1881596543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1881596540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45316fc223566d04d91779fea5b63d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1924369773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,6 +2447,7 @@ GameObject:
   - 33: {fileID: 1924369777}
   - 136: {fileID: 1924369776}
   - 23: {fileID: 1924369775}
+  - 114: {fileID: 1924369778}
   m_Layer: 0
   m_Name: Capetown
   m_TagString: Untagged
@@ -2209,6 +2511,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1924369773}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1924369778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924369773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2017769149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,6 +2533,7 @@ GameObject:
   - 33: {fileID: 2017769153}
   - 136: {fileID: 2017769152}
   - 23: {fileID: 2017769151}
+  - 114: {fileID: 2017769154}
   m_Layer: 0
   m_Name: Moskow
   m_TagString: Untagged
@@ -2283,6 +2597,70 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2017769149}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2017769154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2017769149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2042359059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2042359060}
+  - 135: {fileID: 2042359062}
+  - 114: {fileID: 2042359061}
+  m_Layer: 0
+  m_Name: RotateEarth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2042359060
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2042359059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 9, y: 9, z: 9}
+  m_Children:
+  - {fileID: 115950710}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+--- !u!114 &2042359061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2042359059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45316fc223566d04d91779fea5b63d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &2042359062
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2042359059}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2049795112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,6 +2672,7 @@ GameObject:
   - 33: {fileID: 2049795116}
   - 136: {fileID: 2049795115}
   - 23: {fileID: 2049795114}
+  - 114: {fileID: 2049795117}
   m_Layer: 0
   m_Name: Anchorage
   m_TagString: Untagged
@@ -2357,6 +2736,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2049795112}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2049795117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049795112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2142032773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,6 +2758,7 @@ GameObject:
   - 33: {fileID: 2142032777}
   - 136: {fileID: 2142032776}
   - 23: {fileID: 2142032775}
+  - 114: {fileID: 2142032778}
   m_Layer: 0
   m_Name: Willington
   m_TagString: Untagged
@@ -2431,3 +2822,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2142032773}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2142032778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2142032773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4db3cb3c9676649b0d0e1dab7eee44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
