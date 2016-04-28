@@ -3,8 +3,8 @@ using System.Collections;
 
 public class OnCityMouseClickScript : MonoBehaviour {
 
-    private bool _cityIsClicked = false;
-    private Camera _camera;
+    private bool _cityIsClicked = false; // if city is clicked
+    private Camera _camera; //Camera for the camera position
 	// Use this for initialization
 	void Start () {
 	    _camera = GameObject.FindObjectOfType<Camera>();
@@ -14,11 +14,8 @@ public class OnCityMouseClickScript : MonoBehaviour {
 	void Update () {
 	    if(_cityIsClicked)
         {
-            Vector3 zooming = new Vector3(0, 0, -0.1f);
-            //_camera.transform.position = _camera.transform.position - zooming;
-            _camera.transform.position = Vector3.MoveTowards(_camera.transform.position, this.transform.position, 0.1f);
-            Debug.Log(_camera.transform.position);
-            if (_camera.transform.position.z > -5)
+            _camera.transform.position = Vector3.MoveTowards(_camera.transform.position, this.transform.position, 0.1f); // moving to city
+            if (_camera.transform.position.z > -5) //load scene if camera is bigger then -5 in the Z axis.
             {
                 Application.LoadLevel(1);
             }
