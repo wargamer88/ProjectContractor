@@ -9,7 +9,7 @@
 # Unity generated #
 # =============== #
 Temp/
-Library/
+ProjectContractorUnity/Library/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -49,3 +49,8 @@ sysinfo.txt
 .Trashes
 ehthumbs.db
 Thumbs.db
+ProjectContractorUnity/Library/metadata/00/00000000000000007000000000000000
+ProjectContractorUnity/Library/assetDatabase3
+*.dwlt
+ProjectContractorUnity/Library/metadata/00/00000000000000004000000000000000
+*.log
