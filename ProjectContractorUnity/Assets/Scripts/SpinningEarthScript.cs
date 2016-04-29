@@ -31,6 +31,6 @@ public class SpinningEarthScript : MonoBehaviour {
         //transform.Rotate(new Vector3(posX, 0, posY));
         //float ang = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg - _baseAngle;
         //transform.rotation = Quaternion.AngleAxis(ang,Vector3.right);
-        transform.rotation = Quaternion.Euler(new Vector3(posY, posX,0));
+        transform.rotation = Quaternion.Euler(new Vector3(0, -posX,0));
     }
 }
