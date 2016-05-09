@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EnableLiveEdit: 1
   m_PreloadComputeShaders: 1
-  m_FixedDeltaTime: .0333333351
-  m_MaxDeltaTime: .333333343
+  m_FixedDeltaTime: 0.033333335
+  m_MaxDeltaTime: 0.33333334
   m_LimitTimestep: 1
   m_MotionExtrapolation: 1
   m_SolverIterations: 2
