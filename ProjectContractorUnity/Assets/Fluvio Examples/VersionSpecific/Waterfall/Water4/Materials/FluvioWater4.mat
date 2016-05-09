@@ -45,18 +45,18 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _RefractionTex
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _ShoreTex
         second:
           m_Texture: {fileID: 2800000, guid: de3d4308c5ab34e59a3689c8e1c9fe36, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 1, y: 1}
+      data:
+        first:
+          name: _RefractionTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _ReflectiveColorCube
@@ -162,16 +162,16 @@ Material:
         second: 313
       data:
         first:
-          name: _InvFade
-        second: .628782988
-      data:
-        first:
           name: _FresnelScale
         second: .49000001
       data:
         first:
           name: _GerstnerIntensity
         second: .0199999996
+      data:
+        first:
+          name: _InvFade
+        second: .628782988
       data:
         first:
           name: _WaveScale
@@ -259,10 +259,6 @@ Material:
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
-          name: _ReflectionTex_ST
-        second: {r: 1, g: 1, b: 0, a: 0}
-      data:
-        first:
           name: _DistortParams
         second: {r: 1.22000003, g: .100000001, b: 3.01999998, a: -.140000001}
       data:
@@ -337,6 +333,10 @@ Material:
         first:
           name: _ShoreTiling
         second: {r: 1, g: 1, b: .100000001, a: .100000001}
+      data:
+        first:
+          name: _ReflectionTex_ST
+        second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
           name: _RefractionTex_ST
