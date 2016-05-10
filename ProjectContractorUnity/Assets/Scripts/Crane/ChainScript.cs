@@ -29,6 +29,7 @@ public class ChainScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _craneScript = GameObject.FindObjectOfType<CraneScript>();
+
 	}
 	
 	// Update is called once per frame
@@ -37,6 +38,11 @@ public class ChainScript : MonoBehaviour {
         if (Input.GetKey(KeyCode.W) || _goingUp)
         {
             transform.position += new Vector3(0, 0.5f, 0);
+            if (transform.position.y > 29)
+            {
+                _goingUp = false;
+                _craneScript.CanMove = true;
+            }
         }
 
         if (_canMove)
@@ -45,11 +51,18 @@ public class ChainScript : MonoBehaviour {
             {
                 _goingDown = true;
                 transform.position += new Vector3(0, -0.5f, 0);
+                if(transform.position.y < 8)
+                {
+                    _goingUp = true;
+                    _goingDown = false;
+                }
             }
         }
         if (_goingDown)
         {
             _craneScript.CanMove = false;
         }
+
+       
     }
 }

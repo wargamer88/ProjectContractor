@@ -1,3 +1,127 @@
 Base path: D:/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-12612
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-12776
 Cmd: getPlatforms
+Cmd: preprocess
+  insize=4159 outsize=1016 ok=1
+Cmd: preprocess
+  insize=12815 outsize=2575 ok=1
+Cmd: preprocess
+  insize=11975 outsize=2457 ok=1
+Cmd: preprocess
+  insize=1802 outsize=527 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=5273 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=5273 ok=1
+Cmd: compileCompute
+  api=15 insize=65 outsize=10109 ok=1
+Cmd: compileCompute
+  api=9 insize=65 outsize=10165 ok=1
+Cmd: compileCompute
+  api=4 insize=172 outsize=28701 ok=1
+Cmd: compileCompute
+  api=4 insize=172 outsize=28701 ok=1
+Cmd: compileCompute
+  api=15 insize=172 outsize=55473 ok=1
+Cmd: compileCompute
+  api=9 insize=172 outsize=55717 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=5273 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=5273 ok=1
+Cmd: compileCompute
+  api=15 insize=142 outsize=8185 ok=1
+Cmd: compileCompute
+  api=9 insize=142 outsize=8201 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=6765 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=6765 ok=1
+Cmd: compileCompute
+  api=15 insize=142 outsize=11461 ok=1
+Cmd: compileCompute
+  api=9 insize=142 outsize=11481 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=3489 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=3489 ok=1
+Cmd: compileCompute
+  api=15 insize=65 outsize=8137 ok=1
+Cmd: compileCompute
+  api=9 insize=65 outsize=8125 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=4 insize=518 outsize=33945 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=4 insize=518 outsize=33945 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=15 insize=518 outsize=75245 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=9 insize=518 outsize=74861 ok=1
+Cmd: compileCompute
+  api=4 insize=231 outsize=6161 ok=1
+Cmd: compileCompute
+  api=4 insize=231 outsize=6161 ok=1
+Cmd: compileCompute
+  api=15 insize=231 outsize=15745 ok=1
+Cmd: compileCompute
+  api=9 insize=231 outsize=15573 ok=1
+Cmd: compileSnippet
+  error: 2 plat 4 at (40): failed to open source file: 'WaterInclude.cginc'\nCompiling Vertex program with WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON
+  api=4 type=0 insize=9538 outsize=0 kw=WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON pd= ok=0
+Cmd: compileSnippet
+  error: 2 plat 4 at (40): failed to open source file: 'WaterInclude.cginc'\nCompiling Fragment program with WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON
+  api=4 type=1 insize=9538 outsize=0 kw=WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON pd= ok=0
+Cmd: compileSnippet
+  error: 2 plat 4 at (43): failed to open source file: 'WaterInclude.cginc'\nCompiling Vertex program with WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON
+  api=4 type=0 insize=10255 outsize=0 kw=WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON pd= ok=0
+Cmd: compileSnippet
+  error: 2 plat 4 at (43): failed to open source file: 'WaterInclude.cginc'\nCompiling Fragment program with WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON
+  api=4 type=1 insize=10255 outsize=0 kw=WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON pd= ok=0
+Cmd: preprocess
+  insize=12814 outsize=2575 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=10254 outsize=5393 kw=WATER_REFLECTIVE WATER_VERTEX_DISPLACEMENT_ON WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=10254 outsize=6157 kw=WATER_REFLECTIVE WATER_VERTEX_DISPLACEMENT_ON WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=10260 outsize=5003 kw=WATER_REFLECTIVE WATER_VERTEX_DISPLACEMENT_ON WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=10260 outsize=4743 kw=WATER_REFLECTIVE WATER_VERTEX_DISPLACEMENT_ON WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=10029 outsize=1989 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=10029 outsize=3329 kw= pd= ok=1
+Cmd: preprocess
+  insize=11974 outsize=2456 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=9537 outsize=5044 kw=WATER_REFLECTIVE WATER_VERTEX_DISPLACEMENT_ON WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=9537 outsize=5263 kw=WATER_REFLECTIVE WATER_VERTEX_DISPLACEMENT_ON WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=9539 outsize=4751 kw=WATER_REFLECTIVE WATER_VERTEX_DISPLACEMENT_ON WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=9539 outsize=4475 kw=WATER_REFLECTIVE WATER_VERTEX_DISPLACEMENT_ON WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=9312 outsize=1948 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=9312 outsize=3329 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=10254 outsize=2834 kw=WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=10254 outsize=5767 kw=WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=9537 outsize=2793 kw=WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=9537 outsize=4873 kw=WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF WATER_EDGEBLEND_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=3409 outsize=2484 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=3409 outsize=1249 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=70382 outsize=3931 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=70382 outsize=12446 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON pd= ok=1

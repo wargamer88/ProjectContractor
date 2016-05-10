@@ -14,19 +14,20 @@ public class BucketScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    
 	}
 
     void OnCollisionEnter(Collision pOther)
     {
-        //Destroy(other.gameObject);
-        if (pOther.transform.parent.GetComponent<DestroyableScript>())
+        if (pOther.transform.name != "Chain")
         {
-            pOther.gameObject.transform.parent = this.transform.parent;
-            pOther.gameObject.AddComponent<DestroyableScript>();
-            _craneScript.CanMove = false;
-            _chainScript.CanMove = false;
-            _chainScript.GoingUp = true;
+            if (pOther.transform.parent.GetComponent<DestroyableScript>())
+            {
+                pOther.gameObject.transform.parent = this.transform.parent;
+                pOther.gameObject.AddComponent<DestroyableScript>();
+                _craneScript.CanMove = false;
+                _chainScript.CanMove = false;
+                _chainScript.GoingUp = true;
+            }
         }
     }
 }
