@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 Base path: D:/Unity/Editor/Data
 Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-12600
+=======
+Base path: D:/Unity versions/Unity 5.2.2f1/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-24148
+>>>>>>> origin/master
 Cmd: getPlatforms
 Cmd: compileSnippet
   error: 2 plat 4 at (43): failed to open source file: 'WaterInclude.cginc'\nCompiling Vertex program with WATER_VERTEX_DISPLACEMENT_OFF WATER_SIMPLE WATER_EDGEBLEND_ON

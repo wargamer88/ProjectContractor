@@ -162,16 +162,16 @@ Material:
         second: 313
       data:
         first:
+          name: _InvFade
+        second: .628782988
+      data:
+        first:
           name: _FresnelScale
         second: .49000001
       data:
         first:
           name: _GerstnerIntensity
         second: .0199999996
-      data:
-        first:
-          name: _InvFade
-        second: .628782988
       data:
         first:
           name: _WaveScale
@@ -255,16 +255,16 @@ Material:
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
+          name: _BumpMap_ST
+        second: {r: 1, g: 1, b: 0, a: 0}
+      data:
+        first:
           name: _Displacement
         second: {r: 6.6371665, g: 20.3539829, b: -1, a: -.681415975}
       data:
         first:
           name: _ShoreTiling
         second: {r: 1, g: 1, b: .100000001, a: .100000001}
-      data:
-        first:
-          name: _BumpMap_ST
-        second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
           name: _ReflectionTex_ST

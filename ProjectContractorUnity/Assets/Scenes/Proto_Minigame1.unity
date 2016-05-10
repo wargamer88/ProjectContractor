@@ -85,6 +85,7 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &1089116138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,3 +1395,5 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+=======
+>>>>>>> origin/master
