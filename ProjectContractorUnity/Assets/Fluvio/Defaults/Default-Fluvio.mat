@@ -31,14 +31,14 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _MetallicGlossMap
+          name: _EmissionMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _EmissionMap
+          name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -50,11 +50,11 @@ Material:
         second: .5
       data:
         first:
-          name: _Cutoff2
-        second: .0500000007
+          name: _Glossiness
+        second: .5
       data:
         first:
-          name: _Glossiness
+          name: _BumpScale
         second: .5
       data:
         first:
@@ -62,8 +62,12 @@ Material:
         second: .800000012
       data:
         first:
-          name: _BumpScale
-        second: .5
+          name: _EmissionScaleUI
+        second: 0
+      data:
+        first:
+          name: _Cutoff2
+        second: .0500000007
       data:
         first:
           name: _VertexColorMode
@@ -72,10 +76,6 @@ Material:
         first:
           name: _CullFluid
         second: -1
-      data:
-        first:
-          name: _EmissionScaleUI
-        second: 0
       data:
         first:
           name: _DownsampleFactorUI
