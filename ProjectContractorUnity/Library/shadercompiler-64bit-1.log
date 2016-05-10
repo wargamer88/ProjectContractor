@@ -1,3 +1,87 @@
-Base path: D:/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-12612
+Base path: D:/Unity versions/Unity 5.2.2f1/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-15248
 Cmd: getPlatforms
+Cmd: compileSnippet
+  api=4 type=0 insize=3589 outsize=7034 kw=SHADOWS_DEPTH pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=3589 outsize=1030 kw=SHADOWS_DEPTH pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=3198 outsize=6661 kw=SHADOWS_DEPTH pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=3198 outsize=1030 kw=SHADOWS_DEPTH pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=70382 outsize=4402 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=70382 outsize=12015 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF pd= ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=5273 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=5273 ok=1
+Cmd: compileCompute
+  api=15 insize=65 outsize=10109 ok=1
+Cmd: compileCompute
+  api=9 insize=65 outsize=10165 ok=1
+Cmd: compileCompute
+  api=4 insize=172 outsize=28701 ok=1
+Cmd: compileCompute
+  api=4 insize=172 outsize=28701 ok=1
+Cmd: compileCompute
+  api=15 insize=172 outsize=55473 ok=1
+Cmd: compileCompute
+  api=9 insize=172 outsize=55717 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=5273 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=5273 ok=1
+Cmd: compileCompute
+  api=15 insize=142 outsize=8185 ok=1
+Cmd: compileCompute
+  api=9 insize=142 outsize=8201 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=6765 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=6765 ok=1
+Cmd: compileCompute
+  api=15 insize=142 outsize=11461 ok=1
+Cmd: compileCompute
+  api=9 insize=142 outsize=11481 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=3489 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=3489 ok=1
+Cmd: compileCompute
+  api=15 insize=65 outsize=8137 ok=1
+Cmd: compileCompute
+  api=9 insize=65 outsize=8125 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=4 insize=518 outsize=33945 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=4 insize=518 outsize=33945 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=15 insize=518 outsize=75245 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=9 insize=518 outsize=74861 ok=1
+Cmd: compileCompute
+  api=4 insize=231 outsize=6161 ok=1
+Cmd: compileCompute
+  api=4 insize=231 outsize=6161 ok=1
+Cmd: compileCompute
+  api=15 insize=231 outsize=15745 ok=1
+Cmd: compileCompute
+  api=9 insize=231 outsize=15573 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=3409 outsize=2484 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=3409 outsize=1249 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=70382 outsize=3931 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=70382 outsize=12446 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=70382 outsize=3541 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=70382 outsize=12137 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON pd= ok=1
