@@ -16,6 +16,12 @@ public class BucketScript : MonoBehaviour {
 	void Update () {
 	}
 
+    /// <summary>
+    /// Check if it does not hit with Chain.
+    /// Check if parent has Destroyable script. If this is true then create the script ont the object itself.
+    /// Set CanMove on false to other scripts and GoingUp true so it will go automaticly
+    /// </summary>
+    /// <param name="pOther"></param>
     void OnCollisionEnter(Collision pOther)
     {
         if (pOther.transform.name != "Chain")

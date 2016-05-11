@@ -6379,7 +6379,7 @@ Transform:
   m_LocalScale: {x: 3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 476993184}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!23 &121411754
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21637,8 +21637,8 @@ Transform:
   m_LocalPosition: {x: -14.2799997, y: 19.6399994, z: -2.13000011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 121411753}
   - {fileID: 1011565378}
+  - {fileID: 121411753}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!114 &476993185
@@ -45073,7 +45073,7 @@ Transform:
   m_Children:
   - {fileID: 2052765786}
   m_Father: {fileID: 476993184}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &1011565379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80304,7 +80304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1854891269
 MeshRenderer:
   m_ObjectHideFlags: 0
