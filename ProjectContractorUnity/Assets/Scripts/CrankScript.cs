@@ -47,6 +47,7 @@ public class CrankScript : MonoBehaviour {
 
     private GameObject _tempGate;
     private bool _startAnimation;
+    private bool _closingAnimation;
 
     // Use this for initialization
     void Start () {
@@ -125,11 +126,12 @@ public class CrankScript : MonoBehaviour {
                             //vHit.collider.gameObject.transform.position = new Vector3(vHit.collider.gameObject.transform.position.x, 15 /*-61.94f*/, vHit.collider.gameObject.transform.position.z);
                             _startAnimation = true;
                             _animation(vHit.collider.gameObject);           
-                            //Debug.Log("ttttttttt");
                         }
                         else
                         {
-                            vHit.collider.gameObject.transform.position = new Vector3(vHit.collider.gameObject.transform.position.x, 0 /*-73.25f*/, vHit.collider.gameObject.transform.position.z);
+                            //vHit.collider.gameObject.transform.position = new Vector3(vHit.collider.gameObject.transform.position.x, 0 /*-73.25f*/, vHit.collider.gameObject.transform.position.z);
+                            _animation(vHit.collider.gameObject);
+                            _closingAnimation = true;
                             switch (vHit.collider.gameObject.name)
                             {
                                 case "RedGate":
@@ -159,13 +161,33 @@ public class CrankScript : MonoBehaviour {
 
     private void _animation(GameObject pGate = null)
     {
-        if (_startAnimation)
-        {
-
-        }
         if (pGate != null)
         {
             _tempGate = pGate;
+        }
+        if (_startAnimation)
+        {
+            if (_tempGate.transform.position.y <= 15)
+            {
+                _tempGate.transform.position = new Vector3(_tempGate.transform.position.x, _tempGate.transform.position.y + 0.5f, _tempGate.transform.position.z);
+            }
+            else
+            {
+                _tempGate.transform.position = new Vector3(_tempGate.transform.position.x, 15, _tempGate.transform.position.z);
+                _startAnimation = false;
+            }
+        }
+        if(_closingAnimation)
+        {
+            if (_tempGate.transform.position.y >= 0)
+            {
+                _tempGate.transform.position = new Vector3(_tempGate.transform.position.x, _tempGate.transform.position.y - 0.5f, _tempGate.transform.position.z);
+            }
+            else
+            {
+                _tempGate.transform.position = new Vector3(_tempGate.transform.position.x, 0, _tempGate.transform.position.z);
+                _closingAnimation = false;
+            }
         }
     }
 
@@ -179,6 +201,9 @@ public class CrankScript : MonoBehaviour {
             _tempIndex = _startIndex;
             //for (int i = 0; i < count; i++)
             //{
+            _tempSimon = _tempSimon.Distinct().ToList();
+            //_tempSimon = (List<int>)tempTempSimon;
+            _OpenedGatesList = _OpenedGatesList.Distinct().ToList();
                 if (_tempSimon.SequenceEqual(_OpenedGatesList) )
                 {
                     _correctOrder = true;
@@ -226,16 +251,16 @@ public class CrankScript : MonoBehaviour {
             _endIndex = 0;
             _OpenedGatesList = new List<int>();
             _simonShowed = false;
-            _redGate.transform.position = new Vector3(_redGate.transform.position.x, 0 /*-73.25f*/, _redGate.transform.position.z);
-            _blueGate.transform.position = new Vector3(_blueGate.transform.position.x, 0 /*-73.25f*/, _blueGate.transform.position.z);
-            _greenGate.transform.position = new Vector3(_greenGate.transform.position.x, 0 /*-73.25f*/, _greenGate.transform.position.z);
-            _yellowGate.transform.position = new Vector3(_yellowGate.transform.position.x, 0 /*-73.25f*/, _yellowGate.transform.position.z);
-            _purpleGate.transform.position = new Vector3(_purpleGate.transform.position.x, 0 /*-73.25f*/, _purpleGate.transform.position.z);
             _haloShowed = false;
             _correctOrder = false;
             _correctTimer = 0;
             _canClickGate = false;
             _retry = false;
+            _redGate.transform.position = new Vector3(_redGate.transform.position.x, 0 /*-73.25f*/, _redGate.transform.position.z);
+            _blueGate.transform.position = new Vector3(_blueGate.transform.position.x, 0 /*-73.25f*/, _blueGate.transform.position.z);
+            _greenGate.transform.position = new Vector3(_greenGate.transform.position.x, 0 /*-73.25f*/, _greenGate.transform.position.z);
+            _yellowGate.transform.position = new Vector3(_yellowGate.transform.position.x, 0 /*-73.25f*/, _yellowGate.transform.position.z);
+            _purpleGate.transform.position = new Vector3(_purpleGate.transform.position.x, 0 /*-73.25f*/, _purpleGate.transform.position.z);
         }
     }
 
