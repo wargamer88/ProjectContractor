@@ -38,6 +38,20 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _Fresnel
+        second:
+          m_Texture: {fileID: 2800000, guid: 5b5c5575fd4c74abd9f7b30862fb76a3, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ReflectiveColor
+        second:
+          m_Texture: {fileID: 2800000, guid: 17680dc3bf8f74b498b01cf1481e2593, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _ReflectionTex
         second:
           m_Texture: {fileID: 0}
@@ -57,27 +71,6 @@ Material:
           m_Texture: {fileID: 2800000, guid: de3d4308c5ab34e59a3689c8e1c9fe36, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 1, y: 1}
-      data:
-        first:
-          name: _ReflectiveColorCube
-        second:
-          m_Texture: {fileID: 8900000, guid: 0620bdf0302d84423be4aa15b82a0e11, type: 2}
-          m_Scale: {x: 0.15, y: 0.1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Fresnel
-        second:
-          m_Texture: {fileID: 2800000, guid: 5b5c5575fd4c74abd9f7b30862fb76a3, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ReflectiveColor
-        second:
-          m_Texture: {fileID: 2800000, guid: 17680dc3bf8f74b498b01cf1481e2593, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _WavesTex
@@ -108,6 +101,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _ReflectiveColorCube
+        second:
+          m_Texture: {fileID: 8900000, guid: 0620bdf0302d84423be4aa15b82a0e11, type: 2}
+          m_Scale: {x: .150000006, y: .100000001}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _SpecialWavesTex
         second:
           m_Texture: {fileID: 0}
@@ -118,7 +118,7 @@ Material:
           name: _DepthMap
         second:
           m_Texture: {fileID: 2800000, guid: ff6e0fbcfc24e4f95a2711ea0e73dd6a, type: 3}
-          m_Scale: {x: 0.014, y: 0.014}
+          m_Scale: {x: .0140000004, y: .0140000004}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -162,80 +162,80 @@ Material:
         second: 313
       data:
         first:
-          name: _FresnelScale
-        second: 0.49
-      data:
-        first:
-          name: _GerstnerIntensity
-        second: 0.02
-      data:
-        first:
-          name: _InvFade
-        second: 0.628783
-      data:
-        first:
           name: _WaveScale
-        second: 0.046289656
+        second: .0462896563
       data:
         first:
           name: _ReflDistort
-        second: 0.9267696
+        second: .926769614
       data:
         first:
           name: _RefrDistort
-        second: 1.4393286
+        second: 1.43932855
+      data:
+        first:
+          name: _FresnelScale
+        second: .49000001
+      data:
+        first:
+          name: _GerstnerIntensity
+        second: .0199999996
       data:
         first:
           name: _HeightDisplacement
-        second: 3.2722514
+        second: 3.27225137
       data:
         first:
           name: _NormalsDisplacement
         second: 0
       data:
         first:
+          name: _InvFade
+        second: .628782988
+      data:
+        first:
           name: _Displacement
-        second: 0.27863377
+        second: .278633773
       data:
         first:
           name: _ShoreTiling
-        second: 56.862743
+        second: 56.8627434
       data:
         first:
           name: _FresnelPower
-        second: 1.7931035
+        second: 1.79310346
       data:
         first:
           name: _FadeExp
-        second: 0.91503274
+        second: .915032744
       data:
         first:
           name: _InvFadeFoam
-        second: 0.1217
+        second: .121699996
       data:
         first:
           name: _WaveFoamDistort
-        second: 0.27931035
+        second: .279310346
       data:
         first:
           name: _InvFadeDepthFade
-        second: 0.07197756
+        second: .0719775632
       data:
         first:
           name: _FoamWaveDependency
-        second: 0.10205479
+        second: .10205479
       data:
         first:
           name: _WaveCapsAmount
-        second: 0.18275861
+        second: .182758614
       data:
         first:
           name: _Speed
-        second: 0.4137931
+        second: .413793087
       data:
         first:
           name: _DisplacementTiling
-        second: 18.586807
+        second: 18.5868073
       data:
         first:
           name: _Ambient
@@ -243,7 +243,7 @@ Material:
       data:
         first:
           name: _WaterDepth
-        second: 40.98077
+        second: 40.9807701
     m_Colors:
       data:
         first:
@@ -255,32 +255,48 @@ Material:
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
-          name: _Displacement
-        second: {r: 6.6371665, g: 20.353983, b: -1, a: -0.681416}
+          name: _RefrColor
+        second: {r: .523390472, g: .947761178, b: .912149608, a: 1}
       data:
         first:
-          name: _ShoreTiling
-        second: {r: 1, g: 1, b: 0.1, a: 0.1}
+          name: _Fresnel_ST
+        second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
           name: _BumpMap_ST
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
+          name: WaveSpeed
+        second: {r: 1.08616495, g: 4.44057512, b: 12.1051464, a: -3.02064466}
+      data:
+        first:
+          name: _ReflectiveColor_ST
+        second: {r: 1, g: 1, b: 0, a: 0}
+      data:
+        first:
+          name: _HorizonColor
+        second: {r: .052907113, g: .244867355, b: .283582091, a: 1}
+      data:
+        first:
           name: _ReflectionTex_ST
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
+          name: _RefractionTex_ST
+        second: {r: 1, g: 1, b: 0, a: 0}
+      data:
+        first:
           name: _DistortParams
-        second: {r: 1.22, g: 0.1, b: 3.02, a: -0.14}
+        second: {r: 1.22000003, g: .100000001, b: 3.01999998, a: -.140000001}
       data:
         first:
           name: _InvFadeParemeter
-        second: {r: 3, g: 0.349, b: 0.04310345, a: 0.353}
+        second: {r: 3, g: .349000007, b: .043103449, a: .352999985}
       data:
         first:
           name: _AnimationTiling
-        second: {r: 0.04582553, g: 0.0182, b: 0.045714468, a: 0.027129691}
+        second: {r: .0458255298, g: .0182000007, b: .0457144678, a: .0271296911}
       data:
         first:
           name: _AnimationDirection
@@ -288,7 +304,7 @@ Material:
       data:
         first:
           name: _BumpTiling
-        second: {r: 0.12, g: 0.07, b: 0.08, a: 0.06}
+        second: {r: .119999997, g: .0700000003, b: .0799999982, a: .0599999987}
       data:
         first:
           name: _BumpDirection
@@ -296,23 +312,27 @@ Material:
       data:
         first:
           name: _BaseColor
-        second: {r: 0.41454086, g: 0.4557373, b: 0.46612507, a: 0.2509804}
+        second: {r: .414540857, g: .455737293, b: .466125071, a: .250980407}
       data:
         first:
           name: _ReflectionColor
-        second: {r: 0.32802984, g: 0.404528, b: 0.42262936, a: 0.31764707}
+        second: {r: .328029841, g: .404527992, b: .422629356, a: .31764707}
       data:
         first:
           name: _SpecularColor
-        second: {r: 0.9280572, g: 0.9280572, b: 0.9280572, a: 1}
+        second: {r: .928057194, g: .928057194, b: .928057194, a: 1}
       data:
         first:
           name: _WorldLightDir
-        second: {r: -0.10554161, g: -0.5000001, b: 0.8595702, a: 0}
+        second: {r: -.105541609, g: -.500000119, b: .859570205, a: 0}
+      data:
+        first:
+          name: _Foam
+        second: {r: 0, g: .532999992, b: 0, a: 0}
       data:
         first:
           name: _GAmplitude
-        second: {r: 0, g: 0, b: 0.04, a: 0.14}
+        second: {r: 0, g: 0, b: .0399999991, a: .140000001}
       data:
         first:
           name: _GFrequency
@@ -328,75 +348,55 @@ Material:
       data:
         first:
           name: _GDirectionAB
-        second: {r: 5, g: 3, b: 9, a: 2.79}
+        second: {r: 5, g: 3, b: 9, a: 2.78999996}
       data:
         first:
           name: _GDirectionCD
-        second: {r: 2.17, g: 2.26, b: 0.99, a: 2.14}
+        second: {r: 2.17000008, g: 2.25999999, b: .99000001, a: 2.1400001}
       data:
         first:
-          name: _Foam
-        second: {r: 0, g: 0.533, b: 0, a: 0}
+          name: _WaveOffset
+        second: {r: 1, g: 1, b: -.00999999978, a: -.00999999978}
       data:
         first:
-          name: _RefractionTex_ST
-        second: {r: 1, g: 1, b: 0, a: 0}
+          name: _DepthColor
+        second: {r: .0275116973, g: .141791046, b: .132267773, a: .4627451}
       data:
         first:
-          name: _RefrColor
-        second: {r: 0.5233905, g: 0.9477612, b: 0.9121496, a: 1}
-      data:
-        first:
-          name: _Fresnel_ST
-        second: {r: 1, g: 1, b: 0, a: 0}
-      data:
-        first:
-          name: WaveSpeed
-        second: {r: 1.086165, g: 4.440575, b: 12.105146, a: -3.0206447}
-      data:
-        first:
-          name: _ReflectiveColor_ST
-        second: {r: 1, g: 1, b: 0, a: 0}
+          name: _RefractionFog
+        second: {r: .505434752, g: .505434752, b: .505434752, a: .5}
       data:
         first:
           name: _ReflectiveColorCube_ST
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
-          name: _HorizonColor
-        second: {r: 0.052907113, g: 0.24486735, b: 0.2835821, a: 1}
-      data:
-        first:
-          name: _WaveOffset
-        second: {r: 1, g: 1, b: -0.01, a: -0.01}
-      data:
-        first:
           name: _WaveScale4
-        second: {r: 0.1, g: 0.1, b: 0.01, a: 0.01}
+        second: {r: .100000001, g: .100000001, b: .00999999978, a: .00999999978}
       data:
         first:
-          name: _DepthColor
-        second: {r: 0.027511697, g: 0.14179105, b: 0.13226777, a: 0.4627451}
+          name: _Displacement
+        second: {r: 6.6371665, g: 20.3539829, b: -1, a: -.681415975}
       data:
         first:
-          name: _RefractionFog
-        second: {r: 0.50543475, g: 0.50543475, b: 0.50543475, a: 0.5}
+          name: _ShoreTiling
+        second: {r: 1, g: 1, b: .100000001, a: .100000001}
       data:
         first:
           name: _DisplacementXz
-        second: {r: 0.6499999, g: -2.9203715, b: 1.6599998, a: -3.9363046}
+        second: {r: .649999917, g: -2.92037153, b: 1.65999985, a: -3.93630457}
       data:
         first:
           name: _RefrColorDepth
-        second: {r: 0.050066825, g: 0.23134327, b: 0.17049524, a: 1}
+        second: {r: .050066825, g: .231343269, b: .170495242, a: 1}
       data:
         first:
           name: _UnderwaterColor
-        second: {r: 0.6950323, g: 0.89552236, b: 0.7502397, a: 1}
+        second: {r: .695032299, g: .895522356, b: .75023967, a: 1}
       data:
         first:
           name: _FoamWaveParams
-        second: {r: 0, g: 0.24918434, b: 3.3395782, a: 1}
+        second: {r: 0, g: .24918434, b: 3.33957815, a: 1}
       data:
         first:
           name: _ShoreColor
@@ -408,7 +408,7 @@ Material:
       data:
         first:
           name: _DepthColorFade
-        second: {r: 0.8880597, g: 0.27834705, b: 0.44463244, a: 0.22352941}
+        second: {r: .888059676, g: .278347045, b: .444632441, a: .223529413}
       data:
         first:
           name: _Extinction
