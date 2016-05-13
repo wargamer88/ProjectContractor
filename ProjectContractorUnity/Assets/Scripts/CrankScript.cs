@@ -43,7 +43,10 @@ public class CrankScript : MonoBehaviour {
     [SerializeField]
     private int _lifes = 3;
 
-    private bool _retry = true;
+    private bool _retry = false;
+
+    private GameObject _tempGate;
+    private bool _startAnimation;
 
     // Use this for initialization
     void Start () {
@@ -64,9 +67,10 @@ public class CrankScript : MonoBehaviour {
 	void Update () {
         if (!_gameFinished)
         {
-            ClickOnGates();
-            CheckGates();
-            SimonSays();
+            _clickOnGates();
+            _checkGates();
+            _simonSays();
+            _animation();
         }
         else
         {
@@ -77,7 +81,7 @@ public class CrankScript : MonoBehaviour {
         }
     }
 
-    void ClickOnGates()
+    void _clickOnGates()
     {
         if (_canClickGate)
         {
@@ -118,7 +122,10 @@ public class CrankScript : MonoBehaviour {
                                 default:
                                     break;
                             }
-                            vHit.collider.gameObject.transform.position = new Vector3(vHit.collider.gameObject.transform.position.x, 15 /*-61.94f*/, vHit.collider.gameObject.transform.position.z);
+                            //vHit.collider.gameObject.transform.position = new Vector3(vHit.collider.gameObject.transform.position.x, 15 /*-61.94f*/, vHit.collider.gameObject.transform.position.z);
+                            _startAnimation = true;
+                            _animation(vHit.collider.gameObject);           
+                            //Debug.Log("ttttttttt");
                         }
                         else
                         {
@@ -150,9 +157,22 @@ public class CrankScript : MonoBehaviour {
         }
     }
 
-    void CheckGates()
+    private void _animation(GameObject pGate = null)
     {
-        Debug.Log("gate: " + _OpenedGatesList.Count);
+        if (_startAnimation)
+        {
+
+        }
+        if (pGate != null)
+        {
+            _tempGate = pGate;
+        }
+    }
+
+
+    void _checkGates()
+    {
+        //Debug.Log("gate: " + _OpenedGatesList.Count);
         if (_endIndex != 0 && _OpenedGatesList.Count > (_endIndex - _startIndex) && _correctOrder == false)
         {
             int count = _endIndex - _startIndex;
@@ -168,10 +188,7 @@ public class CrankScript : MonoBehaviour {
                 else if(_gateAmount == _OpenedGatesList.Count)
                 {
                     _correctOrder = false;
-                    _simonIndex = 0;
-                    _gateAmount = 0;
-                    _tempSimon = new List<int>();
-                    _lifes--;
+                    _retry = true;
                 }
             //} 
         }
@@ -200,11 +217,29 @@ public class CrankScript : MonoBehaviour {
         }
         else if(_retry)
         {
-
+            _correctCube.GetComponent<Renderer>().enabled = false;
+            _simonIndex = 0;
+            _gateAmount = 0;
+            _tempSimon = new List<int>();
+            _lifes--;
+            _startIndex = 0;
+            _endIndex = 0;
+            _OpenedGatesList = new List<int>();
+            _simonShowed = false;
+            _redGate.transform.position = new Vector3(_redGate.transform.position.x, 0 /*-73.25f*/, _redGate.transform.position.z);
+            _blueGate.transform.position = new Vector3(_blueGate.transform.position.x, 0 /*-73.25f*/, _blueGate.transform.position.z);
+            _greenGate.transform.position = new Vector3(_greenGate.transform.position.x, 0 /*-73.25f*/, _greenGate.transform.position.z);
+            _yellowGate.transform.position = new Vector3(_yellowGate.transform.position.x, 0 /*-73.25f*/, _yellowGate.transform.position.z);
+            _purpleGate.transform.position = new Vector3(_purpleGate.transform.position.x, 0 /*-73.25f*/, _purpleGate.transform.position.z);
+            _haloShowed = false;
+            _correctOrder = false;
+            _correctTimer = 0;
+            _canClickGate = false;
+            _retry = false;
         }
     }
 
-    void SimonSays()
+    void _simonSays()
     {
         if (SimonOrder[_simonIndex] == 0)
         {
@@ -239,7 +274,6 @@ public class CrankScript : MonoBehaviour {
                 }
                 _simonIndex++;
                 _gateAmount++;
-                Debug.Log(SimonOrder[_simonIndex]);
                 if (SimonOrder[_simonIndex] == 0)
                 {
                     _canClickGate = true;
