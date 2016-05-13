@@ -65,7 +65,7 @@ public class ChainScript : MonoBehaviour {
 
         if (_canMove)
         {
-            if (Input.GetKey(KeyCode.S) || _goingDown)
+            if (Input.GetMouseButtonDown(0) || _goingDown)
             {
                 _goingDown = true;
                 transform.position += new Vector3(0, -0.5f, 0);
@@ -90,8 +90,6 @@ public class ChainScript : MonoBehaviour {
     }
     void OnMouseDown()
     {
-        // _startPosition = transform.parent.position;
-        // _mouseX = Input.mousePosition.x;
         _startPosition = Input.mousePosition;
     }
 
@@ -105,22 +103,11 @@ public class ChainScript : MonoBehaviour {
         if (Input.mousePosition.x > _startPosition.x)
         {
             transform.parent.position += new Vector3(0, 0, -0.1f);
-            Input.mousePosition.Set(transform.parent.position.x, transform.parent.position.y, transform.parent.position.z);
-            //Vector3 currentPos = new Vector3(transform.parent.position.x, transform.position.y, transform.parent.position.z - 3);
-            //_oldMouseX = _mouseX;
-            //_position = transform.parent.position;
-            //_mouseX++;
-            //Debug.Log("CurrentPos: "+currentPos.x);
-            //Debug.Log("MousePox: " + Input.mousePosition.x);
-            //_startPosition = currentPos;
         }
-        //if (Input.mousePosition.x < _startPosition.x)
-        //{
-            //transform.parent.position += new Vector3(0, 0, 0.1f);
-            //Vector3 currentPos = new Vector3(transform.parent.position.x,transform.position.y,transform.parent.position.z-3);
-            //Vector3 currentPos = transform.parent.position;
-            //_startPosition = currentPos;
-        //}
+        if (Input.mousePosition.x < _startPosition.x)
+        {
+            transform.parent.position += new Vector3(0, 0, 0.1f);
+        }
     }
 
 }
