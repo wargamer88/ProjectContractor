@@ -25,7 +25,25 @@ public class ChainScript : MonoBehaviour {
         get { return _goingUp = true; }
         set { _goingUp = value; }
     }
-    CraneScript _craneScript;
+
+    private bool _cabinDrag;
+
+    public bool CabinDrag
+    {
+        set { _cabinDrag = value; }
+    }
+    
+    private Vector3 _startPosition;
+
+    public Vector3 StartPosition
+    {
+        set { _startPosition = value; }
+    }
+
+    private Vector3 _position;
+    private CraneScript _craneScript;
+    private float _mouseX;
+    private float _oldMouseX;
     // Use this for initialization
     void Start () {
         _craneScript = GameObject.FindObjectOfType<CraneScript>();
@@ -47,7 +65,7 @@ public class ChainScript : MonoBehaviour {
 
         if (_canMove)
         {
-            if (Input.GetKey(KeyCode.S) || _goingDown)
+            if (Input.GetMouseButtonDown(0) || _goingDown)
             {
                 _goingDown = true;
                 transform.position += new Vector3(0, -0.5f, 0);
@@ -63,6 +81,33 @@ public class ChainScript : MonoBehaviour {
             _craneScript.CanMove = false;
         }
 
-       
+
+        if (_cabinDrag)
+        {
+            _mouseDragFunction();
+        }
+
     }
+    void OnMouseDown()
+    {
+        _startPosition = Input.mousePosition;
+    }
+
+    void OnMouseDrag()
+    {
+        _mouseDragFunction();
+    }
+
+    private void _mouseDragFunction()
+    {
+        if (Input.mousePosition.x > _startPosition.x)
+        {
+            transform.parent.position += new Vector3(0, 0, -0.1f);
+        }
+        if (Input.mousePosition.x < _startPosition.x)
+        {
+            transform.parent.position += new Vector3(0, 0, 0.1f);
+        }
+    }
+
 }
