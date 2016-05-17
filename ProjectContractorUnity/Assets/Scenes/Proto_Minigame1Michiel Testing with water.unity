@@ -166,8 +166,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1412009}
-  m_LocalRotation: {x: .119895659, y: .696868122, z: -.119895674, w: .696868002}
-  m_LocalPosition: {x: -43.4000015, y: 21.8999996, z: -1.29999995}
+  m_LocalRotation: {x: .0121148899, y: .179912671, z: -.00224283338, w: .983605504}
+  m_LocalPosition: {x: -40.6382751, y: 18.3353863, z: -32.5213051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1285,9 +1285,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cubePrefab: {fileID: 117680, guid: 1e102e3795634ea4cae9a7eadb23fd4f, type: 2}
-  _amountCubesX: 10
-  _amountCubesY: 3
-  _amountCubesZ: 10
+  _amountCubesX: 20
+  _amountCubesY: 10
+  _amountCubesZ: 20
+  _rotateAroundX: 0
+  _rotateAroundY: 0
+  _rotateAroundZ: 345.190002
 --- !u!4 &544991761
 Transform:
   m_ObjectHideFlags: 0
