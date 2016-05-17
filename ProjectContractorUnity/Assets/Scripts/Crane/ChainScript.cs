@@ -81,11 +81,11 @@ public class ChainScript : MonoBehaviour {
             _craneScript.CanMove = false;
         }
 
-
+       
         if (_cabinDrag)
         {
             _mouseDragFunction();
-        }
+    }
 
     }
     void OnMouseDown()
