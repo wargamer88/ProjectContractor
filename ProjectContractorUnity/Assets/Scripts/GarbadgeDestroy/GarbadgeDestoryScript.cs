@@ -15,7 +15,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
     void OnCollisionEnter(Collision pOther)
     {
-        if (pOther.transform.name == "Sphere")
+        if (pOther.transform.tag == "Projectile")
         {
             Destroy(this.gameObject);
             Destroy(pOther.gameObject);
