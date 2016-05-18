@@ -53,7 +53,7 @@ public class CatapultRotation : MonoBehaviour {
                 bullet.transform.position = transform.position;
                 bullet.AddComponent<Rigidbody>();
                 bullet.GetComponent<Renderer>().material.color = Color.red;
-                bullet.GetComponent<Rigidbody>().velocity = 
+                //bullet.GetComponent<Rigidbody>().velocity = 
             }
         }
     }
