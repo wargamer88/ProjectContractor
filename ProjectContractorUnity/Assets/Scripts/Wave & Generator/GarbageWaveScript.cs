@@ -28,7 +28,7 @@ public class GarbageWaveScript : MonoBehaviour {
             cube.GetComponent<Rigidbody>().useGravity = false;
             cube.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
             cube.GetComponent<Renderer>().material.color = Color.green;
-            //cube.AddComponent<GarbageAgainstGeneratorScript>();
+            cube.AddComponent<GarbadgeDestoryScript>();
             oldRandoms.Add(random);
             random = Random.Range(0, 4);
             if (!oldRandoms.Contains(random))
@@ -42,7 +42,7 @@ public class GarbageWaveScript : MonoBehaviour {
                 cube1.GetComponent<Rigidbody>().useGravity = false;
                 cube1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
                 cube1.GetComponent<Renderer>().material.color = Color.blue;
-                //cube1.AddComponent<GarbageAgainstGeneratorScript>();
+                cube1.AddComponent<GarbadgeDestoryScript>();
                 oldRandoms.Add(random);
             }
             random = Random.Range(0, 4);
@@ -57,7 +57,7 @@ public class GarbageWaveScript : MonoBehaviour {
                 cube2.GetComponent<Rigidbody>().useGravity = false;
                 cube2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
                 cube2.GetComponent<Renderer>().material.color = Color.black;
-               // cube2.AddComponent<GarbageAgainstGeneratorScript>();
+                cube2.AddComponent<GarbadgeDestoryScript>();
                 oldRandoms.Add(random);
             }
             random = Random.Range(0, 4);
@@ -72,7 +72,7 @@ public class GarbageWaveScript : MonoBehaviour {
                 cube3.GetComponent<Rigidbody>().useGravity = false;
                 cube3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
                 cube3.GetComponent<Renderer>().material.color = Color.yellow;
-                //cube3.AddComponent<GarbageAgainstGeneratorScript>();
+                cube3.AddComponent<GarbadgeDestoryScript>();
                 oldRandoms.Add(random);
             }
             _canSpawn = false;
