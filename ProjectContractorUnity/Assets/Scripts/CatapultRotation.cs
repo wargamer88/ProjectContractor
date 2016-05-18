@@ -24,11 +24,11 @@ public class CatapultRotation : MonoBehaviour {
         {
             if (Input.mousePosition.y < Screen.height/2)
             {
-                transform.Rotate(new Vector3(transform.rotation.x, (transform.rotation.y + 1), transform.rotation.z));
+                transform.position = transform.position + new Vector3(0.1f, 0, 0);
             }
             if (Input.mousePosition.y > Screen.height / 2)
             {
-                transform.Rotate(new Vector3(transform.rotation.x, (transform.rotation.y - 1), transform.rotation.z));
+                transform.position = transform.position - new Vector3(0.1f, 0, 0);
             }
         }
     }
@@ -37,11 +37,12 @@ public class CatapultRotation : MonoBehaviour {
     {
         if (Input.GetMouseButton(0))
         {
-            _timeHeld += 0.01f;
+            _timeHeld += 100f;
+            Debug.Log(_timeHeld);
             _heldDown = true;
-            if (_timeHeld >= 5)
+            if (_timeHeld >= 3000)
             {
-                _timeHeld = 5;
+                _timeHeld = 3000;
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -50,10 +51,12 @@ public class CatapultRotation : MonoBehaviour {
             {
                 _heldDown = false;
                 GameObject bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                bullet.transform.position = transform.position;
+                bullet.transform.position = transform.position + new Vector3(0, 0.77f, -0.377f);
                 bullet.AddComponent<Rigidbody>();
                 bullet.GetComponent<Renderer>().material.color = Color.red;
-                //bullet.GetComponent<Rigidbody>().velocity = 
+                Vector3 direction = (transform.position + transform.forward + transform.up) - transform.position;
+                bullet.GetComponent<Rigidbody>().AddForce(direction * _timeHeld);
+                _timeHeld = 0;
             }
         }
     }
