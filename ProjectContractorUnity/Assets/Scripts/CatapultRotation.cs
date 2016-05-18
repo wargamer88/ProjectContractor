@@ -53,6 +53,7 @@ public class CatapultRotation : MonoBehaviour {
                 GameObject bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 bullet.transform.position = transform.position + new Vector3(0, 0.77f, -0.377f);
                 bullet.AddComponent<Rigidbody>();
+                bullet.tag = "Projectile";
                 bullet.GetComponent<Renderer>().material.color = Color.red;
                 Vector3 direction = (transform.position + transform.forward + transform.up) - transform.position;
                 bullet.GetComponent<Rigidbody>().AddForce(direction * _timeHeld);
