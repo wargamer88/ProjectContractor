@@ -29,8 +29,9 @@ public class AutoAimScript : MonoBehaviour {
             bullet.transform.position = transform.position + new Vector3(0, 0.77f, -0.377f);
             bullet.AddComponent<Rigidbody>();
             bullet.GetComponent<Renderer>().material.color = Color.red;
-            Vector3 velocity = (Input.mousePosition - transform.position).normalized * Speed;
-            bullet.GetComponent<Rigidbody>().AddForce(velocity);
+            //Vector3 middlePoint = Camera
+            //Vector3 velocity = GetTrajectory(1,bullet.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition))
+            //bullet.GetComponent<Rigidbody>().AddForce(velocity);
         }
     }
 }
