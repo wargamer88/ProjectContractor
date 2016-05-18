@@ -9,6 +9,11 @@ public class AutoAimScript : MonoBehaviour {
     [SerializeField]
     private GameObject Target;
 
+    private bool _fireBullet = false;
+    private GameObject _bullet;
+    private bool _goingDown = false;
+    private float _oldTime = 0;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -28,15 +33,15 @@ void AutoAim()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            bullet.transform.position = transform.position + new Vector3(0, 0.77f, -0.377f);
-            bullet.AddComponent<Rigidbody>();
-            bullet.GetComponent<Renderer>().material.color = Color.red;
-            bullet.tag = "Projectile";
-            Vector3 middlePoint = (Target.transform.position - bullet.transform.position) + new Vector3(0, 10000, 0);
-            Vector3 velocity = GetTrajectory(0, bullet.transform.position, Target.transform.position, middlePoint);
+            _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            _bullet.transform.position = transform.position + new Vector3(0, 0.77f, -0.377f);
+            _bullet.AddComponent<Rigidbody>();
+            _bullet.GetComponent<Renderer>().material.color = Color.red;
+            _bullet.tag = "Projectile";
+            Vector3 middlePoint = (Target.transform.position - _bullet.transform.position) + new Vector3(0, 10000, 0);
+            Vector3 velocity = GetTrajectory(0, _bullet.transform.position, Target.transform.position, middlePoint);
             Debug.Log(velocity);
-            bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
+            _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
         }
     }
 }
