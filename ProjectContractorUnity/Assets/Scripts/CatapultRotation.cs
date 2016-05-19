@@ -40,9 +40,9 @@ public class CatapultRotation : MonoBehaviour {
             _timeHeld += 100f;
             Debug.Log(_timeHeld);
             _heldDown = true;
-            if (_timeHeld >= 3000)
+            if (_timeHeld >= 1000)
             {
-                _timeHeld = 3000;
+                _timeHeld = 1000;
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -55,7 +55,7 @@ public class CatapultRotation : MonoBehaviour {
                 bullet.AddComponent<Rigidbody>();
                 bullet.tag = "Projectile";
                 bullet.GetComponent<Renderer>().material.color = Color.red;
-                Vector3 direction = (transform.position + transform.forward + transform.up) - transform.position;
+                Vector3 direction = (transform.position + transform.forward + (transform.up/2)) - transform.position;
                 bullet.GetComponent<Rigidbody>().AddForce(direction * _timeHeld);
                 _timeHeld = 0;
             }
