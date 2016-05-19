@@ -14,5 +14,6 @@ public class GarbageMoveScript : MonoBehaviour {
         //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.1f);
         //_rigidbody.velocity = new Vector3(0, 0, -5);
         _rigidbody.AddRelativeForce(new Vector3(0, 0, -1));
+        _rigidbody.AddRelativeTorque(new Vector3(0, 0, -1));
 	}
 }

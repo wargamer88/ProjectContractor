@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class GarbageWaveScript : MonoBehaviour {
 
-    private List<int> _spawnXPoint = new List<int>() { -20, -10, 10,20 };
+    private List<int> _spawnXPoint = new List<int>() { -20, -10,0, 10,20 };
     private bool _canSpawn = true;
 
     [SerializeField]
@@ -64,7 +64,7 @@ public class GarbageWaveScript : MonoBehaviour {
 
         if (_canSpawn)
         {
-            int random = Random.Range(0, 4);
+            int random = Random.Range(0, 5);
             List<int> oldRandoms = new List<int>();
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
