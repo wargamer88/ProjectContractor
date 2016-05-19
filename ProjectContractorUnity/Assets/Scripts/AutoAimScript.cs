@@ -39,7 +39,7 @@ void AutoAim()
                     _bullet.GetComponent<Renderer>().material.color = Color.red;
                     _bullet.AddComponent<BallGoingThroughWallScript>();
                     _bullet.tag = "Projectile";
-                    Vector3 velocity = hit.point - transform.position;
+                    Vector3 velocity = hit.point - _bullet.transform.position;
                     Debug.Log(velocity);
                     _bullet.GetComponent<Rigidbody>().AddForce(velocity * Speed, ForceMode.VelocityChange);
                     _allowshoot = false;
