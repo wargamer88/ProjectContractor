@@ -34,7 +34,7 @@ void AutoAim()
                 if (Physics.Raycast(vRay, out hit, 1000))
                 {
                     _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    _bullet.transform.position = transform.position + new Vector3(0, 11.02f, -4.160004f);
+                    _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
                     _bullet.AddComponent<Rigidbody>();
                     _bullet.GetComponent<Renderer>().material.color = Color.red;
                     _bullet.AddComponent<BallGoingThroughWallScript>();
