@@ -19,10 +19,10 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         if (pOther.transform.tag == "Projectile")
         {
             _hp--;
+            Destroy(pOther.gameObject);
             if (_hp == 0)
             {
                 Destroy(this.gameObject);
-                Destroy(pOther.gameObject);
             }
         }
     }
