@@ -53,11 +53,11 @@ public class GarbageWaveScript : MonoBehaviour {
         {
             GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
             int randomSpawn = Random.Range(0, 5);
-            gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 0, 95);
+            gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, 95);
             gameSpawnObject.AddComponent<GarbageMoveScript>();
             gameSpawnObject.AddComponent<Rigidbody>();
             gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
-            gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
+            gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation*/;
             gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = health;
             //gameSpawnObject.AddComponent<MeshCollider>();
