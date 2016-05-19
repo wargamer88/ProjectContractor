@@ -32,31 +32,36 @@ public class GarbageWaveScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        //float health = 0;
         //int randomNumber = Random.Range(0, _heavyRange);
         //if (randomNumber < 6)
         //{
         //    _chosenGarbage = _basicGarbage[Random.Range(0, _basicGarbage.Count)];
+        //    health = 1;
         //}
         //else if (randomNumber < 9)
         //{
         //    _chosenGarbage = _mediumGarbage[Random.Range(0, _mediumGarbage.Count)];
+        //    health = 2;
         //}
         //else
         //{
         //    _chosenGarbage = _heavyGarbage[Random.Range(0, _heavyGarbage.Count)];
+        //    health = 3;
         //}
 
         //GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
         //if (_canSpawn)
         //{
-        //    int randomSpawn = Random.Range(1, 4);
+        //    int randomSpawn = Random.Range(0, 4);
         //    gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 0, 95);
         //    gameSpawnObject.AddComponent<GarbageMoveScript>();
         //    gameSpawnObject.AddComponent<Rigidbody>();
         //    gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
         //    gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
         //    gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
+        //    gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = health;
+        //    gameSpawnObject.AddComponent<MeshCollider>();
         //    _canSpawn = false;
         //    StartCoroutine(_waitForSeconds());
         //}
@@ -124,7 +129,7 @@ public class GarbageWaveScript : MonoBehaviour {
             _canSpawn = false;
             StartCoroutine(_waitForSeconds());
         }
-        }
+    }
 
     private IEnumerator _waitForSeconds()
     {

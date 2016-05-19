@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class AutoAimScript : MonoBehaviour {
 
@@ -10,10 +12,10 @@ public class AutoAimScript : MonoBehaviour {
 
     private int _cooldown = 0;
     private bool _allowshoot = true;
-
+    
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
@@ -35,6 +37,7 @@ void AutoAim()
                     _bullet.transform.position = transform.position + new Vector3(0, 0.77f, -0.377f);
                     _bullet.AddComponent<Rigidbody>();
                     _bullet.GetComponent<Renderer>().material.color = Color.red;
+                    _bullet.AddComponent<BallGoingThroughWallScript>();
                     _bullet.tag = "Projectile";
                     Vector3 velocity = hit.point - transform.position;
                     Debug.Log(velocity);
