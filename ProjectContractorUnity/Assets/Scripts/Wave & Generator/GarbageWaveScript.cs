@@ -129,7 +129,7 @@ public class GarbageWaveScript : MonoBehaviour {
             _canSpawn = false;
             StartCoroutine(_waitForSeconds());
         }
-    }
+        }
 
     private IEnumerator _waitForSeconds()
     {
