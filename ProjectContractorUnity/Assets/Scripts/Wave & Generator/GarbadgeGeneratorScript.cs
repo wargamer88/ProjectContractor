@@ -24,13 +24,13 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
     {
         if (_hitGenerator == false)
         {
-            _generatorPowerScript.Amount = _generatorPowerScript.Amount - 1;
+            _generatorPowerScript.Amount = _generatorPowerScript.Amount + 1;
             _hitGenerator = true;
         }
     }
     void OnCollisionExit(Collision pOther)
     {
-        _generatorPowerScript.Amount = _generatorPowerScript.Amount + 1;
+        _generatorPowerScript.Amount = _generatorPowerScript.Amount - 1;
         _hitGenerator = false;
     }
 }

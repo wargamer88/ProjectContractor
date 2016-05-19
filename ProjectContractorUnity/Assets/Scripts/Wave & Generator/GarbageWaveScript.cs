@@ -6,20 +6,66 @@ public class GarbageWaveScript : MonoBehaviour {
 
     private List<int> _spawnXPoint = new List<int>() { -20, -10, 10,20 };
     private bool _canSpawn = true;
-	// Use this for initialization
-	void Start () {
-        //z95
-        //y0
-        //x4 = -20 -10 10 20
+
+    [SerializeField]
+    private float _respawnTime = 1;
+
+    [SerializeField]
+    private List<GameObject> _basicGarbage;
+    [SerializeField]
+    private List<GameObject> _mediumGarbage;
+    [SerializeField]
+    private List<GameObject> _heavyGarbage;
+
+    [SerializeField]
+    private int _basicRange = 5;
+    [SerializeField]
+    private int _mediumRange = 8;
+    [SerializeField]
+    private int _heavyRange = 10;
+
+
+    private GameObject _chosenGarbage;
+    // Use this for initialization
+    void Start () {
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
+
+        //int randomNumber = Random.Range(0, _heavyRange);
+        //if (randomNumber < 6)
+        //{
+        //    _chosenGarbage = _basicGarbage[Random.Range(0, _basicGarbage.Count)];
+        //}
+        //else if (randomNumber < 9)
+        //{
+        //    _chosenGarbage = _mediumGarbage[Random.Range(0, _mediumGarbage.Count)];
+        //}
+        //else
+        //{
+        //    _chosenGarbage = _heavyGarbage[Random.Range(0, _heavyGarbage.Count)];
+        //}
+
+        //GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
+        //if (_canSpawn)
+        //{
+        //    int randomSpawn = Random.Range(1, 4);
+        //    gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 0, 95);
+        //    gameSpawnObject.AddComponent<GarbageMoveScript>();
+        //    gameSpawnObject.AddComponent<Rigidbody>();
+        //    gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
+        //    gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
+        //    gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
+        //    _canSpawn = false;
+        //    StartCoroutine(_waitForSeconds());
+        //}
+
+
         if (_canSpawn)
         {
             int random = Random.Range(0, 4);
             List<int> oldRandoms = new List<int>();
-            //GameObject.Instantiate(PrimitiveType.Cube, new Vector3(), Quaternion.identity);
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
             cube.AddComponent<GarbageMoveScript>();
@@ -78,11 +124,11 @@ public class GarbageWaveScript : MonoBehaviour {
             _canSpawn = false;
             StartCoroutine(_waitForSeconds());
         }
-    }
+        }
 
     private IEnumerator _waitForSeconds()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(_respawnTime);
         _canSpawn = true;
     }
 }

@@ -1,16 +1,42 @@
 fileFormatVersion: 2
-guid: 5bf579ab1d636534f8241b325a520318
-timeCreated: 1462798338
+guid: 5ee9d7ad340c99c4ca0e9ad9bb786d58
+timeCreated: 1463654443
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Log
-    9500000: //RootNode
+    100000: Ankor4
+    100002: segment_back
+    100004: segment_front
+    100006: segment_segment
+    100008: segment_segment1
+    100010: segment_segment2
+    100012: //RootNode
+    400000: Ankor4
+    400002: segment_back
+    400004: segment_front
+    400006: segment_segment
+    400008: segment_segment1
+    400010: segment_segment2
+    400012: //RootNode
+    2300000: Ankor4
+    2300002: segment_back
+    2300004: segment_front
+    2300006: segment_segment
+    2300008: segment_segment1
+    2300010: segment_segment2
+    3300000: Ankor4
+    3300002: segment_back
+    3300004: segment_front
+    3300006: segment_segment
+    3300008: segment_segment1
+    3300010: segment_segment2
+    4300000: segment_segment
+    4300002: segment_front
+    4300004: Ankor4
+    4300006: segment_segment1
+    4300008: segment_segment2
+    4300010: segment_back
   materials:
     importMaterials: 1
     materialName: 0
@@ -69,7 +95,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
