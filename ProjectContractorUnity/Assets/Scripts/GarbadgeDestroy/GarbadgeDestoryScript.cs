@@ -8,7 +8,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
     private GarbageWaveScript _garbageWaveScript;
 
-   // Use this for initialization
+                                       // Use this for initialization
     void Start () {
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
 	}
@@ -26,6 +26,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
             Destroy(pOther.gameObject);
             if (_hp == 0)
             {
+                pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true);
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 Destroy(this.gameObject);
             }
