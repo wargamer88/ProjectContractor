@@ -22,6 +22,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
             Destroy(pOther.gameObject);
             if (_hp == 0)
             {
+                pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true);
                 Destroy(this.gameObject);
             }
         }

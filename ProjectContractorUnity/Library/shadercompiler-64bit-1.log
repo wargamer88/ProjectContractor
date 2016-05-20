@@ -1,3 +1,147 @@
-Base path: D:/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-11168
+Base path: D:/Unity versions/Unity 5.2.2f1/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-8348
 Cmd: getPlatforms
+Cmd: preprocess
+  insize=5973 outsize=4511 ok=1
+Cmd: preprocess
+  insize=15409 outsize=2911 ok=1
+Cmd: preprocess
+  insize=608 outsize=608 ok=1
+Cmd: preprocess
+  insize=2939 outsize=1236 ok=1
+Cmd: preprocess
+  insize=4320 outsize=1045 ok=1
+Cmd: preprocess
+  insize=3027 outsize=1276 ok=1
+Cmd: preprocess
+  insize=1430 outsize=637 ok=1
+Cmd: preprocess
+  insize=2355 outsize=330 ok=1
+Cmd: preprocess
+  insize=1383 outsize=630 ok=1
+Cmd: preprocess
+  insize=2043 outsize=824 ok=1
+Cmd: preprocess
+  insize=1961 outsize=817 ok=1
+Cmd: preprocess
+  insize=3954 outsize=2602 ok=1
+Cmd: preprocess
+  insize=1465 outsize=672 ok=1
+Cmd: preprocess
+  insize=1924 outsize=789 ok=1
+Cmd: preprocess
+  insize=3044 outsize=1293 ok=1
+Cmd: preprocess
+  insize=1973 outsize=800 ok=1
+Cmd: preprocess
+  insize=5892 outsize=558 ok=1
+Cmd: preprocess
+  insize=6961 outsize=288 ok=1
+Cmd: preprocess
+  insize=13261 outsize=2671 ok=1
+Cmd: preprocess
+  insize=4451 outsize=482 ok=1
+Cmd: preprocess
+  insize=11345 outsize=737 ok=1
+Cmd: preprocess
+  insize=33417 outsize=278 ok=1
+Cmd: preprocess
+  insize=2010 outsize=828 ok=1
+Cmd: preprocess
+  insize=12406 outsize=2548 ok=1
+Cmd: preprocess
+  insize=2006 outsize=796 ok=1
+Cmd: preprocess
+  insize=1890 outsize=547 ok=1
+Cmd: preprocess
+  insize=1005 outsize=333 ok=1
+Cmd: preprocess
+  insize=6605 outsize=5152 ok=1
+Cmd: preprocess
+  insize=8724 outsize=2172 ok=1
+Cmd: preprocess
+  insize=1797 outsize=337 ok=1
+Cmd: preprocess
+  insize=3961 outsize=2609 ok=1
+Cmd: preprocess
+  insize=2048 outsize=1267 ok=1
+Cmd: preprocess
+  insize=2906 outsize=1212 ok=1
+Cmd: preprocess
+  insize=13396 outsize=2760 ok=1
+Cmd: preprocess
+  insize=33408 outsize=277 ok=1
+Cmd: preprocess
+  insize=5384 outsize=1804 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=5273 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=5273 ok=1
+Cmd: compileCompute
+  api=15 insize=65 outsize=10109 ok=1
+Cmd: compileCompute
+  api=9 insize=65 outsize=10165 ok=1
+Cmd: compileCompute
+  api=4 insize=172 outsize=28701 ok=1
+Cmd: compileCompute
+  api=4 insize=172 outsize=28701 ok=1
+Cmd: compileCompute
+  api=15 insize=172 outsize=55473 ok=1
+Cmd: compileCompute
+  api=9 insize=172 outsize=55717 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=5273 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=5273 ok=1
+Cmd: compileCompute
+  api=15 insize=142 outsize=8185 ok=1
+Cmd: compileCompute
+  api=9 insize=142 outsize=8201 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=6765 ok=1
+Cmd: compileCompute
+  api=4 insize=142 outsize=6765 ok=1
+Cmd: compileCompute
+  api=15 insize=142 outsize=11461 ok=1
+Cmd: compileCompute
+  api=9 insize=142 outsize=11481 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=3489 ok=1
+Cmd: compileCompute
+  api=4 insize=65 outsize=3489 ok=1
+Cmd: compileCompute
+  api=15 insize=65 outsize=8137 ok=1
+Cmd: compileCompute
+  api=9 insize=65 outsize=8125 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=4 insize=518 outsize=33945 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=4 insize=518 outsize=33945 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=15 insize=518 outsize=75245 ok=1
+Cmd: compileCompute
+  error: 1 plat 4 at ComputeShader.cginc(4): integer modulus may be much slower, try using uints if possible.
+  api=9 insize=518 outsize=74861 ok=1
+Cmd: compileCompute
+  api=4 insize=231 outsize=6161 ok=1
+Cmd: compileCompute
+  api=4 insize=231 outsize=6161 ok=1
+Cmd: compileCompute
+  api=15 insize=231 outsize=15745 ok=1
+Cmd: compileCompute
+  api=9 insize=231 outsize=15573 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=1420 outsize=1379 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1420 outsize=1704 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=9859 outsize=2793 kw=WATER_EDGEBLEND_ON WATER_REFLECTIVE WATER_VERTEX_DISPLACEMENT_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=9859 outsize=5263 kw=WATER_EDGEBLEND_ON WATER_REFLECTIVE WATER_VERTEX_DISPLACEMENT_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=9859 outsize=2793 kw=WATER_EDGEBLEND_ON WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=9859 outsize=4873 kw=WATER_EDGEBLEND_ON WATER_SIMPLE WATER_VERTEX_DISPLACEMENT_OFF pd= ok=1

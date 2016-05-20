@@ -9,14 +9,15 @@ public class AutoAimScript : MonoBehaviour {
     private float Speed;
 
     private GameObject _bullet;
+    private PowerupsScript _powerupsScript;
 
     private int _cooldown = 0;
     private bool _allowshoot = true;
     
 	// Use this for initialization
 	void Start () {
-
-	}
+        _powerupsScript = FindObjectOfType<PowerupsScript>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -37,7 +38,8 @@ void AutoAim()
                     _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
                     _bullet.AddComponent<Rigidbody>();
                     _bullet.GetComponent<Renderer>().material.color = Color.red;
-                    _bullet.AddComponent<BallGoingThroughWallScript>();
+                    _bullet.AddComponent<BulletScript>();
+                    _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
                     _bullet.tag = "Projectile";
                     Vector3 velocity = hit.point - _bullet.transform.position;
                     Debug.Log(velocity);
