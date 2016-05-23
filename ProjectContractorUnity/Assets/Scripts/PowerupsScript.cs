@@ -10,8 +10,8 @@ public class PowerupsScript : MonoBehaviour {
     private int _mediumGarbage = 0;
     private int _heavyGarbage = 0;
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
 	
 	}
 	

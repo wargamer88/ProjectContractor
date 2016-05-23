@@ -41,7 +41,6 @@ public class BulletScript : MonoBehaviour {
     {
         if (pHitTrash)
         {
-
             _powerupsScript.HitTrash(pGarbageType);
         }
         else

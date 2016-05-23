@@ -14,44 +14,81 @@ public class AutoAimScript : MonoBehaviour {
     private int _cooldown = 0;
     private bool _allowshoot = true;
     
+    private Vector3 _moveTarget;
+    private bool _isMoving = false;
+
+    private GameObject _aimPlane;
+
 	// Use this for initialization
 	void Start () {
         _powerupsScript = FindObjectOfType<PowerupsScript>();
-    }
+        _aimPlane = GameObject.Find("AimPlane");
+	}
 	
 	// Update is called once per frame
-	void Update () {
+    void Update() {
         AutoAim();
+        MoveCatapult();
+    }
+
+    void MoveCatapult()
+    {
+        if (_isMoving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_moveTarget.x, transform.position.y, transform.position.z), 0.5f);
+        }
 	}
 
 void AutoAim()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_allowshoot)
-            {
+
                 Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 if (Physics.Raycast(vRay, out hit, 1000))
                 {
+                if (hit.collider.gameObject.name == "Platform")
+                {
+                    if (hit.point.x < -27f)
+                    {
+                        _moveTarget = new Vector3(-27f, 0, 0);
+                    }
+                    else if (hit.point.x > 33f)
+                    {
+                        _moveTarget = new Vector3(33f, 0, 0);
+                    }
+                    else
+                    {
+                        _moveTarget = new Vector3(hit.point.x, 0, 0);
+                    }
+                    _isMoving = true;
+                }
+                else if (_allowshoot && (hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage"))
+                {
+                    _allowshoot = false;
                     _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                     _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
                     _bullet.AddComponent<Rigidbody>();
                     _bullet.GetComponent<Renderer>().material.color = Color.red;
                     _bullet.AddComponent<BulletScript>();
                     _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
+                    _bullet.AddComponent<BallGoingThroughWallScript>();
+                    Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
                     _bullet.tag = "Projectile";
                     Vector3 velocity = hit.point - _bullet.transform.position;
                     Debug.Log(velocity);
-                    _bullet.GetComponent<Rigidbody>().AddForce(velocity * Speed, ForceMode.VelocityChange);
-                    _allowshoot = false;
+                    transform.LookAt(hit.point);
+                    transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+                    _bullet.GetComponent<Rigidbody>().AddForce(velocity.normalized * Speed, ForceMode.VelocityChange);
                 }
             }
+
         }
 
         if (!_allowshoot)
         {
-            _cooldown ++;
+            _cooldown++;
             Debug.Log("Timer: " + _cooldown);
             if (_cooldown > (1.0f / Time.deltaTime) * 1.5f)
             {
@@ -62,4 +99,5 @@ void AutoAim()
             
         }
     }
+
 }

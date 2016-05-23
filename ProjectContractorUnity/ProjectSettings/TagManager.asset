@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Projectile
   - LineWall
+  - Garbage
   layers:
   - Default
   - TransparentFX

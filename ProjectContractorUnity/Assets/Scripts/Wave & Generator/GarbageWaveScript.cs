@@ -16,6 +16,10 @@ public class GarbageWaveScript : MonoBehaviour {
 
     [SerializeField]
     private float _respawnTime = 1;
+    [SerializeField]
+    private float _inscreaseTime = 1;
+    [SerializeField]
+    private float _waveScale = 1;
 
     [SerializeField]
     private List<GameObject> _lightGarbage;
@@ -24,6 +28,10 @@ public class GarbageWaveScript : MonoBehaviour {
     [SerializeField]
     private List<GameObject> _heavyGarbage;
 
+    public List<GameObject> BasicGarbage { get { return _basicGarbage; } }
+    public List<GameObject> MediumGarbage { get { return _mediumGarbage; } }
+    public List<GameObject> HeavyGarbage { get { return _heavyGarbage; } }
+
     [SerializeField]
     private int _LightRange = 5;
     [SerializeField]
@@ -31,12 +39,26 @@ public class GarbageWaveScript : MonoBehaviour {
     [SerializeField]
     private int _heavyRange = 10;
 
+    [SerializeField]
+    private int _spawnAmount = 10;
+
+    private bool _nextWave = false;
+
+    private List<GameObject> _spawnedGarbage;
+
+
+    private List<GameObject> _destroyedGarbage;
+    public List<GameObject> DestroyedGarbage { get { return _destroyedGarbage; } set { _destroyedGarbage = value; } }
+
 
     private GameObject _chosenGarbage;
     private GarbageType _garbageType;
 
     // Use this for initialization
     void Start () {
+        _spawnedGarbage = new List<GameObject>();
+        _destroyedGarbage = new List<GameObject>();
+        _aimPlane = GameObject.Find("AimPlane");
 	}
 
     // Update is called once per frame
@@ -61,11 +83,13 @@ public class GarbageWaveScript : MonoBehaviour {
             _garbageType = GarbageType.Heavy;
             health = 3;
         }
-        if (_canSpawn)
+        if (_canSpawn && _spawnedGarbage.Count < _spawnAmount)
         {
             GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
             int randomSpawn = Random.Range(0, 5);
             gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, 95);
+            Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
+            gameSpawnObject.tag = "Garbage";
             gameSpawnObject.AddComponent<GarbageMoveScript>();
             gameSpawnObject.AddComponent<Rigidbody>();
             gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
@@ -73,11 +97,25 @@ public class GarbageWaveScript : MonoBehaviour {
             gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
             gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = health;
+            _spawnedGarbage.Add(gameSpawnObject);
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
             //gameSpawnObject.AddComponent<MeshCollider>();
             //gameSpawnObject.GetComponent<MeshCollider>().convex = true;
             _canSpawn = false;
             StartCoroutine(_waitForSeconds());
+        }
+        else if (_spawnedGarbage.Count == _destroyedGarbage.Count)
+        {
+            _nextWave = true;
+        }
+        if (_nextWave)
+        {
+             _respawnTime = _waveScale + _respawnTime;
+            _spawnedGarbage = new List<GameObject>();
+            _destroyedGarbage = new List<GameObject>();
+            _nextWave = false;
+            //_respawnTime = _inscreaseTime + _respawnTime;
+
         }
 
 
