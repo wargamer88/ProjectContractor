@@ -61,7 +61,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
         if (Time.time > (_oldTimer + _hitTimer))
         {
-            if (_garbageWaveScript.BasicGarbage.Contains(pOther.gameObject))
+            if (_garbageWaveScript.LightGarbage.Contains(pOther.gameObject))
             {
                 _generatorHealth = _generatorHealth - _basichit;
             }

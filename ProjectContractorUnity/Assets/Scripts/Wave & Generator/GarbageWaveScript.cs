@@ -13,6 +13,7 @@ public class GarbageWaveScript : MonoBehaviour {
 
     private List<int> _spawnXPoint = new List<int>() { -20, -10,0, 10,20 };
     private bool _canSpawn = true;
+    private GameObject _aimPlane;
 
     [SerializeField]
     private float _respawnTime = 1;
@@ -28,7 +29,7 @@ public class GarbageWaveScript : MonoBehaviour {
     [SerializeField]
     private List<GameObject> _heavyGarbage;
 
-    public List<GameObject> BasicGarbage { get { return _basicGarbage; } }
+    public List<GameObject> LightGarbage { get { return _lightGarbage; } }
     public List<GameObject> MediumGarbage { get { return _mediumGarbage; } }
     public List<GameObject> HeavyGarbage { get { return _heavyGarbage; } }
 
