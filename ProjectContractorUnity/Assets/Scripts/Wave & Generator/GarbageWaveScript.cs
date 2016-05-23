@@ -68,19 +68,19 @@ public class GarbageWaveScript : MonoBehaviour {
         int randomNumber = Random.Range(0, _heavyRange);
         if (randomNumber < 6)
         {
-            _chosenGarbage = _lightGarbage[Random.Range(0, _lightGarbage.Count)];
+            _chosenGarbage = _lightGarbage[Random.Range(0, _lightGarbage.Count -1)];
             _garbageType = GarbageType.Light;
             health = 1;
         }
         else if (randomNumber < 9)
         {
-            _chosenGarbage = _mediumGarbage[Random.Range(0, _mediumGarbage.Count)];
+            _chosenGarbage = _mediumGarbage[Random.Range(0, _mediumGarbage.Count -1)];
             _garbageType = GarbageType.Medium;
             health = 2;
         }
         else
         {
-            _chosenGarbage = _heavyGarbage[Random.Range(0, _heavyGarbage.Count)];
+            _chosenGarbage = _heavyGarbage[Random.Range(0, _heavyGarbage.Count-1)];
             _garbageType = GarbageType.Heavy;
             health = 3;
         }

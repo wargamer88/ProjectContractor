@@ -80,7 +80,7 @@ void AutoAim()
                     Debug.Log(velocity);
                     transform.LookAt(hit.point);
                     transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-                    _bullet.GetComponent<Rigidbody>().AddForce(velocity.normalized * Speed, ForceMode.VelocityChange);
+                    _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
                 }
             }
 
