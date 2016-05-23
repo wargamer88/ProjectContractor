@@ -22,8 +22,8 @@ public class AutoAimScript : MonoBehaviour {
     LineRenderer lineRenderer;
     private RaycastHit hit;
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
         _powerupsScript = FindObjectOfType<PowerupsScript>();
         _aimPlane = GameObject.Find("AimPlane");
         lineRenderer = GetComponent<LineRenderer>();
@@ -43,52 +43,52 @@ public class AutoAimScript : MonoBehaviour {
         }
 	}
 
-    void AutoAim()
+void AutoAim()
     {
 
         if (Input.GetMouseButton(0))
         {
-            Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(vRay, out hit, 1000);
             UpdateTrajectory(transform.position + new Vector3(0.18f, 10.7f, 3.2f), hit.point);
         }
         if (Input.GetMouseButtonUp(0))
-        {
-            if (hit.collider.gameObject.name == "Platform")
-            {
-                if (hit.point.x < -27f)
                 {
-                    _moveTarget = new Vector3(-27f, 0, 0);
-                }
-                else if (hit.point.x > 33f)
+                if (hit.collider.gameObject.name == "Platform")
                 {
-                    _moveTarget = new Vector3(33f, 0, 0);
+                    if (hit.point.x < -27f)
+                    {
+                        _moveTarget = new Vector3(-27f, 0, 0);
+                    }
+                    else if (hit.point.x > 33f)
+                    {
+                        _moveTarget = new Vector3(33f, 0, 0);
+                    }
+                    else
+                    {
+                        _moveTarget = new Vector3(hit.point.x, 0, 0);
+                    }
+                    _isMoving = true;
                 }
-                else
+                else if (_allowshoot && (hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage"))
                 {
-                    _moveTarget = new Vector3(hit.point.x, 0, 0);
-                }
-                _isMoving = true;
-            }
-            else if (_allowshoot && (hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage"))
-            {
-                _allowshoot = false;
-                _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    _allowshoot = false;
+                    _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 _bullet.transform.localScale = new Vector3(2, 2, 2);
-                _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
-                _bullet.AddComponent<Rigidbody>();
-                _bullet.GetComponent<Renderer>().material.color = Color.red;
-                _bullet.AddComponent<BulletScript>();
-                _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
-                _bullet.AddComponent<BallGoingThroughWallScript>();
-                Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
-                _bullet.tag = "Projectile";
-                Vector3 velocity = hit.point - _bullet.transform.position;
-                Debug.Log(velocity);
-                transform.LookAt(hit.point);
-                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-                _bullet.GetComponent<Rigidbody>().AddForce(velocity.normalized * Speed, ForceMode.VelocityChange);
-            }
+                    _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
+                    _bullet.AddComponent<Rigidbody>();
+                    _bullet.GetComponent<Renderer>().material.color = Color.red;
+                    _bullet.AddComponent<BulletScript>();
+                    _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
+                    _bullet.AddComponent<BallGoingThroughWallScript>();
+                    Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
+                    _bullet.tag = "Projectile";
+                    Vector3 velocity = hit.point - _bullet.transform.position;
+                    Debug.Log(velocity);
+                    transform.LookAt(hit.point);
+                    transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+                    _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
+                }
 
 
         }
@@ -114,7 +114,7 @@ public class AutoAimScript : MonoBehaviour {
 
         positions.Add(pStartPos);
         positions.Add(pEndPosition);
-
+            
         BuildTrajectoryLine(positions);
     }
     void BuildTrajectoryLine(List<Vector3> positions)

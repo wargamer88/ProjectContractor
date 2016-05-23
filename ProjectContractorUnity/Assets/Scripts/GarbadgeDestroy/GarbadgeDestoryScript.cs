@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GarbadgeDestoryScript : MonoBehaviour {
+
     private float _hp;
+    private GarbageType _garbageType;
     public float HP { get { return _hp; } set { _hp = value; } }
 
     private GarbageWaveScript _garbageWaveScript;
+
+    public GarbageType GarbageType { get { return _garbageType; } set { _garbageType = value; } }
 
                                        // Use this for initialization
     void Start () {
