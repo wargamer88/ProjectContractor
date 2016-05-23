@@ -9,21 +9,23 @@ public class AutoAimScript : MonoBehaviour {
     private float Speed;
 
     private GameObject _bullet;
+    private PowerupsScript _powerupsScript;
 
     private int _cooldown = 0;
     private bool _allowshoot = true;
-
+    
     private Vector3 _moveTarget;
     private bool _isMoving = false;
 
     private GameObject _aimPlane;
 
-    // Use this for initialization
-    void Start() {
+	// Use this for initialization
+	void Start () {
+        _powerupsScript = FindObjectOfType<PowerupsScript>();
         _aimPlane = GameObject.Find("AimPlane");
-    }
-
-    // Update is called once per frame
+	}
+	
+	// Update is called once per frame
     void Update() {
         AutoAim();
         MoveCatapult();
@@ -35,17 +37,17 @@ public class AutoAimScript : MonoBehaviour {
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(_moveTarget.x, transform.position.y, transform.position.z), 0.5f);
         }
-    }
+	}
 
-    void AutoAim()
+void AutoAim()
     {
         if (Input.GetMouseButtonDown(0))
         {
 
-            Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(vRay, out hit, 1000))
-            {
+                Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(vRay, out hit, 1000))
+                {
                 if (hit.collider.gameObject.name == "Platform")
                 {
                     if (hit.point.x < -27f)
@@ -69,6 +71,8 @@ public class AutoAimScript : MonoBehaviour {
                     _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
                     _bullet.AddComponent<Rigidbody>();
                     _bullet.GetComponent<Renderer>().material.color = Color.red;
+                    _bullet.AddComponent<BulletScript>();
+                    _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
                     _bullet.AddComponent<BallGoingThroughWallScript>();
                     Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
                     _bullet.tag = "Projectile";
@@ -92,7 +96,7 @@ public class AutoAimScript : MonoBehaviour {
                 _cooldown = 0;
             }
 
-
+            
         }
     }
 

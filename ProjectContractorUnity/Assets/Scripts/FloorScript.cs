@@ -12,12 +12,4 @@ public class FloorScript : MonoBehaviour {
 	void Update () {
 	
 	}
-
-    void OnCollisionEnter(Collision pOther)
-    {
-        if (pOther.gameObject.tag == "Projectile")
-        {
-            Destroy(pOther.gameObject);
-        }
-    }
 }
