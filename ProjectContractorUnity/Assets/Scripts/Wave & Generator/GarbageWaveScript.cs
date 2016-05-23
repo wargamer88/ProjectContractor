@@ -24,10 +24,11 @@ public class GarbageWaveScript : MonoBehaviour {
     [SerializeField]
     private int _heavyRange = 10;
 
-
+    private GameObject _aimPlane;
     private GameObject _chosenGarbage;
     // Use this for initialization
     void Start () {
+        _aimPlane = GameObject.Find("AimPlane");
 	}
 
     // Update is called once per frame
@@ -54,6 +55,8 @@ public class GarbageWaveScript : MonoBehaviour {
             GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
             int randomSpawn = Random.Range(0, 5);
             gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, 95);
+            Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
+            gameSpawnObject.tag = "Garbage";
             gameSpawnObject.AddComponent<GarbageMoveScript>();
             gameSpawnObject.AddComponent<Rigidbody>();
             gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
