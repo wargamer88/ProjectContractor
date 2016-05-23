@@ -39,6 +39,8 @@ public class GarbageWaveScript : MonoBehaviour {
 
     private List<GameObject> _spawnedGarbage;
 
+    GameObject _aimPlane;
+
 
     private List<GameObject> _destroyedGarbage;
     public List<GameObject> DestroyedGarbage { get { return _destroyedGarbage; } set { _destroyedGarbage = value; } }
