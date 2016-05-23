@@ -54,12 +54,15 @@ public class GarbageWaveScript : MonoBehaviour {
 
     private GameObject _chosenGarbage;
     private GarbageType _garbageType;
+    private GameObject _garbageParent;
 
     // Use this for initialization
     void Start () {
         _spawnedGarbage = new List<GameObject>();
         _destroyedGarbage = new List<GameObject>();
         _aimPlane = GameObject.Find("AimPlane");
+        _garbageParent = new GameObject();
+        _garbageParent.name = "Garbage Parent";
 	}
 
     // Update is called once per frame
@@ -87,6 +90,7 @@ public class GarbageWaveScript : MonoBehaviour {
         if (_canSpawn && _spawnedGarbage.Count < _spawnAmount)
         {
             GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
+            gameSpawnObject.transform.parent = _garbageParent.transform;
             int randomSpawn = Random.Range(0, 5);
             gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, 95);
             Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
