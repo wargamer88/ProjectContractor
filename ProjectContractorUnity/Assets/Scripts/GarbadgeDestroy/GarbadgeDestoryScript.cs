@@ -2,9 +2,13 @@
 using System.Collections;
 
 public class GarbadgeDestoryScript : MonoBehaviour {
+
     private float _hp;
+    private GarbageType _garbageType;
     public float HP { get { return _hp; } set { _hp = value; } }
-                                       // Use this for initialization
+    public GarbageType GarbageType { get { return _garbageType; } set { _garbageType = value; } }
+
+    // Use this for initialization
     void Start () {
 	
 	}

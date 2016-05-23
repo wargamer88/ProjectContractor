@@ -37,11 +37,12 @@ public class BulletScript : MonoBehaviour {
         }
     }
 
-    public void DestroyBullet(bool pHitTrash)
+    public void DestroyBullet(bool pHitTrash, GarbageType pGarbageType = GarbageType.Light)
     {
         if (pHitTrash)
         {
-            _powerupsScript.HitTrash();
+
+            _powerupsScript.HitTrash(pGarbageType);
         }
         else
         {

@@ -2,6 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public enum GarbageType
+{
+    Light,
+    Medium,
+    Heavy,
+}
+
 public class GarbageWaveScript : MonoBehaviour {
 
     private List<int> _spawnXPoint = new List<int>() { -20, -10,0, 10,20 };
@@ -11,14 +18,14 @@ public class GarbageWaveScript : MonoBehaviour {
     private float _respawnTime = 1;
 
     [SerializeField]
-    private List<GameObject> _basicGarbage;
+    private List<GameObject> _lightGarbage;
     [SerializeField]
     private List<GameObject> _mediumGarbage;
     [SerializeField]
     private List<GameObject> _heavyGarbage;
 
     [SerializeField]
-    private int _basicRange = 5;
+    private int _LightRange = 5;
     [SerializeField]
     private int _mediumRange = 8;
     [SerializeField]
@@ -26,6 +33,8 @@ public class GarbageWaveScript : MonoBehaviour {
 
 
     private GameObject _chosenGarbage;
+    private GarbageType _garbageType;
+
     // Use this for initialization
     void Start () {
 	}
@@ -36,17 +45,20 @@ public class GarbageWaveScript : MonoBehaviour {
         int randomNumber = Random.Range(0, _heavyRange);
         if (randomNumber < 6)
         {
-            _chosenGarbage = _basicGarbage[Random.Range(0, _basicGarbage.Count)];
+            _chosenGarbage = _lightGarbage[Random.Range(0, _lightGarbage.Count)];
+            _garbageType = GarbageType.Light;
             health = 1;
         }
         else if (randomNumber < 9)
         {
             _chosenGarbage = _mediumGarbage[Random.Range(0, _mediumGarbage.Count)];
+            _garbageType = GarbageType.Medium;
             health = 2;
         }
         else
         {
             _chosenGarbage = _heavyGarbage[Random.Range(0, _heavyGarbage.Count)];
+            _garbageType = GarbageType.Heavy;
             health = 3;
         }
         if (_canSpawn)
@@ -61,6 +73,7 @@ public class GarbageWaveScript : MonoBehaviour {
             gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
             gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = health;
+            gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
             //gameSpawnObject.AddComponent<MeshCollider>();
             //gameSpawnObject.GetComponent<MeshCollider>().convex = true;
             _canSpawn = false;
