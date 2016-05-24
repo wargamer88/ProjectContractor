@@ -517,6 +517,7 @@ ModelImporter:
     4300182: Socket
     4300184: Catapult_Platform
     7400000: Shoot
+    7400002: Reload
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -542,7 +543,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Shoot
       takeName: Take 001
-      firstFrame: 1
+      firstFrame: 80
       lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
@@ -551,6 +552,266 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Catapult
+        weight: 1
+      - path: Catapult/Arm1
+        weight: 1
+      - path: Catapult/Arm1/Arm
+        weight: 1
+      - path: Catapult/Arm1/Buttons
+        weight: 1
+      - path: Catapult/Arm1/Buttons/Button
+        weight: 1
+      - path: Catapult/Arm1/Buttons/Button2
+        weight: 1
+      - path: Catapult/Arm1/Buttons/Button3
+        weight: 1
+      - path: Catapult/Arm1/Buttons/Button4
+        weight: 1
+      - path: Catapult/Arm1/Buttons/Button5
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button1
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button6
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button7
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button8
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button9
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button10
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button11
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button12
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button13
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button14
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button15
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button16
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button17
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button18
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button19
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button20
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button21
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button22
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button23
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button24
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button25
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button26
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button27
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button28
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button29
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button30
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button31
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button32
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button33
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button34
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button35
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button36
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button37
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button38
+        weight: 1
+      - path: Catapult/Arm1/Buttons/catapult_anim_v2:Button39
+        weight: 1
+      - path: Catapult/Arm1/pTorus1
+        weight: 1
+      - path: Catapult/Arm1/Straps
+        weight: 1
+      - path: Catapult/Arm1/Straps/pCube1
+        weight: 1
+      - path: Catapult/Arm1/Straps/pCube2
+        weight: 1
+      - path: Catapult/Arm1/Straps/pCube3
+        weight: 1
+      - path: Catapult/Arm1/Straps/pCube4
+        weight: 1
+      - path: Catapult/Arm1/Straps/pCube5
+        weight: 1
+      - path: Catapult/Arm1/Straps/pCube6
+        weight: 1
+      - path: Catapult/Arm1/Straps/pCube7
+        weight: 1
+      - path: Catapult/Arm1/Straps/pCube8
+        weight: 1
+      - path: Catapult/Arm_Pivot1
+        weight: 1
+      - path: Catapult/Arm_Pivot1/pCube14
+        weight: 1
+      - path: Catapult/Axle_Brackets
+        weight: 1
+      - path: Catapult/Axle_Brackets/group4
+        weight: 1
+      - path: Catapult/Axle_Brackets/group5
+        weight: 1
+      - path: Catapult/Axle_Brackets1
+        weight: 1
+      - path: Catapult/Axle_Brackets1/group4 1
+        weight: 1
+      - path: Catapult/Axle_Brackets1/group5 1
+        weight: 1
+      - path: Catapult/Winch
+        weight: 1
+      - path: Catapult/Winch/Pully1
+        weight: 1
+      - path: Catapult/Winch/Pully1/group2
+        weight: 1
+      - path: Catapult/Winch/Pully1/group2/pCylinder2
+        weight: 1
+      - path: Catapult/Winch/Pully1/group2/pCylinder3
+        weight: 1
+      - path: Catapult/Winch/Pully1/group2/pCylinder4
+        weight: 1
+      - path: Catapult/Winch/Pully1/group2/pCylinder5
+        weight: 1
+      - path: Catapult/Winch/Pully1/group2/pCylinder23
+        weight: 1
+      - path: Catapult/Winch/Pully1/group2/pCylinder24
+        weight: 1
+      - path: Catapult/Winch/Pully1/group2/pCylinder25
+        weight: 1
+      - path: Catapult/Winch/Pully1/group2/pCylinder26
+        weight: 1
+      - path: Catapult/Winch/Pully1/group2/polySurface3
+        weight: 1
+      - path: Catapult/Winch/Pully1/group6
+        weight: 1
+      - path: Catapult/Winch/Pully1/group6/pCylinder2 1
+        weight: 1
+      - path: Catapult/Winch/Pully1/group6/pCylinder3 1
+        weight: 1
+      - path: Catapult/Winch/Pully1/group6/pCylinder4 1
+        weight: 1
+      - path: Catapult/Winch/Pully1/group6/pCylinder5 1
+        weight: 1
+      - path: Catapult/Winch/Pully1/group6/pCylinder23 1
+        weight: 1
+      - path: Catapult/Winch/Pully1/group6/pCylinder24 1
+        weight: 1
+      - path: Catapult/Winch/Pully1/group6/pCylinder25 1
+        weight: 1
+      - path: Catapult/Winch/Pully1/group6/pCylinder26 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/Gear
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/Gear/pCylinder14
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/Gear/pCylinder15
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/Gear/pCylinder16
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/Gear/pCylinder17
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/Gear/pCylinder18
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/Gear/pCylinder19
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/Gear/pCylinder20
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/Gear/pCylinder21
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/Gear/pCylinder22
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/group7
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/group7/pCube20
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/group7/pCylinder27
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel2/group7/pCylinder28
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/Gear1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/Gear1/pCylinder14 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/Gear1/pCylinder15 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/Gear1/pCylinder16 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/Gear1/pCylinder17 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/Gear1/pCylinder18 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/Gear1/pCylinder19 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/Gear1/pCylinder20 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/Gear1/pCylinder21 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/Gear1/pCylinder22 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/group8
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/group8/pCube20 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/group8/pCylinder27 1
+        weight: 1
+      - path: Catapult/Winch/Turn_Wheel3/group8/pCylinder28 1
+        weight: 1
+      - path: Catapult_Platform
+        weight: 1
+      - path: Socket
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Reload
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
