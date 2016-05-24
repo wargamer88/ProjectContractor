@@ -127,7 +127,7 @@ public class GarbageWaveScript : MonoBehaviour {
             //_respawnTime = _inscreaseTime + _respawnTime;
 
         }
-        
+
         #region old garbage spawning
         //if (_canSpawn)
         //{

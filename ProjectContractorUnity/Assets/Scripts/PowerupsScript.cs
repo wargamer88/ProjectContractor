@@ -83,7 +83,7 @@ public class PowerupsScript : MonoBehaviour {
                     default:
                         break;
                 }
-            }
+        }
             if (lane0 > mostTrash)
             {
                 mostTrash = lane0;
