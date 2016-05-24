@@ -99,7 +99,11 @@ public class GarbageWaveScript : MonoBehaviour {
             gameSpawnObject.AddComponent<Rigidbody>();
             gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
             gameSpawnObject.GetComponent<Rigidbody>().mass = 1000;
-            gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
+            //float randomRotationX = Random.Range(0, 360);
+            //float randomRotationY = Random.Range(0, 360);
+            //float randomRotationZ = Random.Range(0, 360);
+            //gameSpawnObject.transform.rotation = new Quaternion(0,0,0,0);
+            gameSpawnObject.GetComponent<Rigidbody>().constraints = /*.FreezePositionX | RigidbodyConstraints.FreezePositionY | */RigidbodyConstraints.FreezeRotation;
             gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = health;
             _spawnedGarbage.Add(gameSpawnObject);
