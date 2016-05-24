@@ -30,7 +30,7 @@ public class AutoAimScript : MonoBehaviour
         _aimPlane = GameObject.Find("AimPlane");
         lineRenderer = GetComponent<LineRenderer>();
         //GetComponent<Animator>().Stop();
-    }
+	}
 	
 	// Update is called once per frame
     void Update()
@@ -47,7 +47,7 @@ public class AutoAimScript : MonoBehaviour
         }
 	}
 
-    void AutoAim()
+void AutoAim()
     {
 
         if (Input.GetMouseButton(0))
@@ -89,7 +89,7 @@ public class AutoAimScript : MonoBehaviour
                     GetComponent<Animator>().Play("Reload");
                     _allowshoot = false;
                     _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    _bullet.transform.localScale = new Vector3(2, 2, 2);
+                _bullet.transform.localScale = new Vector3(2, 2, 2);
                     _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
                     _bullet.AddComponent<Rigidbody>();
                     _bullet.GetComponent<Renderer>().material.color = Color.red;
@@ -125,7 +125,7 @@ public class AutoAimScript : MonoBehaviour
 
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetVertexCount(numSteps);
-
+            
         Vector3 position = initialPosition;
         Vector3 velocity = initialVelocity;
         for (int i = 0; i < numSteps; ++i)

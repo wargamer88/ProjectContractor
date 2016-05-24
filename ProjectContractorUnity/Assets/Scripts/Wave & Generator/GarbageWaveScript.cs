@@ -70,19 +70,19 @@ public class GarbageWaveScript : MonoBehaviour {
         int randomNumber = Random.Range(0, _heavyRange);
         if (randomNumber < 6)
         {
-            _chosenGarbage = _lightGarbage[Random.Range(0, _lightGarbage.Count -1)];
+            _chosenGarbage = _lightGarbage[Random.Range(0, _lightGarbage.Count)];
             _garbageType = GarbageType.Light;
             health = 1;
         }
         else if (randomNumber < 9)
         {
-            _chosenGarbage = _mediumGarbage[Random.Range(0, _mediumGarbage.Count -1)];
+            _chosenGarbage = _mediumGarbage[Random.Range(0, _mediumGarbage.Count)];
             _garbageType = GarbageType.Medium;
             health = 2;
         }
         else
         {
-            _chosenGarbage = _heavyGarbage[Random.Range(0, _heavyGarbage.Count-1)];
+            _chosenGarbage = _heavyGarbage[Random.Range(0, _heavyGarbage.Count)];
             _garbageType = GarbageType.Heavy;
             health = 3;
         }
@@ -116,13 +116,15 @@ public class GarbageWaveScript : MonoBehaviour {
             _canSpawn = false;
             StartCoroutine(_waitForSeconds());
         }
-        else if (_spawnedGarbage.Count == _destroyedGarbage.Count)
+        else if (_spawnedGarbage.Count == _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
         {
+            Debug.Log("YEEEEEEEEEEEEEEEEEEEEES");
             _nextWave = true;
         }
+        Debug.Log(_destroyedGarbage.Count);
         if (_nextWave)
         {
-             _respawnTime = _waveScale + _respawnTime;
+            // _respawnTime = _waveScale + _respawnTime;
             _spawnedGarbage = new List<GameObject>();
             _destroyedGarbage = new List<GameObject>();
             _nextWave = false;
