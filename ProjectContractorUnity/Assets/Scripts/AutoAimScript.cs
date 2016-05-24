@@ -23,13 +23,15 @@ public class AutoAimScript : MonoBehaviour
     LineRenderer lineRenderer;
     private RaycastHit hit;
 
+    private float _oldTime;
+
 	// Use this for initialization
     void Start()
     {
         _powerupsScript = FindObjectOfType<PowerupsScript>();
         _aimPlane = GameObject.Find("AimPlane");
         lineRenderer = GetComponent<LineRenderer>();
-        //GetComponent<Animator>().Stop();
+       // GetComponent<Animator>().Stop();
 	}
 	
 	// Update is called once per frame
@@ -86,7 +88,7 @@ void AutoAim()
                 }
                 else if (_allowshoot && (hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage"))
                 {
-                    GetComponent<Animator>().Play("Reload");
+                    GetComponent<Animator>().Play("Shoot");
                     _allowshoot = false;
                     _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 _bullet.transform.localScale = new Vector3(2, 2, 2);
