@@ -49,11 +49,16 @@ void AutoAim()
         if (Input.GetMouseButton(0))
         {
                 Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(vRay, out hit, 1000);
-            UpdateTrajectory(transform.position + new Vector3(0.18f, 10.7f, 3.2f), hit.point);
+            if (Physics.Raycast(vRay, out hit, 1000))
+            {
+                if (hit.collider.gameObject.name != "Platform")
+                {
+                    UpdateTrajectory(transform.position + new Vector3(0.18f, 10.7f, 3.2f), hit.point);
+                }
+            }
         }
         if (Input.GetMouseButtonUp(0))
-                {
+        {
                 if (hit.collider.gameObject.name == "Platform")
                 {
                     if (hit.point.x < -27f)
