@@ -4,8 +4,12 @@ using System.Linq;
 
 public class PowerupsScript : MonoBehaviour {
 
-    //if reached 3 powerup is spawned(a fish)
-    private int powerupCounter = 0;
+    [SerializeField]
+    private GameObject Chompy;
+    [SerializeField]
+    private GameObject Sharky;
+    [SerializeField]
+    private GameObject Whaley;
 
     private int _lightGarbage = 0;
     private int _mediumGarbage = 0;
@@ -13,22 +17,22 @@ public class PowerupsScript : MonoBehaviour {
 
     private GameObject _garbageParent = null;
     private List<GarbadgeDestoryScript> _garbageList;
+    private GarbageWaveScript _garbageWaveScript;
 
 	// Use this for initialization
 	void Start () {
-	
+        _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        //debug
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _mediumGarbage++;
+            _mediumGarbage+=2;
         }
 
-        Debug.Log(_mediumGarbage);
-
-
+        //get Garbage Parent once
         if (_garbageParent == null)
         {
             _garbageParent = GameObject.Find("Garbage Parent");
@@ -43,6 +47,7 @@ public class PowerupsScript : MonoBehaviour {
             {
                 if(Garbage.HP >= 3)
                 {
+                    _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
                     Destroy(Garbage.gameObject);
                 }
             }
@@ -50,6 +55,7 @@ public class PowerupsScript : MonoBehaviour {
         //Sharky: Wipes the most populated lane
         if (_mediumGarbage == 2)
         {
+            //local variables
             Debug.Log("Sharky(medium garbage) activated");
             _mediumGarbage = 0;
             _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
@@ -61,6 +67,7 @@ public class PowerupsScript : MonoBehaviour {
             int mostTrash = 0;
             int mostPopulatedLane = 0;
 
+            //fill the line variables with amount of objects
             foreach (GarbadgeDestoryScript Garbage in _garbageList)
             {
                 switch (Garbage.CurrentLane)
@@ -83,7 +90,9 @@ public class PowerupsScript : MonoBehaviour {
                     default:
                         break;
                 }
-        }
+            }
+
+            //check which lane if most populated
             if (lane0 > mostTrash)
             {
                 mostTrash = lane0;
@@ -110,10 +119,12 @@ public class PowerupsScript : MonoBehaviour {
                 mostPopulatedLane = 4;
             }
 
+            //remove garbage in most populated lane
             foreach (GarbadgeDestoryScript Garbage in _garbageList)
             {
                 if (Garbage.CurrentLane == mostPopulatedLane)
                 {
+                    _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
                     Destroy(Garbage.gameObject);
                 }
             }
@@ -130,6 +141,7 @@ public class PowerupsScript : MonoBehaviour {
                 Garbage.transform.position = new Vector3(Garbage.transform.position.x, Garbage.transform.position.y, 95);
                 if (Garbage.HP == 0)
                 {
+                    _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
                     Destroy(Garbage.gameObject);
                 }
             }
