@@ -1,4 +1,4 @@
-﻿﻿using UnityEngine;
+﻿﻿﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,9 +9,10 @@ public enum GarbageType
     Heavy,
 }
 
-public class GarbageWaveScript : MonoBehaviour {
+public class GarbageWaveScript : MonoBehaviour
+{
 
-    private List<int> _spawnXPoint = new List<int>() { -20, -10,0, 10,20 };
+    private List<int> _spawnXPoint = new List<int>() { -20, -10, 0, 10, 20 };
     private bool _canSpawn = true;
     private GameObject _aimPlane;
 
@@ -56,16 +57,18 @@ public class GarbageWaveScript : MonoBehaviour {
     private GameObject _garbageParent;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         _spawnedGarbage = new List<GameObject>();
         _destroyedGarbage = new List<GameObject>();
         _aimPlane = GameObject.Find("AimPlane");
         _garbageParent = new GameObject();
         _garbageParent.name = "Garbage Parent";
-	}
+    }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         float health = 0;
         int randomNumber = Random.Range(0, _heavyRange);
         if (randomNumber < 6)
@@ -108,7 +111,7 @@ public class GarbageWaveScript : MonoBehaviour {
             gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
-            
+
             _spawnedGarbage.Add(gameSpawnObject);
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
             _canSpawn = false;
