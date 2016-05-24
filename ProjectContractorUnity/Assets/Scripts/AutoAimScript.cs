@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class AutoAimScript : MonoBehaviour {
+public class AutoAimScript : MonoBehaviour
+{
 
     [SerializeField]
     private float Speed;
@@ -23,14 +24,16 @@ public class AutoAimScript : MonoBehaviour {
     private RaycastHit hit;
 
 	// Use this for initialization
-	void Start () {
+    void Start()
+    {
         _powerupsScript = FindObjectOfType<PowerupsScript>();
         _aimPlane = GameObject.Find("AimPlane");
         lineRenderer = GetComponent<LineRenderer>();
 	}
 	
 	// Update is called once per frame
-    void Update() {
+    void Update()
+    {
         AutoAim();
         MoveCatapult();
     }
@@ -53,12 +56,16 @@ void AutoAim()
             {
                 if (hit.collider.gameObject.name != "Platform")
                 {
+                    lineRenderer.enabled = true;
                     UpdateTrajectory(transform.position + new Vector3(0.18f, 10.7f, 3.2f), hit.point);
                 }
             }
         }
         if (Input.GetMouseButtonUp(0))
         {
+            if (hit.collider != null)
+            {
+                lineRenderer.enabled = false;
                 if (hit.collider.gameObject.name == "Platform")
                 {
                     if (hit.point.x < -27f)
@@ -77,6 +84,7 @@ void AutoAim()
                 }
                 else if (_allowshoot && (hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage"))
                 {
+
                     _allowshoot = false;
                     _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 _bullet.transform.localScale = new Vector3(2, 2, 2);
@@ -94,10 +102,8 @@ void AutoAim()
                     transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                     _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
                 }
-
-
+            } 
         }
-
         if (!_allowshoot)
         {
             _cooldown++;
@@ -107,8 +113,6 @@ void AutoAim()
                 _allowshoot = true;
                 _cooldown = 0;
             }
-
-
         }
     }
 
@@ -130,5 +134,7 @@ void AutoAim()
             lineRenderer.SetPosition(i, positions[i]);
         }
     }
+
+
 
 }

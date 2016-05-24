@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class GarbadgeGeneratorScript : MonoBehaviour {
 
@@ -27,14 +28,46 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
     private float _generatorHealth = 100;
 
     private bool _isDestroyed = false;
-    
 
-	// Use this for initialization
-	void Start () {
+    private GameObject _segment_front;
+    private GameObject _segment_back;
+    private GameObject _segment_segment5;
+    private GameObject _segment_segment4;
+    private GameObject _segment_segment3;
+    private GameObject _pickedSegment;
+
+
+    // Use this for initialization
+    void Start () {
         _generatorPowerScript = transform.parent.GetComponent<GeneratorPowerScript>();
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
         _oldTimer = 0;
-	}
+        if (transform.name == "GeneratorWall5")
+        {
+            _segment_front = GameObject.Find("segment_front1");
+            _pickedSegment = _segment_front;
+        }
+        if (transform.name == "GeneratorWall2")
+        {
+            _segment_segment5 = GameObject.Find("segment_segment5");
+            _pickedSegment = _segment_segment5;
+        }
+        if (transform.name == "GeneratorWall3")
+        {
+            _segment_segment4 = GameObject.Find("segment_segment4");
+            _pickedSegment = _segment_segment4;
+        }
+        if (transform.name == "GeneratorWall4")
+        {
+            _segment_segment3 = GameObject.Find("segment_segment3");
+            _pickedSegment = _segment_segment3;
+        }
+        if (transform.name == "GeneratorWall1")
+        {
+            _segment_back = GameObject.Find("segment_back1");
+            _pickedSegment = _segment_back;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -42,12 +75,27 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
         {
             _generatorPowerScript.DestroyedGenerator++;
             _isDestroyed = true;
+            _pickedSegment.GetComponent<Renderer>().material.color = Color.gray;
+        }
+        else if (_generatorHealth < 20 && _generatorHealth > 0)
+        {
+            _pickedSegment.GetComponent<Renderer>().material.color = Color.red;
+        }
+        else if (_generatorHealth < 50 && _generatorHealth > 19)
+        {
+            _pickedSegment.GetComponent<Renderer>().material.color = Color.yellow;
+        }
+        else if (_generatorHealth < 101 && _generatorHealth > 49)
+        {
+            _pickedSegment.GetComponent<Renderer>().material.color = Color.green;
         }
         if (_generatorHealth >= 100)
         {
             _generatorHealth = 100;
             _startRepairTimer = false;
         }
+
+
 
 	}
 
@@ -61,16 +109,16 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
         if (Time.time > (_oldTimer + _hitTimer))
         {
-            if (_garbageWaveScript.LightGarbage.Contains(pOther.gameObject))
+            _oldTimer = Time.time;
+            if (_garbageWaveScript.LightGarbage.Where(c=>c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
                 _generatorHealth = _generatorHealth - _basichit;
             }
-            if (_garbageWaveScript.MediumGarbage.Contains(pOther.gameObject))
+            if (_garbageWaveScript.MediumGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
-
                 _generatorHealth = _generatorHealth - _mediumhit;
             }
-            if (_garbageWaveScript.HeavyGarbage.Contains(pOther.gameObject))
+            if (_garbageWaveScript.HeavyGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
 
                 _generatorHealth = _generatorHealth - _heavyhit;

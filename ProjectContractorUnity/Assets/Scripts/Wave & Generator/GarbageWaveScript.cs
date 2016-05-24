@@ -105,22 +105,26 @@ public class GarbageWaveScript : MonoBehaviour {
             gameSpawnObject.GetComponent<Rigidbody>().constraints = /*.FreezePositionX | RigidbodyConstraints.FreezePositionY | */RigidbodyConstraints.FreezeRotation;
             gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = health;
+            gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
             
             _spawnedGarbage.Add(gameSpawnObject);
+            gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
             //gameSpawnObject.AddComponent<MeshCollider>();
             //gameSpawnObject.GetComponent<MeshCollider>().convex = true;
             _canSpawn = false;
             StartCoroutine(_waitForSeconds());
         }
-        else if (_spawnedGarbage.Count == _destroyedGarbage.Count)
+        else if (_spawnedGarbage.Count == _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
         {
+            Debug.Log("YEEEEEEEEEEEEEEEEEEEEES");
             _nextWave = true;
         }
+        Debug.Log(_destroyedGarbage.Count);
         if (_nextWave)
         {
-             _respawnTime = _waveScale + _respawnTime;
+            // _respawnTime = _waveScale + _respawnTime;
             _spawnedGarbage = new List<GameObject>();
             _destroyedGarbage = new List<GameObject>();
             _nextWave = false;
