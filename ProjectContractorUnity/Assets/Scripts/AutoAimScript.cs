@@ -29,6 +29,7 @@ public class AutoAimScript : MonoBehaviour
         _powerupsScript = FindObjectOfType<PowerupsScript>();
         _aimPlane = GameObject.Find("AimPlane");
         lineRenderer = GetComponent<LineRenderer>();
+        //GetComponent<Animator>().Stop();
 	}
 	
 	// Update is called once per frame
@@ -57,7 +58,8 @@ void AutoAim()
                 if (hit.collider.gameObject.name != "Platform")
                 {
                     lineRenderer.enabled = true;
-                    UpdateTrajectory(transform.position + new Vector3(0.18f, 10.7f, 3.2f), hit.point);
+                    Vector3 velocity = hit.point - (transform.position + new Vector3(0.18f, 10.7f, 3.2f));
+                    UpdateTrajectory(transform.position + new Vector3(0.18f, 10.7f, 3.2f), velocity);
                 }
             }
         }
@@ -84,7 +86,7 @@ void AutoAim()
                 }
                 else if (_allowshoot && (hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage"))
                 {
-
+                    GetComponent<Animator>().Play("Reload");
                     _allowshoot = false;
                     _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 _bullet.transform.localScale = new Vector3(2, 2, 2);
@@ -116,22 +118,22 @@ void AutoAim()
         }
     }
 
-    void UpdateTrajectory(Vector3 pStartPos, Vector3 pEndPosition)
+    void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity)
     {
-        List<Vector3> positions = new List<Vector3>();
-        Vector3 lastPos = pStartPos;
+        int numSteps = 20; // for example
+        float timeDelta = 1.0f / initialVelocity.magnitude; // for example
 
-        positions.Add(pStartPos);
-        positions.Add(pEndPosition);
+        LineRenderer lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.SetVertexCount(numSteps);
             
-        BuildTrajectoryLine(positions);
-    }
-    void BuildTrajectoryLine(List<Vector3> positions)
-    {
-        lineRenderer.SetVertexCount(positions.Count);
-        for (var i = 0; i < positions.Count; ++i)
+        Vector3 position = initialPosition;
+        Vector3 velocity = initialVelocity;
+        for (int i = 0; i < numSteps; ++i)
         {
-            lineRenderer.SetPosition(i, positions[i]);
+            lineRenderer.SetPosition(i, position);
+
+            position += (velocity * 2) * timeDelta + 0.5f * Physics.gravity * timeDelta * timeDelta;
+            velocity += Physics.gravity * timeDelta;
         }
     }
 
