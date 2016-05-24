@@ -6,7 +6,9 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
     private float _hp;
     private GarbageType _garbageType;
+    private int _currentLane;
     public float HP { get { return _hp; } set { _hp = value; } }
+    public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
 
     private GarbageWaveScript _garbageWaveScript;
 
