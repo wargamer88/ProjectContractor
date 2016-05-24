@@ -33,7 +33,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         {
             this.GetComponent<Renderer>().material.color = Color.red;
         }
-    }
+	}
 
     void OnCollisionEnter(Collision pOther)
     {
