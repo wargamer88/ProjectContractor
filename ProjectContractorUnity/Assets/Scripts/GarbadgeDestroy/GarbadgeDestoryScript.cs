@@ -21,8 +21,19 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if (_hp == 3)
+        {
+            this.GetComponent<Renderer>().material.color = Color.green;
+        }
+        if (_hp == 2)
+        {
+            this.GetComponent<Renderer>().material.color = Color.yellow;
+        }
+        if (_hp == 1)
+        {
+            this.GetComponent<Renderer>().material.color = Color.red;
+        }
+    }
 
     void OnCollisionEnter(Collision pOther)
     {

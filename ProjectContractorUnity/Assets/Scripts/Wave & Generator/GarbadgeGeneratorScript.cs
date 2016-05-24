@@ -109,6 +109,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
         if (Time.time > (_oldTimer + _hitTimer))
         {
+            _oldTimer = Time.time;
             if (_garbageWaveScript.LightGarbage.Where(c=>c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
                 _generatorHealth = _generatorHealth - _basichit;
