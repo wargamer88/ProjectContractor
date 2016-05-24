@@ -4,7 +4,9 @@ using System.Collections;
 public class WhaleyScript : MonoBehaviour {
 
     private GameObject _garbageObject;
+    private GarbageWaveScript _garbageWaveScript;
     public GameObject GarbageObject { get { return _garbageObject; } set { _garbageObject = value; } }
+    public GarbageWaveScript GarbageWaveScript { get { return _garbageWaveScript; } set { _garbageWaveScript = value; } }
 
     // Use this for initialization
     void Start () {

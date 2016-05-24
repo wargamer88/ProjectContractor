@@ -29,7 +29,7 @@ public class PowerupsScript : MonoBehaviour {
         //debug
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _mediumGarbage+=2;
+            _lightGarbage+=3;
         }
 
         //get Garbage Parent once
@@ -47,8 +47,9 @@ public class PowerupsScript : MonoBehaviour {
             {
                 if(Garbage.HP >= 3)
                 {
-                    _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
-                    Destroy(Garbage.gameObject);
+                    GameObject GO = (GameObject)Instantiate(Chompy, new Vector3(Garbage.transform.position.x, -100, Garbage.transform.position.z), Quaternion.identity);
+                    GO.GetComponent<ChompyScript>().GarbageObject = Garbage.gameObject;
+                    GO.GetComponent<ChompyScript>().GarbageWaveScript = _garbageWaveScript;
                 }
             }
         }
@@ -124,8 +125,9 @@ public class PowerupsScript : MonoBehaviour {
             {
                 if (Garbage.CurrentLane == mostPopulatedLane)
                 {
-                    _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
-                    Destroy(Garbage.gameObject);
+                    GameObject GO = (GameObject)Instantiate(Chompy, new Vector3(Garbage.transform.position.x, 100, Garbage.transform.position.z), Quaternion.identity);
+                    GO.GetComponent<SharkyScript>().GarbageObject = Garbage.gameObject;
+                    GO.GetComponent<SharkyScript>().GarbageWaveScript = _garbageWaveScript;
                 }
             }
         }
@@ -137,13 +139,9 @@ public class PowerupsScript : MonoBehaviour {
             _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
             foreach (GarbadgeDestoryScript Garbage in _garbageList)
             {
-                Garbage.HP--;
-                Garbage.transform.position = new Vector3(Garbage.transform.position.x, Garbage.transform.position.y, 95);
-                if (Garbage.HP == 0)
-                {
-                    _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
-                    Destroy(Garbage.gameObject);
-                }
+                GameObject GO = (GameObject)Instantiate(Chompy, new Vector3(Garbage.transform.position.x, 100, Garbage.transform.position.z), Quaternion.identity);
+                GO.GetComponent<WhaleyScript>().GarbageObject = Garbage.gameObject;
+                GO.GetComponent<WhaleyScript>().GarbageWaveScript = _garbageWaveScript;
             }
         }
     }
