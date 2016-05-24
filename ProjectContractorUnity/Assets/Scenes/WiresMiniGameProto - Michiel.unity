@@ -3470,8 +3470,8 @@ MonoBehaviour:
   _heavyGarbage:
   - {fileID: 170764, guid: 7baaf940bf0977f46a3a7f580d9ee90e, type: 2}
   - {fileID: 180222, guid: 608bbba27e077204d973fe601d3f6c2d, type: 2}
-  _LightRange: 0
-  _mediumRange: 0
+  _LightRange: 5
+  _mediumRange: 8
   _heavyRange: 10
   _spawnAmount: 10
 --- !u!1 &495004303

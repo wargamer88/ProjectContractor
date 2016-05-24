@@ -19,7 +19,7 @@ public class ChompyScript : MonoBehaviour {
         _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
         foreach (GameObject wall in _walls)
         {
-            Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), wall.GetComponent<MeshCollider>());
+            Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), wall.GetComponent<MeshCollider>());
         }
     }
 	

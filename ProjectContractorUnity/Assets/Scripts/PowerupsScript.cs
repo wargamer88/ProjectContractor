@@ -29,7 +29,7 @@ public class PowerupsScript : MonoBehaviour {
         //debug
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _lightGarbage+=3;
+            _heavyGarbage+=2;
         }
 
         //get Garbage Parent once
@@ -125,7 +125,7 @@ public class PowerupsScript : MonoBehaviour {
             {
                 if (Garbage.CurrentLane == mostPopulatedLane)
                 {
-                    GameObject GO = (GameObject)Instantiate(Chompy, new Vector3(Garbage.transform.position.x, 100, Garbage.transform.position.z), Quaternion.identity);
+                    GameObject GO = (GameObject)Instantiate(Sharky, new Vector3(Garbage.transform.position.x, -100, Garbage.transform.position.z), Quaternion.identity);
                     GO.GetComponent<SharkyScript>().GarbageObject = Garbage.gameObject;
                     GO.GetComponent<SharkyScript>().GarbageWaveScript = _garbageWaveScript;
                 }
@@ -139,7 +139,7 @@ public class PowerupsScript : MonoBehaviour {
             _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
             foreach (GarbadgeDestoryScript Garbage in _garbageList)
             {
-                GameObject GO = (GameObject)Instantiate(Chompy, new Vector3(Garbage.transform.position.x, 100, Garbage.transform.position.z), Quaternion.identity);
+                GameObject GO = (GameObject)Instantiate(Whaley, new Vector3(Garbage.transform.position.x, -100, Garbage.transform.position.z), Quaternion.identity);
                 GO.GetComponent<WhaleyScript>().GarbageObject = Garbage.gameObject;
                 GO.GetComponent<WhaleyScript>().GarbageWaveScript = _garbageWaveScript;
             }
@@ -166,10 +166,8 @@ public class PowerupsScript : MonoBehaviour {
     
     public void HitNothing()
     {
-        /**
         _lightGarbage = 0;
         _mediumGarbage = 0;
         _heavyGarbage = 0;
-        /**/
     }
 }

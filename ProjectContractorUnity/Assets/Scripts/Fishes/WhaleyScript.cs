@@ -1,7 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class WhaleyScript : MonoBehaviour {
+
+    [SerializeField]
+    private float _speed = 10;
+
+    private List<GameObject> _walls;
 
     private GameObject _garbageObject;
     private GarbageWaveScript _garbageWaveScript;
@@ -10,11 +16,32 @@ public class WhaleyScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	    
-	}
+        _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
+        foreach (GameObject wall in _walls)
+        {
+            Physics.IgnoreCollision(this.GetComponent<CapsuleCollider>(), wall.GetComponent<MeshCollider>());
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        float step = _speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, GarbageObject.transform.position, step);
+    }
+
+    void OnCollisionEnter(Collision pOther)
+    {
+        if (pOther.gameObject == _garbageObject)
+        {
+            pOther.gameObject.GetComponent<GarbadgeDestoryScript>().HP--;
+            Destroy(this.gameObject);
+
+            if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().HP == 0)
+            {
+                Destroy(this.gameObject);
+                _garbageWaveScript.DestroyedGarbage.Add(_garbageObject);
+                Destroy(_garbageObject);
+            }
+        }
+    }
 }
