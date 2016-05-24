@@ -77,15 +77,15 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
             _isDestroyed = true;
             _pickedSegment.GetComponent<Renderer>().material.color = Color.gray;
         }
-        if (_generatorHealth < 20)
+        else if (_generatorHealth < 20 && _generatorHealth > 0)
         {
             _pickedSegment.GetComponent<Renderer>().material.color = Color.red;
         }
-        else if (_generatorHealth < 50)
+        else if (_generatorHealth < 50 && _generatorHealth > 19)
         {
             _pickedSegment.GetComponent<Renderer>().material.color = Color.yellow;
         }
-        else
+        else if (_generatorHealth < 101 && _generatorHealth > 49)
         {
             _pickedSegment.GetComponent<Renderer>().material.color = Color.green;
         }
