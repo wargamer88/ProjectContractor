@@ -48,9 +48,14 @@ void AutoAim()
 
         if (Input.GetMouseButton(0))
         {
-                Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(vRay, out hit, 1000);
-            UpdateTrajectory(transform.position + new Vector3(0.18f, 10.7f, 3.2f), hit.point);
+            Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(vRay, out hit, 1000))
+            {
+                if (hit.collider.gameObject.name != "Platform")
+                {
+                    UpdateTrajectory(transform.position + new Vector3(0.18f, 10.7f, 3.2f), hit.point);
+                }
+            }
         }
         if (Input.GetMouseButtonUp(0))
                 {
@@ -74,7 +79,7 @@ void AutoAim()
                 {
                     _allowshoot = false;
                     _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                _bullet.transform.localScale = new Vector3(2, 2, 2);
+                    _bullet.transform.localScale = new Vector3(2, 2, 2);
                     _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
                     _bullet.AddComponent<Rigidbody>();
                     _bullet.GetComponent<Renderer>().material.color = Color.red;
