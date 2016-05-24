@@ -41,7 +41,7 @@ public class GarbageWaveScript : MonoBehaviour {
     private int _heavyRange = 10;
 
     [SerializeField]
-    private int _spawnAmount = 10;
+    private float _spawnAmount = 10;
 
     private bool _nextWave = false;
 
@@ -111,24 +111,20 @@ public class GarbageWaveScript : MonoBehaviour {
             
             _spawnedGarbage.Add(gameSpawnObject);
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
-            //gameSpawnObject.AddComponent<MeshCollider>();
-            //gameSpawnObject.GetComponent<MeshCollider>().convex = true;
             _canSpawn = false;
             StartCoroutine(_waitForSeconds());
         }
         else if (_spawnedGarbage.Count == _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
         {
-            Debug.Log("YEEEEEEEEEEEEEEEEEEEEES");
             _nextWave = true;
         }
-        Debug.Log(_destroyedGarbage.Count);
         if (_nextWave)
         {
-            // _respawnTime = _waveScale + _respawnTime;
+            _respawnTime = _waveScale + _respawnTime;
             _spawnedGarbage = new List<GameObject>();
             _destroyedGarbage = new List<GameObject>();
             _nextWave = false;
-            //_respawnTime = _inscreaseTime + _respawnTime;
+            _spawnAmount = _spawnAmount + _inscreaseTime;
 
         }
 
