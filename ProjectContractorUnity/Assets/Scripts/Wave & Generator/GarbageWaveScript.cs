@@ -116,13 +116,15 @@ public class GarbageWaveScript : MonoBehaviour {
             _canSpawn = false;
             StartCoroutine(_waitForSeconds());
         }
-        else if (_spawnedGarbage.Count == _destroyedGarbage.Count)
+        else if (_spawnedGarbage.Count == _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
         {
+            Debug.Log("YEEEEEEEEEEEEEEEEEEEEES");
             _nextWave = true;
         }
+        Debug.Log(_destroyedGarbage.Count);
         if (_nextWave)
         {
-             _respawnTime = _waveScale + _respawnTime;
+            // _respawnTime = _waveScale + _respawnTime;
             _spawnedGarbage = new List<GameObject>();
             _destroyedGarbage = new List<GameObject>();
             _nextWave = false;
