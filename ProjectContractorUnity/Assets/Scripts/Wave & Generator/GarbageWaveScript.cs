@@ -47,7 +47,6 @@ public class GarbageWaveScript : MonoBehaviour {
 
     private List<GameObject> _spawnedGarbage;
 
-
     private List<GameObject> _destroyedGarbage;
     public List<GameObject> DestroyedGarbage { get { return _destroyedGarbage; } set { _destroyedGarbage = value; } }
 
@@ -106,6 +105,10 @@ public class GarbageWaveScript : MonoBehaviour {
             gameSpawnObject.GetComponent<Rigidbody>().constraints = /*.FreezePositionX | RigidbodyConstraints.FreezePositionY | */RigidbodyConstraints.FreezeRotation;
             gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = health;
+            gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
+            gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
+            gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
+            
             _spawnedGarbage.Add(gameSpawnObject);
             gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
             //gameSpawnObject.AddComponent<MeshCollider>();
@@ -127,7 +130,7 @@ public class GarbageWaveScript : MonoBehaviour {
 
         }
 
-
+        #region old garbage spawning
         //if (_canSpawn)
         //{
         //    int random = Random.Range(0, 5);
@@ -190,6 +193,7 @@ public class GarbageWaveScript : MonoBehaviour {
         //    _canSpawn = false;
         //    StartCoroutine(_waitForSeconds());
         //}
+        #endregion
     }
 
     private IEnumerator _waitForSeconds()
