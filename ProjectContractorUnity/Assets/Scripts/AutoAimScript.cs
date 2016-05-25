@@ -96,8 +96,8 @@ public class AutoAimScript : MonoBehaviour
                 {
                     GetComponent<Animator>().Play("Shoot");
                     _allowshoot = false;
-                    //_bullet = GameObject.Instantiate(_chosenBall);
-                    _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    _bullet = GameObject.Instantiate(_chosenBall);
+                    //_bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                     _bullet.transform.localScale = new Vector3(2, 2, 2);
                     _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
                     _bullet.AddComponent<Rigidbody>();

@@ -29,7 +29,6 @@ public class BulletScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void OnCollisionEnter(Collision pOther)
@@ -52,4 +51,33 @@ public class BulletScript : MonoBehaviour {
         }
         Destroy(this.gameObject);
     }
+    
+
+    void OnCollionEnter(Collision pOther)
+    {
+        if (pOther.gameObject.name == "Aimplane")
+        {
+            if (_chosenBall.name == "Ball2")
+            {
+                Debug.Log(pOther.contacts[0]);
+                _ballPowerDepth(pOther.contacts[0].point);
+            }
+            else if (_chosenBall.name == "Ball3")
+            {
+                _ballPowerFire();
+            }
+        }
+    }
+
+    private void _ballPowerDepth(Vector3 pPosition)
+    {
+        _chosenBall.transform.position = pPosition;
+    }
+
+    private void _ballPowerFire()
+    {
+
+    }
+
+
 }
