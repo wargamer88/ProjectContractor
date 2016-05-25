@@ -40,7 +40,7 @@ public class AutoAimScript : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         _ballOffset = new Vector3(0, 10.19f, 1.82f);
        // GetComponent<Animator>().Stop();
-    }
+	}
 	
 	// Update is called once per frame
     void Update()
@@ -99,29 +99,29 @@ public class AutoAimScript : MonoBehaviour
                 {
                     if (_allowshoot)
                     {
-                        GetComponent<Animator>().Play("Shoot");
+                    GetComponent<Animator>().Play("Shoot");
                         _DEBUGcounter++;
                         Debug.Log("AllowShoot Count: " + _DEBUGcounter);
                         //_bullet = GameObject.Instantiate(_chosenBall);
                         _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                        _bullet.transform.localScale = new Vector3(2, 2, 2);
+                    _bullet.transform.localScale = new Vector3(2, 2, 2);
                         _bullet.transform.position = transform.position + _ballOffset;
-                        _bullet.AddComponent<Rigidbody>();
-                        _bullet.GetComponent<Renderer>().material.color = Color.red;
-                        _bullet.AddComponent<BulletScript>();
-                        _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
-                        _bullet.AddComponent<BallGoingThroughWallScript>();
+                    _bullet.AddComponent<Rigidbody>();
+                    _bullet.GetComponent<Renderer>().material.color = Color.red;
+                    _bullet.AddComponent<BulletScript>();
+                    _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
+                    _bullet.AddComponent<BallGoingThroughWallScript>();
                         if (_chosenBall != _balls[1])
                         {
-                            Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
+                    Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
                         }
-                        _bullet.tag = "Projectile";
-                        Vector3 velocity = hit.point - _bullet.transform.position;
-                        Debug.Log(velocity);
-                        transform.LookAt(hit.point);
-                        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-                        _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
-                        _bullet.GetComponent<BulletScript>().ChosenBall = _chosenBall;
+                    _bullet.tag = "Projectile";
+                    Vector3 velocity = hit.point - _bullet.transform.position;
+                    Debug.Log(velocity);
+                    transform.LookAt(hit.point);
+                    transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+                    _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
+                    _bullet.GetComponent<BulletScript>().ChosenBall = _chosenBall;
                         _allowshoot = false;
                     }
                 }
