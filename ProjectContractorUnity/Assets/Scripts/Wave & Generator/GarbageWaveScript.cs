@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public enum GarbageType
 {
+    none,
     Light,
     Medium,
     Heavy,

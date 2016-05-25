@@ -5,6 +5,9 @@ using System.Linq;
 public class PowerupsScript : MonoBehaviour {
 
     [SerializeField]
+    private GarbageType _debugGarbageTest = GarbageType.none;
+
+    [SerializeField]
     private GameObject Chompy;
     [SerializeField]
     private GameObject Sharky;
@@ -26,18 +29,36 @@ public class PowerupsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //debug
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _heavyGarbage+=2;
-        }
+        _debugPowerupTest();
+        _getGarbageParent();
 
-        //get Garbage Parent once
+        _lightPowerup();
+        _mediumPowerup();
+        _heavyPowerup();
+    }
+
+    private void _debugPowerupTest()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && _debugGarbageTest != GarbageType.none)
+        {
+            _debugGarbageTest++;
+        }
+    }
+
+    private void _getGarbageParent()
+    {
         if (_garbageParent == null)
         {
             _garbageParent = GameObject.Find("Garbage Parent");
         }
-        //chompy: Snipes anything with 3+ hp
+    }
+
+    /// <summary>
+    /// Check light powerup criteria and execute the powerup if criteria match
+    /// <para>chompy: Snipes anything with 3+ hp</para>
+    /// </summary>
+    private void _lightPowerup()
+    {
         if (_lightGarbage == 3)
         {
             Debug.Log("Chompy(light garbage) activated");
@@ -45,7 +66,7 @@ public class PowerupsScript : MonoBehaviour {
             _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
             foreach (GarbadgeDestoryScript Garbage in _garbageList)
             {
-                if(Garbage.HP >= 3)
+                if (Garbage.HP >= 3)
                 {
                     GameObject GO = (GameObject)Instantiate(Chompy, new Vector3(Garbage.transform.position.x, -100, Garbage.transform.position.z), Quaternion.identity);
                     GO.GetComponent<ChompyScript>().GarbageObject = Garbage.gameObject;
@@ -53,7 +74,14 @@ public class PowerupsScript : MonoBehaviour {
                 }
             }
         }
-        //Sharky: Wipes the most populated lane
+    }
+
+    /// <summary>
+    /// Check medium powerup criteria and execute the powerup if criteria match
+    /// <para>Sharky: Wipes the most populated lane</para>
+    /// </summary>
+    private void _mediumPowerup()
+    {
         if (_mediumGarbage == 2)
         {
             //local variables
@@ -131,7 +159,14 @@ public class PowerupsScript : MonoBehaviour {
                 }
             }
         }
-        //Whaley: Damages everything by 1 and pushes back the lane
+    }
+
+    /// <summary>
+    /// Check heavy powerup criteria and execute the powerup if criteria match
+    /// <para>Whaley: Damages everything by 1 and pushes back the lane</para>
+    /// </summary>
+    private void _heavyPowerup()
+    {
         if (_heavyGarbage == 2)
         {
             Debug.Log("Whaley(heavy garbage) activated");
@@ -146,6 +181,10 @@ public class PowerupsScript : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Only call if anything hitted this trash
+    /// <param name="pGarbageType">Put in the type of garbage with the enum</param>
+    /// </summary>
     public void HitTrash(GarbageType pGarbageType)
     {
         switch (pGarbageType)
@@ -159,11 +198,17 @@ public class PowerupsScript : MonoBehaviour {
             case GarbageType.Heavy:
                 _heavyGarbage++;
                 break;
+            case GarbageType.none:
+                //nothing happens
+                break;
             default:
                 break;
         }
     }
-    
+
+    /// <summary>
+    /// Only call if nothing is hit, it will reset the counts for the powerups
+    /// </summary>
     public void HitNothing()
     {
         _lightGarbage = 0;
