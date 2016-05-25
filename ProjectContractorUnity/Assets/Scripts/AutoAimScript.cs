@@ -9,6 +9,11 @@ public class AutoAimScript : MonoBehaviour
     [SerializeField]
     private float Speed;
 
+    [SerializeField]
+    private List<GameObject> _balls;
+
+    private GameObject _chosenBall;
+
     private GameObject _bullet;
     private PowerupsScript _powerupsScript;
 
@@ -37,6 +42,7 @@ public class AutoAimScript : MonoBehaviour
 	// Update is called once per frame
     void Update()
     {
+        _input();
         AutoAim();
         MoveCatapult();
     }
@@ -49,7 +55,7 @@ public class AutoAimScript : MonoBehaviour
         }
 	}
 
-void AutoAim()
+    void AutoAim()
     {
 
         if (Input.GetMouseButton(0))
@@ -90,8 +96,9 @@ void AutoAim()
                 {
                     GetComponent<Animator>().Play("Shoot");
                     _allowshoot = false;
+                    //_bullet = GameObject.Instantiate(_chosenBall);
                     _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                _bullet.transform.localScale = new Vector3(2, 2, 2);
+                    _bullet.transform.localScale = new Vector3(2, 2, 2);
                     _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
                     _bullet.AddComponent<Rigidbody>();
                     _bullet.GetComponent<Renderer>().material.color = Color.red;
@@ -105,6 +112,7 @@ void AutoAim()
                     transform.LookAt(hit.point);
                     transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                     _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
+                    _bullet.GetComponent<BulletScript>().ChosenBall = _chosenBall;
                 }
             } 
         }
@@ -136,6 +144,30 @@ void AutoAim()
 
             position += (velocity * 2) * timeDelta + 0.5f * Physics.gravity * timeDelta * timeDelta;
             velocity += Physics.gravity * timeDelta;
+        }
+    }
+    private void _input()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (_balls != null)
+            {
+                _chosenBall = _balls[0];
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (_balls != null)
+            {
+                _chosenBall = _balls[1];
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (_balls != null)
+            {
+                _chosenBall = _balls[2];
+            }
         }
     }
 
