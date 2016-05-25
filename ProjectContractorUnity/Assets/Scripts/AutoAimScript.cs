@@ -86,7 +86,7 @@ void AutoAim()
                     }
                     _isMoving = true;
                 }
-                else if (_allowshoot && (hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage"))
+                else if (_allowshoot && (hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage" || hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"))
                 {
                     GetComponent<Animator>().Play("Shoot");
                     _allowshoot = false;
