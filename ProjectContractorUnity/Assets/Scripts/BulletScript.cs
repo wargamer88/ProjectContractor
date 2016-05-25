@@ -11,6 +11,9 @@ public class BulletScript : MonoBehaviour {
     public List<GameObject> Walls { set { _walls = value; } }
     public PowerupsScript PowerupsScript { set { _powerupsScript = value; } }
 
+    private GameObject _chosenBall;
+    public GameObject ChosenBall { set { _chosenBall = value; } }
+
 
     //ignoring collision with the level walls
     // Use this for initialization
