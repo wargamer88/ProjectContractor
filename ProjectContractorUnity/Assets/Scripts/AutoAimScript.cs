@@ -127,11 +127,10 @@ public class AutoAimScript : MonoBehaviour
                 }
             } 
         }
-        if (!_allowshoot && _bullet == null)
+        if (!_allowshoot)
         {
             if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Finished"))
             {
-                Debug.Log("DAFUQ?");
                 _allowshoot = true;
             }
         }
