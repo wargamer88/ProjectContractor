@@ -15,10 +15,12 @@ public class AutoAimScript : MonoBehaviour
     private GameObject _chosenBall;
 
     private GameObject _bullet;
+    private Vector3 _ballOffset;
     private PowerupsScript _powerupsScript;
 
     private int _cooldown = 0;
     private bool _allowshoot = true;
+    private float _DEBUGcounter = 0;
     
     private Vector3 _moveTarget;
     private bool _isMoving = false;
@@ -36,8 +38,9 @@ public class AutoAimScript : MonoBehaviour
         _powerupsScript = FindObjectOfType<PowerupsScript>();
         _aimPlane = GameObject.Find("AimPlane");
         lineRenderer = GetComponent<LineRenderer>();
+        _ballOffset = new Vector3(0, 10.19f, 1.82f);
        // GetComponent<Animator>().Stop();
-	}
+    }
 	
 	// Update is called once per frame
     void Update()
@@ -66,8 +69,8 @@ public class AutoAimScript : MonoBehaviour
                 if (hit.collider.gameObject.name != "Platform")
                 {
                     lineRenderer.enabled = true;
-                    Vector3 velocity = hit.point - (transform.position + new Vector3(0.18f, 10.7f, 3.2f));
-                    UpdateTrajectory(transform.position + new Vector3(0.18f, 10.7f, 3.2f), velocity);
+                    Vector3 velocity = hit.point - (transform.position + _ballOffset);
+                    UpdateTrajectory(transform.position + _ballOffset, velocity);
                 }
             }
         }
@@ -92,38 +95,44 @@ public class AutoAimScript : MonoBehaviour
                     }
                     _isMoving = true;
                 }
-                else if (_allowshoot && (hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage" || hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"))
+                else if (hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage" || hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines")
                 {
-                    GetComponent<Animator>().Play("Shoot");
-                    _allowshoot = false;
-                    //_bullet = GameObject.Instantiate(_chosenBall);
-                    _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    _bullet.transform.localScale = new Vector3(2, 2, 2);
-                    _bullet.transform.position = transform.position + new Vector3(0.18f, 10.7f, 3.2f);
-                    _bullet.AddComponent<Rigidbody>();
-                    _bullet.GetComponent<Renderer>().material.color = Color.red;
-                    _bullet.AddComponent<BulletScript>();
-                    _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
-                    _bullet.AddComponent<BallGoingThroughWallScript>();
-                    Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
-                    _bullet.tag = "Projectile";
-                    Vector3 velocity = hit.point - _bullet.transform.position;
-                    Debug.Log(velocity);
-                    transform.LookAt(hit.point);
-                    transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-                    _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
-                    _bullet.GetComponent<BulletScript>().ChosenBall = _chosenBall;
+                    if (_allowshoot)
+                    {
+                        GetComponent<Animator>().Play("Shoot");
+                        _DEBUGcounter++;
+                        Debug.Log("AllowShoot Count: " + _DEBUGcounter);
+                        //_bullet = GameObject.Instantiate(_chosenBall);
+                        _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                        _bullet.transform.localScale = new Vector3(2, 2, 2);
+                        _bullet.transform.position = transform.position + _ballOffset;
+                        _bullet.AddComponent<Rigidbody>();
+                        _bullet.GetComponent<Renderer>().material.color = Color.red;
+                        _bullet.AddComponent<BulletScript>();
+                        _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
+                        _bullet.AddComponent<BallGoingThroughWallScript>();
+                        if (_chosenBall != _balls[1])
+                        {
+                            Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
+                        }
+                        _bullet.tag = "Projectile";
+                        Vector3 velocity = hit.point - _bullet.transform.position;
+                        Debug.Log(velocity);
+                        transform.LookAt(hit.point);
+                        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+                        _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
+                        _bullet.GetComponent<BulletScript>().ChosenBall = _chosenBall;
+                        _allowshoot = false;
+                    }
                 }
             } 
         }
-        if (!_allowshoot)
+        if (!_allowshoot && _bullet == null)
         {
-            _cooldown++;
-            Debug.Log("Timer: " + _cooldown);
-            if (_cooldown > (1.0f / Time.deltaTime) * 1.5f)
+            if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Finished"))
             {
+                Debug.Log("DAFUQ?");
                 _allowshoot = true;
-                _cooldown = 0;
             }
         }
     }
@@ -142,7 +151,7 @@ public class AutoAimScript : MonoBehaviour
         {
             lineRenderer.SetPosition(i, position);
 
-            position += (velocity * 2) * timeDelta + 0.5f * Physics.gravity * timeDelta * timeDelta;
+            position += (velocity * 2.5f) * timeDelta + 0.5f * Physics.gravity * timeDelta * timeDelta;
             velocity += Physics.gravity * timeDelta;
         }
     }
