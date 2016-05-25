@@ -102,8 +102,8 @@ public class AutoAimScript : MonoBehaviour
                     GetComponent<Animator>().Play("Shoot");
                         _DEBUGcounter++;
                         Debug.Log("AllowShoot Count: " + _DEBUGcounter);
-                        //_bullet = GameObject.Instantiate(_chosenBall);
-                        _bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                        _bullet = GameObject.Instantiate(_chosenBall);
+                        //_bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                     _bullet.transform.localScale = new Vector3(2, 2, 2);
                         _bullet.transform.position = transform.position + _ballOffset;
                     _bullet.AddComponent<Rigidbody>();
@@ -121,7 +121,7 @@ public class AutoAimScript : MonoBehaviour
                     transform.LookAt(hit.point);
                     transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                     _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
-                    _bullet.GetComponent<BulletScript>().ChosenBall = _chosenBall;
+                    _bullet.GetComponent<BulletScript>().ChosenBall = _bullet;
                         _allowshoot = false;
                     }
                 }

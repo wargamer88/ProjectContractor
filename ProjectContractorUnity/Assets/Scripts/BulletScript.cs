@@ -37,6 +37,18 @@ public class BulletScript : MonoBehaviour {
         {
             DestroyBullet(false);
         }
+        if (pOther.gameObject.name == "AimPlane")
+        {
+            if (_chosenBall.name == "Ball2(Clone)")
+            {
+                Debug.Log("Contact point: " +pOther.contacts[0]);
+                _ballPowerDepth(pOther.contacts[0].point);
+            }
+            else if (_chosenBall.name == "Ball3(Clone)")
+            {
+                _ballPowerFire();
+            }
+        }
     }
 
     public void DestroyBullet(bool pHitTrash, GarbageType pGarbageType = GarbageType.Light)
@@ -51,27 +63,12 @@ public class BulletScript : MonoBehaviour {
         }
         Destroy(this.gameObject);
     }
-    
-
-    void OnCollionEnter(Collision pOther)
-    {
-        if (pOther.gameObject.name == "Aimplane")
-        {
-            if (_chosenBall.name == "Ball2")
-            {
-                Debug.Log(pOther.contacts[0]);
-                _ballPowerDepth(pOther.contacts[0].point);
-            }
-            else if (_chosenBall.name == "Ball3")
-            {
-                _ballPowerFire();
-            }
-        }
-    }
 
     private void _ballPowerDepth(Vector3 pPosition)
     {
         _chosenBall.transform.position = pPosition;
+        _chosenBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        _chosenBall.GetComponent<Rigidbody>().useGravity = false;
     }
 
     private void _ballPowerFire()
