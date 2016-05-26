@@ -15,6 +15,10 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
     [SerializeField]
     private float _repairTime = 10;
+    [SerializeField]
+    private float _repairForEachTime = 1;
+
+    private float _oldRepairForEachTimer = 0;
 
     [SerializeField]
     private float _basichit = 1;
@@ -23,7 +27,8 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
     [SerializeField]
     private float _heavyhit = 3;
 
-    private bool _startRepairTimer = false;
+    private bool _isStartRepairTimer = false;
+    private float _startRepairTimer;
 
     private float _generatorHealth = 100;
 
@@ -92,9 +97,21 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
         if (_generatorHealth >= 100)
         {
             _generatorHealth = 100;
-            _startRepairTimer = false;
+            _isStartRepairTimer = false;
         }
 
+        if (_isStartRepairTimer && !_isDestroyed)
+        {
+            if (Time.time > (_startRepairTimer + _repairTime))
+            {
+                if (Time.time > (_oldRepairForEachTimer + _repairForEachTime))
+                {
+                    Debug.Log("REPAIRS WORK");
+                    _oldRepairForEachTimer = Time.time;
+                    this._generatorHealth++;
+                }
+            }
+        }
 
 
 	}
@@ -123,13 +140,14 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
                 _generatorHealth = _generatorHealth - _heavyhit;
             }
-            _startRepairTimer = false;
+            _isStartRepairTimer = false;
         }
     }
     void OnCollisionExit(Collision pOther)
     {
         _generatorPowerScript.Amount = _generatorPowerScript.Amount - 1;
         _hitGenerator = false;
-        _startRepairTimer = true;
+        _isStartRepairTimer = true;
+        _startRepairTimer = Time.time;
     }
 }
