@@ -234,6 +234,8 @@ public class AutoAimScript : MonoBehaviour
         _bullet.transform.localScale = new Vector3(2, 2, 2);
         _bullet.transform.position = transform.position + _ballOffset;
         _bullet.AddComponent<Rigidbody>();
+        _bullet.GetComponent<Rigidbody>().mass = 0.01f;
+        //_bullet.GetComponent<Rigidbody>().useGravity = false;
         _bullet.GetComponent<Renderer>().material.color = Color.red;
         _bullet.AddComponent<BulletScript>();
         _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
@@ -247,7 +249,7 @@ public class AutoAimScript : MonoBehaviour
         Debug.Log(velocity);
         transform.LookAt(hit.point);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
+        _bullet.GetComponent<Rigidbody>().AddForce(velocity);
         _bullet.GetComponent<BulletScript>().ChosenBall = _bullet;
     }
 
