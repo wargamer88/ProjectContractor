@@ -96,9 +96,9 @@ public class AutoAimScript : MonoBehaviour
             {
                 if (hit.collider.gameObject.name != "Platform")
                 {
-                    lineRenderer.enabled = true;
+                    //lineRenderer.enabled = true;
                     Vector3 velocity = hit.point - (transform.position + _ballOffset);
-                    UpdateTrajectory(transform.position + _ballOffset, velocity);
+                    //UpdateTrajectory(transform.position + _ballOffset, velocity);
                 }
             }
         }
@@ -106,7 +106,7 @@ public class AutoAimScript : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                lineRenderer.enabled = false;
+                //lineRenderer.enabled = false;
                 if (hit.collider.gameObject.name == "Platform")
                 {
                     if (hit.point.x < -27f)
@@ -165,24 +165,25 @@ public class AutoAimScript : MonoBehaviour
         }
     }
 
-    void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity)
-    {
-        int numSteps = 20; // for example
-        float timeDelta = 1.0f / initialVelocity.magnitude; // for example
+    //void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity)
+    //{
+    //    int numSteps = 20; // for example
+    //    float timeDelta = 1.0f / initialVelocity.magnitude; // for example
 
-        LineRenderer lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.SetVertexCount(numSteps);
+    //    LineRenderer lineRenderer = GetComponent<LineRenderer>();
+    //    lineRenderer.SetVertexCount(numSteps);
             
-        Vector3 position = initialPosition;
-        Vector3 velocity = initialVelocity;
-        for (int i = 0; i < numSteps; ++i)
-        {
-            lineRenderer.SetPosition(i, position);
+    //    Vector3 position = initialPosition;
+    //    Vector3 velocity = initialVelocity;
+    //    for (int i = 0; i < numSteps; ++i)
+    //    {
+    //        lineRenderer.SetPosition(i, position);
 
-            position += (velocity * _reticleOffset) * timeDelta + 0.5f * Physics.gravity * timeDelta * timeDelta;
-            velocity += Physics.gravity * timeDelta;
-        }
-    }
+    //        position += (velocity) * timeDelta + 0.5f * Physics.gravity * timeDelta * timeDelta;
+    //        velocity += Physics.gravity * timeDelta;
+    //    }
+    //}
+
     private void _input()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
