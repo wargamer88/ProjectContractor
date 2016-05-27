@@ -47,7 +47,7 @@ public class BulletScript : MonoBehaviour {
             }
             else if (_chosenBall.name == "Ball3(Clone)")
             {
-                _ballPowerFire();
+                _ballPowerFire(pOther.contacts[0].point);
             }
         }
     }
@@ -77,9 +77,15 @@ public class BulletScript : MonoBehaviour {
         }
     }
 
-    private void _ballPowerFire()
+    private void _ballPowerFire(Vector3 pPosition)
     {
+        if (_doesExist == false)
+        {
+            _chosenBall.transform.position = new Vector3(pPosition.x, pPosition.y + 0.5f, pPosition.z);
+            _chosenBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            _chosenBall.GetComponent<Rigidbody>().useGravity = false;
 
+        }
     }
 
 
