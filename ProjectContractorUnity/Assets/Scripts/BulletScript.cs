@@ -14,6 +14,7 @@ public class BulletScript : MonoBehaviour {
     private GameObject _chosenBall;
     public GameObject ChosenBall { set { _chosenBall = value; } }
 
+    private bool _doesExist = false;
 
     //ignoring collision with the level walls
     // Use this for initialization
@@ -29,6 +30,7 @@ public class BulletScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+       
     }
 
     void OnCollisionEnter(Collision pOther)
@@ -41,12 +43,11 @@ public class BulletScript : MonoBehaviour {
         {
             if (_chosenBall.name == "Ball2(Clone)")
             {
-                Debug.Log("Contact point: " +pOther.contacts[0]);
                 _ballPowerDepth(pOther.contacts[0].point);
             }
             else if (_chosenBall.name == "Ball3(Clone)")
             {
-                _ballPowerFire();
+                _ballPowerFire(pOther.contacts[0].point);
             }
         }
     }
@@ -66,14 +67,25 @@ public class BulletScript : MonoBehaviour {
 
     private void _ballPowerDepth(Vector3 pPosition)
     {
-        _chosenBall.transform.position = pPosition;
-        _chosenBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        _chosenBall.GetComponent<Rigidbody>().useGravity = false;
+        if (_doesExist == false)
+        {
+            _chosenBall.transform.position = new Vector3(pPosition.x, pPosition.y + 0.5f, pPosition.z);
+            _chosenBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            _chosenBall.GetComponent<Rigidbody>().useGravity = false;
+            //_autoAimScript.IsDepthCooldown = true;
+            _doesExist = true;
+        }
     }
 
-    private void _ballPowerFire()
+    private void _ballPowerFire(Vector3 pPosition)
     {
+        if (_doesExist == false)
+        {
+            _chosenBall.transform.position = new Vector3(pPosition.x, pPosition.y + 0.5f, pPosition.z);
+            _chosenBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            _chosenBall.GetComponent<Rigidbody>().useGravity = false;
 
+        }
     }
 
 
