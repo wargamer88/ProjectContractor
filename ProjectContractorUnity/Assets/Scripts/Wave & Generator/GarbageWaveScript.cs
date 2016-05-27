@@ -59,6 +59,8 @@ public class GarbageWaveScript : MonoBehaviour
 
     private int _waveNumber = 1;
 
+
+
     // Use this for initialization
     void Start()
     {
