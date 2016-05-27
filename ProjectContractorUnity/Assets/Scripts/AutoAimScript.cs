@@ -10,6 +10,9 @@ public class AutoAimScript : MonoBehaviour
     private float Speed;
 
     [SerializeField]
+    private float _reticleOffset;
+
+    [SerializeField]
     private List<GameObject> _balls;
 
     private GameObject _chosenBall;
@@ -89,7 +92,7 @@ public class AutoAimScript : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
                 Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(vRay, out hit, 1000))
+            if (Physics.Raycast(vRay, out hit, 10000))
             {
                 if (hit.collider.gameObject.name != "Platform")
                 {
@@ -176,7 +179,7 @@ public class AutoAimScript : MonoBehaviour
         {
             lineRenderer.SetPosition(i, position);
 
-            position += (velocity * 2.5f) * timeDelta + 0.5f * Physics.gravity * timeDelta * timeDelta;
+            position += (velocity * _reticleOffset) * timeDelta + 0.5f * Physics.gravity * timeDelta * timeDelta;
             velocity += Physics.gravity * timeDelta;
         }
     }

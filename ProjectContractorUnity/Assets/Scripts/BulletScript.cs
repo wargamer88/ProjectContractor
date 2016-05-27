@@ -43,6 +43,7 @@ public class BulletScript : MonoBehaviour {
         {
             if (_chosenBall.name == "Ball2(Clone)")
             {
+                Debug.Log("Depth Hit Plane");
                 _ballPowerDepth(pOther.contacts[0].point);
             }
             else if (_chosenBall.name == "Ball3(Clone)")
