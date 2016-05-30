@@ -24,12 +24,13 @@ public class AutoAimScript : MonoBehaviour
     private int _cooldown = 0;
     private bool _allowshoot = true;
     private float _DEBUGcounter = 0;
-    
+
     private Vector3 _moveTarget;
     private bool _isMoving = false;
     private Vector3 _currentPos;
 
     private GameObject _aimPlane;
+    private GameObject _depthMinePlane;
     LineRenderer lineRenderer;
     private RaycastHit hit;
 
@@ -64,12 +65,13 @@ public class AutoAimScript : MonoBehaviour
     {
         _powerupsScript = FindObjectOfType<PowerupsScript>();
         _aimPlane = GameObject.Find("AimPlane");
+        _depthMinePlane = GameObject.Find("DepthMinePlane");
         lineRenderer = GetComponent<LineRenderer>();
         _ballOffset = new Vector3(0, 10.19f, 1.82f);
-       // GetComponent<Animator>().Stop();
-	}
-	
-	// Update is called once per frame
+        // GetComponent<Animator>().Stop();
+    }
+
+    // Update is called once per frame
     void Update()
     {
         _input();
@@ -84,7 +86,7 @@ public class AutoAimScript : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(_moveTarget.x, transform.position.y, transform.position.z), 0.5f);
         }
-	}
+    }
 
     void AutoAim()
     {
@@ -92,7 +94,7 @@ public class AutoAimScript : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(vRay, out hit, 10000);
+            Physics.Raycast(vRay, out hit, 100);
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -133,7 +135,7 @@ public class AutoAimScript : MonoBehaviour
                         _createBallAndShootingAnimation();
                     }
                 }
-            } 
+            }
         }
 
         if (!_allowshoot)
@@ -200,7 +202,7 @@ public class AutoAimScript : MonoBehaviour
     }
     private void _createBallAndShootingAnimation()
     {
-        
+
         GetComponent<Animator>().Play("Shoot");
         _bullet = GameObject.Instantiate(_chosenBall);
         _newShotTimer = Time.time;
@@ -213,14 +215,18 @@ public class AutoAimScript : MonoBehaviour
         _bullet.GetComponent<Renderer>().material.color = Color.red;
         _bullet.AddComponent<BulletScript>();
         _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
-        _bullet.AddComponent<BallGoingThroughWallScript>();
         Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
         if (_chosenBall == _balls[0])
         {
+            Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _depthMinePlane.GetComponent<BoxCollider>());
             _bullet.tag = "Projectile";
         }
+        else if (_chosenBall == _balls[1])
+        {
+            _bullet.tag = "SpecialWeapon";
+            _bullet.GetComponent<SphereCollider>().radius = 2;
+        }
         Vector3 velocity = hit.point - _bullet.transform.position;
-        Debug.Log(velocity);
         transform.LookAt(hit.point);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         _bullet.GetComponent<Rigidbody>().AddForce(velocity);

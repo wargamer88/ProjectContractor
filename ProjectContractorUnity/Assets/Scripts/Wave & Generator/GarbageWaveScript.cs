@@ -98,7 +98,7 @@ public class GarbageWaveScript : MonoBehaviour
             // complex algorithm beneath to upgrade wave
 
 
-            this.GetComponent<WaveCanvasScript>().ChangeWaveNumber(_waveNumber);
+            this.GetComponent<WaveCanvasScript>().ChangeWaveNumber(_waveNumber); 
 
             _spawnedGarbage = new List<GameObject>();
             _destroyedGarbage = new List<GameObject>();

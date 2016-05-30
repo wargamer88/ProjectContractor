@@ -20,10 +20,13 @@ public class BulletScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
-        foreach (GameObject wall in _walls)
+        if (_chosenBall.name != "Ball2(Clone)")
         {
-            Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), wall.GetComponent<MeshCollider>());
+            _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
+            foreach (GameObject wall in _walls)
+            {
+                Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), wall.GetComponent<MeshCollider>());
+            } 
         }
     }
 
@@ -35,25 +38,16 @@ public class BulletScript : MonoBehaviour {
 
     void OnCollisionEnter(Collision pOther)
     {
-        if (pOther.gameObject.GetComponent<FloorScript>())
-        {
-            DestroyBullet(false);
-        }
         if (pOther.gameObject.name == "Floor")
         {
-            if (_chosenBall.name == "Ball2(Clone)")
-            {
-                Debug.Log("Depth Hit Plane");
-                _ballPowerDepth(pOther.contacts[0].point);
-            }
-            else if (_chosenBall.name == "Ball3(Clone)")
+            if (_chosenBall.name == "Ball3(Clone)")
             {
                 _ballPowerFire(pOther.contacts[0].point);
             }
         }
     }
 
-    public void DestroyBullet(bool pHitTrash, GarbageType pGarbageType = GarbageType.Light)
+    public void DestroyBullet(bool pHitTrash, GarbageType pGarbageType)
     {
         if (pHitTrash)
         {
@@ -66,11 +60,11 @@ public class BulletScript : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
-    private void _ballPowerDepth(Vector3 pPosition)
+    public void BallPowerDepth(Vector3 pPosition)
     {
         if (_doesExist == false)
         {
-            _chosenBall.transform.position = new Vector3(pPosition.x, pPosition.y + 0.5f, pPosition.z);
+            _chosenBall.transform.position = new Vector3(pPosition.x, pPosition.y, pPosition.z);
             _chosenBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             _chosenBall.GetComponent<Rigidbody>().useGravity = false;
             //_autoAimScript.IsDepthCooldown = true;
@@ -85,9 +79,6 @@ public class BulletScript : MonoBehaviour {
             _chosenBall.transform.position = new Vector3(pPosition.x, pPosition.y + 0.5f, pPosition.z);
             _chosenBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             _chosenBall.GetComponent<Rigidbody>().useGravity = false;
-
         }
     }
-
-
 }
