@@ -41,7 +41,18 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         {
             _hp--;
             Destroy(pOther.gameObject);
-            if (_hp == 0)
+            if (_hp <= 0)
+            {
+                pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true);
+                _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                Destroy(this.gameObject);
+            }
+        }
+        else if (pOther.transform.tag == "SpecialWeapon")
+        {
+            _hp = _hp - 3;
+            Destroy(pOther.gameObject);
+            if (_hp <= 0)
             {
                 pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true);
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);

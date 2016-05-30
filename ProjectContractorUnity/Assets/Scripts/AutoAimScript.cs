@@ -30,6 +30,7 @@ public class AutoAimScript : MonoBehaviour
     private Vector3 _currentPos;
 
     private GameObject _aimPlane;
+    private GameObject _depthMinePlane;
     LineRenderer lineRenderer;
     private RaycastHit hit;
 
@@ -64,6 +65,7 @@ public class AutoAimScript : MonoBehaviour
     {
         _powerupsScript = FindObjectOfType<PowerupsScript>();
         _aimPlane = GameObject.Find("AimPlane");
+        _depthMinePlane = GameObject.Find("DepthMinePlane");
         lineRenderer = GetComponent<LineRenderer>();
         _ballOffset = new Vector3(0, 10.19f, 1.82f);
        // GetComponent<Animator>().Stop();
@@ -217,7 +219,13 @@ public class AutoAimScript : MonoBehaviour
         Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
         if (_chosenBall == _balls[0])
         {
+            Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _depthMinePlane.GetComponent<BoxCollider>());
             _bullet.tag = "Projectile";
+        }
+        else if (_chosenBall == _balls[1])
+        {
+            _bullet.tag = "SpecialWeapon";
+            _bullet.GetComponent<SphereCollider>().radius = 2;
         }
         Vector3 velocity = hit.point - _bullet.transform.position;
         Debug.Log(velocity);

@@ -40,7 +40,14 @@ public class ChompyScript : MonoBehaviour {
         }
         else
         {
-            Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<BoxCollider>());
+            if (pOther.gameObject.tag != "SpecialWeapon" || pOther.gameObject.tag != "Projectile")
+            {
+                Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<BoxCollider>()); 
+            }
+            else
+            {
+                Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<SphereCollider>());
+            }
         }
     }
 }
