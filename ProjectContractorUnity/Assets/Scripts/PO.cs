@@ -15,10 +15,16 @@ public class PO : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "SpecialWeapon")
+        if (other.gameObject.tag == "SpecialWeapon")
         {
-            other.gameObject.GetComponent<BulletScript>().BallPowerDepth(other.gameObject.transform.position);
+            if (this.gameObject.tag != "LineWall")
+            {
+                other.gameObject.GetComponent<BulletScript>().BallPowerDepth(other.gameObject.transform.position);
+            }
+            else
+            {
+                    Destroy(other.gameObject);
+            }
         }
     }
-
 }

@@ -20,10 +20,13 @@ public class BulletScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
-        foreach (GameObject wall in _walls)
+        if (_chosenBall.name != "Ball2(Clone)")
         {
-            Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), wall.GetComponent<MeshCollider>());
+            _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
+            foreach (GameObject wall in _walls)
+            {
+                Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), wall.GetComponent<MeshCollider>());
+            } 
         }
     }
 

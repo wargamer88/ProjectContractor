@@ -94,7 +94,7 @@ public class AutoAimScript : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(vRay, out hit, 10000);
+            Physics.Raycast(vRay, out hit, 100);
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -215,7 +215,6 @@ public class AutoAimScript : MonoBehaviour
         _bullet.GetComponent<Renderer>().material.color = Color.red;
         _bullet.AddComponent<BulletScript>();
         _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
-        _bullet.AddComponent<BallGoingThroughWallScript>();
         Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
         if (_chosenBall == _balls[0])
         {
@@ -228,7 +227,6 @@ public class AutoAimScript : MonoBehaviour
             _bullet.GetComponent<SphereCollider>().radius = 2;
         }
         Vector3 velocity = hit.point - _bullet.transform.position;
-        Debug.Log(velocity);
         transform.LookAt(hit.point);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         _bullet.GetComponent<Rigidbody>().AddForce(velocity);
