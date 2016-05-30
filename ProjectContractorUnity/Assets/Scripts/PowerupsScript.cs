@@ -76,7 +76,7 @@ public class PowerupsScript : MonoBehaviour {
     {
         if (_lightGarbage == 3)
         {
-            Debug.Log("Chompy(light garbage) activated");
+            //Debug.Log("Chompy(light garbage) activated");
             _lightGarbage = 0;
             _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
             foreach (GarbadgeDestoryScript Garbage in _garbageList)
@@ -100,7 +100,7 @@ public class PowerupsScript : MonoBehaviour {
         if (_mediumGarbage == 2)
         {
             //local variables
-            Debug.Log("Sharky(medium garbage) activated");
+            //Debug.Log("Sharky(medium garbage) activated");
             _mediumGarbage = 0;
             _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
             int lane0 = 0;
@@ -184,7 +184,7 @@ public class PowerupsScript : MonoBehaviour {
     {
         if (_heavyGarbage == 2)
         {
-            Debug.Log("Whaley(heavy garbage) activated");
+            //Debug.Log("Whaley(heavy garbage) activated");
             _heavyGarbage = 0;
             _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
             foreach (GarbadgeDestoryScript Garbage in _garbageList)
@@ -206,12 +206,15 @@ public class PowerupsScript : MonoBehaviour {
         {
             case GarbageType.Light:
                 _lightGarbage++;
+                //Debug.Log("Light Garbage hit, Light garbage count: " + _lightGarbage);
                 break;
             case GarbageType.Medium:
                 _mediumGarbage++;
+                //Debug.Log("Medium Garbage hit, Medium garbage count: " + _mediumGarbage);
                 break;
             case GarbageType.Heavy:
                 _heavyGarbage++;
+                //Debug.Log("Heavy Garbage hit, Heavy garbage count: " + _heavyGarbage);
                 break;
             case GarbageType.none:
                 //nothing happens
@@ -226,6 +229,7 @@ public class PowerupsScript : MonoBehaviour {
     /// </summary>
     public void HitNothing()
     {
+        //Debug.Log("Hit Nothing, Counters Reset");
         _lightGarbage = 0;
         _mediumGarbage = 0;
         _heavyGarbage = 0;

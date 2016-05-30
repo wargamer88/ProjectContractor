@@ -108,7 +108,7 @@ public class AutoAimScript : MonoBehaviour
                     Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
                     _bullet.tag = "Projectile";
                     Vector3 velocity = hit.point - _bullet.transform.position;
-                    Debug.Log(velocity);
+                    //Debug.Log(velocity);
                     transform.LookAt(hit.point);
                     transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                     _bullet.GetComponent<Rigidbody>().AddForce(velocity, ForceMode.VelocityChange);
@@ -119,7 +119,7 @@ public class AutoAimScript : MonoBehaviour
         if (!_allowshoot)
         {
             _cooldown++;
-            Debug.Log("Timer: " + _cooldown);
+            //Debug.Log("Timer: " + _cooldown);
             if (_cooldown > (1.0f / Time.deltaTime) * 1.5f)
             {
                 _allowshoot = true;
