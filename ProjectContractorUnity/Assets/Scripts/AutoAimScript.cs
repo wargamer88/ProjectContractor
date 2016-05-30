@@ -91,16 +91,8 @@ public class AutoAimScript : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-                Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(vRay, out hit, 10000))
-            {
-                if (hit.collider.gameObject.name != "Platform")
-                {
-                    //lineRenderer.enabled = true;
-                    Vector3 velocity = hit.point - (transform.position + _ballOffset);
-                    //UpdateTrajectory(transform.position + _ballOffset, velocity);
-                }
-            }
+            Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Physics.Raycast(vRay, out hit, 10000);
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -165,25 +157,6 @@ public class AutoAimScript : MonoBehaviour
         }
     }
 
-    //void UpdateTrajectory(Vector3 initialPosition, Vector3 initialVelocity)
-    //{
-    //    int numSteps = 20; // for example
-    //    float timeDelta = 1.0f / initialVelocity.magnitude; // for example
-
-    //    LineRenderer lineRenderer = GetComponent<LineRenderer>();
-    //    lineRenderer.SetVertexCount(numSteps);
-            
-    //    Vector3 position = initialPosition;
-    //    Vector3 velocity = initialVelocity;
-    //    for (int i = 0; i < numSteps; ++i)
-    //    {
-    //        lineRenderer.SetPosition(i, position);
-
-    //        position += (velocity) * timeDelta + 0.5f * Physics.gravity * timeDelta * timeDelta;
-    //        velocity += Physics.gravity * timeDelta;
-    //    }
-    //}
-
     private void _input()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -241,11 +214,11 @@ public class AutoAimScript : MonoBehaviour
         _bullet.AddComponent<BulletScript>();
         _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
         _bullet.AddComponent<BallGoingThroughWallScript>();
-        if (_chosenBall != _balls[1])
+        Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
+        if (_chosenBall == _balls[0])
         {
-            Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
+            _bullet.tag = "Projectile";
         }
-        _bullet.tag = "Projectile";
         Vector3 velocity = hit.point - _bullet.transform.position;
         Debug.Log(velocity);
         transform.LookAt(hit.point);

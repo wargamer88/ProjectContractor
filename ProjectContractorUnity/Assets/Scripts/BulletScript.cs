@@ -39,7 +39,7 @@ public class BulletScript : MonoBehaviour {
         {
             DestroyBullet(false);
         }
-        if (pOther.gameObject.name == "AimPlane")
+        if (pOther.gameObject.name == "Floor")
         {
             if (_chosenBall.name == "Ball2(Clone)")
             {
