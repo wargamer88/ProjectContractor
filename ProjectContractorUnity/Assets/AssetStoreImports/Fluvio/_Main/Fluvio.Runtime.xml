@@ -1212,7 +1212,8 @@
             Provides various static logging methods.
             </summary>
     </member>
-    <member name="M:Thinksquirrel.Fluvio.FluvioDebug.Log(System.Object,System.Object)">
+    <member name="M:Thinksquirrel.Fluvio.Fluvio
+            (System.Object,System.Object)">
       <summary>
             Logs a prefixed message (wrapped in conditional compilation flags).
             </summary>

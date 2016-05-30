@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - LineWall
   - Garbage
+  - SpecialWeapon
   layers:
   - Default
   - TransparentFX

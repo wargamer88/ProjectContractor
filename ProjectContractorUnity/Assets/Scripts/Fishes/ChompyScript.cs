@@ -21,6 +21,7 @@ public class ChompyScript : MonoBehaviour {
         {
             Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), wall.GetComponent<MeshCollider>());
         }
+        this.transform.rotation = new Quaternion(0, -1, 0, 1);
     }
 	
 	// Update is called once per frame
@@ -36,6 +37,17 @@ public class ChompyScript : MonoBehaviour {
             Destroy(this.gameObject);
             _garbageWaveScript.DestroyedGarbage.Add(_garbageObject);
             Destroy(_garbageObject);
+        }
+        else
+        {
+            if (pOther.gameObject.tag != "SpecialWeapon" || pOther.gameObject.tag != "Projectile")
+            {
+                Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<BoxCollider>()); 
+            }
+            else
+            {
+                Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<SphereCollider>());
+            }
         }
     }
 }

@@ -18,11 +18,11 @@ public class GarbageWaveScript : MonoBehaviour
     private GameObject _aimPlane;
 
     [SerializeField]
-    private float _respawnTime = 1;
+    private float _timeToRespawnObjects = 1;
     [SerializeField]
-    private float _inscreaseTime = 1;
+    private float _timeToRespawnIncreaseForEachWave = 1;
     [SerializeField]
-    private float _waveScale = 1;
+    private float _increaseAmountOfObjectForEachWave = 1;
 
     [SerializeField]
     private List<GameObject> _lightGarbage;
@@ -56,6 +56,10 @@ public class GarbageWaveScript : MonoBehaviour
     private GameObject _chosenGarbage;
     private GarbageType _garbageType;
     private GameObject _garbageParent;
+
+    private int _waveNumber = 1;
+
+
 
     // Use this for initialization
     void Start()
@@ -120,15 +124,19 @@ public class GarbageWaveScript : MonoBehaviour
         }
         else if (_spawnedGarbage.Count == _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
         {
+            _waveNumber++;
             _nextWave = true;
         }
         if (_nextWave)
         {
-            _respawnTime = _waveScale + _respawnTime;
+            _timeToRespawnObjects = _timeToRespawnObjects - _timeToRespawnIncreaseForEachWave;
+            _spawnAmount = _spawnAmount + _increaseAmountOfObjectForEachWave;
+            // complex algorithm beneath to upgrade wave
+            this.GetComponent<WaveCanvasScript>().ChangeWaveNumber(_waveNumber); 
+
             _spawnedGarbage = new List<GameObject>();
             _destroyedGarbage = new List<GameObject>();
             _nextWave = false;
-            _spawnAmount = _spawnAmount + _inscreaseTime;
 
         }
 
@@ -200,7 +208,7 @@ public class GarbageWaveScript : MonoBehaviour
 
     private IEnumerator _waitForSeconds()
     {
-        yield return new WaitForSeconds(_respawnTime);
+        yield return new WaitForSeconds(_timeToRespawnObjects);
         _canSpawn = true;
     }
 }
