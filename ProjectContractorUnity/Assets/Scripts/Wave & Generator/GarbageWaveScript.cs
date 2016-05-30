@@ -30,10 +30,13 @@ public class GarbageWaveScript : MonoBehaviour
     private List<GameObject> _mediumGarbage;
     [SerializeField]
     private List<GameObject> _heavyGarbage;
+    [SerializeField]
+    private List<GameObject> _specialGarbage;
 
     public List<GameObject> LightGarbage { get { return _lightGarbage; } }
     public List<GameObject> MediumGarbage { get { return _mediumGarbage; } }
     public List<GameObject> HeavyGarbage { get { return _heavyGarbage; } }
+    public List<GameObject> SpecialGarbage { get { return _specialGarbage; } }
 
     [SerializeField]
     private int _LightRange = 5;
@@ -59,7 +62,10 @@ public class GarbageWaveScript : MonoBehaviour
 
     private int _waveNumber = 1;
 
+    [SerializeField]
+    private float _spawnGarbageIndependantFromWavesTimer = 10;
 
+    private float _oldTimer;
 
     // Use this for initialization
     void Start()
@@ -74,53 +80,11 @@ public class GarbageWaveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float health = 0;
-        int randomNumber = Random.Range(0, _heavyRange);
-        if (randomNumber < _LightRange)
-        {
-            _chosenGarbage = _lightGarbage[Random.Range(0, _lightGarbage.Count)];
-            _garbageType = GarbageType.Light;
-            health = 1;
-        }
-        else if (randomNumber < _mediumRange)
-        {
-            _chosenGarbage = _mediumGarbage[Random.Range(0, _mediumGarbage.Count)];
-            _garbageType = GarbageType.Medium;
-            health = 2;
-        }
-        else
-        {
-            _chosenGarbage = _heavyGarbage[Random.Range(0, _heavyGarbage.Count)];
-            _garbageType = GarbageType.Heavy;
-            health = 3;
-        }
+        float health =_chooseGarbage();
+
         if (_canSpawn && _spawnedGarbage.Count < _spawnAmount)
         {
-            GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
-            gameSpawnObject.transform.parent = _garbageParent.transform;
-            int randomSpawn = Random.Range(0, 5);
-            gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, 95);
-            Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
-            gameSpawnObject.tag = "Garbage";
-            gameSpawnObject.AddComponent<GarbageMoveScript>();
-            gameSpawnObject.AddComponent<Rigidbody>();
-            gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
-            gameSpawnObject.GetComponent<Rigidbody>().mass = 1000;
-            //float randomRotationX = Random.Range(0, 360);
-            //float randomRotationY = Random.Range(0, 360);
-            //float randomRotationZ = Random.Range(0, 360);
-            //gameSpawnObject.transform.rotation = new Quaternion(0,0,0,0);
-            gameSpawnObject.GetComponent<Rigidbody>().constraints = /*.FreezePositionX | RigidbodyConstraints.FreezePositionY | */RigidbodyConstraints.FreezeRotation;
-            gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
-            gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = health;
-            gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
-            gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
-            gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
-
-            _spawnedGarbage.Add(gameSpawnObject);
-            gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
-            _canSpawn = false;
-            StartCoroutine(_waitForSeconds());
+            _spawnGarbage(health);
         }
         else if (_spawnedGarbage.Count == _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
         {
@@ -132,13 +96,16 @@ public class GarbageWaveScript : MonoBehaviour
             _timeToRespawnObjects = _timeToRespawnObjects - _timeToRespawnIncreaseForEachWave;
             _spawnAmount = _spawnAmount + _increaseAmountOfObjectForEachWave;
             // complex algorithm beneath to upgrade wave
-            this.GetComponent<WaveCanvasScript>().ChangeWaveNumber(_waveNumber); 
+
+
+            this.GetComponent<WaveCanvasScript>().ChangeWaveNumber(_waveNumber);
 
             _spawnedGarbage = new List<GameObject>();
             _destroyedGarbage = new List<GameObject>();
             _nextWave = false;
 
         }
+        _spawnGarbageAnyTime(health);
 
         #region old garbage spawning
         //if (_canSpawn)
@@ -210,5 +177,84 @@ public class GarbageWaveScript : MonoBehaviour
     {
         yield return new WaitForSeconds(_timeToRespawnObjects);
         _canSpawn = true;
+    }
+
+    private float _chooseGarbage()
+    {
+        float health = 0;
+        int randomNumber = Random.Range(0, _heavyRange);
+        if (randomNumber < _LightRange)
+        {
+            _chosenGarbage = _lightGarbage[Random.Range(0, _lightGarbage.Count)];
+            _garbageType = GarbageType.Light;
+            health = 1;
+        }
+        else if (randomNumber < _mediumRange)
+        {
+            _chosenGarbage = _mediumGarbage[Random.Range(0, _mediumGarbage.Count)];
+            _garbageType = GarbageType.Medium;
+            health = 2;
+        }
+        else
+        {
+            _chosenGarbage = _heavyGarbage[Random.Range(0, _heavyGarbage.Count)];
+            _garbageType = GarbageType.Heavy;
+            health = 3;
+        }
+        return health;
+    }
+
+    private void _spawnGarbage(float pHealth, float pX = 0 , float pY = 1, float pZ = 95)
+    {
+        GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
+        gameSpawnObject.transform.parent = _garbageParent.transform;
+        int randomSpawn = 0;
+        bool addSpawnGarbage;
+        if (pZ != 95)
+        {
+            randomSpawn = (int)pX;
+            gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
+            addSpawnGarbage = false;
+        }
+        else
+        {
+            randomSpawn = Random.Range(0, 5);
+            gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
+            addSpawnGarbage = true;
+        }
+        Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
+        gameSpawnObject.tag = "Garbage";
+        gameSpawnObject.AddComponent<GarbageMoveScript>();
+        gameSpawnObject.AddComponent<Rigidbody>();
+        gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
+        gameSpawnObject.GetComponent<Rigidbody>().mass = 1000;
+        //float randomRotationX = Random.Range(0, 360);
+        //float randomRotationY = Random.Range(0, 360);
+        //float randomRotationZ = Random.Range(0, 360);
+        //gameSpawnObject.transform.rotation = new Quaternion(0,0,0,0);
+        gameSpawnObject.GetComponent<Rigidbody>().constraints = /*.FreezePositionX | RigidbodyConstraints.FreezePositionY | */RigidbodyConstraints.FreezeRotation;
+        gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
+        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
+        gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
+        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
+        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
+        //if (addSpawnGarbage)
+        //{
+        //    _spawnedGarbage.Add(gameSpawnObject);
+        //}
+        _spawnedGarbage.Add(gameSpawnObject);
+        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
+        _canSpawn = false;
+        StartCoroutine(_waitForSeconds());
+    }
+
+    private void _spawnGarbageAnyTime(float pHealth)
+    {
+        if (Time.time > (_oldTimer + _spawnGarbageIndependantFromWavesTimer))
+        {
+            _oldTimer = Time.time;
+            float X = Random.Range(0, 5);
+            _spawnGarbage(pHealth,X,1,40);
+        }
     }
 }
