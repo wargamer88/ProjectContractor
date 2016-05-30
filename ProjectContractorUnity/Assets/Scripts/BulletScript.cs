@@ -47,7 +47,7 @@ public class BulletScript : MonoBehaviour {
         }
     }
 
-    public void DestroyBullet(bool pHitTrash, GarbageType pGarbageType = GarbageType.Light)
+    public void DestroyBullet(bool pHitTrash, GarbageType pGarbageType)
     {
         if (pHitTrash)
         {
