@@ -68,8 +68,12 @@ public class AutoAimScript : MonoBehaviour
         _depthMinePlane = GameObject.Find("DepthMinePlane");
         lineRenderer = GetComponent<LineRenderer>();
         _ballOffset = new Vector3(0, 10.19f, 1.82f);
-       // GetComponent<Animator>().Stop();
-	}
+        if (_balls != null)
+        {
+            _chosenBall = _balls[0];
+        }
+        // GetComponent<Animator>().Stop();
+    }
 	
 	// Update is called once per frame
     void Update()
