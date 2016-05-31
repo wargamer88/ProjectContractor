@@ -72,8 +72,8 @@ public class AutoAimScript : MonoBehaviour
         {
             _chosenBall = _balls[0];
         }
-        // GetComponent<Animator>().Stop();
-    }
+       // GetComponent<Animator>().Stop();
+	}
 	
 	// Update is called once per frame
     void Update()

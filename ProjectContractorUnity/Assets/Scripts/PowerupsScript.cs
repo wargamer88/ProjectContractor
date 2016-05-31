@@ -206,12 +206,15 @@ public class PowerupsScript : MonoBehaviour {
         {
             case GarbageType.Light:
                 _lightGarbage++;
+                Debug.Log("Light Garbage hit, Light garbage count: " + _lightGarbage);
                 break;
             case GarbageType.Medium:
                 _mediumGarbage++;
+                Debug.Log("Medium Garbage hit, Medium garbage count: " + _mediumGarbage);
                 break;
             case GarbageType.Heavy:
                 _heavyGarbage++;
+                Debug.Log("Heavy Garbage hit, Heavy garbage count: " + _heavyGarbage);
                 break;
             case GarbageType.none:
                 //nothing happens
@@ -226,6 +229,7 @@ public class PowerupsScript : MonoBehaviour {
     /// </summary>
     public void HitNothing()
     {
+        Debug.Log("Hit Nothing, Counters Reset");
         _lightGarbage = 0;
         _mediumGarbage = 0;
         _heavyGarbage = 0;

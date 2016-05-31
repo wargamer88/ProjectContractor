@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class GarbadgeDestoryScript : MonoBehaviour {
 
     private float _hp;
+    [SerializeField]
     private GarbageType _garbageType;
     private int _currentLane;
     public float HP { get { return _hp; } set { _hp = value; } }
@@ -43,7 +44,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
             Destroy(pOther.gameObject);
             if (_hp <= 0)
             {
-                pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true);
+                pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 Destroy(this.gameObject);
             }
@@ -54,7 +55,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
             Destroy(pOther.gameObject);
             if (_hp <= 0)
             {
-                pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true);
+                pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 Destroy(this.gameObject);
             }
