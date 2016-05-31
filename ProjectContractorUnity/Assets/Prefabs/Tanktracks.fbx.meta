@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 63f9c53eaef42be4e9f6cffd8e472d4e
+timeCreated: 1464688700
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: back1
+    100002: directionalLight1
+    100004: Gear_1
+    100006: Gear_2
+    100008: Gear_3
+    100010: group1
+    100012: nurbsCircle2
+    100014: nurbsCircle2BaseWire
+    100016: nurbsCircle3
+    100018: nurbsCircle3BaseWire
+    100020: TankTrack
+    100022: //RootNode
+    100024: Track
+    100026: Track2
+    400000: back1
+    400002: directionalLight1
+    400004: Gear_1
+    400006: Gear_2
+    400008: Gear_3
+    400010: group1
+    400012: nurbsCircle2
+    400014: nurbsCircle2BaseWire
+    400016: nurbsCircle3
+    400018: nurbsCircle3BaseWire
+    400020: TankTrack
+    400022: //RootNode
+    400024: Track
+    400026: Track2
+    2300000: Gear_1
+    2300002: Gear_2
+    2300004: Gear_3
+    2300006: Track
+    3300000: Gear_1
+    3300002: Gear_2
+    3300004: Gear_3
+    3300006: Track
+    4300000: Track
+    4300002: Gear_1
+    4300004: Gear_2
+    4300006: Gear_3
+    7400000: Take 001
+    7400002: Rotate Wheels
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Rotate Wheels
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 90
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: back1
+        weight: 1
+      - path: directionalLight1
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: nurbsCircle2
+        weight: 1
+      - path: nurbsCircle2BaseWire
+        weight: 1
+      - path: nurbsCircle3
+        weight: 1
+      - path: nurbsCircle3BaseWire
+        weight: 1
+      - path: TankTrack
+        weight: 1
+      - path: TankTrack/Gear_1
+        weight: 1
+      - path: TankTrack/Gear_2
+        weight: 1
+      - path: TankTrack/Gear_3
+        weight: 1
+      - path: TankTrack/Track
+        weight: 1
+      - path: Track2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

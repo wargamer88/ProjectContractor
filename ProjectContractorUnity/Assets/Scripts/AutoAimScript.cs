@@ -24,7 +24,7 @@ public class AutoAimScript : MonoBehaviour
     private int _cooldown = 0;
     private bool _allowshoot = true;
     private float _DEBUGcounter = 0;
-
+    
     private Vector3 _moveTarget;
     private bool _isMoving = false;
     private Vector3 _currentPos;
@@ -68,10 +68,14 @@ public class AutoAimScript : MonoBehaviour
         _depthMinePlane = GameObject.Find("DepthMinePlane");
         lineRenderer = GetComponent<LineRenderer>();
         _ballOffset = new Vector3(0, 10.19f, 1.82f);
-        // GetComponent<Animator>().Stop();
-    }
-
-    // Update is called once per frame
+        if (_balls != null)
+        {
+            _chosenBall = _balls[0];
+        }
+       // GetComponent<Animator>().Stop();
+	}
+	
+	// Update is called once per frame
     void Update()
     {
         _input();
@@ -86,7 +90,7 @@ public class AutoAimScript : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(_moveTarget.x, transform.position.y, transform.position.z), 0.5f);
         }
-    }
+	}
 
     void AutoAim()
     {
@@ -135,7 +139,7 @@ public class AutoAimScript : MonoBehaviour
                         _createBallAndShootingAnimation();
                     }
                 }
-            }
+            } 
         }
 
         if (!_allowshoot)
@@ -202,7 +206,7 @@ public class AutoAimScript : MonoBehaviour
     }
     private void _createBallAndShootingAnimation()
     {
-
+        
         GetComponent<Animator>().Play("Shoot");
         _bullet = GameObject.Instantiate(_chosenBall);
         _newShotTimer = Time.time;
@@ -212,7 +216,6 @@ public class AutoAimScript : MonoBehaviour
         _bullet.AddComponent<Rigidbody>();
         _bullet.GetComponent<Rigidbody>().mass = 0.01f;
         //_bullet.GetComponent<Rigidbody>().useGravity = false;
-        _bullet.GetComponent<Renderer>().material.color = Color.red;
         _bullet.AddComponent<BulletScript>();
         _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
         Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
