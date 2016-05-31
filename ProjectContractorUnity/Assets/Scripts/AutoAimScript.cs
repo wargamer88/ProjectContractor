@@ -216,7 +216,6 @@ public class AutoAimScript : MonoBehaviour
         _bullet.AddComponent<Rigidbody>();
         _bullet.GetComponent<Rigidbody>().mass = 0.01f;
         //_bullet.GetComponent<Rigidbody>().useGravity = false;
-        _bullet.GetComponent<Renderer>().material.color = Color.red;
         _bullet.AddComponent<BulletScript>();
         _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
         Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
