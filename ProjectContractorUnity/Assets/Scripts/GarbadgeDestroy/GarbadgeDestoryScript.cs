@@ -44,10 +44,19 @@ public class GarbadgeDestoryScript : MonoBehaviour {
             Destroy(pOther.gameObject);
             if (_hp <= 0)
             {
+                if (_garbageWaveScript.TutorialWavesLeft > 0)
+                {
                 pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
+                    _garbageWaveScript.GetComponent<TutorialWaveSpawnScript>().DestroyedGarbage.Add(pOther.gameObject);
+                    Destroy(this.gameObject);
+                }
+                else
+                {
+                    pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 Destroy(this.gameObject);
             }
+        }
         }
         else if (pOther.transform.tag == "SpecialWeapon")
         {
@@ -55,11 +64,20 @@ public class GarbadgeDestoryScript : MonoBehaviour {
             Destroy(pOther.gameObject);
             if (_hp <= 0)
             {
+                if (_garbageWaveScript.TutorialWavesLeft > 0)
+                {
                 pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
+                    _garbageWaveScript.GetComponent<TutorialWaveSpawnScript>().DestroyedGarbage.Add(pOther.gameObject);
+                    Destroy(this.gameObject);
+                }
+                else
+                {
+                    pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 Destroy(this.gameObject);
             }
         }
+    }
     }
 
 

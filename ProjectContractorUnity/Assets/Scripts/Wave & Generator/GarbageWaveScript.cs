@@ -8,6 +8,7 @@ public enum GarbageType
     Light,
     Medium,
     Heavy,
+    Special,
 }
 
 public class GarbageWaveScript : MonoBehaviour
@@ -67,6 +68,12 @@ public class GarbageWaveScript : MonoBehaviour
 
     private float _oldTimer;
 
+    [SerializeField]
+    private List<TutorialWaveScript> _tutorialScriptWrapper = new List<TutorialWaveScript>();
+
+    public int TutorialWavesLeft { get { return _tutorialScriptWrapper.Count; } }
+    bool test = false;
+
     // Use this for initialization
     void Start()
     {
@@ -80,97 +87,105 @@ public class GarbageWaveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float health =_chooseGarbage();
-
-        if (_canSpawn && _spawnedGarbage.Count < _spawnAmount)
+        Debug.Log(_tutorialScriptWrapper.Count);
+        if (_tutorialScriptWrapper.Count > 0)
         {
-            _spawnGarbage(health);
+            _tutorial();
         }
-        else if (_spawnedGarbage.Count == _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
+        else
         {
-            _waveNumber++;
-            _nextWave = true;
+            float health = _chooseGarbage();
+
+            if (_canSpawn && _spawnedGarbage.Count < _spawnAmount)
+            {
+                _spawnGarbage(health);
+            }
+            else if (_spawnedGarbage.Count == _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
+            {
+                _waveNumber++;
+                _nextWave = true;
+            }
+            if (_nextWave)
+            {
+                _timeToRespawnObjects = _timeToRespawnObjects - _timeToRespawnIncreaseForEachWave;
+                _spawnAmount = _spawnAmount + _increaseAmountOfObjectForEachWave;
+                // complex algorithm beneath to upgrade wave
+
+
+                this.GetComponent<WaveCanvasScript>().ChangeWaveNumber(_waveNumber);
+
+                _spawnedGarbage = new List<GameObject>();
+                _destroyedGarbage = new List<GameObject>();
+                _nextWave = false;
+
+            }
+            _spawnGarbageAnyTime(health);
+
+            #region old garbage spawning
+            //if (_canSpawn)
+            //{
+            //    int random = Random.Range(0, 5);
+            //    List<int> oldRandoms = new List<int>();
+            //    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            //    cube.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
+            //    cube.AddComponent<GarbageMoveScript>();
+            //    //cube.GetComponent<BoxCollider>().isTrigger = true;
+            //    cube.AddComponent<Rigidbody>();
+            //    cube.GetComponent<Rigidbody>().useGravity = false;
+            //    cube.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
+            //    cube.GetComponent<Renderer>().material.color = Color.green;
+            //    cube.AddComponent<GarbadgeDestoryScript>();
+            //    oldRandoms.Add(random);
+            //    random = Random.Range(0, 4);
+            //    if (!oldRandoms.Contains(random))
+            //    {
+            //        //GameObject.Instantiate(PrimitiveType.Cube, new Vector3(), Quaternion.identity);
+            //        GameObject cube1 = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            //        cube1.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
+            //        cube1.AddComponent<GarbageMoveScript>();
+            //        //cube.GetComponent<BoxCollider>().isTrigger = true;
+            //        cube1.AddComponent<Rigidbody>();
+            //        cube1.GetComponent<Rigidbody>().useGravity = false;
+            //        cube1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
+            //        cube1.GetComponent<Renderer>().material.color = Color.blue;
+            //        cube1.AddComponent<GarbadgeDestoryScript>();
+            //        oldRandoms.Add(random);
+            //    }
+            //    random = Random.Range(0, 4);
+            //    if (!oldRandoms.Contains(random))
+            //    {
+            //        //GameObject.Instantiate(PrimitiveType.Cube, new Vector3(), Quaternion.identity);
+            //        GameObject cube2 = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            //        cube2.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
+            //        cube2.AddComponent<GarbageMoveScript>();
+            //        //cube.GetComponent<BoxCollider>().isTrigger = true;
+            //        cube2.AddComponent<Rigidbody>();
+            //        cube2.GetComponent<Rigidbody>().useGravity = false;
+            //        cube2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
+            //        cube2.GetComponent<Renderer>().material.color = Color.black;
+            //        cube2.AddComponent<GarbadgeDestoryScript>();
+            //        oldRandoms.Add(random);
+            //    }
+            //    random = Random.Range(0, 4);
+            //    if (!oldRandoms.Contains(random))
+            //    {
+            //        //GameObject.Instantiate(PrimitiveType.Cube, new Vector3(), Quaternion.identity);
+            //        GameObject cube3 = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            //        cube3.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
+            //        cube3.AddComponent<GarbageMoveScript>();
+            //        //cube.GetComponent<BoxCollider>().isTrigger = true;
+            //        cube3.AddComponent<Rigidbody>();
+            //        cube3.GetComponent<Rigidbody>().useGravity = false;
+            //        cube3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
+            //        cube3.GetComponent<Renderer>().material.color = Color.yellow;
+            //        cube3.AddComponent<GarbadgeDestoryScript>();
+            //        oldRandoms.Add(random);
+            //    }
+            //    _canSpawn = false;
+            //    StartCoroutine(_waitForSeconds());
+            //}
+            #endregion
         }
-        if (_nextWave)
-        {
-            _timeToRespawnObjects = _timeToRespawnObjects - _timeToRespawnIncreaseForEachWave;
-            _spawnAmount = _spawnAmount + _increaseAmountOfObjectForEachWave;
-            // complex algorithm beneath to upgrade wave
-
-
-            this.GetComponent<WaveCanvasScript>().ChangeWaveNumber(_waveNumber); 
-
-            _spawnedGarbage = new List<GameObject>();
-            _destroyedGarbage = new List<GameObject>();
-            _nextWave = false;
-
-        }
-        _spawnGarbageAnyTime(health);
-
-        #region old garbage spawning
-        //if (_canSpawn)
-        //{
-        //    int random = Random.Range(0, 5);
-        //    List<int> oldRandoms = new List<int>();
-        //    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        //    cube.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
-        //    cube.AddComponent<GarbageMoveScript>();
-        //    //cube.GetComponent<BoxCollider>().isTrigger = true;
-        //    cube.AddComponent<Rigidbody>();
-        //    cube.GetComponent<Rigidbody>().useGravity = false;
-        //    cube.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
-        //    cube.GetComponent<Renderer>().material.color = Color.green;
-        //    cube.AddComponent<GarbadgeDestoryScript>();
-        //    oldRandoms.Add(random);
-        //    random = Random.Range(0, 4);
-        //    if (!oldRandoms.Contains(random))
-        //    {
-        //        //GameObject.Instantiate(PrimitiveType.Cube, new Vector3(), Quaternion.identity);
-        //        GameObject cube1 = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        //        cube1.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
-        //        cube1.AddComponent<GarbageMoveScript>();
-        //        //cube.GetComponent<BoxCollider>().isTrigger = true;
-        //        cube1.AddComponent<Rigidbody>();
-        //        cube1.GetComponent<Rigidbody>().useGravity = false;
-        //        cube1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
-        //        cube1.GetComponent<Renderer>().material.color = Color.blue;
-        //        cube1.AddComponent<GarbadgeDestoryScript>();
-        //        oldRandoms.Add(random);
-        //    }
-        //    random = Random.Range(0, 4);
-        //    if (!oldRandoms.Contains(random))
-        //    {
-        //        //GameObject.Instantiate(PrimitiveType.Cube, new Vector3(), Quaternion.identity);
-        //        GameObject cube2 = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        //        cube2.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
-        //        cube2.AddComponent<GarbageMoveScript>();
-        //        //cube.GetComponent<BoxCollider>().isTrigger = true;
-        //        cube2.AddComponent<Rigidbody>();
-        //        cube2.GetComponent<Rigidbody>().useGravity = false;
-        //        cube2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
-        //        cube2.GetComponent<Renderer>().material.color = Color.black;
-        //        cube2.AddComponent<GarbadgeDestoryScript>();
-        //        oldRandoms.Add(random);
-        //    }
-        //    random = Random.Range(0, 4);
-        //    if (!oldRandoms.Contains(random))
-        //    {
-        //        //GameObject.Instantiate(PrimitiveType.Cube, new Vector3(), Quaternion.identity);
-        //        GameObject cube3 = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        //        cube3.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
-        //        cube3.AddComponent<GarbageMoveScript>();
-        //        //cube.GetComponent<BoxCollider>().isTrigger = true;
-        //        cube3.AddComponent<Rigidbody>();
-        //        cube3.GetComponent<Rigidbody>().useGravity = false;
-        //        cube3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
-        //        cube3.GetComponent<Renderer>().material.color = Color.yellow;
-        //        cube3.AddComponent<GarbadgeDestoryScript>();
-        //        oldRandoms.Add(random);
-        //    }
-        //    _canSpawn = false;
-        //    StartCoroutine(_waitForSeconds());
-        //}
-        #endregion
     }
 
     private IEnumerator _waitForSeconds()
@@ -255,6 +270,20 @@ public class GarbageWaveScript : MonoBehaviour
             _oldTimer = Time.time;
             float X = Random.Range(0, 5);
             _spawnGarbage(pHealth,X,1,40);
+        }
+    }
+
+    private void _tutorial()
+    {
+        if (this.GetComponent<TutorialWaveSpawnScript>().IsComplete)
+        {
+            this.GetComponent<TutorialWaveSpawnScript>().IsComplete = false;
+            _tutorialScriptWrapper.RemoveAt(0);
+            test = true;
+        }
+        else
+        {
+            this.GetComponent<TutorialWaveSpawnScript>().SpawnTutorial(false, _tutorialScriptWrapper[0].AmountOf, (GarbageType)_tutorialScriptWrapper[0].Garbage, _lightGarbage, _mediumGarbage, _heavyGarbage, _specialGarbage, _timeToRespawnObjects);
         }
     }
 }
