@@ -11,11 +11,14 @@ public class TutorialWaveScript {
     private GarbageType _chosenGarbage;
     [SerializeField]
     private int _timeBetweenSpawn;
+    [SerializeField]
+    //private List<TutorialWaveScript> _tutorialWaveList;
 
 
 
     public int AmountOf { get { return _amountOf; } }
     public GarbageType Garbage { get { return _chosenGarbage; }}
-    private int TimeBetweenSpawn { get { return _timeBetweenSpawn; } }
+    public int TimeBetweenSpawn { get { return _timeBetweenSpawn; } }
+    //public List<TutorialWaveScript> TutorialWaveList { get { return _tutorialWaveList; } }
 
 }

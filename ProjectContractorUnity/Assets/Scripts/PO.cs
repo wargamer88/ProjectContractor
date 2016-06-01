@@ -23,7 +23,7 @@ public class PO : MonoBehaviour {
             }
             else
             {
-                    Destroy(other.gameObject);
+                Destroy(other.gameObject);
             }
         }
     }

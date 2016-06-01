@@ -3,10 +3,12 @@ using System.Collections;
 
 public class FloorScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    private HighscoreScript _highscore;
+
+    // Use this for initialization
+    void Start () {
+        _highscore = GameObject.FindObjectOfType<HighscoreScript>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,6 +20,7 @@ public class FloorScript : MonoBehaviour {
         if (other.gameObject.tag == "Projectile")
         {
             Destroy(other.gameObject);
+            _highscore.ComboCounter = 0;
         }
     }
 }
