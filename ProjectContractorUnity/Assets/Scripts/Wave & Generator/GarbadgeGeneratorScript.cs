@@ -41,9 +41,13 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
     private GameObject _segment_segment3;
     private GameObject _pickedSegment;
 
+    private bool _generatorGotHit;
+    public bool GeneratorGotHit { get { return _generatorGotHit; } set { _generatorGotHit = value; } }
+
 
     // Use this for initialization
     void Start () {
+        _generatorGotHit = false;
         _generatorPowerScript = transform.parent.GetComponent<GeneratorPowerScript>();
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
         _oldTimer = 0;
@@ -123,7 +127,10 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
         //    _generatorPowerScript.Amount = _generatorPowerScript.Amount + 1;
         //    _hitGenerator = true;
         //}
-
+        if (pOther.gameObject.tag == "Garbage")
+        {
+            _generatorGotHit = true;
+        }
         if (Time.time > (_oldTimer + _hitTimer))
         {
             _oldTimer = Time.time;

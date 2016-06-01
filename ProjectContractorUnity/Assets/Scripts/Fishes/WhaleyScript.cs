@@ -21,7 +21,7 @@ public class WhaleyScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         
-    }
+        }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,9 +31,9 @@ public class WhaleyScript : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(-0.6f, -1.4f, -13.8f), step);
 
             if (transform.position == new Vector3(-0.6f, -1.4f, -13.8f))
-            {
+    {
                 foreach (GarbadgeDestoryScript Garbage in _garbage)
-                {
+        {
                     Garbage.HP--;
                     Garbage.transform.position = new Vector3(Garbage.transform.position.x, Garbage.transform.position.y, 85);
                     if (Garbage.HP == 0)

@@ -11,7 +11,7 @@ public class SharkyScript : MonoBehaviour {
     private bool _rising = true;
     private bool _floating = false;
     private bool _diving = false;
-    
+
     private List<GarbadgeDestoryScript> _garbage;
 
     private GameObject _garbageObject;
@@ -24,7 +24,7 @@ public class SharkyScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         
-    }
+        }
 	
 	// Update is called once per frame
 	void Update () {

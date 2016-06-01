@@ -1,7 +1,7 @@
 ﻿﻿﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Linq;
 public enum GarbageType
 {
     none,
@@ -71,23 +71,28 @@ public class GarbageWaveScript : MonoBehaviour
     [SerializeField]
     private List<TutorialWaveScript> _tutorialScriptWrapper = new List<TutorialWaveScript>();
 
+    private GarbadgeGeneratorScript[] _generators;
+    private bool _someGeneratorGotHit = false;
+    private HighscoreScript _highScoreScript;
+
     public int TutorialWavesLeft { get { return _tutorialScriptWrapper.Count; } }
     bool test = false;
 
     // Use this for initialization
     void Start()
     {
+        _highScoreScript = GameObject.FindObjectOfType<HighscoreScript>();
         _spawnedGarbage = new List<GameObject>();
         _destroyedGarbage = new List<GameObject>();
         _aimPlane = GameObject.Find("AimPlane");
         _garbageParent = new GameObject();
         _garbageParent.name = "Garbage Parent";
+        _generators = GameObject.FindObjectsOfType<GarbadgeGeneratorScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_tutorialScriptWrapper.Count);
         if (_tutorialScriptWrapper.Count > 0)
         {
             _tutorial();
@@ -104,6 +109,7 @@ public class GarbageWaveScript : MonoBehaviour
             {
                 _waveNumber++;
                 _nextWave = true;
+                CheckWave();
             }
             if (_nextWave)
             {
@@ -188,6 +194,20 @@ public class GarbageWaveScript : MonoBehaviour
         }
     }
 
+    private void CheckWave()
+    {
+        for (int i = 0; i < _generators.Length; i++)
+        {
+            if (_generators[i].GeneratorGotHit)
+            {
+                _someGeneratorGotHit = true;
+                _generators[i].GeneratorGotHit = false;
+            }
+        }
+        _highScoreScript.WaveClear(_someGeneratorGotHit);
+        _someGeneratorGotHit = false;
+    }
+
     private IEnumerator _waitForSeconds()
     {
         yield return new WaitForSeconds(_timeToRespawnObjects);
@@ -222,6 +242,7 @@ public class GarbageWaveScript : MonoBehaviour
     private void _spawnGarbage(float pHealth, float pX = 0 , float pY = 1, float pZ = 95)
     {
         GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
+        //List<GameObject> garbages = GameObject.FindGameObjectsWithTag("Garbage").ToList();
         gameSpawnObject.transform.parent = _garbageParent.transform;
         int randomSpawn = 0;
         bool addSpawnGarbage;
@@ -237,6 +258,10 @@ public class GarbageWaveScript : MonoBehaviour
             gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
             addSpawnGarbage = true;
         }
+        //foreach (GameObject garbage in garbages)
+        //{
+        //    Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), garbage.GetComponent<BoxCollider>());
+        //}
         Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
         gameSpawnObject.tag = "Garbage";
         gameSpawnObject.AddComponent<GarbageMoveScript>();
@@ -253,11 +278,11 @@ public class GarbageWaveScript : MonoBehaviour
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
-        //if (addSpawnGarbage)
-        //{
-        //    _spawnedGarbage.Add(gameSpawnObject);
-        //}
-        _spawnedGarbage.Add(gameSpawnObject);
+        if (addSpawnGarbage)
+        {
+            _spawnedGarbage.Add(gameSpawnObject);
+        }
+        //_spawnedGarbage.Add(gameSpawnObject);
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         _canSpawn = false;
         StartCoroutine(_waitForSeconds());
