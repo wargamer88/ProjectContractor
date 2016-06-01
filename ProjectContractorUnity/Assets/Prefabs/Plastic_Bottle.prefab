@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 451276}
   - 33: {fileID: 3394296}
   - 23: {fileID: 2307522}
-  - 65: {fileID: 6577882}
+  - 65: {fileID: 6500734}
   m_Layer: 0
   m_Name: Plastic_Bottle
   m_TagString: Untagged
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.377943, y: 11.497406, z: -12.88947}
+  m_LocalPosition: {x: -6.413063, y: 5.961833, z: -44.27776}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172712}
   m_Mesh: {fileID: 4300000, guid: 7e050def0ade0934cb48d598deef7638, type: 3}
---- !u!65 &6577882
+--- !u!65 &6500734
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -73,8 +73,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 122.97509, y: 401.77365, z: 127.69115}
-  m_Center: {x: -0.53977966, y: 1.174736, z: 0.17137527}
+  m_Size: {x: 123.92848, y: 399.42447, z: 123.92842}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
