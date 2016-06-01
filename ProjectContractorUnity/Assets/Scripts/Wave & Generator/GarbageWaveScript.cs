@@ -1,7 +1,7 @@
 ﻿﻿﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Linq;
 public enum GarbageType
 {
     none,
@@ -93,7 +93,6 @@ public class GarbageWaveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_tutorialScriptWrapper.Count);
         if (_tutorialScriptWrapper.Count > 0)
         {
             _tutorial();
@@ -243,6 +242,7 @@ public class GarbageWaveScript : MonoBehaviour
     private void _spawnGarbage(float pHealth, float pX = 0 , float pY = 1, float pZ = 95)
     {
         GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
+        //List<GameObject> garbages = GameObject.FindGameObjectsWithTag("Garbage").ToList();
         gameSpawnObject.transform.parent = _garbageParent.transform;
         int randomSpawn = 0;
         bool addSpawnGarbage;
@@ -258,6 +258,10 @@ public class GarbageWaveScript : MonoBehaviour
             gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
             addSpawnGarbage = true;
         }
+        //foreach (GameObject garbage in garbages)
+        //{
+        //    Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), garbage.GetComponent<BoxCollider>());
+        //}
         Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
         gameSpawnObject.tag = "Garbage";
         gameSpawnObject.AddComponent<GarbageMoveScript>();
@@ -274,11 +278,11 @@ public class GarbageWaveScript : MonoBehaviour
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
-        //if (addSpawnGarbage)
-        //{
-        //    _spawnedGarbage.Add(gameSpawnObject);
-        //}
-        _spawnedGarbage.Add(gameSpawnObject);
+        if (addSpawnGarbage)
+        {
+            _spawnedGarbage.Add(gameSpawnObject);
+        }
+        //_spawnedGarbage.Add(gameSpawnObject);
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         _canSpawn = false;
         StartCoroutine(_waitForSeconds());
