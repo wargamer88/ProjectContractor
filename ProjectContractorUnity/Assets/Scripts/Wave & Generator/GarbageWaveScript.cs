@@ -71,17 +71,23 @@ public class GarbageWaveScript : MonoBehaviour
     [SerializeField]
     private List<TutorialWaveScript> _tutorialScriptWrapper = new List<TutorialWaveScript>();
 
+    private GarbadgeGeneratorScript[] _generators;
+    private bool _someGeneratorGotHit = false;
+    private HighscoreScript _highScoreScript;
+
     public int TutorialWavesLeft { get { return _tutorialScriptWrapper.Count; } }
     bool test = false;
 
     // Use this for initialization
     void Start()
     {
+        _highScoreScript = GameObject.FindObjectOfType<HighscoreScript>();
         _spawnedGarbage = new List<GameObject>();
         _destroyedGarbage = new List<GameObject>();
         _aimPlane = GameObject.Find("AimPlane");
         _garbageParent = new GameObject();
         _garbageParent.name = "Garbage Parent";
+        _generators = GameObject.FindObjectsOfType<GarbadgeGeneratorScript>();
     }
 
     // Update is called once per frame
@@ -104,6 +110,7 @@ public class GarbageWaveScript : MonoBehaviour
             {
                 _waveNumber++;
                 _nextWave = true;
+                CheckWave();
             }
             if (_nextWave)
             {
@@ -186,6 +193,20 @@ public class GarbageWaveScript : MonoBehaviour
             //}
             #endregion
         }
+    }
+
+    private void CheckWave()
+    {
+        for (int i = 0; i < _generators.Length; i++)
+        {
+            if (_generators[i].GeneratorGotHit)
+            {
+                _someGeneratorGotHit = true;
+                _generators[i].GeneratorGotHit = false;
+            }
+        }
+        _highScoreScript.WaveClear(_someGeneratorGotHit);
+        _someGeneratorGotHit = false;
     }
 
     private IEnumerator _waitForSeconds()
