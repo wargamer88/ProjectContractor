@@ -66,8 +66,20 @@ public class HighscoreScript : MonoBehaviour {
 	
 	}
 
-    public void AddTrashScore()
+    public void AddTrashScore(GarbageType pGarbageType)
     {
-
+        switch (pGarbageType)
+        {
+            case GarbageType.none:
+                break;
+            case GarbageType.Light:
+                break;
+            case GarbageType.Medium:
+                break;
+            case GarbageType.Heavy:
+                break;
+            default:
+                break;
+        }
     }
 }
