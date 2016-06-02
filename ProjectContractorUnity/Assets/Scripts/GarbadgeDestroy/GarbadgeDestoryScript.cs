@@ -44,49 +44,41 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         {
             _hp--;
             Destroy(pOther.gameObject);
-            if (_hp <= 0)
-            {
-                if (_garbageWaveScript.TutorialWavesLeft > 0)
-                {
-                pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
-                    _garbageWaveScript.GetComponent<TutorialWaveSpawnScript>().DestroyedGarbage.Add(pOther.gameObject);
-                    Destroy(this.gameObject);
-                }
-                else
-                {
-                    pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
-                _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
-                Destroy(this.gameObject);
-            }
-                _highscore.AddTrashScore(_garbageType);
-                _highscore.ComboCounter += 1;
-                _highscore.ComboCheck();
-        }
+            CheckHealth(pOther.gameObject);
         }
         else if (pOther.transform.tag == "SpecialWeapon")
         {
             _hp = _hp - 3;
             Destroy(pOther.gameObject);
-            if (_hp <= 0)
-            {
-                if (_garbageWaveScript.TutorialWavesLeft > 0)
-                {
-                pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
-                    _garbageWaveScript.GetComponent<TutorialWaveSpawnScript>().DestroyedGarbage.Add(pOther.gameObject);
-                    Destroy(this.gameObject);
-                }
-                else
-                {
-                    pOther.gameObject.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
-                _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
-                Destroy(this.gameObject);
-            }
-                _highscore.AddTrashScore(_garbageType);
-                _highscore.ComboCounter += 1;
-                _highscore.ComboCheck();
+            CheckHealth(pOther.gameObject);
+        }
+        else if (pOther.transform.tag == "FireBarrel")
+        {
+            pOther.gameObject.GetComponent<BulletScript>().BallPowerFire();
         }
     }
-    }
 
+
+    public void CheckHealth(GameObject pOther)
+    {
+        if (_hp <= 0)
+        {
+            if (_garbageWaveScript.TutorialWavesLeft > 0)
+            {
+                pOther.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
+                _garbageWaveScript.GetComponent<TutorialWaveSpawnScript>().DestroyedGarbage.Add(pOther);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                pOther.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
+                _garbageWaveScript.DestroyedGarbage.Add(pOther);
+                Destroy(this.gameObject);
+            }
+            _highscore.AddTrashScore(_garbageType);
+            _highscore.ComboCounter += 1;
+            _highscore.ComboCheck();
+        }
+    }
 
 }

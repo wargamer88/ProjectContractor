@@ -160,6 +160,7 @@ public class HighscoreScript : MonoBehaviour {
             _score += _noDamageScore;
             _comboUI.GetComponent<Text>().text = _noDamageText;
             _comboUI.GetComponent<Text>().enabled = true;
+            pHitAnything = false;
         }
         _waveClearUI.GetComponent<Text>().text = _finishWaveText;
         _waveClearUI.GetComponent<Text>().enabled = true;

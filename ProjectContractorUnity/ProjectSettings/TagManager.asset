@@ -8,6 +8,8 @@ TagManager:
   - LineWall
   - Garbage
   - SpecialWeapon
+  - FireBarrel
+  - GeneratorWall
   layers:
   - Default
   - TransparentFX
