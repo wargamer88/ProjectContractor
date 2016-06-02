@@ -163,16 +163,43 @@ public class PowerupsScript : MonoBehaviour {
                 mostPopulatedLane = 4;
             }
 
+            List<GarbadgeDestoryScript> currentGarbage = new List<GarbadgeDestoryScript>();
             //remove garbage in most populated lane
             foreach (GarbadgeDestoryScript Garbage in _garbageList)
             {
                 if (Garbage.CurrentLane == mostPopulatedLane)
                 {
-                    GameObject GO = (GameObject)Instantiate(Sharky, new Vector3(-50, Garbage.transform.position.y, Garbage.transform.position.z), Quaternion.identity);
-                    GO.GetComponent<SharkyScript>().GarbageObject = Garbage.gameObject;
-                    GO.GetComponent<SharkyScript>().GarbageWaveScript = _garbageWaveScript;
+                    currentGarbage.Add(Garbage);
                 }
             }
+
+            int sharkyPosX = 0;
+            switch (mostPopulatedLane)
+            {
+                case 0:
+                    sharkyPosX = -20;
+                    break;
+                case 1:
+                    sharkyPosX = -10;
+                    break;
+                case 2:
+                    sharkyPosX = 0;
+                    break;
+                case 3:
+                    sharkyPosX = 10;
+                    break;
+                case 4:
+                    sharkyPosX = 20;
+                    break;
+                default:
+                    break;
+            }
+
+
+            GameObject GO = (GameObject)Instantiate(Sharky, new Vector3(sharkyPosX, -27.4f, -39.1f), Quaternion.identity);
+            GO.GetComponent<SharkyScript>().Garbage = currentGarbage;
+            GO.GetComponent<SharkyScript>().GarbageWaveScript = _garbageWaveScript;
+            GO.GetComponent<SharkyScript>().PosX = sharkyPosX;
         }
     }
 
@@ -184,15 +211,12 @@ public class PowerupsScript : MonoBehaviour {
     {
         if (_heavyGarbage == 2)
         {
-            Debug.Log("Whaley(heavy garbage) activated");
             _heavyGarbage = 0;
             _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
-            foreach (GarbadgeDestoryScript Garbage in _garbageList)
-            {
-                GameObject GO = (GameObject)Instantiate(Whaley, new Vector3(-50, Garbage.transform.position.y, Garbage.transform.position.z), Quaternion.identity);
-                GO.GetComponent<WhaleyScript>().GarbageObject = Garbage.gameObject;
-                GO.GetComponent<WhaleyScript>().GarbageWaveScript = _garbageWaveScript;
-            }
+            GameObject GO = (GameObject)Instantiate(Whaley, new Vector3(-0.6f, -27.4f, -39.1f), Quaternion.Euler(new Vector3(0, 180, 0)));
+            GO.GetComponent<WhaleyScript>().GarbageWaveScript = _garbageWaveScript;
+            GO.GetComponent<WhaleyScript>().Garbage = _garbageList;
+            Debug.Log("Whaley(heavy garbage) activated");
         }
     }
 
