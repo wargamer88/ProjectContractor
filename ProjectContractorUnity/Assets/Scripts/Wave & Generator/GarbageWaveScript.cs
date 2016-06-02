@@ -103,9 +103,9 @@ public class GarbageWaveScript : MonoBehaviour
         else
         {
             float health = _chooseGarbage();
-            if (_canSpawn && _spawnedGarbage.Count < _spawnAmount && _waveNumber != 1)
+            if (_canSpawn && _spawnedGarbage.Count < _spawnAmount && _waveNumber != 0 && _waveNumber != 1)
             {
-                //_spawnGarbage(health);
+                _spawnGarbage(health);
             }
             if (_spawnedGarbage.Count == _destroyedGarbage.Count) //&& _destroyedGarbage.Count == _spawnAmount)
             {
