@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 public class ExecuteEventScript : MonoBehaviour {
 
@@ -11,9 +12,11 @@ public class ExecuteEventScript : MonoBehaviour {
     private int _eventWave;
     private GarbageWaveScript _garbageWaveScript;
     private GameObject _aimPlane;
+    private Image _hand;
 
 	// Use this for initialization
 	void Start () {
+        _hand = GameObject.Find("Hand").GetComponent<Image>();
         if (this.tag != "Garbage" && GetComponent<EventTileScript>().EventWrapper.Count != 0)
         {
             //_event = GetComponent<EventTileScript>().ChosenEvent;
@@ -34,6 +37,13 @@ public class ExecuteEventScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (_garbageWaveScript.Wave != 1)
+        {
+            if (_hand.enabled)
+            {
+                _hand.enabled = false;
+            }
+        }
         if (_event != null)
         {
             switch (_event)
@@ -76,6 +86,7 @@ public class ExecuteEventScript : MonoBehaviour {
             //Debug.Log("garbagewave " + _garbageWaveScript.Wave);
             if (pOther.GetComponent<EventTileScript>().EventWrapper[0].ChosenEvent == _choices.ShowTutorialBottle && _garbageWaveScript.Wave == pOther.GetComponent<EventTileScript>().EventWrapper[0].EventWave)
             {
+                _hand.enabled = true;
                 Debug.Log("help");
                 pOther.GetComponent<EventTileScript>().EventWrapper.RemoveAt(0);
             }
