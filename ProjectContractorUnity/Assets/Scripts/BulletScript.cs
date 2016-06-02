@@ -6,6 +6,7 @@ using System.Linq;
 public class BulletScript : MonoBehaviour {
 
     private List<GameObject> _walls;
+    private List<GameObject> _generatorwalls;
     private PowerupsScript _powerupsScript;
 
     public List<GameObject> Walls { set { _walls = value; } }
@@ -26,7 +27,20 @@ public class BulletScript : MonoBehaviour {
             foreach (GameObject wall in _walls)
             {
                 Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), wall.GetComponent<MeshCollider>());
-            } 
+            }
+            _generatorwalls = GameObject.FindGameObjectsWithTag("GeneratorWall").ToList();
+            foreach (GameObject genWall in _generatorwalls)
+            {
+                Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), genWall.GetComponent<MeshCollider>());
+            }
+        }
+        else
+        {
+            _generatorwalls = GameObject.FindGameObjectsWithTag("GeneratorWall").ToList();
+            foreach (GameObject genWall in _generatorwalls)
+            {
+                Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), genWall.GetComponent<MeshCollider>());
+            }
         }
     }
 
@@ -34,17 +48,6 @@ public class BulletScript : MonoBehaviour {
     void Update()
     {
        
-    }
-
-    void OnCollisionEnter(Collision pOther)
-    {
-        if (pOther.gameObject.name == "Floor")
-        {
-            if (_chosenBall.name == "Ball3(Clone)")
-            {
-                _ballPowerFire(pOther.contacts[0].point);
-            }
-        }
     }
 
     public void DestroyBullet(bool pHitTrash, GarbageType pGarbageType)
@@ -72,13 +75,21 @@ public class BulletScript : MonoBehaviour {
         }
     }
 
-    private void _ballPowerFire(Vector3 pPosition)
+    public void BallPowerFire()
     {
+        Debug.Log("I AM A FIREBARREL");
         if (_doesExist == false)
         {
-            _chosenBall.transform.position = new Vector3(pPosition.x, pPosition.y + 0.5f, pPosition.z);
-            _chosenBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-            _chosenBall.GetComponent<Rigidbody>().useGravity = false;
+            Collider[] hitObjects = Physics.OverlapSphere(_chosenBall.transform.position, 10);
+            for (int i = 0; i < hitObjects.Length; i++)
+            {
+                if (hitObjects[i].gameObject.tag == "Garbage")
+                {
+                    hitObjects[i].gameObject.GetComponent<GarbadgeDestoryScript>().HP -= 1;
+                    hitObjects[i].gameObject.GetComponent<GarbadgeDestoryScript>().CheckHealth(this.gameObject);
+                }
+            }
+            Destroy(this.gameObject);
         }
     }
 }

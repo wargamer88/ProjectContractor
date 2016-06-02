@@ -10,9 +10,6 @@ public class AutoAimScript : MonoBehaviour
     private float Speed;
 
     [SerializeField]
-    private float _reticleOffset;
-
-    [SerializeField]
     private List<GameObject> _balls;
 
     private GameObject _chosenBall;
@@ -104,7 +101,6 @@ public class AutoAimScript : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                //lineRenderer.enabled = false;
                 if (hit.collider.gameObject.name == "Platform")
                 {
                     if (hit.point.x < -27f)
@@ -211,7 +207,6 @@ public class AutoAimScript : MonoBehaviour
         _bullet = GameObject.Instantiate(_chosenBall);
         _newShotTimer = Time.time;
         //_bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        _bullet.transform.localScale = new Vector3(2, 2, 2);
         _bullet.transform.position = transform.position + _ballOffset;
         _bullet.AddComponent<Rigidbody>();
         _bullet.GetComponent<Rigidbody>().mass = 0.01f;
@@ -227,7 +222,11 @@ public class AutoAimScript : MonoBehaviour
         else if (_chosenBall == _balls[1])
         {
             _bullet.tag = "SpecialWeapon";
-            _bullet.GetComponent<SphereCollider>().radius = 2;
+            _bullet.GetComponent<SphereCollider>().radius = _bullet.GetComponent<SphereCollider>().radius * 5;
+        }
+        else if (_chosenBall == _balls[2])
+        {
+            _bullet.tag = "FireBarrel";
         }
         Vector3 velocity = hit.point - _bullet.transform.position;
         transform.LookAt(hit.point);

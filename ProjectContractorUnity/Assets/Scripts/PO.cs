@@ -26,5 +26,9 @@ public class PO : MonoBehaviour {
                 Destroy(other.gameObject);
             }
         }
+        else if (other.gameObject.tag == "FireBarrel")
+        {
+            other.gameObject.GetComponent<BulletScript>().BallPowerFire();
+        }
     }
 }

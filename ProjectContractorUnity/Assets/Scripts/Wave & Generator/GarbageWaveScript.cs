@@ -207,10 +207,13 @@ public class GarbageWaveScript : MonoBehaviour
             {
                 Debug.Log("Generator Got HIT!");
                 _someGeneratorGotHit = true;
-                _generators[i].GeneratorGotHit = false;
             }
         }
         _highScoreScript.WaveClear(_someGeneratorGotHit);
+        for (int i = 0; i < _generators.Length; i++)
+        {
+            _generators[i].GeneratorGotHit = false;
+        }
         _someGeneratorGotHit = false;
     }
 

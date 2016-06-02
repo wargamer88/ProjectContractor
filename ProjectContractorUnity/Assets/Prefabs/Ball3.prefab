@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 439398}
   - 33: {fileID: 3318898}
   - 23: {fileID: 2386564}
-  - 65: {fileID: 6545652}
+  - 135: {fileID: 13537958}
   m_Layer: 0
   m_Name: Ball3
   m_TagString: Untagged
@@ -63,8 +63,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197130}
   m_Mesh: {fileID: 4300000, guid: 1863e1b1199049340bcfaddb67cf9455, type: 3}
---- !u!65 &6545652
-BoxCollider:
+--- !u!135 &13537958
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -73,7 +73,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 615.0533, y: 950.5829, z: 615.0534}
+  m_Radius: 493.88
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
