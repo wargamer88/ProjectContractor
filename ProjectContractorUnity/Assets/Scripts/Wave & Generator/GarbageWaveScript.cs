@@ -14,7 +14,7 @@ public enum GarbageType
 public class GarbageWaveScript : MonoBehaviour
 {
 
-    private List<int> _spawnXPoint = new List<int>() { -20, -10, 0, 10, 20 };
+    private List<int> _spawnXPoint = new List<int>() { -32, -13, 5, 25, 44 };
     private bool _canSpawn = true;
     private GameObject _aimPlane;
 
@@ -63,6 +63,9 @@ public class GarbageWaveScript : MonoBehaviour
 
     private int _waveNumber = 1;
 
+    public int Wave { get {return _waveNumber; } }
+    public bool NextWave { get { return _nextWave; } }
+
     [SerializeField]
     private float _spawnGarbageIndependantFromWavesTimer = 10;
 
@@ -100,12 +103,11 @@ public class GarbageWaveScript : MonoBehaviour
         else
         {
             float health = _chooseGarbage();
-
-            if (_canSpawn && _spawnedGarbage.Count < _spawnAmount)
+            if (_canSpawn && _spawnedGarbage.Count < _spawnAmount && _waveNumber != 1)
             {
                 _spawnGarbage(health);
             }
-            else if (_spawnedGarbage.Count == _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
+            if (_spawnedGarbage.Count == _destroyedGarbage.Count) //&& _destroyedGarbage.Count == _spawnAmount)
             {
                 _waveNumber++;
                 _nextWave = true;
@@ -125,7 +127,7 @@ public class GarbageWaveScript : MonoBehaviour
                 _nextWave = false;
 
             }
-            _spawnGarbageAnyTime(health);
+            //_spawnGarbageAnyTime(health);
 
             #region old garbage spawning
             //if (_canSpawn)
@@ -243,14 +245,28 @@ public class GarbageWaveScript : MonoBehaviour
         return health;
     }
 
-    private void _spawnGarbage(float pHealth, float pX = 0 , float pY = 1, float pZ = 95)
+    public void _spawnGarbage(float pHealth, float pX = 0 , float pY = 1, float pZ = 95, GameObject pGarbage = null)
     {
-        GameObject gameSpawnObject = GameObject.Instantiate(_chosenGarbage, new Vector3(), Quaternion.identity) as GameObject;
+        GameObject garbage;
+        if (pGarbage == null)
+        {
+            garbage = _chosenGarbage;
+        }
+        else
+        {
+            garbage = pGarbage;
+        }
+        GameObject gameSpawnObject = GameObject.Instantiate(garbage, new Vector3(), Quaternion.identity) as GameObject;
         //List<GameObject> garbages = GameObject.FindGameObjectsWithTag("Garbage").ToList();
         gameSpawnObject.transform.parent = _garbageParent.transform;
         int randomSpawn = 0;
         bool addSpawnGarbage;
-        if (pZ != 95)
+        if (pX != 0)
+        {
+            //Debug.Log(pX);
+            gameSpawnObject.transform.position = new Vector3(pX, pY, pZ);
+        }
+        else if (pZ != 95)
         {
             randomSpawn = (int)pX;
             gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
@@ -276,17 +292,18 @@ public class GarbageWaveScript : MonoBehaviour
         //float randomRotationY = Random.Range(0, 360);
         //float randomRotationZ = Random.Range(0, 360);
         //gameSpawnObject.transform.rotation = new Quaternion(0,0,0,0);
-        gameSpawnObject.GetComponent<Rigidbody>().constraints = /*.FreezePositionX | RigidbodyConstraints.FreezePositionY | */RigidbodyConstraints.FreezeRotation;
+        gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
         gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
-        if (addSpawnGarbage)
-        {
-            _spawnedGarbage.Add(gameSpawnObject);
-        }
-        //_spawnedGarbage.Add(gameSpawnObject);
+        gameSpawnObject.AddComponent<ExecuteEventScript>();
+        //if (addSpawnGarbage)
+        //{
+        //    _spawnedGarbage.Add(gameSpawnObject);
+        //}
+        _spawnedGarbage.Add(gameSpawnObject);
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         _canSpawn = false;
         StartCoroutine(_waitForSeconds());

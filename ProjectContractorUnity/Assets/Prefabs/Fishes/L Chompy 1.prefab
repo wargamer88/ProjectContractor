@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3327164}
   - 23: {fileID: 2337984}
   - 114: {fileID: 11448962}
+  - 65: {fileID: 6523268}
   m_Layer: 0
   m_Name: L Chompy 1
   m_TagString: Untagged
@@ -63,6 +64,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127064}
   m_Mesh: {fileID: 4300000, guid: 870a2c257c8e6a44aa656bf67d399381, type: 3}
+--- !u!65 &6523268
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6277447, y: 1.6021931, z: 3.0555716}
+  m_Center: {x: -0.000079721205, y: 0.011343449, z: -0.0053328867}
 --- !u!114 &11448962
 MonoBehaviour:
   m_ObjectHideFlags: 1
