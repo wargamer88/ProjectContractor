@@ -61,7 +61,7 @@ public class GarbageWaveScript : MonoBehaviour
     private GarbageType _garbageType;
     private GameObject _garbageParent;
 
-    private int _waveNumber = 1;
+    private int _waveNumber = 0;
 
     public int Wave { get {return _waveNumber; } }
     public bool NextWave { get { return _nextWave; } }
@@ -105,13 +105,16 @@ public class GarbageWaveScript : MonoBehaviour
             float health = _chooseGarbage();
             if (_canSpawn && _spawnedGarbage.Count < _spawnAmount && _waveNumber != 1)
             {
-                _spawnGarbage(health);
+                //_spawnGarbage(health);
             }
             if (_spawnedGarbage.Count == _destroyedGarbage.Count) //&& _destroyedGarbage.Count == _spawnAmount)
             {
                 _waveNumber++;
                 _nextWave = true;
-                CheckWave();
+                if (_waveNumber != 1)
+                {
+                    CheckWave();
+                }
             }
             if (_nextWave)
             {
