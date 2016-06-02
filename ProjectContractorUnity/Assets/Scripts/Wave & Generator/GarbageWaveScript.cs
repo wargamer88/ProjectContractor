@@ -200,6 +200,7 @@ public class GarbageWaveScript : MonoBehaviour
         {
             if (_generators[i].GeneratorGotHit)
             {
+                Debug.Log("Generator Got HIT!");
                 _someGeneratorGotHit = true;
                 _generators[i].GeneratorGotHit = false;
             }
