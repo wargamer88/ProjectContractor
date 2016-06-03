@@ -14,6 +14,8 @@ public class ExecuteEventScript : MonoBehaviour {
     private GameObject _aimPlane;
     private Image _hand;
 
+    private int _eventListNumber;
+
 	// Use this for initialization
 	void Start () {
         _hand = GameObject.Find("Hand").GetComponent<Image>();
@@ -21,11 +23,16 @@ public class ExecuteEventScript : MonoBehaviour {
         {
             //_event = GetComponent<EventTileScript>().ChosenEvent;
             //_eventWave = GetComponent<EventTileScript>().EventWave;
-            _event = GetComponent<EventTileScript>().EventWrapper[0].ChosenEvent;
-            _eventWave = GetComponent<EventTileScript>().EventWrapper[0].EventWave;
+            _eventListNumber = GetComponent<EventTileScript>().EventWrapper[0].EventWave;
+            _event = GetComponent<EventTileScript>().EventWrapper[_eventListNumber].ChosenEvent;
+            _eventWave = GetComponent<EventTileScript>().EventWrapper[_eventListNumber].EventWave;
             if (GetComponent<EventTileScript>().EventWrapper.Count != 0)
             {
                 //GetComponent<EventTileScript>().EventWrapper.Remove(this.GetComponent<EventTileScript>().EventWrapper[0]);
+            }
+            if (GetComponent<EventTileScript>().EventWrapper.Count > 0)
+            {
+
             }
         }
         //_eventList = GetComponent<EventTileScript>().Choices;
@@ -84,13 +91,13 @@ public class ExecuteEventScript : MonoBehaviour {
         {
             //Debug.Log(_eventWave);
             //Debug.Log("garbagewave " + _garbageWaveScript.Wave);
-            if (pOther.GetComponent<EventTileScript>().EventWrapper[0].ChosenEvent == _choices.ShowTutorialBottle && _garbageWaveScript.Wave == pOther.GetComponent<EventTileScript>().EventWrapper[0].EventWave)
+            if (pOther.GetComponent<EventTileScript>().EventWrapper[_eventListNumber].ChosenEvent == _choices.ShowTutorialBottle && _garbageWaveScript.Wave == pOther.GetComponent<EventTileScript>().EventWrapper[_eventListNumber].EventWave)
             {
                 _hand.enabled = true;
                 Debug.Log("help");
                 pOther.GetComponent<EventTileScript>().EventWrapper.RemoveAt(0);
             }
-            else if(pOther.GetComponent<EventTileScript>().EventWrapper[0].ChosenEvent == _choices.ExplodesBarrel && _garbageWaveScript.Wave == pOther.GetComponent<EventTileScript>().EventWrapper[0].EventWave)
+            else if(pOther.GetComponent<EventTileScript>().EventWrapper[_eventListNumber].ChosenEvent == _choices.ExplodesBarrel && _garbageWaveScript.Wave == pOther.GetComponent<EventTileScript>().EventWrapper[_eventListNumber].EventWave)
             {
                 Debug.Log("EXPLODE BARREL");
                 GameObject bottle = _garbageWaveScript.LightGarbage[0];
