@@ -40,6 +40,7 @@ public class SharkyScript : MonoBehaviour {
                 foreach (GarbadgeDestoryScript Garbage in _garbage)
                 {
                     Destroy(Garbage.gameObject);
+                    _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
                 }
             }
         }

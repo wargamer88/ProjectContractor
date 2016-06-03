@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
+//using UnityEditor;
 using System.Collections.Generic;
 using System;
 
-[CustomEditor(typeof(EventTileScript))]
+//[CustomEditor(typeof(EventTileScript))]
 public enum _choices
 {
     None, IncreaseSpeed, SpawnBottle, ShowTutorialBottle, SpawnBarrel, ExplodesBarrel
