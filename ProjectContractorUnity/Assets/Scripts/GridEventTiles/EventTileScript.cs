@@ -17,6 +17,8 @@ public class EventTileScript : MonoBehaviour {
 
     public List<EventTileWrapperScript> EventWrapper { get { return _eventWrapper; } }
 
+    public string Tile { get { return this.gameObject.name; } }
+
     //string[] _choices = new string[] {"test","test2" };
     //List<string> _choices = new List<string>() {"None","Increase Speed", "Spawn Bottle", "Show Tutorial Bottle", "Spawn Barrel", "Explodes Barrel" };
 
