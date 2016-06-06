@@ -78,15 +78,11 @@ public class GarbageWaveScript : MonoBehaviour
     private bool _someGeneratorGotHit = false;
     private HighscoreScript _highScoreScript;
 
-    private EventTileScript _eventWrapper;
-
     public int TutorialWavesLeft { get { return _tutorialScriptWrapper.Count; } }
-    bool test = false;
 
     // Use this for initialization
     void Start()
     {
-        _eventWrapper = GameObject.FindObjectOfType<EventTileScript>();
         _highScoreScript = GameObject.FindObjectOfType<HighscoreScript>();
         _spawnedGarbage = new List<GameObject>();
         _destroyedGarbage = new List<GameObject>();
@@ -120,8 +116,6 @@ public class GarbageWaveScript : MonoBehaviour
                 {
                     CheckWave();
                 }
-                _eventWrapper.EventWrapper[0].WaveListCounter++;
-                
             }
             if (_nextWave)
             {
@@ -335,7 +329,6 @@ public class GarbageWaveScript : MonoBehaviour
         {
             this.GetComponent<TutorialWaveSpawnScript>().IsComplete = false;
             _tutorialScriptWrapper.RemoveAt(0);
-            test = true;
         }
         else
         {
