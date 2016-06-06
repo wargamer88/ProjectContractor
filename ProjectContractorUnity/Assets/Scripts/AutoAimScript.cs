@@ -124,7 +124,7 @@ public class AutoAimScript : MonoBehaviour
                     }
                     _isMoving = true;
                 }
-                if ((hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage" || hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"))
+                if ((hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage" /*|| hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"*/))
                 {
                     if (Time.time > (_newShotTimer + (_shootAnimationTimer + _reloadAnimationTimer)) && _allowshoot && (_chosenBall == _balls[0]))  //_allowshoot && (_chosenBall == _balls[0]) )
                     {

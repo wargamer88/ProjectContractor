@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3317070}
   - 23: {fileID: 2361280}
   - 114: {fileID: 11493122}
+  - 65: {fileID: 6535896}
   m_Layer: 0
   m_Name: L_Whale
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.4, y: 1.3, z: -11.7}
+  m_LocalPosition: {x: -21.5, y: 232.41563, z: 86.05592}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,6 +64,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151000}
   m_Mesh: {fileID: 4300000, guid: ed151ac173cc64b4380fbb9f63b4a2c4, type: 3}
+--- !u!65 &6535896
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 212.83252, y: 173.28621, z: 487.18045}
+  m_Center: {x: 0, y: -0.36525726, z: -0.008850098}
 --- !u!114 &11493122
 MonoBehaviour:
   m_ObjectHideFlags: 1
