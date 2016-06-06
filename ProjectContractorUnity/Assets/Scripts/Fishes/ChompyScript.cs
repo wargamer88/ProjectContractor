@@ -26,6 +26,10 @@ public class ChompyScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (GarbageObject == null)
+        {
+            Destroy(this.gameObject);
+        }
         float step = _speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, GarbageObject.transform.position, step);
     }

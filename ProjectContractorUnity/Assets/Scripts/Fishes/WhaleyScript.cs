@@ -31,9 +31,11 @@ public class WhaleyScript : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(-0.6f, -1.4f, -13.8f), step);
 
             if (transform.position == new Vector3(-0.6f, -1.4f, -13.8f))
-    {
+            {
                 foreach (GarbadgeDestoryScript Garbage in _garbage)
-        {
+                {
+                    if (Garbage == null) continue;
+
                     Garbage.HP--;
                     Garbage.transform.position = new Vector3(Garbage.transform.position.x, Garbage.transform.position.y, 85);
                     if (Garbage.HP == 0)
@@ -61,20 +63,4 @@ public class WhaleyScript : MonoBehaviour {
 
 
     }
-
-    //void OnCollisionEnter(Collision pOther)
-    //{
-    //    if (_garbage.Contains(pOther.gameObject))
-    //    {
-    //        pOther.gameObject.GetComponent<GarbadgeDestoryScript>().HP--;
-    //        //Destroy(this.gameObject);
-
-    //        if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().HP == 0)
-    //        {
-    //            //Destroy(this.gameObject);
-    //            _garbageWaveScript.DestroyedGarbage.Add(_garbageObject);
-    //            Destroy(_garbageObject);
-    //        }
-    //    }
-    //}
 }
