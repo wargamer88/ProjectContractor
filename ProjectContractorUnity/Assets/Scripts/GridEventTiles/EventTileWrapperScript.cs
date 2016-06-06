@@ -4,6 +4,9 @@ using System.Collections;
 [System.Serializable]
 public class EventTileWrapperScript {
 
+    private int _indexNumber = 0;
+    public int IndexNumber { get { return _indexNumber; } set { _indexNumber = value; } }
+
     [SerializeField]
     private _choices _choice;
     [SerializeField]

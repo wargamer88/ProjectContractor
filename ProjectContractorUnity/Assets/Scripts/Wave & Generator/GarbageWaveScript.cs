@@ -79,7 +79,6 @@ public class GarbageWaveScript : MonoBehaviour
     private HighscoreScript _highScoreScript;
 
     public int TutorialWavesLeft { get { return _tutorialScriptWrapper.Count; } }
-    bool test = false;
 
     // Use this for initialization
     void Start()
@@ -117,7 +116,6 @@ public class GarbageWaveScript : MonoBehaviour
                 {
                     CheckWave();
                 }
-                
             }
             if (_nextWave)
             {
@@ -331,7 +329,6 @@ public class GarbageWaveScript : MonoBehaviour
         {
             this.GetComponent<TutorialWaveSpawnScript>().IsComplete = false;
             _tutorialScriptWrapper.RemoveAt(0);
-            test = true;
         }
         else
         {

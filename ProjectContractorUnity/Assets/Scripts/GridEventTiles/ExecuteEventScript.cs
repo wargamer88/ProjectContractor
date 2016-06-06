@@ -14,31 +14,32 @@ public class ExecuteEventScript : MonoBehaviour {
     private GameObject _aimPlane;
     private Image _hand;
 
-    private int _eventListNumber;
+    private bool _isDestroyed = false;
+    public bool IsDestroyed { set { _isDestroyed = value; } }
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         _hand = GameObject.Find("Hand").GetComponent<Image>();
+        _startOrRestartTile();
+        //_eventList = GetComponent<EventTileScript>().Choices;
+        _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
+
+        _aimPlane = GameObject.Find("AimPlane");
+	}
+
+    private void _startOrRestartTile()
+    {
         if (this.tag != "Garbage" && GetComponent<EventTileScript>().EventWrapper.Count != 0)
         {
             //_event = GetComponent<EventTileScript>().ChosenEvent;
             //_eventWave = GetComponent<EventTileScript>().EventWave;
             _event = GetComponent<EventTileScript>().EventWrapper[0].ChosenEvent;
             _eventWave = GetComponent<EventTileScript>().EventWrapper[0].EventWave;
-            if (GetComponent<EventTileScript>().EventWrapper.Count != 0)
-            {
-                //GetComponent<EventTileScript>().EventWrapper.Remove(this.GetComponent<EventTileScript>().EventWrapper[0]);
-            }
-            if (GetComponent<EventTileScript>().EventWrapper.Count > 0)
-            {
 
-            }
         }
-        //_eventList = GetComponent<EventTileScript>().Choices;
-        _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
+    }
 
-        _aimPlane = GameObject.Find("AimPlane");
-	}
 
     // Update is called once per frame
     void Update()
@@ -50,37 +51,44 @@ public class ExecuteEventScript : MonoBehaviour {
                 _hand.enabled = false;
             }
         }
-        if (_event != null)
-        {
-            switch (_event)
-            {
-                case _choices.None:
-                    break;
-                case _choices.IncreaseSpeed:
-                    break;
-                case _choices.SpawnBottle:
-                    if (_garbageWaveScript.Wave == _eventWave)
+        //if (GetComponent<EventTileScript>() != null)
+        //{
+            //foreach (EventTileWrapperScript tileEvent in GetComponent<EventTileScript>().EventWrapper)
+            //{
+                if (_event != null)
+                {
+                    switch (_event)
                     {
-                        GameObject bottle = _garbageWaveScript.LightGarbage[0];
-                        _garbageWaveScript._spawnGarbage(1, this.transform.position.x + 1, 1, this.transform.position.z, bottle);
-                        _event = _choices.None;
+                        case _choices.None:
+                            break;
+                        case _choices.IncreaseSpeed:
+                            break;
+                        case _choices.SpawnBottle:
+                            if (_garbageWaveScript.Wave == _eventWave)
+                            {
+                                GameObject bottle = _garbageWaveScript.LightGarbage[0];
+                                _garbageWaveScript._spawnGarbage(1, this.transform.position.x + 1, 1, this.transform.position.z, bottle);
+
+                                _event = _choices.None;
+                            }
+                            break;
+                        case _choices.ShowTutorialBottle:
+                            break;
+                        case _choices.SpawnBarrel:
+                            if (_garbageWaveScript.Wave == _eventWave)
+                            {
+                                GameObject Barrel = _garbageWaveScript.MediumGarbage[1];
+                                _garbageWaveScript._spawnGarbage(3, this.transform.position.x + 1, 1, this.transform.position.z, Barrel);
+                                _event = _choices.None;
+                            }
+                            break;
+                        case _choices.ExplodesBarrel:
+                            break;
+                        default:
+                            break;
                     }
-                    break;
-                case _choices.ShowTutorialBottle:
-                    break;
-                case _choices.SpawnBarrel:
-                    if (_garbageWaveScript.Wave == _eventWave)
-                    {
-                        GameObject Barrel = _garbageWaveScript.MediumGarbage[1];
-                        _garbageWaveScript._spawnGarbage(3, this.transform.position.x + 1, 1, this.transform.position.z, Barrel);
-                        _event = _choices.None;
-                    }
-                    break;
-                case _choices.ExplodesBarrel:
-                    break;
-                default:
-                    break;
-            }
+            //}
+            //}
         }
     }
 
@@ -107,6 +115,58 @@ public class ExecuteEventScript : MonoBehaviour {
                 Destroy(this);
                 Destroy(pOther);
             }
+        }
+        //if (this.GetComponent<EventTileScript>() != null)
+        //{
+        //    if (this.transform.name == this.GetComponent<EventTileScript>().Tile)
+        //    {
+        //        if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<EventTileScript>().EventWrapper.Count == 1)
+        //        {
+        //            GetComponent<EventTileScript>().EventWrapper.RemoveAt(0);
+        //            _startOrRestartTile();
+        //            // Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
+        //        }
+        //        else if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<EventTileScript>().EventWrapper.Count > 1)
+        //        {
+        //            GetComponent<EventTileScript>().EventWrapper.RemoveAt(0);
+        //            //Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
+        //            _startOrRestartTile();
+        //        }
+        //    }
+        //}
+
+    }
+
+    void OnTriggerExit(Collider pOther)
+    {
+        if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<EventTileScript>().EventWrapper.Count == 1)
+        {
+            GetComponent<EventTileScript>().EventWrapper.RemoveAt(0);
+            _startOrRestartTile();
+            // Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
+        }
+        else if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<EventTileScript>().EventWrapper.Count > 1)
+        {
+            GetComponent<EventTileScript>().EventWrapper.RemoveAt(0);
+            //Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
+            _startOrRestartTile();
+        }
+    }
+
+    public void NextWave()
+    {
+
+        if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<EventTileScript>().EventWrapper.Count == 1)
+        {
+            GetComponent<EventTileScript>().EventWrapper.RemoveAt(0);
+            _startOrRestartTile();
+            // Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
+        }
+        else if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<EventTileScript>().EventWrapper.Count > 1)
+        {
+            GetComponent<EventTileScript>().EventWrapper.RemoveAt(0);
+            //Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
+            _startOrRestartTile();
         }
     }
 
