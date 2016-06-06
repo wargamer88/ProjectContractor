@@ -13,6 +13,8 @@ public class AutoAimScript : MonoBehaviour
     private List<GameObject> _balls;
 
     private GameObject _chosenBall;
+    public GameObject ChosenBall { set { _chosenBall = value; } }
+
 
     private GameObject _bullet;
     private Vector3 _ballOffset;
@@ -32,7 +34,6 @@ public class AutoAimScript : MonoBehaviour
     private RaycastHit hit;
 
     private float _oldTime;
-
 
     [SerializeField]
     private float _depthCooldown = 10;
