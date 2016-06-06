@@ -85,20 +85,10 @@ public class AutoAimScript : MonoBehaviour
         _input();
         _cooldownTimer();
         AutoAim();
-        MoveCatapult();
     }
-
-    void MoveCatapult()
-    {
-        if (_isMoving)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_moveTarget.x, transform.position.y, transform.position.z), 0.5f);
-        }
-	}
 
     void AutoAim()
     {
-
         if (Input.GetMouseButton(0))
         {
             Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -108,22 +98,6 @@ public class AutoAimScript : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.name == "Platform")
-                {
-                    if (hit.point.x < -27f)
-                    {
-                        _moveTarget = new Vector3(-27f, 0, 0);
-                    }
-                    else if (hit.point.x > 33f)
-                    {
-                        _moveTarget = new Vector3(33f, 0, 0);
-                    }
-                    else
-                    {
-                        _moveTarget = new Vector3(hit.point.x, 0, 0);
-                    }
-                    _isMoving = true;
-                }
                 if ((hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage" || hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"))
                 {
                     if (Time.time > (_newShotTimer + (_shootAnimationTimer + _reloadAnimationTimer)) && _allowshoot && (_chosenBall == _balls[0]))  //_allowshoot && (_chosenBall == _balls[0]) )
