@@ -11,8 +11,11 @@ public class AutoAimScript : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> _balls;
+    public List<GameObject> Balls { set { _balls = value; } get { return _balls; } }
 
     private GameObject _chosenBall;
+    public GameObject ChosenBall { set { _chosenBall = value; } }
+
 
     private GameObject _bullet;
     private Vector3 _ballOffset;
@@ -20,6 +23,8 @@ public class AutoAimScript : MonoBehaviour
 
     private int _cooldown = 0;
     private bool _allowshoot = true;
+    public bool Allowshoot { get { return _allowshoot; } }
+
     private float _DEBUGcounter = 0;
     
     private Vector3 _moveTarget;
@@ -33,20 +38,22 @@ public class AutoAimScript : MonoBehaviour
 
     private float _oldTime;
 
-
     [SerializeField]
     private float _depthCooldown = 10;
-    public bool IsDepthCooldown { set { _isDepthCooldown = value; } }
-
     private bool _isDepthCooldown = false;
+    public bool IsDepthCooldown { set { _isDepthCooldown = value; } get { return _isDepthCooldown; } }
+
 
 
     [SerializeField]
     private float _flameCooldown = 10;
-
-    public bool IsFlameCooldown { set { _isFlameCooldown = value; } }
-
     private bool _isFlameCooldown = false;
+    public bool IsFlameCooldown { set { _isFlameCooldown = value; } get { return _isFlameCooldown; } }
+
+    private bool _isBombCooldown = false;
+    public bool IsBombCooldown { set { _isBombCooldown = value; } get { return _isBombCooldown; } }
+
+
 
     private bool _isMouseUp = false;
 
@@ -78,20 +85,10 @@ public class AutoAimScript : MonoBehaviour
         _input();
         _cooldownTimer();
         AutoAim();
-        MoveCatapult();
     }
-
-    void MoveCatapult()
-    {
-        if (_isMoving)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_moveTarget.x, transform.position.y, transform.position.z), 0.5f);
-        }
-	}
 
     void AutoAim()
     {
-
         if (Input.GetMouseButton(0))
         {
             Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -101,26 +98,12 @@ public class AutoAimScript : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.name == "Platform")
-                {
-                    if (hit.point.x < -27f)
-                    {
-                        _moveTarget = new Vector3(-27f, 0, 0);
-                    }
-                    else if (hit.point.x > 33f)
-                    {
-                        _moveTarget = new Vector3(33f, 0, 0);
-                    }
-                    else
-                    {
-                        _moveTarget = new Vector3(hit.point.x, 0, 0);
-                    }
-                    _isMoving = true;
-                }
-                if ((hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage" || hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"))
+                
+                if ((hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage" /*|| hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"*/))
                 {
                     if (Time.time > (_newShotTimer + (_shootAnimationTimer + _reloadAnimationTimer)) && _allowshoot && (_chosenBall == _balls[0]))  //_allowshoot && (_chosenBall == _balls[0]) )
                     {
+                        _isBombCooldown = true;
                         _allowshoot = false;
                         _createBallAndShootingAnimation();
                     }
@@ -197,6 +180,14 @@ public class AutoAimScript : MonoBehaviour
             if (Time.time > (_newShotTimer + _flameCooldown))
             {
                 _isFlameCooldown = false;
+            }
+        }
+
+        if (_isBombCooldown)
+        {
+            if (Time.time > (_newShotTimer + (_shootAnimationTimer + _reloadAnimationTimer)))  //_allowshoot && (_chosenBall == _balls[0]) )
+            {
+                _isBombCooldown = false;
             }
         }
     }
