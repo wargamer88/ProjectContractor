@@ -107,7 +107,7 @@ public class GarbageWaveScript : MonoBehaviour
                 _spawnGarbage(health);
             }
             Debug.Log("_spawnedGarbage count: " + _spawnedGarbage.Count + " == _destroyedGarbage count: " + _destroyedGarbage.Count);
-            if (_spawnedGarbage.Count == _destroyedGarbage.Count) //&& _destroyedGarbage.Count == _spawnAmount)
+            if (_spawnedGarbage.Count <= _destroyedGarbage.Count) //&& _destroyedGarbage.Count == _spawnAmount)
             {
                 Debug.Log("Were here");
                 _waveNumber++;
@@ -249,7 +249,7 @@ public class GarbageWaveScript : MonoBehaviour
         return health;
     }
 
-    public void _spawnGarbage(float pHealth, float pX = 0 , float pY = 1, float pZ = 95, GameObject pGarbage = null)
+    public void _spawnGarbage(float pHealth, float pX = 0 , float pY = 4f, float pZ = 95, GameObject pGarbage = null)
     {
         GameObject garbage;
         if (pGarbage == null)
@@ -286,7 +286,7 @@ public class GarbageWaveScript : MonoBehaviour
         //{
         //    Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), garbage.GetComponent<BoxCollider>());
         //}
-        Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
+        //Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
         gameSpawnObject.tag = "Garbage";
         gameSpawnObject.AddComponent<GarbageMoveScript>();
         gameSpawnObject.AddComponent<Rigidbody>();
