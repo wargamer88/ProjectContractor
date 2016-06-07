@@ -106,7 +106,7 @@ public class ExecuteEventScript : MonoBehaviour
         //second Part deleting Part of Wrapper
         if (GetComponent<EventTileScript>() != null)
         {
-            if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0)
+            if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0 || _garbageWaveScript.DestroyedGarbage.Count+1 == _eventAmountOfObjects)
             {
                 if (GetComponent<EventTileScript>().EventWrapper.Count != 0)
                 {
@@ -131,7 +131,7 @@ public class ExecuteEventScript : MonoBehaviour
     }
     void OnTriggerStay(Collider pOther)
     {
-        if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0)
+        if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0 || _garbageWaveScript.DestroyedGarbage.Count+1 == _eventAmountOfObjects)
         {
             if (_isEventDone)
             {
@@ -164,7 +164,7 @@ public class ExecuteEventScript : MonoBehaviour
 
     void OnTriggerExit(Collider pOther)
     {
-        if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0)
+        if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0 || _garbageWaveScript.DestroyedGarbage.Count+1 == _eventAmountOfObjects)
         {
             if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<EventTileScript>().EventWrapper.Count == 1)
             {
@@ -183,7 +183,7 @@ public class ExecuteEventScript : MonoBehaviour
 
     public void NextWave()
     {
-        if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0)
+        if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0 || _garbageWaveScript.DestroyedGarbage.Count+1 == _eventAmountOfObjects)
         {
             if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<EventTileScript>().EventWrapper.Count == 1)
             {

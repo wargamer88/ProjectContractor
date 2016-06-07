@@ -107,7 +107,7 @@ public class GarbageWaveScript : MonoBehaviour
                // _spawnGarbage(health);
             }
             Debug.Log("_spawnedGarbage count: " + _spawnedGarbage.Count + " == _destroyedGarbage count: " + _destroyedGarbage.Count);
-            if (_spawnedGarbage.Count == _destroyedGarbage.Count) //&& _destroyedGarbage.Count == _spawnAmount)
+            if (_spawnedGarbage.Count <= _destroyedGarbage.Count) //&& _destroyedGarbage.Count == _spawnAmount)
             {
                 Debug.Log("Were here");
                 _waveNumber++;
