@@ -249,7 +249,7 @@ public class GarbageWaveScript : MonoBehaviour
         return health;
     }
 
-    public void _spawnGarbage(float pHealth, float pX = 0 , float pY = 1, float pZ = 95, GameObject pGarbage = null)
+    public void _spawnGarbage(float pHealth, float pX = 0 , float pY = 4f, float pZ = 95, GameObject pGarbage = null)
     {
         GameObject garbage;
         if (pGarbage == null)
@@ -286,7 +286,7 @@ public class GarbageWaveScript : MonoBehaviour
         //{
         //    Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), garbage.GetComponent<BoxCollider>());
         //}
-        Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
+        //Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
         gameSpawnObject.tag = "Garbage";
         gameSpawnObject.AddComponent<GarbageMoveScript>();
         gameSpawnObject.AddComponent<Rigidbody>();

@@ -71,8 +71,43 @@ public class ExecuteEventScript : MonoBehaviour {
                 _hand.enabled = false;
             }
         }
-        _switchEvent();
+        //if (GetComponent<EventTileScript>() != null)
+        //{
+        //foreach (EventTileWrapperScript tileEvent in GetComponent<EventTileScript>().EventWrapper)
+        //{
+        if (_event != null)
+        {
+            switch (_event)
+            {
+                case _choices.None:
+                    break;
+                case _choices.IncreaseSpeed:
+                    break;
+                case _choices.SpawnBottle:
+                    if (_garbageWaveScript.Wave == _eventWave)
+                    {
+                        GameObject bottle = _garbageWaveScript.LightGarbage[0];
+                        _garbageWaveScript._spawnGarbage(1, this.transform.position.x + 1, 4, this.transform.position.z, bottle);
         
+                        _event = _choices.None;
+                    }
+                    break;
+                case _choices.ShowTutorialBottle:
+                    break;
+                case _choices.SpawnBarrel:
+                    if (_garbageWaveScript.Wave == _eventWave)
+                    {
+                        GameObject Barrel = _garbageWaveScript.MediumGarbage[1];
+                        _garbageWaveScript._spawnGarbage(3, this.transform.position.x + 1, 4, this.transform.position.z, Barrel);
+                        _event = _choices.None;
+                    }
+                    break;
+                case _choices.ExplodesBarrel:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     void OnTriggerEnter(Collider pOther)
