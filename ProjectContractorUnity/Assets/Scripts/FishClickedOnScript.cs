@@ -4,34 +4,63 @@ using System.Collections;
 public class FishClickedOnScript : MonoBehaviour {
 
     private PowerupsScript _powerupsScript;
+    private bool _jumping = false;
 
     public PowerupsScript PowerupsScript { set { _powerupsScript = value; } }
+    public bool Jumping { set { _jumping = value; } }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	    
+        if (this.transform.position.y < -20)
+        {
+            Destroy(this.gameObject);
+        }
 	}
 
     void OnMouseDown()
     {
+
+
+
         if (this.gameObject.name == "Chompy")
         {
-            _powerupsScript.FishClickedOn(GarbageType.Light);
+            if (_jumping)
+            {
+                _powerupsScript.FishClickedOn(true, GarbageType.Light);
+            }
+            else
+            {
+                _powerupsScript.FishClickedOn(false, GarbageType.Light);
+            }
             Destroy(this.gameObject);
         }
         if (this.gameObject.name == "Sharky")
         {
-            _powerupsScript.FishClickedOn(GarbageType.Medium);
+            if (_jumping)
+            {
+                _powerupsScript.FishClickedOn(true, GarbageType.Medium);
+            }
+            else
+            {
+                _powerupsScript.FishClickedOn(false, GarbageType.Medium);
+            }
             Destroy(this.gameObject);
         }
         if (this.gameObject.name == "Whaley")
         {
-            _powerupsScript.FishClickedOn(GarbageType.Heavy);
+            if (_jumping)
+            {
+                _powerupsScript.FishClickedOn(true, GarbageType.Heavy);
+            }
+            else
+            {
+                _powerupsScript.FishClickedOn(false, GarbageType.Heavy);
+            }
             Destroy(this.gameObject);
         }
     }
