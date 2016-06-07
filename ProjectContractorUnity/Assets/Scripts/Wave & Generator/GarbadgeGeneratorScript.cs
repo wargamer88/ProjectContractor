@@ -21,11 +21,11 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
     private float _oldRepairForEachTimer = 0;
 
     [SerializeField]
-    private float _basichit = 1;
+    private float _basichit = 10;
     [SerializeField]
-    private float _mediumhit = 2;
+    private float _mediumhit = 20;
     [SerializeField]
-    private float _heavyhit = 3;
+    private float _heavyhit = 30;
 
     private bool _isStartRepairTimer = false;
     private float _startRepairTimer;
@@ -80,6 +80,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log("Generator Health: " + _generatorHealth);
         if (_generatorHealth <= 0 && _isDestroyed == false)
         {
             _generatorPowerScript.DestroyedGenerator++;
@@ -104,57 +105,83 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
             _isStartRepairTimer = false;
         }
 
-        if (_isStartRepairTimer && !_isDestroyed)
-        {
-            if (Time.time > (_startRepairTimer + _repairTime))
-            {
-                if (Time.time > (_oldRepairForEachTimer + _repairForEachTime))
-                {
-                    Debug.Log("REPAIRS WORK");
-                    _oldRepairForEachTimer = Time.time;
-                    this._generatorHealth++;
-                }
-            }
-        }
+        //if (_isStartRepairTimer && !_isDestroyed)
+        //{
+        //    if (Time.time > (_startRepairTimer + _repairTime))
+        //    {
+        //        if (Time.time > (_oldRepairForEachTimer + _repairForEachTime))
+        //        {
+        //            Debug.Log("REPAIRS WORK");
+        //            _oldRepairForEachTimer = Time.time;
+        //            this._generatorHealth++;
+        //        }
+        //    }
+        //}
 
 
 	}
 
-    void OnCollisionStay(Collision pOther)
+    void OnCollisionEnter(Collision pOther)
     {
-        //if (_hitGenerator == false)
-        //{
-        //    _generatorPowerScript.Amount = _generatorPowerScript.Amount + 1;
-        //    _hitGenerator = true;
-        //}
         if (pOther.gameObject.tag == "Garbage")
         {
             _generatorGotHit = true;
-        }
-        if (Time.time > (_oldTimer + _hitTimer))
-        {
-            _oldTimer = Time.time;
-            if (_garbageWaveScript.LightGarbage.Where(c=>c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
+            if (_garbageWaveScript.LightGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
                 _generatorHealth = _generatorHealth - _basichit;
+                _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.MediumGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
                 _generatorHealth = _generatorHealth - _mediumhit;
+                _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.HeavyGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
-
                 _generatorHealth = _generatorHealth - _heavyhit;
+                _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                Destroy(pOther.gameObject);
             }
-            _isStartRepairTimer = false;
         }
     }
-    void OnCollisionExit(Collision pOther)
-    {
-        _generatorPowerScript.Amount = _generatorPowerScript.Amount - 1;
-        _hitGenerator = false;
-        _isStartRepairTimer = true;
-        _startRepairTimer = Time.time;
-    }
+
+    //void OnCollisionStay(Collision pOther)
+    //{
+    //    //if (_hitGenerator == false)
+    //    //{
+    //    //    _generatorPowerScript.Amount = _generatorPowerScript.Amount + 1;
+    //    //    _hitGenerator = true;
+    //    //}
+    //    if (pOther.gameObject.tag == "Garbage")
+    //    {
+    //        _generatorGotHit = true;
+    //    }
+    //    if (Time.time > (_oldTimer + _hitTimer))
+    //    {
+    //        _oldTimer = Time.time;
+    //        if (_garbageWaveScript.LightGarbage.Where(c=>c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
+    //        {
+    //            _generatorHealth = _generatorHealth - _basichit;
+    //        }
+    //        if (_garbageWaveScript.MediumGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
+    //        {
+    //            _generatorHealth = _generatorHealth - _mediumhit;
+    //        }
+    //        if (_garbageWaveScript.HeavyGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
+    //        {
+
+    //            _generatorHealth = _generatorHealth - _heavyhit;
+    //        }
+    //        _isStartRepairTimer = false;
+    //    }
+    //}
+    //void OnCollisionExit(Collision pOther)
+    //{
+    //    _generatorPowerScript.Amount = _generatorPowerScript.Amount - 1;
+    //    _hitGenerator = false;
+    //    _isStartRepairTimer = true;
+    //    _startRepairTimer = Time.time;
+    //}
 }

@@ -19,6 +19,10 @@ public class EventTileWrapperScript {
     private int _amountOfObject;
     [SerializeField]
     private float _speedOfObject;
+    [SerializeField]
+    private float _timeBetweenSpawn;
+
+    private string _tile;
 
     public _choices ChosenEvent { get { return _choice; } }
     public int EventWave { get { return _wave; } }
@@ -26,6 +30,9 @@ public class EventTileWrapperScript {
     public int EveryXWave { get { return _everyXWave; } }
     public int AmountOfObject { get { return _amountOfObject; } }
     public float SpeedOfObject { get { return _speedOfObject; } }
+    public float TimeBetweenSpawn { get { return _timeBetweenSpawn; } }
+
+    public string Tile { get { return _tile; } set { _tile = value; } }
 
 
 }
