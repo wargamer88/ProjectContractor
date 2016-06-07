@@ -3556,7 +3556,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 6
+    _wave: 2
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 3
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 4
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 6
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &174948528
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4117,7 +4159,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 7
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &229671054
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5475,7 +5524,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 6
+    _wave: 2
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 6
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 7
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 9
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &321684413
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5926,7 +6010,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 7
+    _wave: 4
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 6
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 7
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &343334077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7119,7 +7231,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 7
+    _wave: 2
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 5
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 7
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &454451008
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8133,7 +8287,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 6
+    _wave: 3
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 5
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &525510950
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9656,6 +9824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper:
+<<<<<<< HEAD
   - _choice: 6
     _wave: 2
     _isEveryWave: 0
@@ -9663,6 +9832,36 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 1
+=======
+  - _choice: 8
+    _wave: 4
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 6
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+>>>>>>> origin/master
 --- !u!23 &631694672
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10549,7 +10748,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 6
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &661067749
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11915,6 +12121,27 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 4
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &791340168
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12467,7 +12694,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 8
+    _wave: 7
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &821246869
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14174,7 +14415,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 7
+    _wave: 3
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 4
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &961431782
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15890,7 +16145,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 6
+    _wave: 5
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &1084270216
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17500,7 +17769,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 6
+    _wave: 3
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 5
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &1227126256
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18711,7 +19008,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 6
+    _wave: 3
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 6
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 7
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &1378388812
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19271,7 +19603,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 6
+    _wave: 6
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 7
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &1429294789
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21199,7 +21545,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 7
+    _wave: 2
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 5
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 6
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &1595992002
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21770,7 +22151,46 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
+<<<<<<< HEAD
     _timeBetweenSpawn: 1
+=======
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 3
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 4
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 5
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 7
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+>>>>>>> origin/master
 --- !u!23 &1623127392
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22069,7 +22489,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 6
+    _wave: 2
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 4
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 5
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 6
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &1664137777
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23131,7 +23586,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 8
+    _wave: 4
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 7
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &1714266209
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23846,7 +24322,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 3
+    _wave: 1
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &1772500886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26218,7 +26715,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 8
+    _wave: 5
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &1907273173
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28720,7 +29238,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 7
+    _wave: 2
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 5
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 7
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &2088178920
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29104,7 +29643,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 6
+    _wave: 3
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 6
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 7
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
 --- !u!23 &2106683301
 MeshRenderer:
   m_ObjectHideFlags: 0
