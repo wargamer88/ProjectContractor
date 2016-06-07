@@ -42,7 +42,9 @@ public class ExecuteEventScript : MonoBehaviour
     private bool _isFirstTime = true;
 
 
-    private int _spawned = 0;
+    private int _spawnedLight = 0;
+    private int _spawnedMedium = 0;
+    private int _spawnedHeavy = 0;
 
 
     // Use this for initialization
@@ -342,14 +344,14 @@ public class ExecuteEventScript : MonoBehaviour
                 #endregion
                 break;
             case _choices.SpawnRandomLight:
-                _spawned = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawned, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this);
+                _spawnedLight = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedLight, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this);
                 
                 break;
             case _choices.SpawnRandomMedium:
-                SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position);
+                _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position);
                 break;
             case _choices.SpawnRandomHeavy:
-                SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position);
+                _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position);
                 break;
             case _choices.SpawnSuperHeavy:
                 SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position);
