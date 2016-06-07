@@ -33,7 +33,7 @@ public class PowerupsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("Light garbage: " + _lightGarbage);
+        //Debug.Log("Light garbage: " + _lightGarbage);
         _debugPowerupTest();
         _getGarbageParent();
 

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System;
 
 //[CustomEditor(typeof(EventTileScript))]
+[System.Serializable]
 public enum _choices
 {
     None, IncreaseSpeed, SpawnBottle, ShowTutorialBottle, SpawnBarrel, ExplodesBarrel,
@@ -14,9 +15,9 @@ public enum _choices
     SpawnSuperHeavy
 }
 [System.Serializable]
-public class EventTileScript : MonoBehaviour {
+public class EventTileScript {
 
-    [SerializeField]
+    //[SerializeField]
     private List<EventTileWrapperScript> _eventWrapper;
 
     public List<EventTileWrapperScript> EventWrapper { get { return _eventWrapper; } set { _eventWrapper = value; } }
@@ -25,7 +26,7 @@ public class EventTileScript : MonoBehaviour {
     {
         foreach (EventTileWrapperScript tile in _eventWrapper)
         {
-            tile.Tile = this.gameObject.name;
+            //tile.Tile = this.gameObject.name;
         }
     }
 

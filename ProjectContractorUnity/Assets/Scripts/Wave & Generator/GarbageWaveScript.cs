@@ -53,6 +53,8 @@ public class GarbageWaveScript : MonoBehaviour
 
     private List<GameObject> _spawnedGarbage;
 
+    public List<GameObject> SpawnedGarbage { get { return _spawnedGarbage; }}
+
     private List<GameObject> _destroyedGarbage;
     public List<GameObject> DestroyedGarbage { get { return _destroyedGarbage; } set { _destroyedGarbage = value; } }
 
@@ -106,7 +108,7 @@ public class GarbageWaveScript : MonoBehaviour
             {
                // _spawnGarbage(health);
             }
-            Debug.Log("_spawnedGarbage count: " + _spawnedGarbage.Count + " == _destroyedGarbage count: " + _destroyedGarbage.Count);
+            //Debug.Log("_spawnedGarbage count: " + _spawnedGarbage.Count + " == _destroyedGarbage count: " + _destroyedGarbage.Count);
             if (_spawnedGarbage.Count <= _destroyedGarbage.Count) //&& _destroyedGarbage.Count == _spawnAmount)
             {
                 Debug.Log("Were here");
@@ -119,6 +121,11 @@ public class GarbageWaveScript : MonoBehaviour
             }
             if (_nextWave)
             {
+                SpawnObjectScript.AmountLightSpawned = 0;
+                SpawnObjectScript.AmountMediumSpawned = 0;
+                SpawnObjectScript.AmountHeavySpawned = 0;
+                SpawnObjectScript.AmountSpuerHeavySpawned = 0;
+                SpawnObjectScript.IsFirstTime = true;
                 _timeToRespawnObjects = _timeToRespawnObjects - _timeToRespawnIncreaseForEachWave;
                 _spawnAmount = _spawnAmount + _increaseAmountOfObjectForEachWave;
                 // complex algorithm beneath to upgrade wave
