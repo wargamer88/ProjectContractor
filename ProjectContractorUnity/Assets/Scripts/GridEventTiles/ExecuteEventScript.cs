@@ -342,7 +342,7 @@ public class ExecuteEventScript : MonoBehaviour
                 #endregion
                 break;
             case _choices.SpawnRandomLight:
-                _spawned = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this);
+                _spawned = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawned, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this);
                 
                 break;
             case _choices.SpawnRandomMedium:
