@@ -7,7 +7,11 @@ using System;
 //[CustomEditor(typeof(EventTileScript))]
 public enum _choices
 {
-    None, IncreaseSpeed, SpawnBottle, ShowTutorialBottle, SpawnBarrel, ExplodesBarrel
+    None, IncreaseSpeed, SpawnBottle, ShowTutorialBottle, SpawnBarrel, ExplodesBarrel,
+    SpawnRandomLight,
+    SpawnRandomMedium,
+    SpawnRandomHeavy,
+    SpawnSuperHeavy
 }
 [System.Serializable]
 public class EventTileScript : MonoBehaviour {
@@ -15,8 +19,16 @@ public class EventTileScript : MonoBehaviour {
     [SerializeField]
     private List<EventTileWrapperScript> _eventWrapper;
 
-    public List<EventTileWrapperScript> EventWrapper { get { return _eventWrapper; }set { _eventWrapper = value; } }
+    public List<EventTileWrapperScript> EventWrapper { get { return _eventWrapper; } set { _eventWrapper = value; } }
 
-    public string Tile { get { return this.gameObject.name; } }
-    
+    void Start()
+    {
+        foreach (EventTileWrapperScript tile in _eventWrapper)
+        {
+            tile.Tile = this.gameObject.name;
+        }
+    }
+
+    //public string Tile { get { return this.gameObject.name; } }
+
 }
