@@ -162,8 +162,8 @@ public class ExecuteEventScript : MonoBehaviour {
 
     void OnTriggerExit(Collider pOther)
     {
-        //if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0)
-        //{
+        if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0)
+        {
             if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<EventTileScript>().EventWrapper.Count == 1)
             {
                 GetComponent<EventTileScript>().EventWrapper.RemoveAt(0);
@@ -176,7 +176,7 @@ public class ExecuteEventScript : MonoBehaviour {
                 //Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
                 _startOrRestartTile();
             }
-        //}
+        }
     }
 
     public void NextWave()
