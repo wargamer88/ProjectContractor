@@ -1,13 +1,22 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class WeaponSelectScript : MonoBehaviour {
     
     private AutoAimScript _AimScript;
+    private GameObject _reloadIcon;
+
+    [SerializeField]
+    private Sprite _bulletReady;
+
+    [SerializeField]
+    private Sprite _bulletNotReady;  
     
     // Use this for initialization
     void Start () {
         _AimScript = GameObject.FindObjectOfType<AutoAimScript>();
+        _reloadIcon = GameObject.Find("ReloadImage");
     }
 	
 	// Update is called once per frame
@@ -16,10 +25,12 @@ public class WeaponSelectScript : MonoBehaviour {
         {
             if (_AimScript.IsBombCooldown)
             {
+                _reloadIcon.GetComponent<Image>().sprite = _bulletNotReady;
                 this.gameObject.GetComponent<Renderer>().enabled = false;
             }
             else
             {
+                _reloadIcon.GetComponent<Image>().sprite = _bulletReady;
                 this.gameObject.GetComponent<Renderer>().enabled = true;
             }
         }
