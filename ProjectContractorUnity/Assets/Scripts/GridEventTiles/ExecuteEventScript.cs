@@ -67,7 +67,7 @@ public class ExecuteEventScript : MonoBehaviour {
                             if (_garbageWaveScript.Wave == _eventWave)
                             {
                                 GameObject bottle = _garbageWaveScript.LightGarbage[0];
-                                _garbageWaveScript._spawnGarbage(1, this.transform.position.x + 1, 1, this.transform.position.z, bottle);
+                                _garbageWaveScript._spawnGarbage(1, this.transform.position.x + 1, 4, this.transform.position.z, bottle);
 
                                 _event = _choices.None;
                             }
@@ -78,7 +78,7 @@ public class ExecuteEventScript : MonoBehaviour {
                             if (_garbageWaveScript.Wave == _eventWave)
                             {
                                 GameObject Barrel = _garbageWaveScript.MediumGarbage[1];
-                                _garbageWaveScript._spawnGarbage(3, this.transform.position.x + 1, 1, this.transform.position.z, Barrel);
+                                _garbageWaveScript._spawnGarbage(3, this.transform.position.x + 1, 4, this.transform.position.z, Barrel);
                                 _event = _choices.None;
                             }
                             break;
