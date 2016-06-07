@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class PowerupsScript : MonoBehaviour {
 
@@ -14,13 +15,19 @@ public class PowerupsScript : MonoBehaviour {
     [SerializeField]
     private GameObject Whaley;
 
+    private DateTime _timeJumpingFishSpawned;
+
     private int _lightGarbage = 0;
     private int _mediumGarbage = 0;
     private int _heavyGarbage = 0;
 
-    private bool _ChompySpawned = false;
-    private bool _SharkySpawned = false;
-    private bool _WhaleySpawned = false;
+    private bool _chompySpawned = false;
+    private bool _sharkySpawned = false;
+    private bool _whaleySpawned = false;
+
+    private bool _caughtChompy = false;
+    private bool _caughtSharky = false;
+    private bool _caughtWhaley = false;
 
     private GameObject _garbageParent = null;
     private List<GarbadgeDestoryScript> _garbageList;
@@ -29,14 +36,15 @@ public class PowerupsScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
-	}
+        _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("Light garbage: " + _lightGarbage);
-        _debugPowerupTest();
+        //_debugPowerupTest();
         _getGarbageParent();
 
+        _rndJumpingFishes();
         _checkPowerupStatus();
         //_lightPowerup();
         //_mediumPowerup();
@@ -73,6 +81,183 @@ public class PowerupsScript : MonoBehaviour {
             _garbageParent = GameObject.Find("Garbage Parent");
         }
     }
+    
+    private void _rndJumpingFishes()
+    {
+        
+
+        int FishRnd = 4;
+        int SpawnRnd = 0;
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            FishRnd = 2;
+        }
+        else
+        {
+            SpawnRnd = UnityEngine.Random.Range(0, 1000);
+            if (SpawnRnd > 1) return;
+            FishRnd = UnityEngine.Random.Range(0, 3);
+        }
+
+        if (_timeJumpingFishSpawned > System.DateTime.Now) return;
+        _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
+        GameObject GO;
+        switch (FishRnd)
+        {
+            case 0:
+                GO = (GameObject)Instantiate(Chompy, new Vector3(-120, -10, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
+                GO.GetComponent<ChompyScript>().enabled = false;
+                GO.AddComponent<FishClickedOnScript>();
+                GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
+                GO.GetComponent<FishClickedOnScript>().Jumping = true;
+                GO.AddComponent<Rigidbody>();
+                GO.GetComponent<Rigidbody>().AddForce(new Vector3(50, 23, 0),ForceMode.VelocityChange);
+                GO.name = "Chompy";
+                break;
+            case 1:
+                GO = (GameObject)Instantiate(Sharky, new Vector3(-120, -10, 0.4f), Quaternion.Euler(new Vector3(0, 90, 0)));
+                GO.GetComponent<SharkyScript>().enabled = false;
+                GO.AddComponent<FishClickedOnScript>();
+                GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
+                GO.GetComponent<FishClickedOnScript>().Jumping = true;
+                GO.AddComponent<Rigidbody>();
+                GO.GetComponent<Rigidbody>().AddForce(new Vector3(50, 23, 0), ForceMode.VelocityChange);
+                GO.name = "Sharky";
+                break;
+            case 2:
+                GO = (GameObject)Instantiate(Whaley, new Vector3(-160, -10, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
+                GO.GetComponent<WhaleyScript>().enabled = false;
+                GO.AddComponent<FishClickedOnScript>();
+                GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
+                GO.GetComponent<FishClickedOnScript>().Jumping = true;
+                GO.AddComponent<Rigidbody>();
+                GO.GetComponent<Rigidbody>().AddForce(new Vector3(60, 27, 0), ForceMode.VelocityChange);
+                GO.name = "Whaley";
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void _checkPowerupStatus()
+    {
+        //Spawning clickable Chompy
+        if (_caughtChompy && !_chompySpawned)
+        {
+            _caughtChompy = false;
+            _chompySpawned = true;
+            int rnd = UnityEngine.Random.Range(0, 2);
+            GameObject GO;
+            switch (rnd)
+            {
+                case 0: //Left
+                    GO = (GameObject)Instantiate(Chompy, new Vector3(-54.8f, 1.8f, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
+                    GO.GetComponent<ChompyScript>().enabled = false;
+                    GO.AddComponent<FishClickedOnScript>();
+                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
+                    GO.name = "Chompy";
+                    break;
+                case 1: //Right
+                    GO = (GameObject)Instantiate(Chompy, new Vector3(54.8f, 1.8f, 0.4f), Quaternion.Euler(new Vector3(0, 90, 0)));
+                    GO.GetComponent<ChompyScript>().enabled = false;
+                    GO.AddComponent<FishClickedOnScript>();
+                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
+                    GO.name = "Chompy";
+                    break;
+            }
+        }
+        //Spawning clickable Sharky
+        if (_caughtSharky && !_sharkySpawned)
+        {
+            _caughtSharky = false;
+            _sharkySpawned = true;
+            int rnd = UnityEngine.Random.Range(0, 2);
+            GameObject GO;
+            switch (rnd)
+            {
+                case 0: //Left
+                    GO = (GameObject)Instantiate(Sharky, new Vector3(-61.4f, 1.8f, 20), Quaternion.Euler(new Vector3(0, 90, 0)));
+                    GO.GetComponent<SharkyScript>().enabled = false;
+                    GO.AddComponent<FishClickedOnScript>();
+                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
+                    GO.name = "Sharky";
+                    break;
+                case 1: //Right
+                    GO = (GameObject)Instantiate(Sharky, new Vector3(61.4f, 1.8f, 20), Quaternion.Euler(new Vector3(0, 270, 0)));
+                    GO.GetComponent<SharkyScript>().enabled = false;
+                    GO.AddComponent<FishClickedOnScript>();
+                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
+                    GO.name = "Sharky";
+                    break;
+            }
+
+        }
+        //Spawning clickable Whaley
+        if (_caughtWhaley && !_whaleySpawned)
+        {
+            _caughtWhaley = false;
+            _whaleySpawned = true;
+            int rnd = UnityEngine.Random.Range(0, 2);
+            GameObject GO;
+            switch (rnd)
+            {
+                case 0: //Left
+                    GO = (GameObject)Instantiate(Whaley, new Vector3(-74.5f, 1.1f, 51.1f), Quaternion.Euler(new Vector3(0, 270, 0)));
+                    GO.GetComponent<WhaleyScript>().enabled = false;
+                    GO.AddComponent<FishClickedOnScript>();
+                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
+                    GO.name = "Whaley";
+                    break;
+                case 1: //Right
+                    GO = (GameObject)Instantiate(Whaley, new Vector3(74.5f, 1.1f, 51.1f), Quaternion.Euler(new Vector3(0, 90, 0)));
+                    GO.GetComponent<WhaleyScript>().enabled = false;
+                    GO.AddComponent<FishClickedOnScript>();
+                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
+                    GO.name = "Whaley";
+                    break;
+            }
+        }
+    }
+    
+    public void FishClickedOn(bool pJumping, GarbageType pPowerupType)
+    {
+        switch (pPowerupType)
+        {
+            case GarbageType.Light:
+                if (pJumping)
+                {
+                    _caughtChompy = true;
+                }
+                else
+                {
+                    _chompySpawned = false;
+                    _lightPowerup();
+                }
+                break;
+            case GarbageType.Medium:
+                if (pJumping)
+                {
+                    _caughtSharky = true;
+                }
+                else
+                {
+                    _sharkySpawned = false;
+                    _mediumPowerup();
+                }
+                break;
+            case GarbageType.Heavy:
+                if (pJumping)
+                {
+                    _caughtWhaley = true;
+                }
+                else
+                {
+                    _whaleySpawned = false;
+                    _heavyPowerup();
+                }
+                break;
+        }
+    }
 
     /// <summary>
     /// Check light powerup criteria and execute the powerup if criteria match
@@ -85,7 +270,7 @@ public class PowerupsScript : MonoBehaviour {
         _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
         foreach (GarbadgeDestoryScript Garbage in _garbageList)
         {
-            if (Garbage.HP >= 3)
+            if (Garbage.GarbageType == GarbageType.Heavy)
             {
                 GameObject GO = (GameObject)Instantiate(Chompy, new Vector3(-50, Garbage.transform.position.y, Garbage.transform.position.z), Quaternion.identity);
                 GO.GetComponent<ChompyScript>().GarbageObject = Garbage.gameObject;
@@ -219,32 +404,39 @@ public class PowerupsScript : MonoBehaviour {
         Debug.Log("Whaley(heavy garbage) activated");
     }
 
+
+
+
+
+
+
+
     /// <summary>
     /// Only call if anything hitted this trash
     /// <param name="pGarbageType">Put in the type of garbage with the enum</param>
     /// </summary>
     public void HitTrash(GarbageType pGarbageType)
     {
-        switch (pGarbageType)
-        {
-            case GarbageType.Light:
-                _lightGarbage++;
-                Debug.Log("Light Garbage hit, Light garbage count: " + _lightGarbage);
-                break;
-            case GarbageType.Medium:
-                _mediumGarbage++;
-                Debug.Log("Medium Garbage hit, Medium garbage count: " + _mediumGarbage);
-                break;
-            case GarbageType.Heavy:
-                _heavyGarbage++;
-                Debug.Log("Heavy Garbage hit, Heavy garbage count: " + _heavyGarbage);
-                break;
-            case GarbageType.none:
-                //nothing happens
-                break;
-            default:
-                break;
-        }
+        //switch (pGarbageType)
+        //{
+        //    case GarbageType.Light:
+        //        _lightGarbage++;
+        //        Debug.Log("Light Garbage hit, Light garbage count: " + _lightGarbage);
+        //        break;
+        //    case GarbageType.Medium:
+        //        _mediumGarbage++;
+        //        Debug.Log("Medium Garbage hit, Medium garbage count: " + _mediumGarbage);
+        //        break;
+        //    case GarbageType.Heavy:
+        //        _heavyGarbage++;
+        //        Debug.Log("Heavy Garbage hit, Heavy garbage count: " + _heavyGarbage);
+        //        break;
+        //    case GarbageType.none:
+        //        //nothing happens
+        //        break;
+        //    default:
+        //        break;
+        //}
     }
 
     /// <summary>
@@ -252,105 +444,9 @@ public class PowerupsScript : MonoBehaviour {
     /// </summary>
     public void HitNothing()
     {
-        Debug.Log("Hit Nothing, Counters Reset");
-        _lightGarbage = 0;
-        _mediumGarbage = 0;
-        _heavyGarbage = 0;
-    }
-
-    private void _checkPowerupStatus()
-    {
-        //Spawning clickable Chompy
-        if (_lightGarbage == 3 && !_ChompySpawned)
-        {
-            _ChompySpawned = true;
-            int rnd = Random.Range(0, 2);
-            GameObject GO;
-            switch (rnd)
-            {
-                case 0: //Left
-                    GO = (GameObject)Instantiate(Chompy, new Vector3(-54.8f, 1.8f, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
-                    GO.GetComponent<ChompyScript>().enabled = false;
-                    GO.AddComponent<FishClickedOnScript>();
-                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
-                    GO.name = "Chompy";
-                    break;
-                case 1: //Right
-                    GO = (GameObject)Instantiate(Chompy, new Vector3(54.8f, 1.8f, 0.4f), Quaternion.Euler(new Vector3(0, 90, 0)));
-                    GO.GetComponent<ChompyScript>().enabled = false;
-                    GO.AddComponent<FishClickedOnScript>();
-                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
-                    GO.name = "Chompy";
-                    break;
-            }
-        }
-        //Spawning clickable Sharky
-        if (_mediumGarbage == 2 && !_SharkySpawned)
-        {
-            _SharkySpawned = true;
-            int rnd = Random.Range(0, 2);
-            GameObject GO;
-            switch (rnd)
-            {
-                case 0: //Left
-                    GO = (GameObject)Instantiate(Sharky, new Vector3(-61.4f, 1.8f, 20), Quaternion.Euler(new Vector3(0, 90, 0)));
-                    GO.GetComponent<SharkyScript>().enabled = false;
-                    GO.AddComponent<FishClickedOnScript>();
-                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
-                    GO.name = "Sharky";
-                    break;
-                case 1: //Right
-                    GO = (GameObject)Instantiate(Sharky, new Vector3(61.4f, 1.8f, 20), Quaternion.Euler(new Vector3(0, 270, 0)));
-                    GO.GetComponent<SharkyScript>().enabled = false;
-                    GO.AddComponent<FishClickedOnScript>();
-                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
-                    GO.name = "Sharky";
-                    break;
-            }
-            
-        }
-        //Spawning clickable Whaley
-        if (_heavyGarbage == 2 && !_WhaleySpawned)
-        {
-            _WhaleySpawned = true;
-            int rnd = Random.Range(0, 2);
-            GameObject GO;
-            switch (rnd)
-            {
-                case 0: //Left
-                    GO = (GameObject)Instantiate(Whaley, new Vector3(-74.5f, 1.1f, 51.1f), Quaternion.Euler(new Vector3(0, 270, 0)));
-                    GO.GetComponent<WhaleyScript>().enabled = false;
-                    GO.AddComponent<FishClickedOnScript>();
-                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
-                    GO.name = "Whaley";
-                    break;
-                case 1: //Right
-                    GO = (GameObject)Instantiate(Whaley, new Vector3(74.5f, 1.1f, 51.1f), Quaternion.Euler(new Vector3(0, 90, 0)));
-                    GO.GetComponent<WhaleyScript>().enabled = false;
-                    GO.AddComponent<FishClickedOnScript>();
-                    GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
-                    GO.name = "Whaley";
-                    break;
-            }
-        }
-    }
-
-    public void FishClickedOn(GarbageType pPowerupType)
-    {
-        switch (pPowerupType)
-        {
-            case GarbageType.Light:
-                _ChompySpawned = false;
-                _lightPowerup();
-                break;
-            case GarbageType.Medium:
-                _SharkySpawned = false;
-                _mediumPowerup();
-                break;
-            case GarbageType.Heavy:
-                _WhaleySpawned = false;
-                _heavyPowerup();
-                break;
-        }
+        //Debug.Log("Hit Nothing, Counters Reset");
+        //_lightGarbage = 0;
+        //_mediumGarbage = 0;
+        //_heavyGarbage = 0;
     }
 }
