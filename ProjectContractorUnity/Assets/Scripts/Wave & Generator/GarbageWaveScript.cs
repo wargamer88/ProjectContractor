@@ -111,7 +111,7 @@ public class GarbageWaveScript : MonoBehaviour
             //Debug.Log("_spawnedGarbage count: " + _spawnedGarbage.Count + " == _destroyedGarbage count: " + _destroyedGarbage.Count);
             if (_spawnedGarbage.Count <= _destroyedGarbage.Count) //&& _destroyedGarbage.Count == _spawnAmount)
             {
-                Debug.Log("Were here");
+                //Debug.Log("Were here");
                 _waveNumber++;
                 _nextWave = true;
                 if (_waveNumber != 1)
@@ -256,7 +256,7 @@ public class GarbageWaveScript : MonoBehaviour
         return health;
     }
 
-    public void _spawnGarbage(float pHealth, float pX = 0 , float pY = 4f, float pZ = 95, GameObject pGarbage = null)
+    public void _spawnGarbage(float pHealth, float pX = 0 , float pY = 4f, float pZ = 95, GameObject pGarbage = null, float pSpeed = -1)
     {
         GameObject garbage;
         if (pGarbage == null)
@@ -310,6 +310,7 @@ public class GarbageWaveScript : MonoBehaviour
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
         gameSpawnObject.AddComponent<ExecuteEventScript>();
+        gameSpawnObject.GetComponent<GarbageMoveScript>().Speed = pSpeed;
         //if (addSpawnGarbage)
         //{
         //    _spawnedGarbage.Add(gameSpawnObject);

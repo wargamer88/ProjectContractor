@@ -187,52 +187,6 @@ public class ExecuteEventScript : MonoBehaviour
         //        //}
         //    }
     }
-    void OnTriggerStay(Collider pOther)
-    {
-        if (pOther.GetComponent<ExecuteEventScript>().EventWrapper.Count != 0)
-        {
-            if (this.tag == "Garbage" && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWrapper[0].EventWave && pOther.GetComponent<ExecuteEventScript>().IsEventDone)
-            {
-                //_isEventDone = false;
-               // pOther.GetComponent<ExecuteEventScript>().IsEventDone = false;
-               // pOther.GetComponent<ExecuteEventScript>().StartOrRestartTile(true);
-            }
-        }
-
-        #region oude code
-        //Debug.Log(_eventAmountOfObjects);
-
-        //    //if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0 || _garbageWaveScript.DestroyedGarbage.Count+1 == _eventAmountOfObjects)
-        //    //{
-        //        if (_isEventDone)
-        //        {
-        //            if (this.GetComponent<ExecuteEventScript>() != null)
-        //            {
-        //                if (this.GetComponent<ExecuteEventScript>().EventWrapper.Count != 0)
-        //                {
-        //                    if (this.transform.name == this.GetComponent<ExecuteEventScript>().EventWrapper[0].Tile)
-        //                    {
-        //                        if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<ExecuteEventScript>().EventWrapper.Count == 1)
-        //                        {
-        //                            GetComponent<ExecuteEventScript>().EventWrapper.RemoveAt(0);
-        //                            //_startOrRestartTile();
-        //                            _isEventDone = false;
-        //                            // Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
-        //                        }
-        //                        else if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<ExecuteEventScript>().EventWrapper.Count > 1)
-        //                        {
-        //                            GetComponent<ExecuteEventScript>().EventWrapper.RemoveAt(0);
-        //                            //Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
-        //                            //_startOrRestartTile();
-        //                            _isEventDone = false;
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    //}
-        #endregion
-    }
 
     void OnTriggerExit(Collider pOther)
     {
@@ -344,17 +298,17 @@ public class ExecuteEventScript : MonoBehaviour
                 #endregion
                 break;
             case _choices.SpawnRandomLight:
-                _spawnedLight = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedLight, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this);
+                _spawnedLight = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedLight, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 
                 break;
             case _choices.SpawnRandomMedium:
-                _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position);
+                _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
                 break;
             case _choices.SpawnRandomHeavy:
-                _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position);
+                _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
                 break;
             case _choices.SpawnSuperHeavy:
-                SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position);
+                SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
                 break;
             case _choices.ShowTutorialBottle:
                 break;
