@@ -77,10 +77,10 @@ public class BulletScript : MonoBehaviour {
 
     public void BallPowerFire()
     {
-        Debug.Log("I AM A FIREBARREL");
+        //Debug.Log("I AM A FIREBARREL");
         if (_doesExist == false)
         {
-            Collider[] hitObjects = Physics.OverlapSphere(_chosenBall.transform.position, 10);
+            Collider[] hitObjects = Physics.OverlapSphere(_chosenBall.transform.position, 30);
             for (int i = 0; i < hitObjects.Length; i++)
             {
                 if (hitObjects[i].gameObject.tag == "Garbage")

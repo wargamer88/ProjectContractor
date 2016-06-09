@@ -40,13 +40,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
     void OnCollisionEnter(Collision pOther)
     {
-        if (pOther.transform.tag == "Projectile")
-        {
-            _hp--;
-            Destroy(pOther.gameObject);
-            CheckHealth(pOther.gameObject);
-        }
-        else if (pOther.transform.tag == "SpecialWeapon")
+        if (pOther.transform.tag == "SpecialWeapon")
         {
             _hp = _hp - 3;
             Destroy(pOther.gameObject);
