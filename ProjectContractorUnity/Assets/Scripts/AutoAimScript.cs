@@ -99,7 +99,7 @@ public class AutoAimScript : MonoBehaviour
             if (hit.collider != null)
             {
 
-                if ((hit.collider.gameObject.tag == "Garbage" && _chosenBall == _balls[0] /*|| hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"*/))
+                if ((hit.collider.gameObject.name == "AimPlane" && _chosenBall == _balls[0] /*|| hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"*/))
                 {
                     if (Time.time > (_newShotTimer + (_shootAnimationTimer + _reloadAnimationTimer)) && _allowshoot && (_chosenBall == _balls[0]))  //_allowshoot && (_chosenBall == _balls[0]) )
                     {
@@ -108,7 +108,7 @@ public class AutoAimScript : MonoBehaviour
                         _createBallAndShootingAnimation();
                     }
                 }
-                else if ((hit.collider.gameObject.tag == "GridTile" || hit.collider.gameObject.tag == "Garbage") && (_chosenBall == _balls[1] || _chosenBall == _balls[2]))
+                else if ((hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage") && (_chosenBall == _balls[1] || _chosenBall == _balls[2]))
                 {
                     if (Time.time > (_newShotTimer + (_shootAnimationTimer + _reloadAnimationTimer)) && _isDepthCooldown == false && (_chosenBall == _balls[1]))
                     {
@@ -207,12 +207,12 @@ public class AutoAimScript : MonoBehaviour
         //_bullet.GetComponent<Rigidbody>().useGravity = false;
         _bullet.AddComponent<BulletScript>();
         _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
-        //Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
+        Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
         Vector3 velocity = new Vector3(0, 0, 0);
         if (_chosenBall == _balls[0])
         {
             Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _depthMinePlane.GetComponent<BoxCollider>());
-            velocity = hit.collider.gameObject.transform.position - _bullet.transform.position;
+            velocity = hit.point - _bullet.transform.position;
             _bullet.tag = "Projectile";
         }
         else if (_chosenBall == _balls[1])
@@ -230,7 +230,5 @@ public class AutoAimScript : MonoBehaviour
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         _bullet.GetComponent<Rigidbody>().AddForce(velocity);
         _bullet.GetComponent<BulletScript>().ChosenBall = _bullet;
-
     }
-
 }
