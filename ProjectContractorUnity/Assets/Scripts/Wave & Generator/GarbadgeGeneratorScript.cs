@@ -80,7 +80,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("Generator Health: " + _generatorHealth);
+        //Debug.Log("Generator Health: " + _generatorHealth);
         if (_generatorHealth <= 0 && _isDestroyed == false)
         {
             _generatorPowerScript.DestroyedGenerator++;
