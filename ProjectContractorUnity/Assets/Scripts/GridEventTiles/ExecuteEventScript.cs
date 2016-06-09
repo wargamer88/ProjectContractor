@@ -19,9 +19,12 @@ public class ExecuteEventScript : MonoBehaviour
     private int _eventAmountOfObjects;
     private float _eventSpeedOfObjects;
     private float _eventTimeBetween;
+    private EventTileWrapperScript _currentEvent;
 
     public _choices Event { get { return _event; } }
     public int EventWave { get { return _eventWave; } }
+
+    public float EventSpeed { get { return _eventSpeedOfObjects; } }
 
     private int _eventCounter = 0;
 
@@ -83,6 +86,7 @@ public class ExecuteEventScript : MonoBehaviour
                 _eventSpeedOfObjects = _eventWrapper[_eventCounter].SpeedOfObject;
                 _eventAmountOfObjects = _eventWrapper[_eventCounter].AmountOfObject;
                 _eventTimeBetween = _eventWrapper[_eventCounter].TimeBetweenSpawn;
+                _currentEvent = _eventWrapper[_eventCounter];
                 _eventCounter++;
                 //Debug.Log("EventCount: " + _eventCounter);
                 //Debug.Log("EventCurrentWave: " + _eventWave);
@@ -159,6 +163,40 @@ public class ExecuteEventScript : MonoBehaviour
                 Destroy(pOther);
                 Destroy(this);
             }
+            else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.IncreaseSpeed && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
+            {
+                this.GetComponent<GarbageMoveScript>().Speed = -pOther.GetComponent<ExecuteEventScript>().EventSpeed;
+            }
+        }
+        if (pOther.GetComponent<BoatEventScript>() && _event == _choices.BoatToTile)
+        {
+            if (_eventEveryXWave == 1)
+            {
+                _event = _choices.SpawnRandomLight;
+            }
+            if (_eventEveryXWave == 2)
+            {
+                _event = _choices.SpawnRandomMedium;
+            }
+            if (_eventEveryXWave == 3)
+            {
+                _event = _choices.SpawnRandomHeavy;
+            }
+            //_eventAmountOfObjects
+            Destroy(pOther);
+
+            //for (int i = 0; i < _eventAmountOfObjects; i++)
+            //{
+            //    _event = _choices.SpawnRandomLight;
+            //    _eventAmountOfObjects = 1;
+            //    _eventSpeedOfObjects = 1;
+            //    this.EventWrapper.Add(_currentEvent);
+            //    if (i + 1 == _eventAmountOfObjects)
+            //    {
+            //        Destroy(pOther);
+            //    }
+            //}
+
         }
 
         //    //second Part deleting Part of Wrapper
@@ -299,13 +337,61 @@ public class ExecuteEventScript : MonoBehaviour
                 break;
             case _choices.SpawnRandomLight:
                 _spawnedLight = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedLight, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
+                if (_eventEveryWave && _eventEveryXWave != 0)
+                {
+                    if (_garbageWaveScript.Wave == _eventWave)
+                    {
+                        _eventWave = _eventWave + _eventEveryXWave;
+                        _eventWrapper.Add(_currentEvent);
+                    }
+                }
+                else if (_eventEveryWave)
+                {
+                    if (_garbageWaveScript.Wave == _eventWave)
+                    {
+                        _eventWave++;
+                        _eventWrapper.Add(_currentEvent);
+                    }
+                }
                 
                 break;
             case _choices.SpawnRandomMedium:
                 _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
+                if (_eventEveryWave && _eventEveryXWave != 0)
+                {
+                    if (_garbageWaveScript.Wave == _eventWave)
+                    {
+                        _eventWave = _eventWave + _eventEveryXWave;
+                        _eventWrapper.Add(_currentEvent);
+                    }
+                }
+                else if(_eventEveryWave)
+                {
+                    if (_garbageWaveScript.Wave == _eventWave)
+                    {
+                        _eventWave++;
+                        _eventWrapper.Add(_currentEvent);
+                    }
+                }
                 break;
             case _choices.SpawnRandomHeavy:
                 _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
+                if (_eventEveryWave && _eventEveryXWave != 0)
+                {
+                    if (_garbageWaveScript.Wave == _eventWave)
+                    {
+                        _eventWave = _eventWave + _eventEveryXWave;
+                        _eventWrapper.Add(_currentEvent);
+                    }
+                }
+                else if(_eventEveryWave)
+                {
+                    if (_garbageWaveScript.Wave == _eventWave)
+                    {
+                        _eventWave++;
+                        _eventWrapper.Add(_currentEvent);
+                    }
+                }
                 break;
             case _choices.SpawnSuperHeavy:
                 SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
@@ -321,6 +407,16 @@ public class ExecuteEventScript : MonoBehaviour
                 }
                 break;
             case _choices.ExplodesBarrel:
+                break;
+            case _choices.BoatEvent:
+                GameObject boat = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                boat.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
+                //boat.AddComponent<BoxCollider>();
+                boat.AddComponent<BoatEventScript>();
+                boat.AddComponent<Rigidbody>();
+                boat.GetComponent<BoatEventScript>().SetTargetPositionAndSpeed(this.transform.position,_eventSpeedOfObjects);
+                boat.transform.localScale = new Vector3(10, 10, 10);
+                _event = _choices.BoatToTile;
                 break;
             default:
                 break;

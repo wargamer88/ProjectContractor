@@ -98,6 +98,9 @@ public class SpawnObjectScript : MonoBehaviour {
         {
             pEventSpeed = 1;
         }
+
+        Debug.Log("pEventAmountOfObjectsSpawned: " + pEventAmountOfObjectsSpawned);
+        Debug.Log("pEventAmountOfObjects: " + pEventAmountOfObjects);
         
        // Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
         if (pGarbageWaveScript.Wave == pEventWave)
@@ -107,7 +110,7 @@ public class SpawnObjectScript : MonoBehaviour {
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 int random = Random.Range(0, 3);
-                if (pEventAmountOfObjects >= pEventAmountOfObjectsSpawned)
+                if (pEventAmountOfObjectsSpawned  <= pEventAmountOfObjects)
                 {
 
                     //Debug.Log("Hier zijn we nu wel");

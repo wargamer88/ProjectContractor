@@ -12,7 +12,9 @@ public enum _choices
     SpawnRandomLight,
     SpawnRandomMedium,
     SpawnRandomHeavy,
-    SpawnSuperHeavy
+    SpawnSuperHeavy,
+    BoatEvent,
+    BoatToTile,
 }
 [System.Serializable]
 public class EventTileScript {
