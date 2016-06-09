@@ -38,48 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Fresnel
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ReflectiveColor
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ReflectionTex
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _RefractionTex
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ShoreTex
-        second:
-          m_Texture: {fileID: 2800000, guid: 36dd0b22da8874ed38075789055ca664, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ColorControl
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -116,6 +74,48 @@ Material:
       data:
         first:
           name: _MetallicGlossMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Fresnel
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ReflectiveColor
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ReflectionTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _RefractionTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ShoreTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 36dd0b22da8874ed38075789055ca664, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ColorControl
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -174,26 +174,6 @@ Material:
         second: 500
       data:
         first:
-          name: _WaveScale
-        second: 0.063
-      data:
-        first:
-          name: _ReflDistort
-        second: 0.44
-      data:
-        first:
-          name: _RefrDistort
-        second: 0.4
-      data:
-        first:
-          name: _FresnelScale
-        second: 2.74
-      data:
-        first:
-          name: _GerstnerIntensity
-        second: 0.67
-      data:
-        first:
           name: _Parallax
         second: 0.02
       data:
@@ -228,6 +208,26 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _WaveScale
+        second: 0.063
+      data:
+        first:
+          name: _ReflDistort
+        second: 0.44
+      data:
+        first:
+          name: _RefrDistort
+        second: 0.4
+      data:
+        first:
+          name: _FresnelScale
+        second: 4
+      data:
+        first:
+          name: _GerstnerIntensity
+        second: 0.67
       data:
         first:
           name: _HeightDisplacement
@@ -284,15 +284,15 @@ Material:
       data:
         first:
           name: _BaseColor
-        second: {r: 0, g: 0.612245, b: 0.877, a: 0.84}
+        second: {r: 0, g: 0.612245, b: 0.814, a: 1}
       data:
         first:
           name: _ReflectionColor
-        second: {r: 0.5888955, g: 0.7505986, b: 0.822, a: 0.828}
+        second: {r: 0.5243793, g: 0.7308369, b: 0.822, a: 0.653}
       data:
         first:
           name: _SpecularColor
-        second: {r: 0, g: 0, b: 0, a: 0.621}
+        second: {r: 0.36206895, g: 0.36206895, b: 1, a: 1}
       data:
         first:
           name: _WorldLightDir
@@ -304,19 +304,19 @@ Material:
       data:
         first:
           name: _GAmplitude
-        second: {r: -1, g: 1, b: 1, a: 0.3}
+        second: {r: -0.1, g: 0.1, b: 0.1, a: 0.03}
       data:
         first:
           name: _GFrequency
-        second: {r: -0.2, g: -0.1, b: 0.1, a: 0.245}
+        second: {r: -0.02, g: -0.02, b: 0.02, a: 0.02}
       data:
         first:
           name: _GSteepness
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 10, g: 10, b: 1, a: 1}
       data:
         first:
           name: _GSpeed
-        second: {r: 2, g: 1, b: 1, a: 1}
+        second: {r: 20, g: 10, b: 10, a: 10}
       data:
         first:
           name: _GDirectionAB
