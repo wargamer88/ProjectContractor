@@ -125,7 +125,7 @@ public class HighscoreScript : MonoBehaviour {
 
     public void ComboCheck()
     {
-        Debug.Log("Combo: " + _comboCounter);
+        //Debug.Log("Combo: " + _comboCounter);
         if (_comboCounter == 3)
         {
             _score += _3inRowScore;

@@ -7234,7 +7234,7 @@ MonoBehaviour:
   _eventWrapper:
   - _choice: 7
     _wave: 2
-    _isEveryWave: 0
+    _isEveryWave: 1
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
@@ -27931,7 +27931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2019589201
 Transform:
   m_ObjectHideFlags: 0

@@ -79,9 +79,9 @@ public class SpawnObjectScript : MonoBehaviour {
         }
     }
 
-    public static int SpawnRandomLight(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe)
+    public static int SpawnRandomLight(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
     {
-        Debug.Log("pEventWave: " + pEventWave);
+        //Debug.Log("pEventWave: " + pEventWave);
 
         //if (_isFirstTime)
         //{
@@ -94,9 +94,12 @@ public class SpawnObjectScript : MonoBehaviour {
         //    _amountLight += pEventAmountOfObjects;
         //}
         //Debug.Log(pEventAmountOfObjects);
-
-        Debug.Log(pTilePosition.ToString());
-        Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
+        if (pEventSpeed == 0)
+        {
+            pEventSpeed = 1;
+        }
+        
+       // Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
         if (pGarbageWaveScript.Wave == pEventWave)
         {
 
@@ -104,23 +107,23 @@ public class SpawnObjectScript : MonoBehaviour {
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 int random = Random.Range(0, 3);
-                if (pEventAmountOfObjects != pEventAmountOfObjectsSpawned)
+                if (pEventAmountOfObjects >= pEventAmountOfObjectsSpawned)
                 {
 
-                    Debug.Log("Hier zijn we nu wel");
+                    //Debug.Log("Hier zijn we nu wel");
                     _oldTime = Time.time;
                     if (pEventEveryXWave != 0 && pEventEveryWave)
                     {
                         pEventWave = pEventWave + pEventEveryXWave;
                         GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle,-pEventSpeed);
                         pEventAmountOfObjectsSpawned++;
                     }
                     else if (pEventEveryWave)
                     {
                         pEventWave++;
                         GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         pEventAmountOfObjectsSpawned++;
                         //_event = _choices.SpawnBottle;
                     }
@@ -129,7 +132,7 @@ public class SpawnObjectScript : MonoBehaviour {
                         //if (_eventEveryWave)
                         //{
                         GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         //_isEventDone = true;
                         // _event = _choices.None;
                         pEventAmountOfObjectsSpawned++;
@@ -144,12 +147,17 @@ public class SpawnObjectScript : MonoBehaviour {
                 }
             }
         }
+        
         return pEventAmountOfObjectsSpawned;
     }
 
-    public static int SpawnRandomMedium(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition)
+    public static int SpawnRandomMedium(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, float pEventSpeed)
     {
-        Debug.Log("pEventWave: " + pEventWave);
+        if (pEventSpeed == 0)
+        {
+            pEventSpeed = 1;
+        }
+       // Debug.Log("pEventWave: " + pEventWave);
 
         //if (_isFirstTime)
         //{
@@ -163,8 +171,8 @@ public class SpawnObjectScript : MonoBehaviour {
         //}
         //Debug.Log(pEventAmountOfObjects);
 
-        Debug.Log(pTilePosition.ToString());
-        Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
+//        Debug.Log(pTilePosition.ToString());
+        //Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
         if (pGarbageWaveScript.Wave == pEventWave)
         {
 
@@ -172,23 +180,23 @@ public class SpawnObjectScript : MonoBehaviour {
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 int random = Random.Range(0, 3);
-                if (pEventAmountOfObjects != pEventAmountOfObjectsSpawned)
+                if (pEventAmountOfObjects >= pEventAmountOfObjectsSpawned)
                 {
 
-                    Debug.Log("Hier zijn we nu wel");
+                    //Debug.Log("Hier zijn we nu wel");
                     _oldTime = Time.time;
                     if (pEventEveryXWave != 0 && pEventEveryWave)
                     {
                         pEventWave = pEventWave + pEventEveryXWave;
                         GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         pEventAmountOfObjectsSpawned++;
                     }
                     else if (pEventEveryWave)
                     {
                         pEventWave++;
                         GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         pEventAmountOfObjectsSpawned++;
                         //_event = _choices.SpawnBottle;
                     }
@@ -197,7 +205,7 @@ public class SpawnObjectScript : MonoBehaviour {
                         //if (_eventEveryWave)
                         //{
                         GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         //_isEventDone = true;
                         // _event = _choices.None;
                         pEventAmountOfObjectsSpawned++;
@@ -258,9 +266,13 @@ public class SpawnObjectScript : MonoBehaviour {
         #endregion
     }
 
-    public static int SpawnRandomHeavy(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition)
+    public static int SpawnRandomHeavy(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, float pEventSpeed)
     {
-        Debug.Log("pEventWave: " + pEventWave);
+        if (pEventSpeed == 0)
+        {
+            pEventSpeed = 1;
+        }
+        //Debug.Log("pEventWave: " + pEventWave);
 
         //if (_isFirstTime)
         //{
@@ -274,8 +286,8 @@ public class SpawnObjectScript : MonoBehaviour {
         //}
         //Debug.Log(pEventAmountOfObjects);
 
-        Debug.Log(pTilePosition.ToString());
-        Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
+        //Debug.Log(pTilePosition.ToString());
+        //Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
         if (pGarbageWaveScript.Wave == pEventWave)
         {
 
@@ -283,23 +295,23 @@ public class SpawnObjectScript : MonoBehaviour {
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 int random = Random.Range(0, 2);
-                if (pEventAmountOfObjects != pEventAmountOfObjectsSpawned)
+                if (pEventAmountOfObjects >= pEventAmountOfObjectsSpawned)
                 {
 
-                    Debug.Log("Hier zijn we nu wel");
+                   // Debug.Log("Hier zijn we nu wel");
                     _oldTime = Time.time;
                     if (pEventEveryXWave != 0 && pEventEveryWave)
                     {
                         pEventWave = pEventWave + pEventEveryXWave;
                         GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         pEventAmountOfObjectsSpawned++;
                     }
                     else if (pEventEveryWave)
                     {
                         pEventWave++;
                         GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         pEventAmountOfObjectsSpawned++;
                         //_event = _choices.SpawnBottle;
                     }
@@ -308,7 +320,7 @@ public class SpawnObjectScript : MonoBehaviour {
                         //if (_eventEveryWave)
                         //{
                         GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         //_isEventDone = true;
                         // _event = _choices.None;
                         pEventAmountOfObjectsSpawned++;
@@ -367,13 +379,17 @@ public class SpawnObjectScript : MonoBehaviour {
         //return pEventAmountOfObjectsSpawned;
         #endregion
     }
-    public static void SpawnSuperHeavy(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition)
+    public static void SpawnSuperHeavy(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, float pEventSpeed)
     {
+        if (pEventSpeed == 0)
+        {
+            pEventSpeed = -1;
+        }
         if (pGarbageWaveScript.Wave == pEventWave)
         {
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
-                Debug.Log(_spawned);
+                //Debug.Log(_spawned);
                 if (_amountSuperHeavySpawned != pEventAmountOfObjects)
                 {
                     _oldTime = Time.time;
@@ -382,14 +398,14 @@ public class SpawnObjectScript : MonoBehaviour {
                     {
                         pEventWave = pEventWave + pEventEveryXWave;
                         GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         _amountSuperHeavySpawned++;
                     }
                     else if (pEventEveryWave)
                     {
                         pEventWave++;
                         GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         _amountSuperHeavySpawned++;
                         //_event = _choices.SpawnBottle;
                     }
@@ -398,7 +414,7 @@ public class SpawnObjectScript : MonoBehaviour {
                         //if (_eventEveryWave)
                         //{
                         GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         //_isEventDone = true;
                         // _event = _choices.None;
                         _amountSuperHeavySpawned++;

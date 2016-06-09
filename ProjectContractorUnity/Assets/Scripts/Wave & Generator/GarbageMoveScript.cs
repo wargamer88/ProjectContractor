@@ -5,6 +5,9 @@ public class GarbageMoveScript : MonoBehaviour {
 
     private Rigidbody _rigidbody;
 
+    private float _speed = -1;
+    public float Speed { set { _speed = value; } }
+
     private float _wave = 0;
 
     private float _frequency = 10000000000000000f;  // Speed of sine movement
@@ -38,7 +41,7 @@ public class GarbageMoveScript : MonoBehaviour {
 
         //}
         //_rigidbody.AddForce(new Vector3(_wave, 0, -1) / 50, ForceMode.VelocityChange);
-        _rigidbody.AddForce(new Vector3(Mathf.Sin(Time.time * _frequency) * _magnitude, 0, -1) / 50, ForceMode.VelocityChange);
+        _rigidbody.AddForce(new Vector3(Mathf.Sin(Time.time * _frequency) * _magnitude, 0, _speed) / 50, ForceMode.VelocityChange);
         //transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
         //_rigidbody.velocity = new Vector3(_rigidbody.velocity.x + 100, 0, _rigidbody.velocity.z);
     }
