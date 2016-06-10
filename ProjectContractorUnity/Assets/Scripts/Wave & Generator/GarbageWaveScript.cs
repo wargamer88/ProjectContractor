@@ -103,7 +103,6 @@ public class GarbageWaveScript : MonoBehaviour
         }
         else
         {
-            float health = _chooseGarbage();
             if (_canSpawn && _spawnedGarbage.Count < _spawnAmount && _waveNumber != 0 && _waveNumber != 1)
             {
                 //_spawnGarbage(health);
@@ -231,33 +230,25 @@ public class GarbageWaveScript : MonoBehaviour
         _canSpawn = true;
     }
 
-    private float _chooseGarbage()
+    public void _spawnGarbage(float pHealth, float pX , float pY, float pZ, GameObject pGarbage, float pSpeed = -1)
     {
-        float health = 0;
-        int randomNumber = Random.Range(0, _heavyRange);
-        if (randomNumber < _LightRange)
+        if (_lightGarbage.Contains(pGarbage))
         {
-            _chosenGarbage = _lightGarbage[Random.Range(0, _lightGarbage.Count)];
             _garbageType = GarbageType.Light;
-            health = 1;
         }
-        else if (randomNumber < _mediumRange)
+        else if(_mediumGarbage.Contains(pGarbage))
         {
-            _chosenGarbage = _mediumGarbage[Random.Range(0, _mediumGarbage.Count)];
             _garbageType = GarbageType.Medium;
-            health = 2;
         }
-        else
+        else if (_heavyGarbage.Contains(pGarbage))
         {
-            _chosenGarbage = _heavyGarbage[Random.Range(0, _heavyGarbage.Count)];
             _garbageType = GarbageType.Heavy;
-            health = 3;
         }
-        return health;
-    }
+        else if (_specialGarbage.Contains(pGarbage))
+        {
+            _garbageType = GarbageType.Special;
+        }
 
-    public void _spawnGarbage(float pHealth, float pX = 0 , float pY = 4f, float pZ = 95, GameObject pGarbage = null, float pSpeed = -1)
-    {
         GameObject garbage;
         if (pGarbage == null)
         {
@@ -268,10 +259,8 @@ public class GarbageWaveScript : MonoBehaviour
             garbage = pGarbage;
         }
         GameObject gameSpawnObject = GameObject.Instantiate(garbage, new Vector3(), Quaternion.identity) as GameObject;
-        //List<GameObject> garbages = GameObject.FindGameObjectsWithTag("Garbage").ToList();
         gameSpawnObject.transform.parent = _garbageParent.transform;
         int randomSpawn = 0;
-        bool addSpawnGarbage;
         if (pX != 0)
         {
             //Debug.Log(pX);
@@ -281,19 +270,12 @@ public class GarbageWaveScript : MonoBehaviour
         {
             randomSpawn = (int)pX;
             gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
-            addSpawnGarbage = false;
         }
         else
         {
             randomSpawn = Random.Range(0, 5);
             gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
-            addSpawnGarbage = true;
         }
-        //foreach (GameObject garbage in garbages)
-        //{
-        //    Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), garbage.GetComponent<BoxCollider>());
-        //}
-        //Physics.IgnoreCollision(gameSpawnObject.GetComponent<BoxCollider>(), _aimPlane.GetComponent<MeshCollider>());
         gameSpawnObject.tag = "Garbage";
         gameSpawnObject.AddComponent<GarbageMoveScript>();
         gameSpawnObject.AddComponent<Rigidbody>();
@@ -311,24 +293,9 @@ public class GarbageWaveScript : MonoBehaviour
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
         gameSpawnObject.AddComponent<ExecuteEventScript>();
         gameSpawnObject.GetComponent<GarbageMoveScript>().Speed = pSpeed;
-        //if (addSpawnGarbage)
-        //{
-        //    _spawnedGarbage.Add(gameSpawnObject);
-        //}
         _spawnedGarbage.Add(gameSpawnObject);
-        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         _canSpawn = false;
         StartCoroutine(_waitForSeconds());
-    }
-
-    private void _spawnGarbageAnyTime(float pHealth)
-    {
-        if (Time.time > (_oldTimer + _spawnGarbageIndependantFromWavesTimer))
-        {
-            _oldTimer = Time.time;
-            float X = Random.Range(0, 5);
-            _spawnGarbage(pHealth,X,1,40);
-        }
     }
 
     private void _tutorial()
