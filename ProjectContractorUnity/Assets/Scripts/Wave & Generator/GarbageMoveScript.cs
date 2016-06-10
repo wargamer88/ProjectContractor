@@ -17,7 +17,8 @@ public class GarbageMoveScript : MonoBehaviour {
     private float _changeDirection = 0.5f;
     private bool _changeLane = false;
     private Vector3 _newPosition;
-    private float _oldSpeed;
+    private Rigidbody _oldSpeed;
+    private bool _isSaveOldRigidbody = true;
     // Use this for initialization
     void Start () {
         _rigidbody = GetComponent<Rigidbody>();
@@ -49,17 +50,21 @@ public class GarbageMoveScript : MonoBehaviour {
         //_rigidbody.velocity = new Vector3(_rigidbody.velocity.x + 100, 0, _rigidbody.velocity.z);
 
 
-        //if (_changeLane)
-        //{
-        //    _oldSpeed = _speed;
-        //    this.transform.position = Vector3.Lerp(this.transform.position, _newPosition, 0.5f);
+        if (_changeLane)
+        {
+            if (_isSaveOldRigidbody)
+            {
+                _oldSpeed = _rigidbody;
+                _isSaveOldRigidbody = false;
+            }
+            this.transform.position = Vector3.MoveTowards(this.transform.position, _newPosition, 0.5f);
 
-        //    if (this.transform.position.z <= _newPosition.z +1)
-        //    {
-        //        _changeLane = false;
-        //        _speed = _oldSpeed;
-        //    }
-        //}
+            if (this.transform.position.z <= _newPosition.z + 1)
+            {
+                _changeLane = false;
+                _rigidbody = _oldSpeed;
+            }
+        }
     }
 
     public void ChangeLane(Vector3 pNewPosition)
