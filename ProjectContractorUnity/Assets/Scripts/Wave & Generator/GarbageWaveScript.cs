@@ -247,7 +247,7 @@ public class GarbageWaveScript : MonoBehaviour
         else if (_specialGarbage.Contains(pGarbage))
         {
             _garbageType = GarbageType.Special;
-        }
+    }
 
         GameObject garbage;
         if (pGarbage == null)
@@ -264,17 +264,38 @@ public class GarbageWaveScript : MonoBehaviour
         if (pX != 0)
         {
             //Debug.Log(pX);
+            if (gameSpawnObject.name == "Log(Clone)")
+            {
+                gameSpawnObject.transform.position = new Vector3(pX, 1, pZ);
+            }
+            else
+            {
             gameSpawnObject.transform.position = new Vector3(pX, pY, pZ);
+        }
         }
         else if (pZ != 95)
         {
             randomSpawn = (int)pX;
-            gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
+            if (gameSpawnObject.name == "Log(Clone)")
+            {
+                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, pZ);
+            }
+            else
+            {
+                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
+            }
         }
         else
         {
             randomSpawn = Random.Range(0, 5);
-            gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
+                if (gameSpawnObject.name == "Log(Clone)")
+                {
+                    gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, pZ);
+                }
+                else
+                {
+                    gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
+                }
         }
         gameSpawnObject.tag = "Garbage";
         gameSpawnObject.AddComponent<GarbageMoveScript>();
