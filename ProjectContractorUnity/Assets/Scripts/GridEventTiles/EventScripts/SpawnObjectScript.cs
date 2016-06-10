@@ -81,19 +81,6 @@ public class SpawnObjectScript : MonoBehaviour {
 
     public static int SpawnRandomLight(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
     {
-        //Debug.Log("pEventWave: " + pEventWave);
-
-        //if (_isFirstTime)
-        //{
-        //    _previousPosition = pTilePosition;
-        //    _previousWave = pEventWave;
-        //    _amountLight = pEventAmountOfObjects;
-        //}
-        //if (pTilePosition != _previousPosition || _previousWave != pEventWave)
-        //{
-        //    _amountLight += pEventAmountOfObjects;
-        //}
-        //Debug.Log(pEventAmountOfObjects);
         if (pEventSpeed == 0)
         {
             pEventSpeed = 1;
@@ -110,7 +97,7 @@ public class SpawnObjectScript : MonoBehaviour {
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 int random = Random.Range(0, 3);
-                if (pEventAmountOfObjectsSpawned  <= pEventAmountOfObjects)
+                if (pEventAmountOfObjectsSpawned  < pEventAmountOfObjects)
                 {
 
                     //Debug.Log("Hier zijn we nu wel");
@@ -160,22 +147,6 @@ public class SpawnObjectScript : MonoBehaviour {
         {
             pEventSpeed = 1;
         }
-       // Debug.Log("pEventWave: " + pEventWave);
-
-        //if (_isFirstTime)
-        //{
-        //    _previousPosition = pTilePosition;
-        //    _previousWave = pEventWave;
-        //    _amountLight = pEventAmountOfObjects;
-        //}
-        //if (pTilePosition != _previousPosition || _previousWave != pEventWave)
-        //{
-        //    _amountLight += pEventAmountOfObjects;
-        //}
-        //Debug.Log(pEventAmountOfObjects);
-
-//        Debug.Log(pTilePosition.ToString());
-        //Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
         if (pGarbageWaveScript.Wave == pEventWave)
         {
 
@@ -183,7 +154,7 @@ public class SpawnObjectScript : MonoBehaviour {
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 int random = Random.Range(0, 3);
-                if (pEventAmountOfObjects >= pEventAmountOfObjectsSpawned)
+                if (pEventAmountOfObjectsSpawned < pEventAmountOfObjects)
                 {
 
                     //Debug.Log("Hier zijn we nu wel");
@@ -275,22 +246,6 @@ public class SpawnObjectScript : MonoBehaviour {
         {
             pEventSpeed = 1;
         }
-        //Debug.Log("pEventWave: " + pEventWave);
-
-        //if (_isFirstTime)
-        //{
-        //    _previousPosition = pTilePosition;
-        //    _previousWave = pEventWave;
-        //    _amountLight = pEventAmountOfObjects;
-        //}
-        //if (pTilePosition != _previousPosition || _previousWave != pEventWave)
-        //{
-        //    _amountLight += pEventAmountOfObjects;
-        //}
-        //Debug.Log(pEventAmountOfObjects);
-
-        //Debug.Log(pTilePosition.ToString());
-        //Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
         if (pGarbageWaveScript.Wave == pEventWave)
         {
 
@@ -298,7 +253,7 @@ public class SpawnObjectScript : MonoBehaviour {
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 int random = Random.Range(0, 2);
-                if (pEventAmountOfObjects >= pEventAmountOfObjectsSpawned)
+                if (pEventAmountOfObjectsSpawned < pEventAmountOfObjects)
                 {
 
                    // Debug.Log("Hier zijn we nu wel");
