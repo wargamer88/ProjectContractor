@@ -9,7 +9,12 @@ public class GarbadgeDestoryScript : MonoBehaviour {
     private GarbageType _garbageType;
     private int _currentLane;
     public float HP { get { return _hp; } set { _hp = value; } }
+
+    private GarbageTileScript _currentTile;
+
     public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
+
+    public GarbageTileScript CurrentTile { set { _currentTile = value; } }
 
     private GarbageWaveScript _garbageWaveScript;
     private HighscoreScript _highscore;
@@ -40,6 +45,15 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
     void OnCollisionEnter(Collision pOther)
     {
+        if (pOther.transform.tag == "Projectile")
+        {
+            if (_currentTile != null)
+            {
+                _currentTile.DamageGarbage(pOther.collider);
+            }
+
+            Destroy(pOther.gameObject);
+        }
         if (pOther.transform.tag == "SpecialWeapon")
         {
             _hp = _hp - 3;
