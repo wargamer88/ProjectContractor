@@ -23,8 +23,8 @@ public class SharkyScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
-        }
+        Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), GameObject.Find("AimPlane").GetComponent<MeshCollider>());
+    }
 	
 	// Update is called once per frame
 	void Update () {

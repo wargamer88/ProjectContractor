@@ -130,18 +130,30 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
             {
                 _generatorHealth = _generatorHealth - _basichit;
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile != null)
+                {
+                    pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject); 
+                }
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.MediumGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
                 _generatorHealth = _generatorHealth - _mediumhit;
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile != null)
+                {
+                    pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
+                }
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.HeavyGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
                 _generatorHealth = _generatorHealth - _heavyhit;
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile != null)
+                {
+                    pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
+                }
                 Destroy(pOther.gameObject);
             }
         }

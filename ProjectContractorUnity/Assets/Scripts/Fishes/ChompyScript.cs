@@ -44,9 +44,13 @@ public class ChompyScript : MonoBehaviour {
         }
         else
         {
-            if (pOther.gameObject.tag != "SpecialWeapon" || pOther.gameObject.tag != "Projectile")
+            if (pOther.gameObject.tag != "SpecialWeapon" || pOther.gameObject.tag != "Projectile" || pOther.gameObject.name != "AimPlane")
             {
                 Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<BoxCollider>()); 
+            }
+            else if(pOther.gameObject.name == "AimPlane")
+            {
+                Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<MeshCollider>());
             }
             else
             {
