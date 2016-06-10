@@ -15,6 +15,7 @@ public enum _choices
     SpawnSuperHeavy,
     BoatEvent,
     BoatToTile,
+    ChangeLanes,
 }
 [System.Serializable]
 public class EventTileScript {

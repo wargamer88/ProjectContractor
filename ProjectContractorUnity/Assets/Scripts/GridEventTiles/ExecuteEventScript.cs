@@ -167,6 +167,41 @@ public class ExecuteEventScript : MonoBehaviour
             {
                 this.GetComponent<GarbageMoveScript>().Speed = -pOther.GetComponent<ExecuteEventScript>().EventSpeed;
             }
+            else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.ChangeLanes && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
+            {
+                string letter = pOther.name.Substring(0, 1);
+                string numberstring = pOther.name.Substring(1, pOther.name.Length -1);
+                int number = Convert.ToInt32(numberstring);
+                List<string> possibleLetters = new List<string>();
+                if (letter == "A")
+                {
+                    possibleLetters.Add("B");
+                }
+                else if (letter == "B")
+                {
+                    possibleLetters.Add("A");
+                    possibleLetters.Add("B");
+                }
+                else if (letter == "C")
+                {
+                    possibleLetters.Add("B");
+                    possibleLetters.Add("D");
+                }
+                else if (letter == "D")
+                {
+                    possibleLetters.Add("C");
+                    possibleLetters.Add("E");
+                }
+                else if (letter == "E")
+                {
+                    possibleLetters.Add("D");
+                }
+                string nextLetter = possibleLetters[UnityEngine.Random.Range(0, possibleLetters.Count)];
+                int nextNumber = number - 1;
+                GameObject nextTile = GameObject.Find(nextLetter +""+ nextNumber.ToString());
+                this.GetComponent<GarbageMoveScript>().ChangeLane(nextTile.transform.position);
+
+            }
         }
         if (pOther.GetComponent<BoatEventScript>() && _event == _choices.BoatToTile)
         {
