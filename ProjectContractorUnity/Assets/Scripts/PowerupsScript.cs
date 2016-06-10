@@ -90,17 +90,17 @@ public class PowerupsScript : MonoBehaviour {
         int SpawnRnd = 0;
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            FishRnd = 2;
+            FishRnd = 0;
         }
         else
         {
-            SpawnRnd = UnityEngine.Random.Range(0, 1000);
-            if (SpawnRnd > 1) return;
-            FishRnd = UnityEngine.Random.Range(0, 3);
+            //SpawnRnd = UnityEngine.Random.Range(0, 1000);
+            //if (SpawnRnd > 1) return;
+            //FishRnd = UnityEngine.Random.Range(0, 3);
         }
 
-        if (_timeJumpingFishSpawned > System.DateTime.Now) return;
-        _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
+        //if (_timeJumpingFishSpawned > System.DateTime.Now) return;
+        //_timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
         GameObject GO;
         switch (FishRnd)
         {
@@ -109,7 +109,7 @@ public class PowerupsScript : MonoBehaviour {
                 GO.GetComponent<ChompyScript>().enabled = false;
                 GO.AddComponent<FishClickedOnScript>();
                 GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
-                GO.GetComponent<FishClickedOnScript>().Jumping = true;
+                GO.GetComponent<FishClickedOnScript>().Jumping = false;
                 GO.AddComponent<Rigidbody>();
                 GO.GetComponent<Rigidbody>().AddForce(new Vector3(50, 23, 0),ForceMode.VelocityChange);
                 GO.name = "Chompy";
@@ -119,7 +119,7 @@ public class PowerupsScript : MonoBehaviour {
                 GO.GetComponent<SharkyScript>().enabled = false;
                 GO.AddComponent<FishClickedOnScript>();
                 GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
-                GO.GetComponent<FishClickedOnScript>().Jumping = true;
+                GO.GetComponent<FishClickedOnScript>().Jumping = false;
                 GO.AddComponent<Rigidbody>();
                 GO.GetComponent<Rigidbody>().AddForce(new Vector3(50, 23, 0), ForceMode.VelocityChange);
                 GO.name = "Sharky";
@@ -129,7 +129,7 @@ public class PowerupsScript : MonoBehaviour {
                 GO.GetComponent<WhaleyScript>().enabled = false;
                 GO.AddComponent<FishClickedOnScript>();
                 GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
-                GO.GetComponent<FishClickedOnScript>().Jumping = true;
+                GO.GetComponent<FishClickedOnScript>().Jumping = false;
                 GO.AddComponent<Rigidbody>();
                 GO.GetComponent<Rigidbody>().AddForce(new Vector3(60, 27, 0), ForceMode.VelocityChange);
                 GO.name = "Whaley";
