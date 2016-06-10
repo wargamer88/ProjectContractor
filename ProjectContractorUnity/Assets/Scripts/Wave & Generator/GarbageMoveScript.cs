@@ -29,7 +29,7 @@ public class GarbageMoveScript : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate() {
         //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.1f);
         //_rigidbody.velocity = new Vector3(0, 0, -5);
         //_rigidbody.AddForce(new Vector3(_wave, 0, -1));
