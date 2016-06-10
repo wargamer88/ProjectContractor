@@ -97,6 +97,10 @@ public class SpawnObjectScript : MonoBehaviour {
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 int random = Random.Range(0, 3);
+                if (pExe.name == "C10")
+                {
+                    Debug.Log("");
+                }
                 if (pEventAmountOfObjectsSpawned  < pEventAmountOfObjects)
                 {
 
