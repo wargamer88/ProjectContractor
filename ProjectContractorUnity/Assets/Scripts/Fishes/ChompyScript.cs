@@ -16,11 +16,7 @@ public class ChompyScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
-        foreach (GameObject wall in _walls)
-        {
-            Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), wall.GetComponent<MeshCollider>());
-        }
+        
         this.transform.rotation = new Quaternion(0, -1, 0, 1);
     }
 	
@@ -44,18 +40,14 @@ public class ChompyScript : MonoBehaviour {
         }
         else
         {
-            if (pOther.gameObject.tag != "SpecialWeapon" || pOther.gameObject.tag != "Projectile" || pOther.gameObject.name != "AimPlane")
-            {
-                Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<BoxCollider>()); 
-            }
-            else if(pOther.gameObject.name == "AimPlane")
-            {
-                Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<MeshCollider>());
-            }
-            else
-            {
-                Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<SphereCollider>());
-            }
+            //if (pOther.gameObject.tag != "SpecialWeapon" || pOther.gameObject.tag != "Projectile")
+            //{
+            //    Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<BoxCollider>()); 
+            //}
+            //else 
+            //{
+            //    Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<SphereCollider>());
+            //}
         }
     }
 }

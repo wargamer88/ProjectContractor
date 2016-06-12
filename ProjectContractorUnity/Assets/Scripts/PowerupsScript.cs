@@ -90,17 +90,17 @@ public class PowerupsScript : MonoBehaviour {
         int SpawnRnd = 0;
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            FishRnd = 0;
+            //FishRnd = 2;
         }
         else
         {
-            //SpawnRnd = UnityEngine.Random.Range(0, 1000);
-            //if (SpawnRnd > 1) return;
-            //FishRnd = UnityEngine.Random.Range(0, 3);
+            SpawnRnd = UnityEngine.Random.Range(0, 1000);
+            if (SpawnRnd > 1) return;
+            FishRnd = UnityEngine.Random.Range(0, 3);
         }
 
-        //if (_timeJumpingFishSpawned > System.DateTime.Now) return;
-        //_timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
+        if (_timeJumpingFishSpawned > System.DateTime.Now) return;
+        _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
         GameObject GO;
         switch (FishRnd)
         {
