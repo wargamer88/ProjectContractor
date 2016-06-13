@@ -86,43 +86,41 @@ public class SpawnObjectScript : MonoBehaviour {
             pEventSpeed = 1;
         }
 
-        //Debug.Log("pEventAmountOfObjectsSpawned: " + pEventAmountOfObjectsSpawned);
-        //Debug.Log("pEventAmountOfObjects: " + pEventAmountOfObjects);
-        
-       // Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
         if (pGarbageWaveScript.Wave == pEventWave)
         {
-
-           // Debug.Log("pEventWave : " + pEventWave);
+            
+            // Debug.Log("pEventWave : " + pEventWave);
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 int random = Random.Range(0, 3);
-                if (pExe.name == "C10")
-                {
-                    Debug.Log("");
-                }
+                //if (pExe.name == "C10" && pGarbageWaveScript.Wave == 8)
+                //{
+                //    Debug.Log("Kom HIERIN");
+                //    Debug.Log("Needs to spawn: " + pEventAmountOfObjects);
+                //    Debug.Log("Get to spawn: " + pEventAmountOfObjectsSpawned);
+                //}
                 if (pEventAmountOfObjectsSpawned  < pEventAmountOfObjects)
                 {
 
                     //Debug.Log("Hier zijn we nu wel");
                     _oldTime = Time.time;
-                    if (pEventEveryXWave != 0 && pEventEveryWave)
-                    {
-                        pEventWave = pEventWave + pEventEveryXWave;
-                        GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle,-pEventSpeed);
-                        pEventAmountOfObjectsSpawned++;
-                    }
-                    else if (pEventEveryWave)
-                    {
-                        pEventWave++;
-                        GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
-                        pEventAmountOfObjectsSpawned++;
-                        //_event = _choices.SpawnBottle;
-                    }
-                    else
-                    {
+                    //if (pEventEveryXWave != 0 && pEventEveryWave)
+                    //{
+                    //    pEventWave = pEventWave + pEventEveryXWave;
+                    //    GameObject bottle = pGarbageWaveScript.LightGarbage[random];
+                    //    pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle,-pEventSpeed);
+                    //    pEventAmountOfObjectsSpawned++;
+                    //}
+                    //else if (pEventEveryWave)
+                    //{
+                    //    pEventWave++;
+                    //    GameObject bottle = pGarbageWaveScript.LightGarbage[random];
+                    //    pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
+                    //    pEventAmountOfObjectsSpawned++;
+                    //    //_event = _choices.SpawnBottle;
+                    //}
+                    //else
+                    //{
                         //if (_eventEveryWave)
                         //{
                         GameObject bottle = pGarbageWaveScript.LightGarbage[random];
@@ -130,8 +128,9 @@ public class SpawnObjectScript : MonoBehaviour {
                         //_isEventDone = true;
                         // _event = _choices.None;
                         pEventAmountOfObjectsSpawned++;
+
                         //}
-                    }
+                    //}
                     _isFirstTime = false;
                 }
                 else
@@ -153,7 +152,6 @@ public class SpawnObjectScript : MonoBehaviour {
         }
         if (pGarbageWaveScript.Wave == pEventWave)
         {
-
             // Debug.Log("pEventWave : " + pEventWave);
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
@@ -252,7 +250,6 @@ public class SpawnObjectScript : MonoBehaviour {
         }
         if (pGarbageWaveScript.Wave == pEventWave)
         {
-
             // Debug.Log("pEventWave : " + pEventWave);
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
