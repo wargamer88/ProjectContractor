@@ -46,6 +46,11 @@ public class PowerupsScript : MonoBehaviour {
 
         _rndJumpingFishes();
         _checkPowerupStatus();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _mediumPowerup();
+        }
         //_lightPowerup();
         //_mediumPowerup();
         //_heavyPowerup();
