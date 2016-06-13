@@ -67,7 +67,11 @@ public class AutoAimScript : MonoBehaviour
             {
                 if ((hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage" /*|| hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"*/))
                 {
-                    _createBallAndShootingAnimation();
+                    if (Time.time > (_oldTime + 0.5f))
+                    {
+                        _oldTime = Time.time;
+                        _createBallAndShootingAnimation();
+                    }
                 }
             } 
         }
