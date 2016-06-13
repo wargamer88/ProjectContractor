@@ -22,15 +22,25 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
     [SerializeField]
     private float _basichit = 10;
+
+    public float BasicHit { get { return _basichit; } }
+
     [SerializeField]
     private float _mediumhit = 20;
+
+    public float Mediumhit { get { return _mediumhit; } }
+
     [SerializeField]
     private float _heavyhit = 30;
+
+    public float HeavyHit { get { return _heavyhit; } }
 
     private bool _isStartRepairTimer = false;
     private float _startRepairTimer;
 
     private float _generatorHealth = 100;
+
+    public float GeneratorHealth { get { return _generatorHealth; } set { _generatorHealth = value; } }
 
     private bool _isDestroyed = false;
 

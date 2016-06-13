@@ -44,12 +44,19 @@ public class GarbageTileScript : MonoBehaviour {
         _tobeDestroyedList = new List<GameObject>();
         for (int i = 0; i < _garbageList.Count; i++)
         {
-            _garbageList[i].GetComponent<GarbadgeDestoryScript>().HP--;
-            if (_garbageList[i].GetComponent<GarbadgeDestoryScript>().HP <= 0)
+            if (_garbageList[i] != null)
+            {
+                _garbageList[i].GetComponent<GarbadgeDestoryScript>().HP--;
+                if (_garbageList[i].GetComponent<GarbadgeDestoryScript>().HP <= 0)
+                {
+                    _tobeDestroyedList.Add(_garbageList[i]);
+                }
+                _garbageList[i].GetComponent<GarbadgeDestoryScript>().CheckHealth(pOther.gameObject);
+            }
+            else
             {
                 _tobeDestroyedList.Add(_garbageList[i]);
             }
-            _garbageList[i].GetComponent<GarbadgeDestoryScript>().CheckHealth(pOther.gameObject);
         }
         for (int i = 0; i < _tobeDestroyedList.Count; i++)
         {
