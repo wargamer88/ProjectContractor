@@ -22,15 +22,25 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
     [SerializeField]
     private float _basichit = 10;
+
+    public float BasicHit { get { return _basichit; } }
+
     [SerializeField]
     private float _mediumhit = 20;
+
+    public float Mediumhit { get { return _mediumhit; } }
+
     [SerializeField]
     private float _heavyhit = 30;
+
+    public float HeavyHit { get { return _heavyhit; } }
 
     private bool _isStartRepairTimer = false;
     private float _startRepairTimer;
 
     private float _generatorHealth = 100;
+
+    public float GeneratorHealth { get { return _generatorHealth; } set { _generatorHealth = value; } }
 
     private bool _isDestroyed = false;
 
@@ -130,18 +140,30 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
             {
                 _generatorHealth = _generatorHealth - _basichit;
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile != null)
+                {
+                    pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject); 
+                }
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.MediumGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
                 _generatorHealth = _generatorHealth - _mediumhit;
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile != null)
+                {
+                    pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
+                }
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.HeavyGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
                 _generatorHealth = _generatorHealth - _heavyhit;
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile != null)
+                {
+                    pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
+                }
                 Destroy(pOther.gameObject);
             }
         }

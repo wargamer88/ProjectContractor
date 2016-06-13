@@ -1,18 +1,26 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class FishClickedOnScript : MonoBehaviour {
 
     private PowerupsScript _powerupsScript;
     private bool _jumping = false;
 
+    private List<GameObject> _walls;
+
     public PowerupsScript PowerupsScript { set { _powerupsScript = value; } }
     public bool Jumping { set { _jumping = value; } }
 
     // Use this for initialization
     void Start () {
-	
-	}
+        _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
+        foreach (GameObject wall in _walls)
+        {
+            Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), wall.GetComponent<MeshCollider>());
+        }
+        Physics.IgnoreCollision(this.GetComponent<Collider>(), GameObject.Find("AimPlane").GetComponent<Collider>());
+    }
 	
 	// Update is called once per frame
 	void Update () {

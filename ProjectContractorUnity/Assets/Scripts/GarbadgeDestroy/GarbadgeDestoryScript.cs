@@ -14,7 +14,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
     public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
 
-    public GarbageTileScript CurrentTile { set { _currentTile = value; } }
+    public GarbageTileScript CurrentTile { get { return _currentTile; } set { _currentTile = value; } }
 
     private GarbageWaveScript _garbageWaveScript;
     private HighscoreScript _highscore;

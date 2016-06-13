@@ -86,8 +86,8 @@ public class SpawnObjectScript : MonoBehaviour {
             pEventSpeed = 1;
         }
 
-        Debug.Log("pEventAmountOfObjectsSpawned: " + pEventAmountOfObjectsSpawned);
-        Debug.Log("pEventAmountOfObjects: " + pEventAmountOfObjects);
+        //Debug.Log("pEventAmountOfObjectsSpawned: " + pEventAmountOfObjectsSpawned);
+        //Debug.Log("pEventAmountOfObjects: " + pEventAmountOfObjects);
         
        // Debug.Log(pGarbageWaveScript.Wave + " == " + pEventWave);
         if (pGarbageWaveScript.Wave == pEventWave)

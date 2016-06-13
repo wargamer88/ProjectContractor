@@ -26,6 +26,7 @@ public class GarbageMoveScript : MonoBehaviour {
     private bool _thisIsEntered = false;
     // Use this for initialization
     void Start () {
+        Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), GameObject.Find("AimPlane").GetComponent<MeshCollider>());
         _rigidbody = GetComponent<Rigidbody>();
         int random = Random.Range(0, 1);
         if (random == 0)
