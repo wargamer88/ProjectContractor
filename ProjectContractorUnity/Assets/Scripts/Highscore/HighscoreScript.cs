@@ -84,16 +84,17 @@ public class HighscoreScript : MonoBehaviour {
 
     private void CheckComboTimer()
     {
-        if (_comboUI.GetComponent<Text>().enabled == true || _waveClearUI.GetComponent<Text>().enabled == true)
+        if (_comboUI.GetComponent<Image>().enabled == true || _waveClearUI.GetComponent<Image>().enabled == true)
         {
             _timer++;
             if (_timer >= _maxTimeShowComboText)
             {
-                _comboUI.GetComponent<Text>().enabled = false;
-                _waveClearUI.GetComponent<Text>().enabled = false;
+                _comboUI.GetComponent<Image>().enabled = false;
+                _waveClearUI.GetComponent<Image>().enabled = false;
                 _timer = 0;
             }
         }
+
     }
 
     public void AddTrashScore(GarbageType pGarbageType)
