@@ -306,9 +306,9 @@ public class GarbageWaveScript : MonoBehaviour
         //float randomRotationY = Random.Range(0, 360);
         //float randomRotationZ = Random.Range(0, 360);
         //gameSpawnObject.transform.rotation = new Quaternion(0,0,0,0);
-        gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        gameSpawnObject.GetComponent<Rigidbody>().constraints = /*RigidbodyConstraints.FreezePositionX | */RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
         gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
-        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
+        //gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;

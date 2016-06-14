@@ -23,6 +23,10 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
                                        // Use this for initialization
     void Start () {
+        if (HP == 0)
+        {
+            _hp = GetComponent<GarbageHPScript>().HP;
+        }
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
         _highscore = GameObject.FindObjectOfType<HighscoreScript>();
 	}
@@ -41,7 +45,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         {
             this.GetComponent<Renderer>().material.color = Color.red;
         }
-	}
+    }
 
     void OnCollisionEnter(Collision pOther)
     {
