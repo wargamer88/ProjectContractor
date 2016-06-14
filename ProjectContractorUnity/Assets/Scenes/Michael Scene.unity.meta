@@ -1,3 +1,13 @@
+<<<<<<< HEAD:ProjectContractorUnity/Assets/Scenes/New Rogier Scene 1.unity.meta
+fileFormatVersion: 2
+guid: 30391113730112d4480f791601a15ff0
+timeCreated: 1465336753
+licenseType: Free
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+=======
 fileFormatVersion: 2
 guid: c2af3d0e19e2d0e4bb49e051255378a0
 timeCreated: 1465896287
@@ -6,3 +16,4 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+>>>>>>> origin/master:ProjectContractorUnity/Assets/Scenes/Michael Scene.unity.meta

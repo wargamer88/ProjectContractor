@@ -4961,7 +4961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper:
-  - _choice: 13
+  - _choice: 12
     _wave: 1
     _isEveryWave: 0
     _everyXWave: 0
@@ -16517,8 +16517,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: -0.2471968, y: -0.00043543402, z: -0.00033476547, w: 0.9689652}
-  m_LocalPosition: {x: -0.6, y: -17.66, z: -69.8}
+  m_LocalRotation: {x: -0.06876674, y: 0.7805199, z: 0.08723684, w: 0.61518264}
+  m_LocalPosition: {x: -0.048712265, y: 4.094216, z: 0.011167712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
