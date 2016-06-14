@@ -129,26 +129,38 @@ public class HighscoreScript : MonoBehaviour {
         if (_comboCounter == 3)
         {
             _score += _3inRowScore;
-            _comboUI.GetComponent<Image>().sprite = _3inRowImage;
-            _comboUI.GetComponent<Image>().enabled = true;
+            if (_3inRowImage != null)
+            {
+                _comboUI.GetComponent<Image>().sprite = _3inRowImage;
+                _comboUI.GetComponent<Image>().enabled = true; 
+            }
         }
         else if(_comboCounter == 5)
         {
             _score += _5inRowScore;
-            _comboUI.GetComponent<Image>().sprite = _5inRowImage;
-            _comboUI.GetComponent<Image>().enabled = true;
+            if (_5inRowImage != null)
+            {
+                _comboUI.GetComponent<Image>().sprite = _5inRowImage;
+                _comboUI.GetComponent<Image>().enabled = true; 
+            }
         }
         else if(_comboCounter == 10)
         {
             _score += _10inRowScore;
-            _comboUI.GetComponent<Image>().sprite = _10inRowImage;
-            _comboUI.GetComponent<Image>().enabled = true;
+            if (_10inRowImage != null)
+            {
+                _comboUI.GetComponent<Image>().sprite = _10inRowImage;
+                _comboUI.GetComponent<Image>().enabled = true; 
+            }
         }
         else if(_comboCounter == 15)
         {
             _score += _15inRowScore;
-            _comboUI.GetComponent<Image>().sprite = _15inRowImage;
-            _comboUI.GetComponent<Image>().enabled = true;
+            if (_15inRowImage != null)
+            {
+                _comboUI.GetComponent<Image>().sprite = _15inRowImage;
+                _comboUI.GetComponent<Image>().enabled = true; 
+            }
         }
         UpdateScore();
     }
