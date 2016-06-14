@@ -170,12 +170,18 @@ public class HighscoreScript : MonoBehaviour {
         if (pHitAnything)
         {
             _score += _noDamageScore;
-            _comboUI.GetComponent<Image>().sprite = _noDamageImage;
-            _comboUI.GetComponent<Image>().enabled = true;
+            if (_noDamageImage != null)
+            {
+                _comboUI.GetComponent<Image>().sprite = _noDamageImage;
+                _comboUI.GetComponent<Image>().enabled = true; 
+            }
             pHitAnything = false;
         }
-        _waveClearUI.GetComponent<Image>().sprite = _finishWaveImage;
-        _waveClearUI.GetComponent<Image>().enabled = true;
+        if (_finishWaveImage != null)
+        {
+            _waveClearUI.GetComponent<Image>().sprite = _finishWaveImage;
+            _waveClearUI.GetComponent<Image>().enabled = true; 
+        }
         _score += _finishWaveScore;
     }
 }
