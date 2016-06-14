@@ -97,6 +97,9 @@ public class GarbageWaveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("garbageSpawned: " + SpawnedGarbage.Count);
+        Debug.Log("GarbageDestroyed: " + DestroyedGarbage.Count);
+
         if (_tutorialScriptWrapper.Count > 0)
         {
             _tutorial();
@@ -270,8 +273,8 @@ public class GarbageWaveScript : MonoBehaviour
             }
             else
             {
-            gameSpawnObject.transform.position = new Vector3(pX, pY, pZ);
-        }
+                gameSpawnObject.transform.position = new Vector3(pX, pY, pZ);
+            }
         }
         else if (pZ != 95)
         {
@@ -297,6 +300,29 @@ public class GarbageWaveScript : MonoBehaviour
                     gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
                 }
         }
+
+        if (Physics.OverlapSphere(gameSpawnObject.transform.position,2).Length > 1)
+        {
+            int randomPos = Random.Range(0, 4);
+            switch (randomPos)
+            {
+                case 0:
+                    gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x + 1, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
+                    break;
+                case 1:
+                    gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x - 1, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
+                    break;
+                case 2:
+                    gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x , gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z+1);
+                    break;
+                case 3:
+                    gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z-1);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         gameSpawnObject.tag = "Garbage";
         gameSpawnObject.AddComponent<GarbageMoveScript>();
         gameSpawnObject.AddComponent<Rigidbody>();
