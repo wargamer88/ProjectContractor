@@ -202,6 +202,16 @@ public class ExecuteEventScript : MonoBehaviour
                 this.GetComponent<GarbageMoveScript>().ChangeLane(nextTile.transform.position);
 
             }
+            else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.MiltiTrash && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
+            {
+                //int random = UnityEngine.Random.Range(0, 3);
+                //_garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 1, 4, pOther.transform.position.z, _garbageWaveScript.LightGarbage[random],-pOther.GetComponent<ExecuteEventScript>().EventSpeed);
+                //random = UnityEngine.Random.Range(0, 3);
+                //_garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 1, 4, pOther.transform.position.z, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed);
+                //random = UnityEngine.Random.Range(0, 3);
+                //_garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 1, 4, pOther.transform.position.z, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed);
+                //Destroy(this.gameObject);
+            }
         }
         if (pOther.GetComponent<BoatEventScript>() && _event == _choices.BoatToTile)
         {

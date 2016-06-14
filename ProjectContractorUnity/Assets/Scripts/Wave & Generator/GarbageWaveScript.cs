@@ -82,6 +82,11 @@ public class GarbageWaveScript : MonoBehaviour
 
     public int TutorialWavesLeft { get { return _tutorialScriptWrapper.Count; } }
 
+    private bool _canContinue = false;
+
+    private int counter=0;
+    private int DEBUGcounter = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -97,8 +102,8 @@ public class GarbageWaveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("garbageSpawned: " + SpawnedGarbage.Count);
-        Debug.Log("GarbageDestroyed: " + DestroyedGarbage.Count);
+        //Debug.Log("garbageSpawned: " + SpawnedGarbage.Count);
+        //Debug.Log("GarbageDestroyed: " + DestroyedGarbage.Count);
 
         if (_tutorialScriptWrapper.Count > 0)
         {
@@ -269,7 +274,7 @@ public class GarbageWaveScript : MonoBehaviour
             //Debug.Log(pX);
             if (gameSpawnObject.name == "Log(Clone)")
             {
-                gameSpawnObject.transform.position = new Vector3(pX, 1, pZ);
+                gameSpawnObject.transform.position = new Vector3(pX, 2, pZ);
             }
             else
             {
@@ -281,7 +286,7 @@ public class GarbageWaveScript : MonoBehaviour
             randomSpawn = (int)pX;
             if (gameSpawnObject.name == "Log(Clone)")
             {
-                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, pZ);
+                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 2, pZ);
             }
             else
             {
@@ -293,37 +298,65 @@ public class GarbageWaveScript : MonoBehaviour
             randomSpawn = Random.Range(0, 5);
                 if (gameSpawnObject.name == "Log(Clone)")
                 {
-                    gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, pZ);
+                    gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 2, pZ);
                 }
                 else
                 {
                     gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
                 }
         }
-
-        if (Physics.OverlapSphere(gameSpawnObject.transform.position,2).Length > 1)
+        gameSpawnObject.tag = "Garbage";
+        while (!_canContinue)
         {
-            int randomPos = Random.Range(0, 4);
-            switch (randomPos)
+            Collider[] allColliders = Physics.OverlapSphere(gameSpawnObject.transform.position, 2);
+            foreach (Collider collider in allColliders)
             {
-                case 0:
-                    gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x + 1, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
-                    break;
-                case 1:
-                    gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x - 1, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
-                    break;
-                case 2:
-                    gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x , gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z+1);
-                    break;
-                case 3:
-                    gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z-1);
-                    break;
-                default:
-                    break;
+                counter++;
+                if (collider.tag == "Garbage" && collider.gameObject != gameSpawnObject)
+                {
+                    int randomPos = Random.Range(0, 4);
+                    if (randomPos == 0)
+                    {
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x + 0.5f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
+                        _canContinue = false;
+                        counter = 0;
+                        break;
+                    }
+                    else if (randomPos == 1)
+                    {
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x - 0.5f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
+                        _canContinue = false;
+                        counter = 0;
+                        break;
+                    }
+                    else if (randomPos == 2)
+                    {
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z + 0.5f);
+                        _canContinue = false;
+                        counter = 0;
+                        break;
+                    }
+                    else if (randomPos == 3)
+                    {
+
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z - 0.5f);
+                        _canContinue = false;
+                        counter = 0;
+                        break;
+                    }
+                    else
+                    {
+                        _canContinue = false;
+                    }
+                }
+                if (counter == allColliders.Length)
+                {
+                    _canContinue = true;
+                    counter = 0;
+                }
             }
         }
-
-        gameSpawnObject.tag = "Garbage";
+        _canContinue = false;
         gameSpawnObject.AddComponent<GarbageMoveScript>();
         gameSpawnObject.AddComponent<Rigidbody>();
         gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
