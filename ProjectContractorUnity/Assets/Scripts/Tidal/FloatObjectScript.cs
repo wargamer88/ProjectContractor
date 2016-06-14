@@ -22,6 +22,7 @@ public class FloatObjectScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         _rigidbody = GetComponent<Rigidbody>();
+        Physics.IgnoreCollision(this.GetComponent<MeshCollider>(), GameObject.Find("AimPlane").GetComponent<MeshCollider>());
 	}
 
     // Update is called once per frame

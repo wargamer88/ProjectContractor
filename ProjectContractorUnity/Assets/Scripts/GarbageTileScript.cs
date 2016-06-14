@@ -7,6 +7,8 @@ public class GarbageTileScript : MonoBehaviour {
     private List<GameObject> _garbageList;
     private List<GameObject> _tobeDestroyedList;
 
+    public List<GameObject> GarbageList { get { return _garbageList; } set { _garbageList = value; } }
+
     void Start()
     {
         _garbageList = new List<GameObject>();
@@ -17,12 +19,13 @@ public class GarbageTileScript : MonoBehaviour {
         if (pOther.gameObject.tag == "Garbage")
         {
             _garbageList.Add(pOther.gameObject);
+            pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile = this;
         }
         else if (pOther.gameObject.tag == "Projectile")
         {
             if (_garbageList.Count > 0)
             {
-                _damageGarbage(pOther); 
+                DamageGarbage(pOther); 
             }
             Destroy(pOther.gameObject);
         }
@@ -32,21 +35,28 @@ public class GarbageTileScript : MonoBehaviour {
     {
         if (pOther.gameObject.tag == "Garbage")
         {
-            _garbageList.Add(pOther.gameObject);
+            _garbageList.Remove(pOther.gameObject);
         }
     }
 
-    private void _damageGarbage(Collider pOther)
+    public void DamageGarbage(Collider pOther)
     {
         _tobeDestroyedList = new List<GameObject>();
         for (int i = 0; i < _garbageList.Count; i++)
         {
-            _garbageList[i].GetComponent<GarbadgeDestoryScript>().HP--;
-            if (_garbageList[i].GetComponent<GarbadgeDestoryScript>().HP <= 0)
+            if (_garbageList[i] != null)
+            {
+                _garbageList[i].GetComponent<GarbadgeDestoryScript>().HP--;
+                if (_garbageList[i].GetComponent<GarbadgeDestoryScript>().HP <= 0)
+                {
+                    _tobeDestroyedList.Add(_garbageList[i]);
+                }
+                _garbageList[i].GetComponent<GarbadgeDestoryScript>().CheckHealth(pOther.gameObject);
+            }
+            else
             {
                 _tobeDestroyedList.Add(_garbageList[i]);
             }
-            _garbageList[i].GetComponent<GarbadgeDestoryScript>().CheckHealth(pOther.gameObject);
         }
         for (int i = 0; i < _tobeDestroyedList.Count; i++)
         {

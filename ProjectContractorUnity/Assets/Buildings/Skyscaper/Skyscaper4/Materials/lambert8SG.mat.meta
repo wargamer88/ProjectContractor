@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:ProjectContractorUnity/Assets/Buildings/Skyscaper/Skyscaper4/Materials/lambert8SG.mat.meta
 guid: 5958e4bb1c96ab64b877753c2de06f1a
 timeCreated: 1465905892
+=======
+guid: 1ef255de47a95364580fbc3d39017442
+timeCreated: 1465485033
+>>>>>>> origin/master:ProjectContractorUnity/Assets/Prefabs/TV.prefab.meta
 licenseType: Free
 NativeFormatImporter:
   userData: 

@@ -9,7 +9,12 @@ public class GarbadgeDestoryScript : MonoBehaviour {
     private GarbageType _garbageType;
     private int _currentLane;
     public float HP { get { return _hp; } set { _hp = value; } }
+
+    private GarbageTileScript _currentTile;
+
     public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
+
+    public GarbageTileScript CurrentTile { get { return _currentTile; } set { _currentTile = value; } }
 
     private GarbageWaveScript _garbageWaveScript;
     private HighscoreScript _highscore;
@@ -18,6 +23,10 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
                                        // Use this for initialization
     void Start () {
+        if (HP == 0)
+        {
+            _hp = GetComponent<GarbageHPScript>().HP;
+        }
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
         _highscore = GameObject.FindObjectOfType<HighscoreScript>();
 	}
@@ -36,10 +45,19 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         {
             this.GetComponent<Renderer>().material.color = Color.red;
         }
-	}
+    }
 
     void OnCollisionEnter(Collision pOther)
     {
+        if (pOther.transform.tag == "Projectile")
+        {
+            if (_currentTile != null)
+            {
+                _currentTile.DamageGarbage(pOther.collider);
+            }
+
+            Destroy(pOther.gameObject);
+        }
         if (pOther.transform.tag == "SpecialWeapon")
         {
             _hp = _hp - 3;

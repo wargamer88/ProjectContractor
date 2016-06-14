@@ -20,37 +20,37 @@ public class HighscoreScript : MonoBehaviour {
     private int _superHeavyTrashScore;
 
     [SerializeField]
-    private string _finishWaveText;
+    private Sprite _finishWaveImage;
 
     [SerializeField]
     private int _finishWaveScore;
 
     [SerializeField]
-    private string _noDamageText;
+    private Sprite _noDamageImage;
 
     [SerializeField]
     private int _noDamageScore;
 
     [SerializeField]
-    private string _3inRowText;
+    private Sprite _3inRowImage;
 
     [SerializeField]
     private int _3inRowScore;
 
     [SerializeField]
-    private string _5inRowText;
+    private Sprite _5inRowImage;
 
     [SerializeField]
     private int _5inRowScore;
 
     [SerializeField]
-    private string _10inRowText;
+    private Sprite _10inRowImage;
 
     [SerializeField]
     private int _10inRowScore;
 
     [SerializeField]
-    private string _15inRowText;
+    private Sprite _15inRowImage;
 
     [SerializeField]
     private int _15inRowScore;
@@ -73,7 +73,7 @@ public class HighscoreScript : MonoBehaviour {
         _score = 0;
         _timer = 0;
         _scoreUI = GameObject.Find("Score");
-        _comboUI = GameObject.Find("ComboText");
+        _comboUI = GameObject.Find("ComboImage");
         _waveClearUI = GameObject.Find("WaveCleared");
 	}
 	
@@ -84,16 +84,17 @@ public class HighscoreScript : MonoBehaviour {
 
     private void CheckComboTimer()
     {
-        if (_comboUI.GetComponent<Text>().enabled == true || _waveClearUI.GetComponent<Text>().enabled == true)
+        if (_comboUI.GetComponent<Image>().enabled == true || _waveClearUI.GetComponent<Image>().enabled == true)
         {
             _timer++;
             if (_timer >= _maxTimeShowComboText)
             {
-                _comboUI.GetComponent<Text>().enabled = false;
-                _waveClearUI.GetComponent<Text>().enabled = false;
+                _comboUI.GetComponent<Image>().enabled = false;
+                _waveClearUI.GetComponent<Image>().enabled = false;
                 _timer = 0;
             }
         }
+
     }
 
     public void AddTrashScore(GarbageType pGarbageType)
@@ -129,26 +130,38 @@ public class HighscoreScript : MonoBehaviour {
         if (_comboCounter == 3)
         {
             _score += _3inRowScore;
-            _comboUI.GetComponent<Text>().text = _3inRowText;
-            _comboUI.GetComponent<Text>().enabled = true;
+            if (_3inRowImage != null)
+            {
+                _comboUI.GetComponent<Image>().sprite = _3inRowImage;
+                _comboUI.GetComponent<Image>().enabled = true; 
+            }
         }
         else if(_comboCounter == 5)
         {
             _score += _5inRowScore;
-            _comboUI.GetComponent<Text>().text = _5inRowText;
-            _comboUI.GetComponent<Text>().enabled = true;
+            if (_5inRowImage != null)
+            {
+                _comboUI.GetComponent<Image>().sprite = _5inRowImage;
+                _comboUI.GetComponent<Image>().enabled = true; 
+            }
         }
         else if(_comboCounter == 10)
         {
             _score += _10inRowScore;
-            _comboUI.GetComponent<Text>().text = _10inRowText;
-            _comboUI.GetComponent<Text>().enabled = true;
+            if (_10inRowImage != null)
+            {
+                _comboUI.GetComponent<Image>().sprite = _10inRowImage;
+                _comboUI.GetComponent<Image>().enabled = true; 
+            }
         }
         else if(_comboCounter == 15)
         {
             _score += _15inRowScore;
-            _comboUI.GetComponent<Text>().text = _15inRowText;
-            _comboUI.GetComponent<Text>().enabled = true;
+            if (_15inRowImage != null)
+            {
+                _comboUI.GetComponent<Image>().sprite = _15inRowImage;
+                _comboUI.GetComponent<Image>().enabled = true; 
+            }
         }
         UpdateScore();
     }
@@ -158,12 +171,18 @@ public class HighscoreScript : MonoBehaviour {
         if (pHitAnything)
         {
             _score += _noDamageScore;
-            _comboUI.GetComponent<Text>().text = _noDamageText;
-            _comboUI.GetComponent<Text>().enabled = true;
+            if (_noDamageImage != null)
+            {
+                _comboUI.GetComponent<Image>().sprite = _noDamageImage;
+                _comboUI.GetComponent<Image>().enabled = true; 
+            }
             pHitAnything = false;
         }
-        _waveClearUI.GetComponent<Text>().text = _finishWaveText;
-        _waveClearUI.GetComponent<Text>().enabled = true;
+        if (_finishWaveImage != null)
+        {
+            _waveClearUI.GetComponent<Image>().sprite = _finishWaveImage;
+            _waveClearUI.GetComponent<Image>().enabled = true; 
+        }
         _score += _finishWaveScore;
     }
 }
