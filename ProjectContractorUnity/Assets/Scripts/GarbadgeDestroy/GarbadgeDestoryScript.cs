@@ -11,7 +11,6 @@ public class GarbadgeDestoryScript : MonoBehaviour {
     public float HP { get { return _hp; } set { _hp = value; } }
 
     private float _hp;
-    private int _currentLane;
     private Vector3 _originalPosition;
     private GarbageTileScript _currentTile;
     private GarbageWaveScript _garbageWaveScript;
@@ -19,10 +18,8 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
     //public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
     public string CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
-
-    public float HP { get { return _hp; } set { _hp = value; } }
+    
     public Vector3 OriginalPosition { get { return _originalPosition; } }
-    public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
     public GarbageTileScript CurrentTile { get { return _currentTile; } set { _currentTile = value; } }
     public GarbageType GarbageType { get { return _garbageType; } set { _garbageType = value; } }
 
