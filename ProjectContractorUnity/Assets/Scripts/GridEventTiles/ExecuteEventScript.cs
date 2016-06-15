@@ -49,6 +49,9 @@ public class ExecuteEventScript : MonoBehaviour
     private int _spawnedMedium = 0;
     private int _spawnedHeavy = 0;
 
+    [SerializeField]
+    private GameObject _boatPrefab;
+
 
     // Use this for initialization
     void Start()
@@ -67,18 +70,12 @@ public class ExecuteEventScript : MonoBehaviour
 
     public void StartOrRestartTile(bool restart = false)
     {
-        //if (this.name == "C7") Debug.Log("Eventwrapper contains amount items: " + _eventWrapper.Count);
 
         
         if (this.tag == "GridTile" && EventWrapper.Count > 0 && _eventCounter < EventWrapper.Count)
         {
-            //if (this.name == "C7") Debug.Log("Boven Gelukt Count: " + _eventWrapper.Count);
-            
-            //_event = GetComponent<EventTileScript>().ChosenEvent;
-            //_eventWave = GetComponent<EventTileScript>().EventWave;
             if (_eventWrapper[_eventCounter].EventWave == _garbageWaveScript.Wave)
             {
-                //Debug.Log("Gelukt");
                 _event = _eventWrapper[_eventCounter].ChosenEvent;
                 _eventWave = _eventWrapper[_eventCounter].EventWave;
                 _eventEveryWave = _eventWrapper[_eventCounter].IsEveryWave;
@@ -87,18 +84,15 @@ public class ExecuteEventScript : MonoBehaviour
                 _eventAmountOfObjects = _eventWrapper[_eventCounter].AmountOfObject;
                 _eventTimeBetween = _eventWrapper[_eventCounter].TimeBetweenSpawn;
                 _currentEvent = _eventWrapper[_eventCounter];
+
+                _spawnedLight = 0;
+                _spawnedMedium = 0;
+                _spawnedHeavy = 0;
+
                 _eventCounter++;
-                //Debug.Log("EventCount: " + _eventCounter);
-                //Debug.Log("EventCurrentWave: " + _eventWave);
+                
             }
         }
-        //if (restart && _eventWrapper.Count > 0)
-        //{
-        //    if (this.name == "C7") Debug.Log("Boven Removed Count: " + _eventWrapper.Count);
-        //    Debug.Log("Removed");
-        //    _isEventDone = false;
-        //    _eventWrapper.RemoveAt(0);
-        //}
     }
 
 
@@ -341,7 +335,7 @@ public class ExecuteEventScript : MonoBehaviour
             case _choices.IncreaseSpeed:
                 break;
             case _choices.SpawnBottle:
-                SpawnObjectScript.SpawnBottle(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position);
+                SpawnObjectScript.SpawnBottle(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this);
                 #region Old SpawnBottle
                 //if (_garbageWaveScript.Wave == _eventWave)
                 //{
@@ -384,6 +378,7 @@ public class ExecuteEventScript : MonoBehaviour
                 #endregion
                 break;
             case _choices.SpawnRandomLight:
+                
                 _spawnedLight = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedLight, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
                 {
@@ -404,7 +399,7 @@ public class ExecuteEventScript : MonoBehaviour
                 
                 break;
             case _choices.SpawnRandomMedium:
-                _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
+                _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
                 {
                     if (_garbageWaveScript.Wave == _eventWave)
@@ -423,7 +418,7 @@ public class ExecuteEventScript : MonoBehaviour
                 }
                 break;
             case _choices.SpawnRandomHeavy:
-                _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
+                _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
                 {
                     if (_garbageWaveScript.Wave == _eventWave)
@@ -442,7 +437,7 @@ public class ExecuteEventScript : MonoBehaviour
                 }
                 break;
             case _choices.SpawnSuperHeavy:
-                SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
+                SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 break;
             case _choices.ShowTutorialBottle:
                 break;
@@ -457,7 +452,15 @@ public class ExecuteEventScript : MonoBehaviour
             case _choices.ExplodesBarrel:
                 break;
             case _choices.BoatEvent:
-                GameObject boat = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                GameObject boat;
+                if (_boatPrefab != null)
+                {
+                    boat = GameObject.Instantiate(_boatPrefab);
+                }
+                else
+                {
+                    boat = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                }
                 boat.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
                 //boat.AddComponent<BoxCollider>();
                 boat.AddComponent<BoatEventScript>();

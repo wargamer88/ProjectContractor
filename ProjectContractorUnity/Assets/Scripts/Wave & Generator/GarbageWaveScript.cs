@@ -238,7 +238,7 @@ public class GarbageWaveScript : MonoBehaviour
         _canSpawn = true;
     }
 
-    public void _spawnGarbage(float pHealth, float pX , float pY, float pZ, GameObject pGarbage, float pSpeed = -1)
+    public void _spawnGarbage(float pHealth, float pX, float pY, float pZ, GameObject pGarbage, float pSpeed = -1, string pTile = "")
     {
         if (_lightGarbage.Contains(pGarbage))
         {
@@ -274,7 +274,12 @@ public class GarbageWaveScript : MonoBehaviour
             //Debug.Log(pX);
             if (gameSpawnObject.name == "Log(Clone)")
             {
-                gameSpawnObject.transform.position = new Vector3(pX, 2, pZ);
+                gameSpawnObject.transform.position = new Vector3(pX, 2.5f, pZ);
+            }
+            else if(gameSpawnObject.name == "TV(Clone)")
+            {
+                gameSpawnObject.transform.eulerAngles = new Vector3(0, 180, 0);
+                gameSpawnObject.transform.position = new Vector3(pX, 0f, pZ);
             }
             else
             {
@@ -286,7 +291,12 @@ public class GarbageWaveScript : MonoBehaviour
             randomSpawn = (int)pX;
             if (gameSpawnObject.name == "Log(Clone)")
             {
-                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 2, pZ);
+                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 2.5f, pZ);
+            }
+            else if (gameSpawnObject.name == "TV(Clone)")
+            {
+                gameSpawnObject.transform.eulerAngles = new Vector3(0, 180, 0);
+                gameSpawnObject.transform.position = new Vector3(pX, 0f, pZ);
             }
             else
             {
@@ -296,14 +306,19 @@ public class GarbageWaveScript : MonoBehaviour
         else
         {
             randomSpawn = Random.Range(0, 5);
-                if (gameSpawnObject.name == "Log(Clone)")
-                {
-                    gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 2, pZ);
-                }
-                else
-                {
-                    gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
-                }
+            if (gameSpawnObject.name == "Log(Clone)")
+            {
+                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 2.5f, pZ);
+            }
+            else if (gameSpawnObject.name == "TV(Clone)")
+            {
+                gameSpawnObject.transform.eulerAngles = new Vector3(0, 180, 0);
+                gameSpawnObject.transform.position = new Vector3(pX, 0f, pZ);
+            }
+            else
+            {
+                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
+            }
         }
         gameSpawnObject.tag = "Garbage";
         while (!_canContinue)
@@ -370,7 +385,7 @@ public class GarbageWaveScript : MonoBehaviour
         //gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
-        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
+        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = pTile.Substring(0,1);
         gameSpawnObject.AddComponent<ExecuteEventScript>();
         gameSpawnObject.GetComponent<GarbageMoveScript>().Speed = pSpeed;
         _spawnedGarbage.Add(gameSpawnObject);

@@ -4,25 +4,28 @@ using System.Collections.Generic;
 
 public class GarbadgeDestoryScript : MonoBehaviour {
 
-    private float _hp;
     [SerializeField]
     private GarbageType _garbageType;
-    private int _currentLane;
+    //private int _currentLane;
+    private string _currentLane;
     public float HP { get { return _hp; } set { _hp = value; } }
 
+    private float _hp;
+    private Vector3 _originalPosition;
     private GarbageTileScript _currentTile;
-
-    public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
-
-    public GarbageTileScript CurrentTile { get { return _currentTile; } set { _currentTile = value; } }
-
     private GarbageWaveScript _garbageWaveScript;
     private HighscoreScript _highscore;
 
+    //public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
+    public string CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
+    
+    public Vector3 OriginalPosition { get { return _originalPosition; } }
+    public GarbageTileScript CurrentTile { get { return _currentTile; } set { _currentTile = value; } }
     public GarbageType GarbageType { get { return _garbageType; } set { _garbageType = value; } }
 
                                        // Use this for initialization
     void Start () {
+        _originalPosition = this.gameObject.transform.position;
         if (HP == 0)
         {
             _hp = GetComponent<GarbageHPScript>().HP;
@@ -55,8 +58,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
             {
                 _currentTile.DamageGarbage(pOther.collider);
             }
-
-            Destroy(pOther.gameObject);
+            pOther.gameObject.GetComponent<BulletScript>().DestroyBullet();
         }
         if (pOther.transform.tag == "SpecialWeapon")
         {
@@ -77,13 +79,13 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         {
             if (_garbageWaveScript.TutorialWavesLeft > 0)
             {
-                pOther.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
+                pOther.GetComponent<BulletScript>().DestroyBullet();
                 _garbageWaveScript.GetComponent<TutorialWaveSpawnScript>().DestroyedGarbage.Add(pOther);
                 Destroy(this.gameObject);
             }
             else
             {
-                pOther.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
+                pOther.GetComponent<BulletScript>().DestroyBullet();
                 _garbageWaveScript.DestroyedGarbage.Add(pOther);
                 Destroy(this.gameObject);
             }
