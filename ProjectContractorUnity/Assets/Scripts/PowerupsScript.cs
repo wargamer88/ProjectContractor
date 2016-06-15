@@ -4,10 +4,7 @@ using System.Linq;
 using System;
 
 public class PowerupsScript : MonoBehaviour {
-
-    [SerializeField]
-    private GarbageType _debugGarbageTest = GarbageType.none;
-
+    
     [SerializeField]
     private GameObject Chompy;
     [SerializeField]
@@ -41,44 +38,24 @@ public class PowerupsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //_debugPowerupTest();
         _getGarbageParent();
-
         _rndJumpingFishes();
         _checkPowerupStatus();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            _lightPowerup();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             _mediumPowerup();
         }
-        //_lightPowerup();
-        //_mediumPowerup();
-        //_heavyPowerup();
-    }
-
-    private void _debugPowerupTest()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && _debugGarbageTest != GarbageType.none)
+        if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            switch (_debugGarbageTest)
-            {
-                case GarbageType.none:
-                    break;
-                case GarbageType.Light:
-                    _lightGarbage++;
-                    break;
-                case GarbageType.Medium:
-                    _mediumGarbage++;
-                    break;
-                case GarbageType.Heavy:
-                    _heavyGarbage++;
-                    break;
-                default:
-                    break;
-            }
+            _heavyPowerup();
         }
     }
-
+    
     private void _getGarbageParent()
     {
         if (_garbageParent == null)

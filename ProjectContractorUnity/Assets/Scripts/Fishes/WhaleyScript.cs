@@ -28,16 +28,16 @@ public class WhaleyScript : MonoBehaviour {
         float step = _speed * Time.deltaTime;
         if (_rising)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(-0.6f, -1.4f, -13.8f), step);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(-0.6f, 2f, -13.8f), step);
 
-            if (transform.position == new Vector3(-0.6f, -1.4f, -13.8f))
+            if (transform.position == new Vector3(-0.6f, 2f, -13.8f))
             {
                 foreach (GarbadgeDestoryScript Garbage in _garbage)
                 {
                     if (Garbage == null) continue;
 
                     Garbage.HP--;
-                    Garbage.transform.position = new Vector3(Garbage.transform.position.x, Garbage.transform.position.y, 85);
+                    Garbage.transform.position = Garbage.OriginalPosition;
                     if (Garbage.HP == 0)
                     {
                         _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
