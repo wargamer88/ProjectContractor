@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &7818998
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -377,6 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -558,6 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &15993317
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2302,6 +2305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &115759310
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2573,6 +2577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -3090,6 +3095,7 @@ MonoBehaviour:
     _amountOfObject: 3
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &174948528
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3422,6 +3428,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &229671054
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3564,6 +3571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &235933763
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4029,6 +4037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &258385129
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4204,6 +4213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &266950894
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4727,6 +4737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &320827065
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4862,6 +4873,7 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &321684413
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4976,6 +4988,7 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 2
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &327398404
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5299,6 +5312,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &343334077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5773,6 +5787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &380282354
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6722,6 +6737,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &454451008
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6979,6 +6995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -7390,6 +7407,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &525510950
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7616,6 +7634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &531667206
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8324,6 +8343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &577008232
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8425,6 +8445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &582916479
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9109,6 +9130,7 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &631694672
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9905,6 +9927,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &661067749
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10337,6 +10360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &695761693
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11565,6 +11589,7 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &791340168
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11840,6 +11865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &804451323
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12132,6 +12158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &813311463
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12310,6 +12337,7 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &821246869
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13157,6 +13185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &878059746
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13713,6 +13742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -14043,6 +14073,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &961431782
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15484,6 +15515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1056477973
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15905,6 +15937,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1084270216
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16228,6 +16261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1124957944
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16524,8 +16558,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: -0.45420167, y: 0.102490366, z: 0.052694753, w: 0.88341373}
-  m_LocalPosition: {x: -31.030087, y: -89.1788, z: -76.846695}
+  m_LocalRotation: {x: -0.2400855, y: 0.5197904, z: 0.1549968, w: 0.80507946}
+  m_LocalPosition: {x: -81.89299, y: -55.361954, z: -56.921127}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17051,6 +17085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1201445718
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17657,6 +17692,7 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1227126256
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19192,6 +19228,7 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1378388812
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19918,6 +19955,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1429294789
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20157,6 +20195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1448258764
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20772,6 +20811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1519563642
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21128,6 +21168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1560244782
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21338,6 +21379,7 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1595992002
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21726,6 +21768,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1623127392
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21890,6 +21933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1631616283
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22209,6 +22253,7 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1664137777
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22516,6 +22561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1687210797
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23608,6 +23654,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1714266209
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23986,6 +24033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1752606096
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24243,6 +24291,7 @@ MonoBehaviour:
     _amountOfObject: 3
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1772500886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24627,6 +24676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1790787603
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24948,6 +24998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1839413392
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25113,6 +25164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -26264,6 +26316,7 @@ MonoBehaviour:
     _amountOfObject: 3
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1907273173
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26505,6 +26558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &1928685892
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28134,6 +28188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &2077769773
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28461,6 +28516,7 @@ MonoBehaviour:
     _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &2088178920
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28588,6 +28644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &2098970722
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28784,6 +28841,7 @@ MonoBehaviour:
     _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
+  _boatPrefab: {fileID: 0}
 --- !u!23 &2106683301
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28884,6 +28942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &2108054222
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29367,6 +29426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper: []
+  _boatPrefab: {fileID: 0}
 --- !u!23 &2143633631
 MeshRenderer:
   m_ObjectHideFlags: 0

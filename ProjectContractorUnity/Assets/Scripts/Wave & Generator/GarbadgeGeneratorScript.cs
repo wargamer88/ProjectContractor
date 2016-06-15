@@ -4,6 +4,8 @@ using System.Linq;
 
 public class GarbadgeGeneratorScript : MonoBehaviour {
 
+    [SerializeField]
+    private GameObject _damageParticle;
     private GeneratorPowerScript _generatorPowerScript;
     private GarbageWaveScript _garbageWaveScript;
     private float _oldTimer;
@@ -142,8 +144,9 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile != null)
                 {
-                    pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject); 
+                    pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 }
+                Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.MediumGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
@@ -154,6 +157,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 {
                     pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 }
+                Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.HeavyGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
@@ -164,6 +168,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 {
                     pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 }
+                Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
         }
