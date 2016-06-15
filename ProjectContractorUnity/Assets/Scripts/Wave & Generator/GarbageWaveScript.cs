@@ -332,21 +332,21 @@ public class GarbageWaveScript : MonoBehaviour
                     int randomPos = Random.Range(0, 4);
                     if (randomPos == 0)
                     {
-                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x + 1f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x + 1.5f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
                         _canContinue = false;
                         counter = 0;
                         break;
                     }
                     else if (randomPos == 1)
                     {
-                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x - 1f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x - 1.5f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
                         _canContinue = false;
                         counter = 0;
                         break;
                     }
                     else if (randomPos == 2)
                     {
-                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z + 1f);
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z + 1.5f);
                         _canContinue = false;
                         counter = 0;
                         break;
@@ -354,7 +354,7 @@ public class GarbageWaveScript : MonoBehaviour
                     else if (randomPos == 3)
                     {
 
-                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z - 1f);
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z - 1.5f);
                         _canContinue = false;
                         counter = 0;
                         break;

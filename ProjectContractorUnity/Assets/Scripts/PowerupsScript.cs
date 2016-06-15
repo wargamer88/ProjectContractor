@@ -346,19 +346,19 @@ public class PowerupsScript : MonoBehaviour {
         switch (mostPopulatedLane)
         {
             case "A":
-                sharkyPosX = -20;
+                sharkyPosX = -20*2;
                 break;
             case "B":
-                sharkyPosX = -10;
+                sharkyPosX = -10 * 2;
                 break;
             case "C":
                 sharkyPosX = 0;
                 break;
             case "D":
-                sharkyPosX = 10;
+                sharkyPosX = 10 * 2;
                 break;
             case "E":
-                sharkyPosX = 20;
+                sharkyPosX = 20 * 2;
                 break;
             default:
                 break;
