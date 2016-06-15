@@ -4,10 +4,7 @@ using System.Linq;
 using System;
 
 public class PowerupsScript : MonoBehaviour {
-
-    [SerializeField]
-    private GarbageType _debugGarbageTest = GarbageType.none;
-
+    
     [SerializeField]
     private GameObject Chompy;
     [SerializeField]
@@ -41,44 +38,24 @@ public class PowerupsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //_debugPowerupTest();
         _getGarbageParent();
-
         _rndJumpingFishes();
         _checkPowerupStatus();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            _lightPowerup();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             _mediumPowerup();
         }
-        //_lightPowerup();
-        //_mediumPowerup();
-        //_heavyPowerup();
-    }
-
-    private void _debugPowerupTest()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && _debugGarbageTest != GarbageType.none)
+        if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            switch (_debugGarbageTest)
-            {
-                case GarbageType.none:
-                    break;
-                case GarbageType.Light:
-                    _lightGarbage++;
-                    break;
-                case GarbageType.Medium:
-                    _mediumGarbage++;
-                    break;
-                case GarbageType.Heavy:
-                    _heavyGarbage++;
-                    break;
-                default:
-                    break;
-            }
+            _heavyPowerup();
         }
     }
-
+    
     private void _getGarbageParent()
     {
         if (_garbageParent == null)
@@ -300,26 +277,27 @@ public class PowerupsScript : MonoBehaviour {
         int lane3 = 0;
         int lane4 = 0;
         int mostTrash = 0;
-        int mostPopulatedLane = 0;
+        string mostPopulatedLane = "";
 
         //fill the line variables with amount of objects
         foreach (GarbadgeDestoryScript Garbage in _garbageList)
         {
-            switch (Garbage.CurrentLane)
+            string letter = Garbage.CurrentTile.gameObject.name.Substring(0, 1);
+            switch (letter)
             {
-                case 0:
+                case "A":
                     lane0++;
                     break;
-                case 1:
+                case "B":
                     lane1++;
                     break;
-                case 2:
+                case "C":
                     lane2++;
                     break;
-                case 3:
+                case "D":
                     lane3++;
                     break;
-                case 4:
+                case "E":
                     lane4++;
                     break;
                 default:
@@ -331,27 +309,27 @@ public class PowerupsScript : MonoBehaviour {
         if (lane0 > mostTrash)
         {
             mostTrash = lane0;
-            mostPopulatedLane = 0;
+            mostPopulatedLane = "A";
         }
         if (lane1 > mostTrash)
         {
             mostTrash = lane1;
-            mostPopulatedLane = 1;
+            mostPopulatedLane = "B";
         }
         if (lane2 > mostTrash)
         {
             mostTrash = lane2;
-            mostPopulatedLane = 2;
+            mostPopulatedLane = "C";
         }
         if (lane3 > mostTrash)
         {
             mostTrash = lane3;
-            mostPopulatedLane = 3;
+            mostPopulatedLane = "D";
         }
         if (lane4 > mostTrash)
         {
             mostTrash = lane4;
-            mostPopulatedLane = 4;
+            mostPopulatedLane = "E";
         }
 
         List<GarbadgeDestoryScript> currentGarbage = new List<GarbadgeDestoryScript>();
@@ -367,19 +345,19 @@ public class PowerupsScript : MonoBehaviour {
         int sharkyPosX = 0;
         switch (mostPopulatedLane)
         {
-            case 0:
+            case "A":
                 sharkyPosX = -20;
                 break;
-            case 1:
+            case "B":
                 sharkyPosX = -10;
                 break;
-            case 2:
+            case "C":
                 sharkyPosX = 0;
                 break;
-            case 3:
+            case "D":
                 sharkyPosX = 10;
                 break;
-            case 4:
+            case "E":
                 sharkyPosX = 20;
                 break;
             default:

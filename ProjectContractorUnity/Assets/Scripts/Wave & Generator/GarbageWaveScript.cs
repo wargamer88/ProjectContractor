@@ -238,7 +238,7 @@ public class GarbageWaveScript : MonoBehaviour
         _canSpawn = true;
     }
 
-    public void _spawnGarbage(float pHealth, float pX , float pY, float pZ, GameObject pGarbage, float pSpeed = -1)
+    public void _spawnGarbage(float pHealth, float pX, float pY, float pZ, GameObject pGarbage, float pSpeed = -1, string pTile = "")
     {
         if (_lightGarbage.Contains(pGarbage))
         {
@@ -385,7 +385,7 @@ public class GarbageWaveScript : MonoBehaviour
         //gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
-        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
+        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = pTile.Substring(0,1);
         gameSpawnObject.AddComponent<ExecuteEventScript>();
         gameSpawnObject.GetComponent<GarbageMoveScript>().Speed = pSpeed;
         _spawnedGarbage.Add(gameSpawnObject);
