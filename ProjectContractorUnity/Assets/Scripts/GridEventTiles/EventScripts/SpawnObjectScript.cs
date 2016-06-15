@@ -126,7 +126,7 @@ public class SpawnObjectScript : MonoBehaviour {
                         //{
                         GameObject bottle = pGarbageWaveScript.LightGarbage[random];
                     
-                    pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
+                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         //_isEventDone = true;
                         // _event = _choices.None;
                         pEventAmountOfObjectsSpawned++;
