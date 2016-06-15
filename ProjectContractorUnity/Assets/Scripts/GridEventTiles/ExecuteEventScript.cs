@@ -22,7 +22,7 @@ public class ExecuteEventScript : MonoBehaviour
     private EventTileWrapperScript _currentEvent;
 
     public _choices Event { get { return _event; } }
-    public int EventWave { get { return _eventWave; } }
+    public int EventWave { get { return _eventWave; } set { _eventWave = value; } }
 
     public float EventSpeed { get { return _eventSpeedOfObjects; } }
 
@@ -201,6 +201,19 @@ public class ExecuteEventScript : MonoBehaviour
                 GameObject nextTile = GameObject.Find(nextLetter +""+ nextNumber.ToString());
                 this.GetComponent<GarbageMoveScript>().ChangeLane(nextTile.transform.position);
 
+            }
+            else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.MiltiTrash && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
+            {
+
+                pOther.GetComponent<ExecuteEventScript>().EventWave = 0;
+                int random = UnityEngine.Random.Range(0, 3);
+                _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed);
+                random = UnityEngine.Random.Range(0, 3);
+                _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x - 5, 4, pOther.transform.position.z -3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed);
+                random = UnityEngine.Random.Range(0, 3);
+                _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 0.1f, 4, pOther.transform.position.z + 10, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed);
+                _garbageWaveScript.DestroyedGarbage.Add(this.gameObject);
+                Destroy(this.gameObject); 
             }
         }
         if (pOther.GetComponent<BoatEventScript>() && _event == _choices.BoatToTile)

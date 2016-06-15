@@ -16,6 +16,7 @@ public enum _choices
     BoatEvent,
     BoatToTile,
     ChangeLanes,
+    MiltiTrash,
 }
 [System.Serializable]
 public class EventTileScript {

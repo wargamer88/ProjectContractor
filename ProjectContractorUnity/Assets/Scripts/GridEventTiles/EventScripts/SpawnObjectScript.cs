@@ -51,7 +51,7 @@ public class SpawnObjectScript : MonoBehaviour {
                     {
                         pEventWave = pEventWave + pEventEveryXWave;
                         GameObject bottle = pGarbageWaveScript.LightGarbage[0];
-                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
+                        pGarbageWaveScript._spawnGarbage(1,pTilePosition.x + 1, 4, pTilePosition.z, bottle);
                         _amountBottle++;
                     }
                     else if (pEventEveryWave)

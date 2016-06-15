@@ -35,7 +35,7 @@ public class GarbageTileScript : MonoBehaviour {
     {
         if (pOther.gameObject.tag == "Garbage")
         {
-            _garbageList.Add(pOther.gameObject);
+            _garbageList.Remove(pOther.gameObject);
         }
     }
 

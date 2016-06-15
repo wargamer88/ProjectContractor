@@ -82,6 +82,11 @@ public class GarbageWaveScript : MonoBehaviour
 
     public int TutorialWavesLeft { get { return _tutorialScriptWrapper.Count; } }
 
+    private bool _canContinue = false;
+
+    private int counter=0;
+    private int DEBUGcounter = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -97,6 +102,9 @@ public class GarbageWaveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("garbageSpawned: " + SpawnedGarbage.Count);
+        //Debug.Log("GarbageDestroyed: " + DestroyedGarbage.Count);
+
         if (_tutorialScriptWrapper.Count > 0)
         {
             _tutorial();
@@ -266,19 +274,19 @@ public class GarbageWaveScript : MonoBehaviour
             //Debug.Log(pX);
             if (gameSpawnObject.name == "Log(Clone)")
             {
-                gameSpawnObject.transform.position = new Vector3(pX, 1, pZ);
+                gameSpawnObject.transform.position = new Vector3(pX, 2, pZ);
             }
             else
             {
-            gameSpawnObject.transform.position = new Vector3(pX, pY, pZ);
-        }
+                gameSpawnObject.transform.position = new Vector3(pX, pY, pZ);
+            }
         }
         else if (pZ != 95)
         {
             randomSpawn = (int)pX;
             if (gameSpawnObject.name == "Log(Clone)")
             {
-                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, pZ);
+                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 2, pZ);
             }
             else
             {
@@ -290,7 +298,7 @@ public class GarbageWaveScript : MonoBehaviour
             randomSpawn = Random.Range(0, 5);
                 if (gameSpawnObject.name == "Log(Clone)")
                 {
-                    gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 1, pZ);
+                    gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 2, pZ);
                 }
                 else
                 {
@@ -298,6 +306,57 @@ public class GarbageWaveScript : MonoBehaviour
                 }
         }
         gameSpawnObject.tag = "Garbage";
+        while (!_canContinue)
+        {
+            Collider[] allColliders = Physics.OverlapSphere(gameSpawnObject.transform.position, 3);
+            foreach (Collider collider in allColliders)
+            {
+                counter++;
+                if (collider.tag == "Garbage" && collider.gameObject != gameSpawnObject)
+                {
+                    int randomPos = Random.Range(0, 4);
+                    if (randomPos == 0)
+                    {
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x + 1f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
+                        _canContinue = false;
+                        counter = 0;
+                        break;
+                    }
+                    else if (randomPos == 1)
+                    {
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x - 1f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
+                        _canContinue = false;
+                        counter = 0;
+                        break;
+                    }
+                    else if (randomPos == 2)
+                    {
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z + 1f);
+                        _canContinue = false;
+                        counter = 0;
+                        break;
+                    }
+                    else if (randomPos == 3)
+                    {
+
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z - 1f);
+                        _canContinue = false;
+                        counter = 0;
+                        break;
+                    }
+                    else
+                    {
+                        _canContinue = false;
+                    }
+                }
+                if (counter == allColliders.Length)
+                {
+                    _canContinue = true;
+                    counter = 0;
+                }
+            }
+        }
+        _canContinue = false;
         gameSpawnObject.AddComponent<GarbageMoveScript>();
         gameSpawnObject.AddComponent<Rigidbody>();
         gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
@@ -306,9 +365,9 @@ public class GarbageWaveScript : MonoBehaviour
         //float randomRotationY = Random.Range(0, 360);
         //float randomRotationZ = Random.Range(0, 360);
         //gameSpawnObject.transform.rotation = new Quaternion(0,0,0,0);
-        gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        gameSpawnObject.GetComponent<Rigidbody>().constraints = /*RigidbodyConstraints.FreezePositionX | */RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
         gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
-        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
+        //gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
