@@ -4966,7 +4966,14 @@ MonoBehaviour:
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
-    _speedOfObject: 0
+    _speedOfObject: 2
+    _timeBetweenSpawn: 0
+  - _choice: 6
+    _wave: 2
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 2
     _timeBetweenSpawn: 0
 --- !u!23 &327398404
 MeshRenderer:
