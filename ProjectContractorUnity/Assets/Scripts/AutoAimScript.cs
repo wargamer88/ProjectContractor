@@ -13,6 +13,8 @@ public class AutoAimScript : MonoBehaviour
     private GameObject _chosenBall;
     public GameObject ChosenBall { set { _chosenBall = value; } }
 
+    [SerializeField]
+    private GameObject _explosionPrefab;
 
     private GameObject _bullet;
     private Vector3 _ballOffset;
@@ -87,6 +89,8 @@ public class AutoAimScript : MonoBehaviour
         _bullet.GetComponent<Rigidbody>().mass = 0.01f;
         _bullet.AddComponent<BulletScript>();
         _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
+        _bullet.GetComponent<BulletScript>().ExplosionPrefab = _explosionPrefab;
+
         Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
         Vector3 velocity = new Vector3(0, 0, 0);
         velocity = hit.point - _bullet.transform.position;

@@ -55,8 +55,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
             {
                 _currentTile.DamageGarbage(pOther.collider);
             }
-
-            Destroy(pOther.gameObject);
+            pOther.gameObject.GetComponent<BulletScript>().DestroyBullet();
         }
         if (pOther.transform.tag == "SpecialWeapon")
         {
@@ -77,13 +76,13 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         {
             if (_garbageWaveScript.TutorialWavesLeft > 0)
             {
-                pOther.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
+                pOther.GetComponent<BulletScript>().DestroyBullet();
                 _garbageWaveScript.GetComponent<TutorialWaveSpawnScript>().DestroyedGarbage.Add(pOther);
                 Destroy(this.gameObject);
             }
             else
             {
-                pOther.GetComponent<BulletScript>().DestroyBullet(true, _garbageType);
+                pOther.GetComponent<BulletScript>().DestroyBullet();
                 _garbageWaveScript.DestroyedGarbage.Add(pOther);
                 Destroy(this.gameObject);
             }

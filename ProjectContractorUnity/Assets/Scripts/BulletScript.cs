@@ -8,7 +8,9 @@ public class BulletScript : MonoBehaviour {
     private List<GameObject> _walls;
     private List<GameObject> _generatorwalls;
     private PowerupsScript _powerupsScript;
+    private GameObject _explosionPrefab;
 
+    public GameObject ExplosionPrefab { set { _explosionPrefab = value; } }
     public List<GameObject> Walls { set { _walls = value; } }
     public PowerupsScript PowerupsScript { set { _powerupsScript = value; } }
 
@@ -50,16 +52,9 @@ public class BulletScript : MonoBehaviour {
        
     }
 
-    public void DestroyBullet(bool pHitTrash, GarbageType pGarbageType)
+    public void DestroyBullet()
     {
-        if (pHitTrash)
-        {
-            _powerupsScript.HitTrash(pGarbageType);
-        }
-        else
-        {
-            _powerupsScript.HitNothing();
-        }
+        Instantiate(_explosionPrefab, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
