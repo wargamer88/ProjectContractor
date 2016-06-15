@@ -37,7 +37,7 @@ public class WhaleyScript : MonoBehaviour {
                     if (Garbage == null) continue;
 
                     Garbage.HP--;
-                    Garbage.transform.position = new Vector3(Garbage.transform.position.x, Garbage.transform.position.y, 85);
+                    Garbage.transform.position = Garbage.OriginalPosition;
                     if (Garbage.HP == 0)
                     {
                         _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
