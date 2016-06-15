@@ -28,9 +28,9 @@ public class WhaleyScript : MonoBehaviour {
         float step = _speed * Time.deltaTime;
         if (_rising)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(-0.6f, -1.4f, -13.8f), step);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(-0.6f, 2f, -13.8f), step);
 
-            if (transform.position == new Vector3(-0.6f, -1.4f, -13.8f))
+            if (transform.position == new Vector3(-0.6f, 2f, -13.8f))
             {
                 foreach (GarbadgeDestoryScript Garbage in _garbage)
                 {
