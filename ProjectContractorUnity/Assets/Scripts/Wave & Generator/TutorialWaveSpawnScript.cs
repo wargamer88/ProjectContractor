@@ -122,7 +122,7 @@ public class TutorialWaveSpawnScript : MonoBehaviour {
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = _health;
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbage;
-        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
+        //gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = randomSpawn;
         //if (addSpawnGarbage)
         //{
         //    _spawnedGarbage.Add(gameSpawnObject);
