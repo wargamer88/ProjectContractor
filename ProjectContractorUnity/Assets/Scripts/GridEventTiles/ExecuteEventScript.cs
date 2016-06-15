@@ -335,7 +335,7 @@ public class ExecuteEventScript : MonoBehaviour
             case _choices.IncreaseSpeed:
                 break;
             case _choices.SpawnBottle:
-                SpawnObjectScript.SpawnBottle(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position);
+                SpawnObjectScript.SpawnBottle(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this);
                 #region Old SpawnBottle
                 //if (_garbageWaveScript.Wave == _eventWave)
                 //{
@@ -399,7 +399,7 @@ public class ExecuteEventScript : MonoBehaviour
                 
                 break;
             case _choices.SpawnRandomMedium:
-                _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
+                _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
                 {
                     if (_garbageWaveScript.Wave == _eventWave)
@@ -418,7 +418,7 @@ public class ExecuteEventScript : MonoBehaviour
                 }
                 break;
             case _choices.SpawnRandomHeavy:
-                _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
+                _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
                 {
                     if (_garbageWaveScript.Wave == _eventWave)
@@ -437,7 +437,7 @@ public class ExecuteEventScript : MonoBehaviour
                 }
                 break;
             case _choices.SpawnSuperHeavy:
-                SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position, _eventSpeedOfObjects);
+                SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 break;
             case _choices.ShowTutorialBottle:
                 break;

@@ -370,7 +370,7 @@ public class GarbageWaveScript : MonoBehaviour
         //gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
-        //gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = pTile.Substring(0,1);
+        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = pTile.Substring(0,1);
         gameSpawnObject.AddComponent<ExecuteEventScript>();
         gameSpawnObject.GetComponent<GarbageMoveScript>().Speed = pSpeed;
         _spawnedGarbage.Add(gameSpawnObject);
