@@ -67,18 +67,12 @@ public class ExecuteEventScript : MonoBehaviour
 
     public void StartOrRestartTile(bool restart = false)
     {
-        //if (this.name == "C7") Debug.Log("Eventwrapper contains amount items: " + _eventWrapper.Count);
 
         
         if (this.tag == "GridTile" && EventWrapper.Count > 0 && _eventCounter < EventWrapper.Count)
         {
-            //if (this.name == "C7") Debug.Log("Boven Gelukt Count: " + _eventWrapper.Count);
-            
-            //_event = GetComponent<EventTileScript>().ChosenEvent;
-            //_eventWave = GetComponent<EventTileScript>().EventWave;
             if (_eventWrapper[_eventCounter].EventWave == _garbageWaveScript.Wave)
             {
-                //Debug.Log("Gelukt");
                 _event = _eventWrapper[_eventCounter].ChosenEvent;
                 _eventWave = _eventWrapper[_eventCounter].EventWave;
                 _eventEveryWave = _eventWrapper[_eventCounter].IsEveryWave;
@@ -87,18 +81,15 @@ public class ExecuteEventScript : MonoBehaviour
                 _eventAmountOfObjects = _eventWrapper[_eventCounter].AmountOfObject;
                 _eventTimeBetween = _eventWrapper[_eventCounter].TimeBetweenSpawn;
                 _currentEvent = _eventWrapper[_eventCounter];
+
+                _spawnedLight = 0;
+                _spawnedMedium = 0;
+                _spawnedHeavy = 0;
+
                 _eventCounter++;
-                //Debug.Log("EventCount: " + _eventCounter);
-                //Debug.Log("EventCurrentWave: " + _eventWave);
+                
             }
         }
-        //if (restart && _eventWrapper.Count > 0)
-        //{
-        //    if (this.name == "C7") Debug.Log("Boven Removed Count: " + _eventWrapper.Count);
-        //    Debug.Log("Removed");
-        //    _isEventDone = false;
-        //    _eventWrapper.RemoveAt(0);
-        //}
     }
 
 
@@ -384,6 +375,7 @@ public class ExecuteEventScript : MonoBehaviour
                 #endregion
                 break;
             case _choices.SpawnRandomLight:
+                
                 _spawnedLight = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedLight, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
                 {

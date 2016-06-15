@@ -81,6 +81,7 @@ public class SpawnObjectScript : MonoBehaviour {
 
     public static int SpawnRandomLight(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
     {
+        
         if (pEventSpeed == 0)
         {
             pEventSpeed = 1;
@@ -93,11 +94,11 @@ public class SpawnObjectScript : MonoBehaviour {
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 int random = Random.Range(0, 3);
-                //if (pExe.name == "C10" && pGarbageWaveScript.Wave == 8)
+                //if (pExe.name == "C10" && pEventWave == 8)
                 //{
                 //    Debug.Log("Kom HIERIN");
                 //    Debug.Log("Needs to spawn: " + pEventAmountOfObjects);
-                //    Debug.Log("Get to spawn: " + pEventAmountOfObjectsSpawned);
+                //    Debug.Log("Already spawned: " + pEventAmountOfObjectsSpawned);
                 //}
                 if (pEventAmountOfObjectsSpawned  < pEventAmountOfObjects)
                 {
@@ -124,7 +125,8 @@ public class SpawnObjectScript : MonoBehaviour {
                         //if (_eventEveryWave)
                         //{
                         GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
+                    
+                    pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
                         //_isEventDone = true;
                         // _event = _choices.None;
                         pEventAmountOfObjectsSpawned++;
