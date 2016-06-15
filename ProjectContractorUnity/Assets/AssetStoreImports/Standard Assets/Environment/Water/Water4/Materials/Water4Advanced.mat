@@ -263,6 +263,10 @@ Material:
         second: {r: 1, g: 1, b: 0.1, a: 0.1}
       data:
         first:
+          name: _BumpMap_ST
+        second: {r: 1, g: 1, b: 0, a: 0}
+      data:
+        first:
           name: _RefrColor
         second: {r: 0.5233905, g: 0.9477612, b: 0.9121496, a: 1}
       data:
@@ -349,10 +353,6 @@ Material:
         first:
           name: _RefractionFog
         second: {r: 0.50543475, g: 0.50543475, b: 0.50543475, a: 0.5}
-      data:
-        first:
-          name: _BumpMap_ST
-        second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
           name: _ReflectionTex_ST

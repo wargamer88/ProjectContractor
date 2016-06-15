@@ -105,7 +105,7 @@ public class PowerupsScript : MonoBehaviour {
         }
 
         if (_timeJumpingFishSpawned > System.DateTime.Now) return;
-        _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
+        _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(10);
         GameObject GO;
         switch (FishRnd)
         {
