@@ -49,6 +49,9 @@ public class ExecuteEventScript : MonoBehaviour
     private int _spawnedMedium = 0;
     private int _spawnedHeavy = 0;
 
+    [SerializeField]
+    private GameObject _boatPrefab;
+
 
     // Use this for initialization
     void Start()
@@ -457,7 +460,15 @@ public class ExecuteEventScript : MonoBehaviour
             case _choices.ExplodesBarrel:
                 break;
             case _choices.BoatEvent:
-                GameObject boat = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                GameObject boat;
+                if (_boatPrefab != null)
+                {
+                    boat = GameObject.Instantiate(_boatPrefab);
+                }
+                else
+                {
+                    boat = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                }
                 boat.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
                 //boat.AddComponent<BoxCollider>();
                 boat.AddComponent<BoatEventScript>();

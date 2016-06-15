@@ -7,12 +7,14 @@ public class GarbadgeDestoryScript : MonoBehaviour {
     private float _hp;
     [SerializeField]
     private GarbageType _garbageType;
-    private int _currentLane;
+    //private int _currentLane;
+    private string _currentLane;
     public float HP { get { return _hp; } set { _hp = value; } }
 
     private GarbageTileScript _currentTile;
 
-    public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
+    //public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
+    public string CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
 
     public GarbageTileScript CurrentTile { get { return _currentTile; } set { _currentTile = value; } }
 
