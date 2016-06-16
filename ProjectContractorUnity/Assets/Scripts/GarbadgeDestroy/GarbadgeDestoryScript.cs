@@ -28,7 +28,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
     void Start () {
         _damageParticle = (GameObject)Resources.Load("Damage");
         _originalPosition = this.gameObject.transform.position;
-        if (HP == 0)
+        if (HP == 0 && GetComponent<GarbageHPScript>())
         {
             _hp = GetComponent<GarbageHPScript>().HP;
         }

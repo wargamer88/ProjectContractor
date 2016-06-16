@@ -378,12 +378,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
   _basichit: 10
   _mediumhit: 20
   _heavyhit: 30
+  _superHeavyhit: 30
 --- !u!23 &15238327
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2572,12 +2574,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
   _basichit: 10
   _mediumhit: 20
   _heavyhit: 30
+  _superHeavyhit: 30
 --- !u!23 &151542739
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5041,7 +5045,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 13
+    _wave: 1
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 0
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 0}
 --- !u!23 &327398404
 MeshRenderer:
@@ -7065,12 +7076,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
   _basichit: 10
   _mediumhit: 20
   _heavyhit: 30
+  _superHeavyhit: 30
 --- !u!23 &472081926
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10306,6 +10319,7 @@ GameObject:
   - 33: {fileID: 694064494}
   - 64: {fileID: 694064493}
   - 23: {fileID: 694064492}
+  - 114: {fileID: 694064495}
   m_Layer: 0
   m_Name: Lines
   m_TagString: LineWall
@@ -10358,10 +10372,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 694064490}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
+  m_Convex: 1
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &694064494
 MeshFilter:
@@ -10370,6 +10384,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 694064490}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &694064495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694064490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f615a211a6dde0649a4cafb6f42ff50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &695761689
 GameObject:
   m_ObjectHideFlags: 0
@@ -12355,6 +12380,7 @@ GameObject:
   - 33: {fileID: 824452883}
   - 64: {fileID: 824452882}
   - 23: {fileID: 824452881}
+  - 114: {fileID: 824452884}
   m_Layer: 0
   m_Name: Lines
   m_TagString: LineWall
@@ -12407,10 +12433,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 824452879}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
+  m_Convex: 1
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &824452883
 MeshFilter:
@@ -12419,6 +12445,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 824452879}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &824452884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 824452879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f615a211a6dde0649a4cafb6f42ff50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &824994710
 GameObject:
   m_ObjectHideFlags: 0
@@ -13591,12 +13628,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
   _basichit: 10
   _mediumhit: 20
   _heavyhit: 30
+  _superHeavyhit: 30
 --- !u!23 &940797478
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16539,8 +16578,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: -0.05209897, y: 0.16047892, z: 0.008482302, w: 0.9856269}
-  m_LocalPosition: {x: -31.021267, y: -16.05513, z: 193.38638}
+  m_LocalRotation: {x: -0.13698643, y: 0.1819597, z: 0.025585216, w: 0.97338116}
+  m_LocalPosition: {x: -33.983093, y: -23.346172, z: -87.55827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -25247,12 +25286,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
   _basichit: 10
   _mediumhit: 20
   _heavyhit: 30
+  _superHeavyhit: 30
 --- !u!23 &1848038516
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -47,6 +47,13 @@ public class TileGeneratorDestroyGarbageScript : MonoBehaviour {
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
+            else if (pOther.GetComponent<GarbadgeDestoryScript>().GarbageType == GarbageType.Special)
+            {
+                _generatorScript.GeneratorHealth = _generatorScript.GeneratorHealth - _generatorScript.SuperHeavyHit;
+                _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
+                Destroy(pOther.gameObject);
+            }
         }
     }
 }

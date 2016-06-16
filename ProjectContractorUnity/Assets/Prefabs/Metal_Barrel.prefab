@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 403092}
   - 33: {fileID: 3369160}
   - 23: {fileID: 2322190}
-  - 65: {fileID: 6577560}
-  - 114: {fileID: 11430822}
+  - 95: {fileID: 9588788}
+  - 65: {fileID: 6580360}
   m_Layer: 0
   m_Name: Metal_Barrel
   m_TagString: Untagged
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.623384, y: 11.611965, z: -22.025076}
-  m_LocalScale: {x: 0.023, y: 0.023, z: 0.023}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 31d83cb40c8d84d4f8b792a732379301, type: 2}
+  - {fileID: 2100000, guid: 70451b610f92040c78e67a819faf5c1e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -63,8 +63,8 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170764}
-  m_Mesh: {fileID: 4300000, guid: d98266b27985c5949a0938f49a1807be, type: 3}
---- !u!65 &6577560
+  m_Mesh: {fileID: 4300000, guid: 8f2eac39f500543fc8d0ec55fdb8003b, type: 3}
+--- !u!65 &6580360
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -74,20 +74,25 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 307.52664, y: 475.29144, z: 307.5267}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11430822
-MonoBehaviour:
+  m_Size: {x: 6.1505327, y: 9.505829, z: 6.150534}
+  m_Center: {x: 0, y: 4.7529144, z: 0}
+--- !u!95 &9588788
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170764}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d721832ae4a46498b10cbce77626f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hp: 3
+  m_Avatar: {fileID: 9000000, guid: 8f2eac39f500543fc8d0ec55fdb8003b, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

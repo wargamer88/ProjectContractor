@@ -36,6 +36,11 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
     public float HeavyHit { get { return _heavyhit; } }
 
+    [SerializeField]
+    private float _superHeavyhit = 30;
+
+    public float SuperHeavyHit { get { return _superHeavyhit; } }
+
     private bool _isStartRepairTimer = false;
     private float _startRepairTimer;
 
@@ -164,6 +169,17 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
             if (_garbageWaveScript.HeavyGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
             {
                 _generatorHealth = _generatorHealth - _heavyhit;
+                _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
+                if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile != null)
+                {
+                    pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
+                }
+                Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                Destroy(pOther.gameObject);
+            }
+            if (_garbageWaveScript.SpecialGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
+            {
+                _generatorHealth = _generatorHealth - _superHeavyhit;
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 if (pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile != null)
                 {
