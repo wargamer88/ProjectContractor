@@ -2876,7 +2876,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 100
   _chosenBall: {fileID: 184616, guid: adfd8739dac766e46996ef8f3e2e7405, type: 2}
-  _explosionPrefab: {fileID: 177366, guid: 2e7a11f3f78b2fb4399b4322481b987f, type: 2}
   _depthCooldown: 3
 --- !u!95 &160146620
 Animator:
@@ -7278,7 +7277,7 @@ MonoBehaviour:
   - {fileID: 170764, guid: 7baaf940bf0977f46a3a7f580d9ee90e, type: 2}
   - {fileID: 180222, guid: 608bbba27e077204d973fe601d3f6c2d, type: 2}
   _specialGarbage:
-  - {fileID: 168540, guid: 1e3b26f9c205c0a4db6c1ba0e6c03c61, type: 2}
+  - {fileID: 155896, guid: 1e3b26f9c205c0a4db6c1ba0e6c03c61, type: 2}
   _LightRange: 5
   _mediumRange: 8
   _heavyRange: 10
@@ -7757,7 +7756,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 71da17f02de00f6479b754396707f61e, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 71da17f02de00f6479b754396707f61e, type: 3}
       propertyPath: m_Name
@@ -16917,8 +16916,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: 0.08262599, y: 0.04601997, z: 0.0038472912, w: -0.9955101}
-  m_LocalPosition: {x: 316.1124, y: -422.4319, z: -357.6251}
+  m_LocalRotation: {x: -0.2471968, y: -0.00043543402, z: -0.00033476547, w: 0.9689652}
+  m_LocalPosition: {x: -0.6, y: -17.66, z: -69.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
