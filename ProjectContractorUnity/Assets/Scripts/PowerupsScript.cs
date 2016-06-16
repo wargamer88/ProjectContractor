@@ -4,7 +4,7 @@ using System.Linq;
 using System;
 
 public class PowerupsScript : MonoBehaviour {
-    
+
     [SerializeField]
     private GameObject Chompy;
     [SerializeField]
@@ -51,11 +51,11 @@ public class PowerupsScript : MonoBehaviour {
             _mediumPowerup();
         }
         if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
+    {
             _heavyPowerup();
+            }
         }
-    }
-    
+
     private void _getGarbageParent()
     {
         if (_garbageParent == null)
@@ -82,7 +82,7 @@ public class PowerupsScript : MonoBehaviour {
         }
 
         if (_timeJumpingFishSpawned > System.DateTime.Now) return;
-        _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
+        _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(10);
         GameObject GO;
         switch (FishRnd)
         {
@@ -346,19 +346,19 @@ public class PowerupsScript : MonoBehaviour {
         switch (mostPopulatedLane)
         {
             case "A":
-                sharkyPosX = -20;
+                sharkyPosX = -20*2;
                 break;
             case "B":
-                sharkyPosX = -10;
+                sharkyPosX = -10 * 2;
                 break;
             case "C":
                 sharkyPosX = 0;
                 break;
             case "D":
-                sharkyPosX = 10;
+                sharkyPosX = 10 * 2;
                 break;
             case "E":
-                sharkyPosX = 20;
+                sharkyPosX = 20 * 2;
                 break;
             default:
                 break;

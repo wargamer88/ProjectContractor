@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 473446}
   - 33: {fileID: 3384574}
   - 23: {fileID: 2368098}
+  - 95: {fileID: 9588422}
   - 65: {fileID: 6588394}
-  - 114: {fileID: 11482228}
   m_Layer: 0
   m_Name: Sofa
   m_TagString: Untagged
@@ -25,9 +25,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180222}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.871094, y: 11.114307, z: -3.43}
-  m_LocalScale: {x: 0.023, y: 0.023, z: 0.023}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: -8.965135, y: -2, z: -22.444284}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6512605ae62e6f44a9e8e58ea7501a8a, type: 2}
+  - {fileID: 2100000, guid: a4790d179f71e4bdc901da833b7d1f31, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -63,7 +63,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180222}
-  m_Mesh: {fileID: 4300000, guid: 3ee472cf1e7faed4da2922214a61ced8, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 6a6cd83ad38284238b7b56b4078e3881, type: 3}
 --- !u!65 &6588394
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -74,20 +74,25 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 498.27148, y: 451.4532, z: 508.41858}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11482228
-MonoBehaviour:
+  m_Size: {x: 996.54297, y: 902.9064, z: 1016.83716}
+  m_Center: {x: 0, y: 450.56482, z: 0}
+--- !u!95 &9588422
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180222}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d721832ae4a46498b10cbce77626f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hp: 3
+  m_Avatar: {fileID: 9000000, guid: 6a6cd83ad38284238b7b56b4078e3881, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

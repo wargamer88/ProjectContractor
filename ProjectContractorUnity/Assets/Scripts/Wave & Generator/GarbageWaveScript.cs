@@ -266,8 +266,9 @@ public class GarbageWaveScript : MonoBehaviour
         {
             garbage = pGarbage;
         }
-        GameObject gameSpawnObject = GameObject.Instantiate(garbage, new Vector3(), Quaternion.identity) as GameObject;
+        GameObject gameSpawnObject = GameObject.Instantiate(garbage, new Vector3(), new Quaternion(garbage.transform.eulerAngles.x, garbage.transform.eulerAngles.y, garbage.transform.eulerAngles.z,1)) as GameObject;
         gameSpawnObject.transform.parent = _garbageParent.transform;
+        pY = garbage.transform.position.y;
         int randomSpawn = 0;
         if (pX != 0)
         {
@@ -332,21 +333,21 @@ public class GarbageWaveScript : MonoBehaviour
                     int randomPos = Random.Range(0, 4);
                     if (randomPos == 0)
                     {
-                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x + 1f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x + 1.5f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
                         _canContinue = false;
                         counter = 0;
                         break;
                     }
                     else if (randomPos == 1)
                     {
-                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x - 1f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x - 1.5f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
                         _canContinue = false;
                         counter = 0;
                         break;
                     }
                     else if (randomPos == 2)
                     {
-                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z + 1f);
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z + 1.5f);
                         _canContinue = false;
                         counter = 0;
                         break;
@@ -354,7 +355,7 @@ public class GarbageWaveScript : MonoBehaviour
                     else if (randomPos == 3)
                     {
 
-                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z - 1f);
+                        gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z - 1.5f);
                         _canContinue = false;
                         counter = 0;
                         break;

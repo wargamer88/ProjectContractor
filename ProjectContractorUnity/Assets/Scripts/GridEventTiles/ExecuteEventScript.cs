@@ -137,77 +137,78 @@ public class ExecuteEventScript : MonoBehaviour
         //    }
         //}
 
-
-        if (this.tag == "Garbage" && pOther.GetComponent<ExecuteEventScript>().EventWrapper.Count != 0)
+        if (pOther.GetComponent<ExecuteEventScript>())
         {
-            //Debug.Log(_eventWave);
-            //Debug.Log("garbagewave " + _garbageWaveScript.Wave);
-            if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.ShowTutorialBottle && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
+            if (this.tag == "Garbage" && pOther.GetComponent<ExecuteEventScript>().EventWrapper.Count != 0)
             {
-                _hand.enabled = true;
-                _isEventDone = true;
-            }
-            else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.ExplodesBarrel && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
-            {
-                GameObject bottle = _garbageWaveScript.LightGarbage[0];
-                for (int i = 0; i < 3; i++)
+                //Debug.Log(_eventWave);
+                //Debug.Log("garbagewave " + _garbageWaveScript.Wave);
+                if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.ShowTutorialBottle && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
                 {
-                    _garbageWaveScript._spawnGarbage(1, this.transform.position.x + i, 1, this.transform.position.z, bottle);
+                    _hand.enabled = true;
+                    _isEventDone = true;
                 }
-                Destroy(pOther);
-                Destroy(this);
-            }
-            else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.IncreaseSpeed && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
-            {
-                this.GetComponent<GarbageMoveScript>().Speed = -pOther.GetComponent<ExecuteEventScript>().EventSpeed;
-            }
-            else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.ChangeLanes && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
-            {
-                string letter = pOther.name.Substring(0, 1);
-                string numberstring = pOther.name.Substring(1, pOther.name.Length -1);
-                int number = Convert.ToInt32(numberstring);
-                List<string> possibleLetters = new List<string>();
-                if (letter == "A")
+                else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.ExplodesBarrel && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
                 {
-                    possibleLetters.Add("B");
+                    GameObject bottle = _garbageWaveScript.LightGarbage[0];
+                    for (int i = 0; i < 3; i++)
+                    {
+                        _garbageWaveScript._spawnGarbage(1, this.transform.position.x + i, 1, this.transform.position.z, bottle);
+                    }
+                    Destroy(pOther);
+                    Destroy(this);
                 }
-                else if (letter == "B")
+                else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.IncreaseSpeed && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
                 {
-                    possibleLetters.Add("A");
-                    possibleLetters.Add("B");
+                    this.GetComponent<GarbageMoveScript>().Speed = -pOther.GetComponent<ExecuteEventScript>().EventSpeed;
                 }
-                else if (letter == "C")
+                else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.ChangeLanes && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
                 {
-                    possibleLetters.Add("B");
-                    possibleLetters.Add("D");
-                }
-                else if (letter == "D")
-                {
-                    possibleLetters.Add("C");
-                    possibleLetters.Add("E");
-                }
-                else if (letter == "E")
-                {
-                    possibleLetters.Add("D");
-                }
-                string nextLetter = possibleLetters[UnityEngine.Random.Range(0, possibleLetters.Count)];
-                int nextNumber = number - 1;
-                GameObject nextTile = GameObject.Find(nextLetter +""+ nextNumber.ToString());
-                this.GetComponent<GarbageMoveScript>().ChangeLane(nextTile.transform.position);
+                    string letter = pOther.name.Substring(0, 1);
+                    string numberstring = pOther.name.Substring(1, pOther.name.Length - 1);
+                    int number = Convert.ToInt32(numberstring);
+                    List<string> possibleLetters = new List<string>();
+                    if (letter == "A")
+                    {
+                        possibleLetters.Add("B");
+                    }
+                    else if (letter == "B")
+                    {
+                        possibleLetters.Add("A");
+                        possibleLetters.Add("B");
+                    }
+                    else if (letter == "C")
+                    {
+                        possibleLetters.Add("B");
+                        possibleLetters.Add("D");
+                    }
+                    else if (letter == "D")
+                    {
+                        possibleLetters.Add("C");
+                        possibleLetters.Add("E");
+                    }
+                    else if (letter == "E")
+                    {
+                        possibleLetters.Add("D");
+                    }
+                    string nextLetter = possibleLetters[UnityEngine.Random.Range(0, possibleLetters.Count)];
+                    int nextNumber = number - 1;
+                    GameObject nextTile = GameObject.Find(nextLetter + "" + nextNumber.ToString());
+                    this.GetComponent<GarbageMoveScript>().ChangeLane(nextTile.transform.position);
 
-            }
-            else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.MiltiTrash && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
-            {
-
-                pOther.GetComponent<ExecuteEventScript>().EventWave = 0;
-                int random = UnityEngine.Random.Range(0, 3);
-                _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed);
-                random = UnityEngine.Random.Range(0, 3);
-                _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x - 5, 4, pOther.transform.position.z -3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed);
-                random = UnityEngine.Random.Range(0, 3);
-                _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 0.1f, 4, pOther.transform.position.z + 10, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed);
-                _garbageWaveScript.DestroyedGarbage.Add(this.gameObject);
-                Destroy(this.gameObject); 
+                }
+                else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.MiltiTrash && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
+                {
+                    pOther.GetComponent<ExecuteEventScript>().EventWave = 0;
+                    int random = UnityEngine.Random.Range(0, 3);
+                    _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
+                    random = UnityEngine.Random.Range(0, 3);
+                    _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x - 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
+                    random = UnityEngine.Random.Range(0, 3);
+                    _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 0.1f, 4, pOther.transform.position.z + 10, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
+                    _garbageWaveScript.DestroyedGarbage.Add(this.gameObject);
+                    Destroy(this.gameObject);
+                }
             }
         }
         if (pOther.GetComponent<BoatEventScript>() && _event == _choices.BoatToTile)

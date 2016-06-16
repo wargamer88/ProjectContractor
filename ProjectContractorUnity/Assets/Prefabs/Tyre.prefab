@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 475668}
   - 33: {fileID: 3392584}
   - 23: {fileID: 2395432}
+  - 95: {fileID: 9590014}
   - 65: {fileID: 6582594}
-  - 114: {fileID: 11455940}
   m_Layer: 0
   m_Name: Tyre
   m_TagString: Untagged
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.251953, y: 8.881779, z: 13.3976345}
-  m_LocalScale: {x: 0.023, y: 0.023, z: 0.023}
+  m_LocalPosition: {x: -23.340462, y: -1, z: -20.133945}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 30278fce411140d47a0a598f99687cf2, type: 2}
+  - {fileID: 2100000, guid: 576ce98a36a9a451eba64fff5852fc93, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -63,7 +63,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120022}
-  m_Mesh: {fileID: 4300000, guid: 5855650d7671fc44da6678fdcddbf922, type: 3}
+  m_Mesh: {fileID: 4300000, guid: d38f18cf44e454ca5a4c60bf20b07f77, type: 3}
 --- !u!65 &6582594
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -75,19 +75,24 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 187.26132, y: 457.36206, z: 486.44946}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11455940
-MonoBehaviour:
+  m_Center: {x: 0, y: 228.37485, z: 0}
+--- !u!95 &9590014
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120022}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d721832ae4a46498b10cbce77626f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hp: 1
+  m_Avatar: {fileID: 9000000, guid: d38f18cf44e454ca5a4c60bf20b07f77, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

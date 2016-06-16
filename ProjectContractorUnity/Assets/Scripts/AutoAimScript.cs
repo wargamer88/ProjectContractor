@@ -80,7 +80,8 @@ public class AutoAimScript : MonoBehaviour
     }
     private void _createBallAndShootingAnimation()
     {
-        GetComponent<Animator>().Play("Fast_Shoot");
+        GetComponent<Animator>().Play("Finished");
+        GetComponent<Animator>().Play("Shoot");
         _bullet = GameObject.Instantiate(_chosenBall);
         _newShotTimer = Time.time;
         _bullet.transform.position = transform.position + _ballOffset;
