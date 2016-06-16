@@ -11,7 +11,6 @@ GameObject:
   - 33: {fileID: 3369148}
   - 23: {fileID: 2329482}
   - 65: {fileID: 6555602}
-  - 114: {fileID: 11410304}
   m_Layer: 0
   m_Name: Metal_Fuel_Tank
   m_TagString: Untagged
@@ -26,8 +25,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.497612, y: 11.678666, z: -17.392492}
-  m_LocalScale: {x: 0.023, y: 0.023, z: 0.023}
+  m_LocalPosition: {x: 0, y: 4, z: -4.1}
+  m_LocalScale: {x: 0.0075, y: 0.0075, z: 0.0075}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +40,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 42c0e5d77ac68544e8d011ed0c1a4137, type: 2}
+  - {fileID: 2100000, guid: 77c52fb388209c04db20348229006606, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -63,7 +62,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161658}
-  m_Mesh: {fileID: 4300000, guid: 1dab9d16d8f3f864b90d7892f241471f, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 3a9a9f2dc434aa94b9a0080b4b3eb9ea, type: 3}
 --- !u!65 &6555602
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -74,20 +73,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 210.98506, y: 358.37766, z: 101.322296}
-  m_Center: {x: -1.0080338, y: 1.2584686, z: 0}
---- !u!114 &11410304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d721832ae4a46498b10cbce77626f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hp: 2
+  m_Size: {x: 1024.1974, y: 1536.8369, z: 699.7822}
+  m_Center: {x: 6.6338387, y: 769.03613, z: -50.33792}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
