@@ -18,21 +18,32 @@ public class ChompyScript : MonoBehaviour {
     void Start () {
         
         this.transform.rotation = new Quaternion(0, -1, 0, 1);
+        this.GetComponent<BoxCollider>().enabled = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        
+
         if (GarbageObject == null)
         {
             Destroy(this.gameObject);
         }
         float step = _speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, GarbageObject.transform.position, step);
+        Vector3 tempPos = GarbageObject.transform.position;
+        tempPos.y = 3;
+        transform.position = Vector3.MoveTowards(transform.position, tempPos, step);
+
+        if ((this.transform.position - tempPos).magnitude < 10)
+        {
+            this.GetComponent<BoxCollider>().enabled = true;
+        }
     }
 
     void OnCollisionEnter(Collision pOther)
     {
-        if(pOther.gameObject == _garbageObject)
+        if (pOther.gameObject == _garbageObject)
         {
             Destroy(this.gameObject);
             _garbageWaveScript.DestroyedGarbage.Add(_garbageObject);
