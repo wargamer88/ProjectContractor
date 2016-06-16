@@ -378,12 +378,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
   _basichit: 10
   _mediumhit: 20
   _heavyhit: 30
+  _superHeavyhit: 50
 --- !u!23 &15238327
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2572,12 +2574,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
   _basichit: 10
   _mediumhit: 20
   _heavyhit: 30
+  _superHeavyhit: 50
 --- !u!23 &151542739
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7065,12 +7069,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
   _basichit: 10
   _mediumhit: 20
   _heavyhit: 30
+  _superHeavyhit: 50
 --- !u!23 &472081926
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7677,7 +7683,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 71da17f02de00f6479b754396707f61e, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 71da17f02de00f6479b754396707f61e, type: 3}
       propertyPath: m_Name
@@ -8643,7 +8649,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 584775124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 434.8, y: 377.8, z: 0}
+  m_LocalPosition: {x: 434.8, y: 377.8, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1056477970}
@@ -13591,12 +13597,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
   _basichit: 10
   _mediumhit: 20
   _heavyhit: 30
+  _superHeavyhit: 50
 --- !u!23 &940797478
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16539,8 +16547,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: -0.05209897, y: 0.16047892, z: 0.008482302, w: 0.9856269}
-  m_LocalPosition: {x: -31.021267, y: -16.05513, z: 193.38638}
+  m_LocalRotation: {x: -0.33038402, y: 0.22105937, z: 0.079864316, w: 0.9141121}
+  m_LocalPosition: {x: -19.756626, y: -33.660492, z: -38.469448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -20772,7 +20780,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1487576087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4, y: 0.10095048, z: -35.2}
+  m_LocalPosition: {x: -5.4, y: 0.10095048, z: -37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 472081924}
@@ -25247,12 +25255,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
   _basichit: 10
   _mediumhit: 20
   _heavyhit: 30
+  _superHeavyhit: 50
 --- !u!23 &1848038516
 MeshRenderer:
   m_ObjectHideFlags: 0
