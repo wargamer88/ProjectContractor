@@ -94,6 +94,7 @@ public class PowerupsScript : MonoBehaviour {
                 GO.GetComponent<FishClickedOnScript>().Jumping = false;
                 GO.AddComponent<Rigidbody>();
                 GO.GetComponent<Rigidbody>().AddForce(new Vector3(50, 23, 0),ForceMode.VelocityChange);
+                GO.layer = 10;
                 GO.name = "Chompy";
                 break;
             case 1:
@@ -104,6 +105,7 @@ public class PowerupsScript : MonoBehaviour {
                 GO.GetComponent<FishClickedOnScript>().Jumping = false;
                 GO.AddComponent<Rigidbody>();
                 GO.GetComponent<Rigidbody>().AddForce(new Vector3(50, 23, 0), ForceMode.VelocityChange);
+                GO.layer = 10;
                 GO.name = "Sharky";
                 break;
             case 2:
@@ -114,6 +116,7 @@ public class PowerupsScript : MonoBehaviour {
                 GO.GetComponent<FishClickedOnScript>().Jumping = false;
                 GO.AddComponent<Rigidbody>();
                 GO.GetComponent<Rigidbody>().AddForce(new Vector3(60, 27, 0), ForceMode.VelocityChange);
+                GO.layer = 10;
                 GO.name = "Whaley";
                 break;
             default:
@@ -254,7 +257,7 @@ public class PowerupsScript : MonoBehaviour {
         {
             if (Garbage.GarbageType == GarbageType.Heavy)
             {
-                GameObject GO = (GameObject)Instantiate(_chompy, new Vector3(-50, Garbage.transform.position.y, Garbage.transform.position.z), Quaternion.identity);
+                GameObject GO = (GameObject)Instantiate(_chompy, new Vector3(-50, 3, Garbage.transform.position.z), Quaternion.identity);
                 //GO.GetComponent<Animator>().StartPlayback();
                 GO.GetComponent<ChompyScript>().GarbageObject = Garbage.gameObject;
                 GO.GetComponent<ChompyScript>().GarbageWaveScript = _garbageWaveScript;

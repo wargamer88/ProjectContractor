@@ -11,7 +11,6 @@ GameObject:
   - 33: {fileID: 3369148}
   - 23: {fileID: 2329482}
   - 65: {fileID: 6555602}
-  - 114: {fileID: 11410302}
   m_Layer: 0
   m_Name: Metal_Fuel_Tank
   m_TagString: Untagged
@@ -76,18 +75,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1024.1974, y: 1536.8369, z: 699.7822}
   m_Center: {x: 6.6338387, y: 769.03613, z: -50.33792}
---- !u!114 &11410302
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d721832ae4a46498b10cbce77626f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hp: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
