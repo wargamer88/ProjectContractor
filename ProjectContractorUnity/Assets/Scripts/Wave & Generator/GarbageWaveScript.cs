@@ -266,8 +266,9 @@ public class GarbageWaveScript : MonoBehaviour
         {
             garbage = pGarbage;
         }
-        GameObject gameSpawnObject = GameObject.Instantiate(garbage, new Vector3(), Quaternion.identity) as GameObject;
+        GameObject gameSpawnObject = GameObject.Instantiate(garbage, new Vector3(), new Quaternion(garbage.transform.eulerAngles.x, garbage.transform.eulerAngles.y, garbage.transform.eulerAngles.z,1)) as GameObject;
         gameSpawnObject.transform.parent = _garbageParent.transform;
+        pY = garbage.transform.position.y;
         int randomSpawn = 0;
         if (pX != 0)
         {
