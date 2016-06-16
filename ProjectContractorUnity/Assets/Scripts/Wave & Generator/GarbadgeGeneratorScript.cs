@@ -3,8 +3,7 @@ using System.Collections;
 using System.Linq;
 
 public class GarbadgeGeneratorScript : MonoBehaviour {
-
-    [SerializeField]
+    
     private GameObject _damageParticle;
     private GeneratorPowerScript _generatorPowerScript;
     private GarbageWaveScript _garbageWaveScript;
@@ -58,7 +57,9 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        _damageParticle = (GameObject)Resources.Load("Damage");
         _generatorGotHit = false;
         _generatorPowerScript = transform.parent.GetComponent<GeneratorPowerScript>();
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
