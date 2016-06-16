@@ -4,13 +4,10 @@ using System.Linq;
 using System;
 
 public class PowerupsScript : MonoBehaviour {
-
-    [SerializeField]
-    private GameObject Chompy;
-    [SerializeField]
-    private GameObject Sharky;
-    [SerializeField]
-    private GameObject Whaley;
+    
+    private GameObject _chompy;
+    private GameObject _sharky;
+    private GameObject _whaley;
 
     private DateTime _timeJumpingFishSpawned;
 
@@ -32,6 +29,9 @@ public class PowerupsScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        _chompy = (GameObject)Resources.Load("Chompy");
+        _sharky = (GameObject)Resources.Load("Sharky");
+        _whaley = (GameObject)Resources.Load("Whaley");
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
         _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
     }
@@ -51,10 +51,10 @@ public class PowerupsScript : MonoBehaviour {
             _mediumPowerup();
         }
         if (Input.GetKeyDown(KeyCode.Keypad3))
-    {
+        {
             _heavyPowerup();
-            }
         }
+    }
 
     private void _getGarbageParent()
     {
@@ -72,7 +72,7 @@ public class PowerupsScript : MonoBehaviour {
         int SpawnRnd = 0;
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            //FishRnd = 2;
+            //FishRnd = 1;
         }
         else
         {
@@ -87,7 +87,7 @@ public class PowerupsScript : MonoBehaviour {
         switch (FishRnd)
         {
             case 0:
-                GO = (GameObject)Instantiate(Chompy, new Vector3(-120, -10, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
+                GO = (GameObject)Instantiate(_chompy, new Vector3(-120, -10, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
                 GO.GetComponent<ChompyScript>().enabled = false;
                 GO.AddComponent<FishClickedOnScript>();
                 GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
@@ -97,7 +97,7 @@ public class PowerupsScript : MonoBehaviour {
                 GO.name = "Chompy";
                 break;
             case 1:
-                GO = (GameObject)Instantiate(Sharky, new Vector3(-120, -10, 0.4f), Quaternion.Euler(new Vector3(0, 90, 0)));
+                GO = (GameObject)Instantiate(_sharky, new Vector3(-120, -10, 0.4f), Quaternion.Euler(new Vector3(0, 90, 0)));
                 GO.GetComponent<SharkyScript>().enabled = false;
                 GO.AddComponent<FishClickedOnScript>();
                 GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
@@ -107,7 +107,7 @@ public class PowerupsScript : MonoBehaviour {
                 GO.name = "Sharky";
                 break;
             case 2:
-                GO = (GameObject)Instantiate(Whaley, new Vector3(-160, -10, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
+                GO = (GameObject)Instantiate(_whaley, new Vector3(-160, -10, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
                 GO.GetComponent<WhaleyScript>().enabled = false;
                 GO.AddComponent<FishClickedOnScript>();
                 GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
@@ -133,14 +133,14 @@ public class PowerupsScript : MonoBehaviour {
             switch (rnd)
             {
                 case 0: //Left
-                    GO = (GameObject)Instantiate(Chompy, new Vector3(-54.8f, 1.8f, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
+                    GO = (GameObject)Instantiate(_chompy, new Vector3(-54.8f, 1.8f, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
                     GO.GetComponent<ChompyScript>().enabled = false;
                     GO.AddComponent<FishClickedOnScript>();
                     GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
                     GO.name = "Chompy";
                     break;
                 case 1: //Right
-                    GO = (GameObject)Instantiate(Chompy, new Vector3(54.8f, 1.8f, 0.4f), Quaternion.Euler(new Vector3(0, 90, 0)));
+                    GO = (GameObject)Instantiate(_chompy, new Vector3(54.8f, 1.8f, 0.4f), Quaternion.Euler(new Vector3(0, 90, 0)));
                     GO.GetComponent<ChompyScript>().enabled = false;
                     GO.AddComponent<FishClickedOnScript>();
                     GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
@@ -158,14 +158,14 @@ public class PowerupsScript : MonoBehaviour {
             switch (rnd)
             {
                 case 0: //Left
-                    GO = (GameObject)Instantiate(Sharky, new Vector3(-61.4f, 1.8f, 20), Quaternion.Euler(new Vector3(0, 90, 0)));
+                    GO = (GameObject)Instantiate(_sharky, new Vector3(-61.4f, 1.8f, 20), Quaternion.Euler(new Vector3(0, 90, 0)));
                     GO.GetComponent<SharkyScript>().enabled = false;
                     GO.AddComponent<FishClickedOnScript>();
                     GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
                     GO.name = "Sharky";
                     break;
                 case 1: //Right
-                    GO = (GameObject)Instantiate(Sharky, new Vector3(61.4f, 1.8f, 20), Quaternion.Euler(new Vector3(0, 270, 0)));
+                    GO = (GameObject)Instantiate(_sharky, new Vector3(61.4f, 1.8f, 20), Quaternion.Euler(new Vector3(0, 270, 0)));
                     GO.GetComponent<SharkyScript>().enabled = false;
                     GO.AddComponent<FishClickedOnScript>();
                     GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
@@ -184,14 +184,14 @@ public class PowerupsScript : MonoBehaviour {
             switch (rnd)
             {
                 case 0: //Left
-                    GO = (GameObject)Instantiate(Whaley, new Vector3(-74.5f, 1.1f, 51.1f), Quaternion.Euler(new Vector3(0, 270, 0)));
+                    GO = (GameObject)Instantiate(_whaley, new Vector3(-74.5f, 1.1f, 51.1f), Quaternion.Euler(new Vector3(0, 270, 0)));
                     GO.GetComponent<WhaleyScript>().enabled = false;
                     GO.AddComponent<FishClickedOnScript>();
                     GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
                     GO.name = "Whaley";
                     break;
                 case 1: //Right
-                    GO = (GameObject)Instantiate(Whaley, new Vector3(74.5f, 1.1f, 51.1f), Quaternion.Euler(new Vector3(0, 90, 0)));
+                    GO = (GameObject)Instantiate(_whaley, new Vector3(74.5f, 1.1f, 51.1f), Quaternion.Euler(new Vector3(0, 90, 0)));
                     GO.GetComponent<WhaleyScript>().enabled = false;
                     GO.AddComponent<FishClickedOnScript>();
                     GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
@@ -254,7 +254,8 @@ public class PowerupsScript : MonoBehaviour {
         {
             if (Garbage.GarbageType == GarbageType.Heavy)
             {
-                GameObject GO = (GameObject)Instantiate(Chompy, new Vector3(-50, Garbage.transform.position.y, Garbage.transform.position.z), Quaternion.identity);
+                GameObject GO = (GameObject)Instantiate(_chompy, new Vector3(-50, Garbage.transform.position.y, Garbage.transform.position.z), Quaternion.identity);
+                //GO.GetComponent<Animator>().StartPlayback();
                 GO.GetComponent<ChompyScript>().GarbageObject = Garbage.gameObject;
                 GO.GetComponent<ChompyScript>().GarbageWaveScript = _garbageWaveScript;
             }
@@ -365,7 +366,7 @@ public class PowerupsScript : MonoBehaviour {
         }
 
 
-        GameObject GO = (GameObject)Instantiate(Sharky, new Vector3(sharkyPosX, -27.4f, -39.1f), Quaternion.identity);
+        GameObject GO = (GameObject)Instantiate(_sharky, new Vector3(sharkyPosX, -27.4f, -39.1f), Quaternion.identity);
         GO.GetComponent<SharkyScript>().Garbage = currentGarbage;
         GO.GetComponent<SharkyScript>().GarbageWaveScript = _garbageWaveScript;
         GO.GetComponent<SharkyScript>().PosX = sharkyPosX;
@@ -380,7 +381,8 @@ public class PowerupsScript : MonoBehaviour {
     {
         _heavyGarbage = 0;
         _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
-        GameObject GO = (GameObject)Instantiate(Whaley, new Vector3(-0.6f, -27.4f, -39.1f), Quaternion.Euler(new Vector3(0, 180, 0)));
+        GameObject GO = (GameObject)Instantiate(_whaley, new Vector3(-0.6f, -27.4f, -39.1f), Quaternion.Euler(new Vector3(0, 0, 0)));
+        GO.GetComponent<Animator>().StartPlayback();
         GO.GetComponent<WhaleyScript>().GarbageWaveScript = _garbageWaveScript;
         GO.GetComponent<WhaleyScript>().Garbage = _garbageList;
         GO.GetComponent<BoxCollider>().enabled = false;

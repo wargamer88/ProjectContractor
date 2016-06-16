@@ -1,0 +1,1024 @@
+fileFormatVersion: 2
+guid: 5922954a66f51ee48b725e8fe5dbb167
+timeCreated: 1466077661
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm
+    100002: Arm1
+    100004: Button
+    100006: Button2
+    100008: Button3
+    100010: Button4
+    100012: Button5
+    100014: Buttons
+    100016: //RootNode
+    100018: catapult_anim_v2:Button1
+    100020: catapult_anim_v2:Button10
+    100022: catapult_anim_v2:Button11
+    100024: catapult_anim_v2:Button12
+    100026: catapult_anim_v2:Button13
+    100028: catapult_anim_v2:Button14
+    100030: catapult_anim_v2:Button15
+    100032: catapult_anim_v2:Button16
+    100034: catapult_anim_v2:Button17
+    100036: catapult_anim_v2:Button18
+    100038: catapult_anim_v2:Button19
+    100040: catapult_anim_v2:Button20
+    100042: catapult_anim_v2:Button21
+    100044: catapult_anim_v2:Button22
+    100046: catapult_anim_v2:Button23
+    100048: catapult_anim_v2:Button24
+    100050: catapult_anim_v2:Button25
+    100052: catapult_anim_v2:Button26
+    100054: catapult_anim_v2:Button27
+    100056: catapult_anim_v2:Button28
+    100058: catapult_anim_v2:Button29
+    100060: catapult_anim_v2:Button30
+    100062: catapult_anim_v2:Button31
+    100064: catapult_anim_v2:Button32
+    100066: catapult_anim_v2:Button33
+    100068: catapult_anim_v2:Button34
+    100070: catapult_anim_v2:Button35
+    100072: catapult_anim_v2:Button36
+    100074: catapult_anim_v2:Button37
+    100076: catapult_anim_v2:Button38
+    100078: catapult_anim_v2:Button39
+    100080: catapult_anim_v2:Button6
+    100082: catapult_anim_v2:Button7
+    100084: catapult_anim_v2:Button8
+    100086: catapult_anim_v2:Button9
+    100088: Gear
+    100090: Gear1
+    100092: group2
+    100094: group6
+    100096: group7
+    100098: group8
+    100100: pCube1
+    100102: pCube2
+    100104: pCube20
+    100106: pCube20 1
+    100108: pCube3
+    100110: pCube4
+    100112: pCube5
+    100114: pCube6
+    100116: pCube7
+    100118: pCube8
+    100120: pCylinder14
+    100122: pCylinder14 1
+    100124: pCylinder15
+    100126: pCylinder15 1
+    100128: pCylinder16
+    100130: pCylinder16 1
+    100132: pCylinder17
+    100134: pCylinder17 1
+    100136: pCylinder18
+    100138: pCylinder18 1
+    100140: pCylinder19
+    100142: pCylinder19 1
+    100144: pCylinder2
+    100146: pCylinder2 1
+    100148: pCylinder20
+    100150: pCylinder20 1
+    100152: pCylinder21
+    100154: pCylinder21 1
+    100156: pCylinder22
+    100158: pCylinder22 1
+    100160: pCylinder23
+    100162: pCylinder23 1
+    100164: pCylinder24
+    100166: pCylinder24 1
+    100168: pCylinder25
+    100170: pCylinder25 1
+    100172: pCylinder26
+    100174: pCylinder26 1
+    100176: pCylinder27
+    100178: pCylinder27 1
+    100180: pCylinder28
+    100182: pCylinder28 1
+    100184: pCylinder3
+    100186: pCylinder3 1
+    100188: pCylinder4
+    100190: pCylinder4 1
+    100192: pCylinder5
+    100194: pCylinder5 1
+    100196: polySurface3
+    100198: Pully1
+    100200: Straps
+    100202: Turn_Wheel2
+    100204: Turn_Wheel3
+    100206: Winch
+    400000: Arm
+    400002: Arm1
+    400004: Button
+    400006: Button2
+    400008: Button3
+    400010: Button4
+    400012: Button5
+    400014: Buttons
+    400016: //RootNode
+    400018: catapult_anim_v2:Button1
+    400020: catapult_anim_v2:Button10
+    400022: catapult_anim_v2:Button11
+    400024: catapult_anim_v2:Button12
+    400026: catapult_anim_v2:Button13
+    400028: catapult_anim_v2:Button14
+    400030: catapult_anim_v2:Button15
+    400032: catapult_anim_v2:Button16
+    400034: catapult_anim_v2:Button17
+    400036: catapult_anim_v2:Button18
+    400038: catapult_anim_v2:Button19
+    400040: catapult_anim_v2:Button20
+    400042: catapult_anim_v2:Button21
+    400044: catapult_anim_v2:Button22
+    400046: catapult_anim_v2:Button23
+    400048: catapult_anim_v2:Button24
+    400050: catapult_anim_v2:Button25
+    400052: catapult_anim_v2:Button26
+    400054: catapult_anim_v2:Button27
+    400056: catapult_anim_v2:Button28
+    400058: catapult_anim_v2:Button29
+    400060: catapult_anim_v2:Button30
+    400062: catapult_anim_v2:Button31
+    400064: catapult_anim_v2:Button32
+    400066: catapult_anim_v2:Button33
+    400068: catapult_anim_v2:Button34
+    400070: catapult_anim_v2:Button35
+    400072: catapult_anim_v2:Button36
+    400074: catapult_anim_v2:Button37
+    400076: catapult_anim_v2:Button38
+    400078: catapult_anim_v2:Button39
+    400080: catapult_anim_v2:Button6
+    400082: catapult_anim_v2:Button7
+    400084: catapult_anim_v2:Button8
+    400086: catapult_anim_v2:Button9
+    400088: Gear
+    400090: Gear1
+    400092: group2
+    400094: group6
+    400096: group7
+    400098: group8
+    400100: pCube1
+    400102: pCube2
+    400104: pCube20
+    400106: pCube20 1
+    400108: pCube3
+    400110: pCube4
+    400112: pCube5
+    400114: pCube6
+    400116: pCube7
+    400118: pCube8
+    400120: pCylinder14
+    400122: pCylinder14 1
+    400124: pCylinder15
+    400126: pCylinder15 1
+    400128: pCylinder16
+    400130: pCylinder16 1
+    400132: pCylinder17
+    400134: pCylinder17 1
+    400136: pCylinder18
+    400138: pCylinder18 1
+    400140: pCylinder19
+    400142: pCylinder19 1
+    400144: pCylinder2
+    400146: pCylinder2 1
+    400148: pCylinder20
+    400150: pCylinder20 1
+    400152: pCylinder21
+    400154: pCylinder21 1
+    400156: pCylinder22
+    400158: pCylinder22 1
+    400160: pCylinder23
+    400162: pCylinder23 1
+    400164: pCylinder24
+    400166: pCylinder24 1
+    400168: pCylinder25
+    400170: pCylinder25 1
+    400172: pCylinder26
+    400174: pCylinder26 1
+    400176: pCylinder27
+    400178: pCylinder27 1
+    400180: pCylinder28
+    400182: pCylinder28 1
+    400184: pCylinder3
+    400186: pCylinder3 1
+    400188: pCylinder4
+    400190: pCylinder4 1
+    400192: pCylinder5
+    400194: pCylinder5 1
+    400196: polySurface3
+    400198: Pully1
+    400200: Straps
+    400202: Turn_Wheel2
+    400204: Turn_Wheel3
+    400206: Winch
+    2300000: Arm
+    2300002: Button
+    2300004: Button2
+    2300006: Button3
+    2300008: Button4
+    2300010: Button5
+    2300012: catapult_anim_v2:Button1
+    2300014: catapult_anim_v2:Button10
+    2300016: catapult_anim_v2:Button11
+    2300018: catapult_anim_v2:Button12
+    2300020: catapult_anim_v2:Button13
+    2300022: catapult_anim_v2:Button14
+    2300024: catapult_anim_v2:Button15
+    2300026: catapult_anim_v2:Button16
+    2300028: catapult_anim_v2:Button17
+    2300030: catapult_anim_v2:Button18
+    2300032: catapult_anim_v2:Button19
+    2300034: catapult_anim_v2:Button20
+    2300036: catapult_anim_v2:Button21
+    2300038: catapult_anim_v2:Button22
+    2300040: catapult_anim_v2:Button23
+    2300042: catapult_anim_v2:Button24
+    2300044: catapult_anim_v2:Button25
+    2300046: catapult_anim_v2:Button26
+    2300048: catapult_anim_v2:Button27
+    2300050: catapult_anim_v2:Button28
+    2300052: catapult_anim_v2:Button29
+    2300054: catapult_anim_v2:Button30
+    2300056: catapult_anim_v2:Button31
+    2300058: catapult_anim_v2:Button32
+    2300060: catapult_anim_v2:Button33
+    2300062: catapult_anim_v2:Button34
+    2300064: catapult_anim_v2:Button35
+    2300066: catapult_anim_v2:Button36
+    2300068: catapult_anim_v2:Button37
+    2300070: catapult_anim_v2:Button38
+    2300072: catapult_anim_v2:Button39
+    2300074: catapult_anim_v2:Button6
+    2300076: catapult_anim_v2:Button7
+    2300078: catapult_anim_v2:Button8
+    2300080: catapult_anim_v2:Button9
+    2300082: pCube1
+    2300084: pCube2
+    2300086: pCube20
+    2300088: pCube20 1
+    2300090: pCube3
+    2300092: pCube4
+    2300094: pCube5
+    2300096: pCube6
+    2300098: pCube7
+    2300100: pCube8
+    2300102: pCylinder14
+    2300104: pCylinder14 1
+    2300106: pCylinder15
+    2300108: pCylinder15 1
+    2300110: pCylinder16
+    2300112: pCylinder16 1
+    2300114: pCylinder17
+    2300116: pCylinder17 1
+    2300118: pCylinder18
+    2300120: pCylinder18 1
+    2300122: pCylinder19
+    2300124: pCylinder19 1
+    2300126: pCylinder2
+    2300128: pCylinder2 1
+    2300130: pCylinder20
+    2300132: pCylinder20 1
+    2300134: pCylinder21
+    2300136: pCylinder21 1
+    2300138: pCylinder22
+    2300140: pCylinder22 1
+    2300142: pCylinder23
+    2300144: pCylinder23 1
+    2300146: pCylinder24
+    2300148: pCylinder24 1
+    2300150: pCylinder25
+    2300152: pCylinder25 1
+    2300154: pCylinder26
+    2300156: pCylinder26 1
+    2300158: pCylinder27
+    2300160: pCylinder27 1
+    2300162: pCylinder28
+    2300164: pCylinder28 1
+    2300166: pCylinder3
+    2300168: pCylinder3 1
+    2300170: pCylinder4
+    2300172: pCylinder4 1
+    2300174: pCylinder5
+    2300176: pCylinder5 1
+    2300178: polySurface3
+    3300000: Arm
+    3300002: Button
+    3300004: Button2
+    3300006: Button3
+    3300008: Button4
+    3300010: Button5
+    3300012: catapult_anim_v2:Button1
+    3300014: catapult_anim_v2:Button10
+    3300016: catapult_anim_v2:Button11
+    3300018: catapult_anim_v2:Button12
+    3300020: catapult_anim_v2:Button13
+    3300022: catapult_anim_v2:Button14
+    3300024: catapult_anim_v2:Button15
+    3300026: catapult_anim_v2:Button16
+    3300028: catapult_anim_v2:Button17
+    3300030: catapult_anim_v2:Button18
+    3300032: catapult_anim_v2:Button19
+    3300034: catapult_anim_v2:Button20
+    3300036: catapult_anim_v2:Button21
+    3300038: catapult_anim_v2:Button22
+    3300040: catapult_anim_v2:Button23
+    3300042: catapult_anim_v2:Button24
+    3300044: catapult_anim_v2:Button25
+    3300046: catapult_anim_v2:Button26
+    3300048: catapult_anim_v2:Button27
+    3300050: catapult_anim_v2:Button28
+    3300052: catapult_anim_v2:Button29
+    3300054: catapult_anim_v2:Button30
+    3300056: catapult_anim_v2:Button31
+    3300058: catapult_anim_v2:Button32
+    3300060: catapult_anim_v2:Button33
+    3300062: catapult_anim_v2:Button34
+    3300064: catapult_anim_v2:Button35
+    3300066: catapult_anim_v2:Button36
+    3300068: catapult_anim_v2:Button37
+    3300070: catapult_anim_v2:Button38
+    3300072: catapult_anim_v2:Button39
+    3300074: catapult_anim_v2:Button6
+    3300076: catapult_anim_v2:Button7
+    3300078: catapult_anim_v2:Button8
+    3300080: catapult_anim_v2:Button9
+    3300082: pCube1
+    3300084: pCube2
+    3300086: pCube20
+    3300088: pCube20 1
+    3300090: pCube3
+    3300092: pCube4
+    3300094: pCube5
+    3300096: pCube6
+    3300098: pCube7
+    3300100: pCube8
+    3300102: pCylinder14
+    3300104: pCylinder14 1
+    3300106: pCylinder15
+    3300108: pCylinder15 1
+    3300110: pCylinder16
+    3300112: pCylinder16 1
+    3300114: pCylinder17
+    3300116: pCylinder17 1
+    3300118: pCylinder18
+    3300120: pCylinder18 1
+    3300122: pCylinder19
+    3300124: pCylinder19 1
+    3300126: pCylinder2
+    3300128: pCylinder2 1
+    3300130: pCylinder20
+    3300132: pCylinder20 1
+    3300134: pCylinder21
+    3300136: pCylinder21 1
+    3300138: pCylinder22
+    3300140: pCylinder22 1
+    3300142: pCylinder23
+    3300144: pCylinder23 1
+    3300146: pCylinder24
+    3300148: pCylinder24 1
+    3300150: pCylinder25
+    3300152: pCylinder25 1
+    3300154: pCylinder26
+    3300156: pCylinder26 1
+    3300158: pCylinder27
+    3300160: pCylinder27 1
+    3300162: pCylinder28
+    3300164: pCylinder28 1
+    3300166: pCylinder3
+    3300168: pCylinder3 1
+    3300170: pCylinder4
+    3300172: pCylinder4 1
+    3300174: pCylinder5
+    3300176: pCylinder5 1
+    3300178: polySurface3
+    4300000: pCylinder2
+    4300002: pCylinder3
+    4300004: pCylinder4
+    4300006: pCylinder5
+    4300008: pCylinder23
+    4300010: pCylinder24
+    4300012: pCylinder25
+    4300014: pCylinder26
+    4300016: polySurface3
+    4300018: pCylinder2
+    4300020: pCylinder3
+    4300022: pCylinder4
+    4300024: pCylinder5
+    4300026: pCylinder23
+    4300028: pCylinder24
+    4300030: pCylinder25
+    4300032: pCylinder26
+    4300034: pCylinder15
+    4300036: pCylinder16
+    4300038: pCylinder17
+    4300040: pCylinder18
+    4300042: pCylinder19
+    4300044: pCylinder20
+    4300046: pCylinder21
+    4300048: pCylinder22
+    4300050: pCylinder14
+    4300052: pCylinder27
+    4300054: pCube20
+    4300056: pCylinder28
+    4300058: pCylinder15
+    4300060: pCylinder16
+    4300062: pCylinder17
+    4300064: pCylinder18
+    4300066: pCylinder19
+    4300068: pCylinder20
+    4300070: pCylinder21
+    4300072: pCylinder22
+    4300074: pCylinder14
+    4300076: pCylinder27
+    4300078: pCube20
+    4300080: pCylinder28
+    4300082: Arm
+    4300084: Button
+    4300086: Button2
+    4300088: Button3
+    4300090: Button4
+    4300092: Button5
+    4300094: catapult_anim_v2:Button19
+    4300096: catapult_anim_v2:Button1
+    4300098: catapult_anim_v2:Button6
+    4300100: catapult_anim_v2:Button7
+    4300102: catapult_anim_v2:Button8
+    4300104: catapult_anim_v2:Button9
+    4300106: catapult_anim_v2:Button10
+    4300108: catapult_anim_v2:Button18
+    4300110: catapult_anim_v2:Button11
+    4300112: catapult_anim_v2:Button12
+    4300114: catapult_anim_v2:Button17
+    4300116: catapult_anim_v2:Button13
+    4300118: catapult_anim_v2:Button16
+    4300120: catapult_anim_v2:Button14
+    4300122: catapult_anim_v2:Button15
+    4300124: catapult_anim_v2:Button20
+    4300126: catapult_anim_v2:Button21
+    4300128: catapult_anim_v2:Button22
+    4300130: catapult_anim_v2:Button23
+    4300132: catapult_anim_v2:Button24
+    4300134: catapult_anim_v2:Button25
+    4300136: catapult_anim_v2:Button26
+    4300138: catapult_anim_v2:Button27
+    4300140: catapult_anim_v2:Button28
+    4300142: catapult_anim_v2:Button29
+    4300144: catapult_anim_v2:Button30
+    4300146: catapult_anim_v2:Button31
+    4300148: catapult_anim_v2:Button32
+    4300150: catapult_anim_v2:Button33
+    4300152: catapult_anim_v2:Button34
+    4300154: catapult_anim_v2:Button35
+    4300156: catapult_anim_v2:Button36
+    4300158: catapult_anim_v2:Button37
+    4300160: catapult_anim_v2:Button38
+    4300162: catapult_anim_v2:Button39
+    4300164: pCube1
+    4300166: pCube2
+    4300168: pCube3
+    4300170: pCube4
+    4300172: pCube5
+    4300174: pCube6
+    4300176: pCube7
+    4300178: pCube8
+    7400000: Fast_Shoot
+    7400002: Idle
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fast_Shoot
+      takeName: Take 001
+      firstFrame: 3
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Arm1
+        weight: 1
+      - path: Arm1/Arm
+        weight: 1
+      - path: Arm1/Buttons
+        weight: 1
+      - path: Arm1/Buttons/Button
+        weight: 1
+      - path: Arm1/Buttons/Button2
+        weight: 1
+      - path: Arm1/Buttons/Button3
+        weight: 1
+      - path: Arm1/Buttons/Button4
+        weight: 1
+      - path: Arm1/Buttons/Button5
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button1
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button6
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button7
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button8
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button9
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button10
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button11
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button12
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button13
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button14
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button15
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button16
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button17
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button18
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button19
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button20
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button21
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button22
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button23
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button24
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button25
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button26
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button27
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button28
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button29
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button30
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button31
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button32
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button33
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button34
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button35
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button36
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button37
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button38
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button39
+        weight: 1
+      - path: Arm1/Straps
+        weight: 1
+      - path: Arm1/Straps/pCube1
+        weight: 1
+      - path: Arm1/Straps/pCube2
+        weight: 1
+      - path: Arm1/Straps/pCube3
+        weight: 1
+      - path: Arm1/Straps/pCube4
+        weight: 1
+      - path: Arm1/Straps/pCube5
+        weight: 1
+      - path: Arm1/Straps/pCube6
+        weight: 1
+      - path: Arm1/Straps/pCube7
+        weight: 1
+      - path: Arm1/Straps/pCube8
+        weight: 1
+      - path: Winch
+        weight: 1
+      - path: Winch/Pully1
+        weight: 1
+      - path: Winch/Pully1/group2
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder2
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder3
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder4
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder5
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder23
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder24
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder25
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder26
+        weight: 1
+      - path: Winch/Pully1/group2/polySurface3
+        weight: 1
+      - path: Winch/Pully1/group6
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder2 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder3 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder4 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder5 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder23 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder24 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder25 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder26 1
+        weight: 1
+      - path: Winch/Turn_Wheel2
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder14
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder15
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder16
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder17
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder18
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder19
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder20
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder21
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder22
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7/pCube20
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7/pCylinder27
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7/pCylinder28
+        weight: 1
+      - path: Winch/Turn_Wheel3
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder14 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder15 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder16 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder17 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder18 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder19 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder20 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder21 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder22 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8/pCube20 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8/pCylinder27 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8/pCylinder28 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Arm1
+        weight: 1
+      - path: Arm1/Arm
+        weight: 1
+      - path: Arm1/Buttons
+        weight: 1
+      - path: Arm1/Buttons/Button
+        weight: 1
+      - path: Arm1/Buttons/Button2
+        weight: 1
+      - path: Arm1/Buttons/Button3
+        weight: 1
+      - path: Arm1/Buttons/Button4
+        weight: 1
+      - path: Arm1/Buttons/Button5
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button1
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button6
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button7
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button8
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button9
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button10
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button11
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button12
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button13
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button14
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button15
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button16
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button17
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button18
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button19
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button20
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button21
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button22
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button23
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button24
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button25
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button26
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button27
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button28
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button29
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button30
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button31
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button32
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button33
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button34
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button35
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button36
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button37
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button38
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button39
+        weight: 1
+      - path: Arm1/Straps
+        weight: 1
+      - path: Arm1/Straps/pCube1
+        weight: 1
+      - path: Arm1/Straps/pCube2
+        weight: 1
+      - path: Arm1/Straps/pCube3
+        weight: 1
+      - path: Arm1/Straps/pCube4
+        weight: 1
+      - path: Arm1/Straps/pCube5
+        weight: 1
+      - path: Arm1/Straps/pCube6
+        weight: 1
+      - path: Arm1/Straps/pCube7
+        weight: 1
+      - path: Arm1/Straps/pCube8
+        weight: 1
+      - path: Winch
+        weight: 1
+      - path: Winch/Pully1
+        weight: 1
+      - path: Winch/Pully1/group2
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder2
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder3
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder4
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder5
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder23
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder24
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder25
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder26
+        weight: 1
+      - path: Winch/Pully1/group2/polySurface3
+        weight: 1
+      - path: Winch/Pully1/group6
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder2 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder3 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder4 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder5 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder23 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder24 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder25 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder26 1
+        weight: 1
+      - path: Winch/Turn_Wheel2
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder14
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder15
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder16
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder17
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder18
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder19
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder20
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder21
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder22
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7/pCube20
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7/pCylinder27
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7/pCylinder28
+        weight: 1
+      - path: Winch/Turn_Wheel3
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder14 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder15 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder16 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder17 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder18 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder19 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder20 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder21 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder22 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8/pCube20 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8/pCylinder27 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8/pCylinder28 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

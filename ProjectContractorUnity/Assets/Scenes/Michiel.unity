@@ -378,7 +378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -2577,7 +2576,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -6938,9 +6936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4890a2a2224535144b417da9e026dc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Chompy: {fileID: 127064, guid: 236e7c076e8132642a01365894c7d7d4, type: 2}
-  Sharky: {fileID: 101372, guid: 4eb16cae1bd505c428b7cb74a9c0fe21, type: 2}
-  Whaley: {fileID: 151000, guid: 6b9f2a05681f3b54e87b66af4a328947, type: 2}
 --- !u!4 &467988789
 Transform:
   m_ObjectHideFlags: 0
@@ -6995,7 +6990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -13742,7 +13736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -16558,8 +16551,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: -0.2400855, y: 0.5197904, z: 0.1549968, w: 0.80507946}
-  m_LocalPosition: {x: -81.89299, y: -55.361954, z: -56.921127}
+  m_LocalRotation: {x: -0.2471968, y: -0.00043543402, z: -0.00033476547, w: 0.9689652}
+  m_LocalPosition: {x: -0.6, y: -17.66, z: -69.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -25164,7 +25157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageParticle: {fileID: 175978, guid: 05b890f6aca24f947ae24ed6845d3cbc, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1

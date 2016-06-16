@@ -61,6 +61,11 @@ public class HighscoreScript : MonoBehaviour {
 
     private GameObject _scoreUI;
     private GameObject _comboUI;
+    private GameObject _nietaanterakenUI;
+    private GameObject _superUI;
+    private GameObject _geweldig;
+    private GameObject _ongelooflijk;
+    private GameObject _superheld;
     private GameObject _waveClearUI;
 
     private int _comboCounter;
@@ -73,6 +78,11 @@ public class HighscoreScript : MonoBehaviour {
         _score = 0;
         _timer = 0;
         _scoreUI = GameObject.Find("Score");
+        _nietaanterakenUI = GameObject.Find("Nietaanteraken");
+        _superUI = GameObject.Find("Super");
+        _geweldig = GameObject.Find("Geweldig");
+        _ongelooflijk = GameObject.Find("Ongelooflijk");
+        _superheld = GameObject.Find("Superheld");
         _comboUI = GameObject.Find("ComboImage");
         _waveClearUI = GameObject.Find("WaveCleared");
 	}
@@ -84,12 +94,19 @@ public class HighscoreScript : MonoBehaviour {
 
     private void CheckComboTimer()
     {
-        if (_comboUI.GetComponent<Image>().enabled == true || _waveClearUI.GetComponent<Image>().enabled == true)
+        if (_comboUI.GetComponent<Image>().enabled == true || _waveClearUI.GetComponent<Image>().enabled == true || _superUI.GetComponent<Image>().enabled == true || 
+            _nietaanterakenUI.GetComponent<Image>().enabled == true || _geweldig.GetComponent<Image>().enabled == true || _ongelooflijk.GetComponent<Image>().enabled == true 
+            || _superheld.GetComponent<Image>().enabled == true)
         {
             _timer++;
             if (_timer >= _maxTimeShowComboText)
             {
                 _comboUI.GetComponent<Image>().enabled = false;
+                _nietaanterakenUI.GetComponent<Image>().enabled = false;
+                _superUI.GetComponent<Image>().enabled = false;
+                _geweldig.GetComponent<Image>().enabled = false;
+                _ongelooflijk.GetComponent<Image>().enabled = false;
+                _superheld.GetComponent<Image>().enabled = false;
                 _waveClearUI.GetComponent<Image>().enabled = false;
                 _timer = 0;
             }
@@ -132,8 +149,8 @@ public class HighscoreScript : MonoBehaviour {
             _score += _3inRowScore;
             if (_3inRowImage != null)
             {
-                _comboUI.GetComponent<Image>().sprite = _3inRowImage;
-                _comboUI.GetComponent<Image>().enabled = true; 
+                _superUI.GetComponent<Image>().sprite = _3inRowImage;
+                _superUI.GetComponent<Image>().enabled = true; 
             }
         }
         else if(_comboCounter == 5)
@@ -141,8 +158,8 @@ public class HighscoreScript : MonoBehaviour {
             _score += _5inRowScore;
             if (_5inRowImage != null)
             {
-                _comboUI.GetComponent<Image>().sprite = _5inRowImage;
-                _comboUI.GetComponent<Image>().enabled = true; 
+               _geweldig.GetComponent<Image>().sprite = _5inRowImage;
+               _geweldig.GetComponent<Image>().enabled = true; 
             }
         }
         else if(_comboCounter == 10)
@@ -150,8 +167,8 @@ public class HighscoreScript : MonoBehaviour {
             _score += _10inRowScore;
             if (_10inRowImage != null)
             {
-                _comboUI.GetComponent<Image>().sprite = _10inRowImage;
-                _comboUI.GetComponent<Image>().enabled = true; 
+                _ongelooflijk.GetComponent<Image>().sprite = _10inRowImage;
+                _ongelooflijk.GetComponent<Image>().enabled = true; 
             }
         }
         else if(_comboCounter == 15)
@@ -159,8 +176,8 @@ public class HighscoreScript : MonoBehaviour {
             _score += _15inRowScore;
             if (_15inRowImage != null)
             {
-                _comboUI.GetComponent<Image>().sprite = _15inRowImage;
-                _comboUI.GetComponent<Image>().enabled = true; 
+                _superheld.GetComponent<Image>().sprite = _15inRowImage;
+                _superheld.GetComponent<Image>().enabled = true; 
             }
         }
         UpdateScore();
@@ -173,8 +190,8 @@ public class HighscoreScript : MonoBehaviour {
             _score += _noDamageScore;
             if (_noDamageImage != null)
             {
-                _comboUI.GetComponent<Image>().sprite = _noDamageImage;
-                _comboUI.GetComponent<Image>().enabled = true; 
+                _nietaanterakenUI.GetComponent<Image>().sprite = _noDamageImage;
+                _nietaanterakenUI.GetComponent<Image>().enabled = true; 
             }
             pHitAnything = false;
         }
