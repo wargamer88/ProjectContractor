@@ -226,7 +226,7 @@ public class ExecuteEventScript : MonoBehaviour
                 _event = _choices.SpawnRandomHeavy;
             }
             //_eventAmountOfObjects
-            Destroy(pOther);
+            Destroy(pOther.gameObject);
 
             //for (int i = 0; i < _eventAmountOfObjects; i++)
             //{
@@ -457,15 +457,16 @@ public class ExecuteEventScript : MonoBehaviour
                 if (_boatPrefab != null)
                 {
                     boat = GameObject.Instantiate(_boatPrefab);
+                    boat.AddComponent<BoxCollider>();
                 }
                 else
                 {
                     boat = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 }
                 boat.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
-                //boat.AddComponent<BoxCollider>();
                 boat.AddComponent<BoatEventScript>();
                 boat.AddComponent<Rigidbody>();
+                boat.GetComponent<Rigidbody>().useGravity = false;
                 boat.GetComponent<BoatEventScript>().SetTargetPositionAndSpeed(this.transform.position,_eventSpeedOfObjects);
                 boat.transform.localScale = new Vector3(10, 10, 10);
                 _event = _choices.BoatToTile;

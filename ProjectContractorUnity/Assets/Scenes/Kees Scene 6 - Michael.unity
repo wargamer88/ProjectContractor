@@ -5046,12 +5046,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper:
-  - _choice: 13
+  - _choice: 10
     _wave: 1
     _isEveryWave: 0
-    _everyXWave: 0
-    _amountOfObject: 0
-    _speedOfObject: 0
+    _everyXWave: 3
+    _amountOfObject: 1
+    _speedOfObject: 1
     _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 0}
 --- !u!23 &327398404
@@ -16578,8 +16578,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: -0.13698643, y: 0.1819597, z: 0.025585216, w: 0.97338116}
-  m_LocalPosition: {x: -33.983093, y: -23.346172, z: -87.55827}
+  m_LocalRotation: {x: -0.29241407, y: 0.5576561, z: 0.21872416, w: 0.74543506}
+  m_LocalPosition: {x: -17.524319, y: -14.851845, z: 37.113777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
