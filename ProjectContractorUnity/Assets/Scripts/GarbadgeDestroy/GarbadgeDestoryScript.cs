@@ -26,7 +26,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
                                        // Use this for initialization
     void Start () {
         _originalPosition = this.gameObject.transform.position;
-        if (HP == 0)
+        if (HP == 0 && GetComponent<GarbageHPScript>())
         {
             _hp = GetComponent<GarbageHPScript>().HP;
         }
