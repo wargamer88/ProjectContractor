@@ -17,11 +17,14 @@ public class BoatEventScript : MonoBehaviour {
         _garbageList = GameObject.FindGameObjectsWithTag("Garbage").ToList();
         _floor = GameObject.FindObjectOfType<FloorScript>().gameObject;
         _depthMinePlane = GameObject.FindObjectOfType<PO>().gameObject;
-        Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), _floor.GetComponent<BoxCollider>());
-        Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), _depthMinePlane.GetComponent<BoxCollider>());
-        foreach (GameObject garbage in _garbageList)
+        if (this.GetComponent<BoxCollider>())
         {
-            Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), garbage.GetComponent<BoxCollider>());
+            Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), _floor.GetComponent<BoxCollider>());
+            Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), _depthMinePlane.GetComponent<BoxCollider>());
+            foreach (GameObject garbage in _garbageList)
+            {
+                Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), garbage.GetComponent<BoxCollider>());
+            }
         }
     }
 	
