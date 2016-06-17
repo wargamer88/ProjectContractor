@@ -7,6 +7,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
     private GameObject _damageParticle;
     private GeneratorPowerScript _generatorPowerScript;
     private GarbageWaveScript _garbageWaveScript;
+    private NumberParticleScript _numberParticle;
     private float _oldTimer;
     private float _timer = 0.5f;
     private bool _hitGenerator = false;
@@ -64,6 +65,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        _numberParticle = GameObject.FindObjectOfType<NumberParticleScript>();
         _damageParticle = (GameObject)Resources.Load("Damage");
         _generatorGotHit = false;
         _generatorPowerScript = transform.parent.GetComponent<GeneratorPowerScript>();
@@ -152,6 +154,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 {
                     pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 }
+                _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Light);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
@@ -163,6 +166,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 {
                     pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 }
+                _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Medium);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
@@ -174,6 +178,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 {
                     pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 }
+                _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Heavy);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
@@ -185,6 +190,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 {
                     pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 }
+                _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Special);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }

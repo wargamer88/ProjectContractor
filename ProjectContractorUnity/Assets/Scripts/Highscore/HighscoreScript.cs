@@ -2,6 +2,16 @@
 using UnityEngine.UI;
 using System.Collections;
 
+public enum ComboType
+{
+    FinishWave,
+    Untouchable,
+    ThreeinRow,
+    FiveinRow,
+    TeninRow,
+    FifteeninRow
+}
+
 public class HighscoreScript : MonoBehaviour {
 
     #region ScoreVariables
@@ -67,6 +77,7 @@ public class HighscoreScript : MonoBehaviour {
     private GameObject _ongelooflijk;
     private GameObject _superheld;
     private GameObject _waveClearUI;
+    private NumberParticleScript _numberParticle;
 
     private int _comboCounter;
     private float _timer;
@@ -85,6 +96,7 @@ public class HighscoreScript : MonoBehaviour {
         _superheld = GameObject.Find("Superheld");
         _comboUI = GameObject.Find("ComboImage");
         _waveClearUI = GameObject.Find("WaveCleared");
+        _numberParticle = GameObject.FindObjectOfType<NumberParticleScript>();
 	}
 	
 	// Update is called once per frame
@@ -147,6 +159,7 @@ public class HighscoreScript : MonoBehaviour {
         if (_comboCounter == 3)
         {
             _score += _3inRowScore;
+            _numberParticle.PlaceParticleCombo(ComboType.ThreeinRow);
             if (_3inRowImage != null)
             {
                 _superUI.GetComponent<Image>().sprite = _3inRowImage;
@@ -156,6 +169,7 @@ public class HighscoreScript : MonoBehaviour {
         else if(_comboCounter == 5)
         {
             _score += _5inRowScore;
+            _numberParticle.PlaceParticleCombo(ComboType.FiveinRow);
             if (_5inRowImage != null)
             {
                _geweldig.GetComponent<Image>().sprite = _5inRowImage;
@@ -165,6 +179,7 @@ public class HighscoreScript : MonoBehaviour {
         else if(_comboCounter == 10)
         {
             _score += _10inRowScore;
+            _numberParticle.PlaceParticleCombo(ComboType.TeninRow);
             if (_10inRowImage != null)
             {
                 _ongelooflijk.GetComponent<Image>().sprite = _10inRowImage;
@@ -174,6 +189,7 @@ public class HighscoreScript : MonoBehaviour {
         else if(_comboCounter == 15)
         {
             _score += _15inRowScore;
+            _numberParticle.PlaceParticleCombo(ComboType.FifteeninRow);
             if (_15inRowImage != null)
             {
                 _superheld.GetComponent<Image>().sprite = _15inRowImage;
@@ -188,6 +204,7 @@ public class HighscoreScript : MonoBehaviour {
         if (pHitAnything)
         {
             _score += _noDamageScore;
+            _numberParticle.PlaceParticleCombo(ComboType.Untouchable);
             if (_noDamageImage != null)
             {
                 _nietaanterakenUI.GetComponent<Image>().sprite = _noDamageImage;
@@ -201,5 +218,6 @@ public class HighscoreScript : MonoBehaviour {
             _waveClearUI.GetComponent<Image>().enabled = true; 
         }
         _score += _finishWaveScore;
+        _numberParticle.PlaceParticleCombo(ComboType.FinishWave);
     }
 }
