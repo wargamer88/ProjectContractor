@@ -49,6 +49,8 @@ public class ExecuteEventScript : MonoBehaviour
     private int _spawnedMedium = 0;
     private int _spawnedHeavy = 0;
 
+    private bool _isPrefab = false;
+
     [SerializeField]
     private GameObject _boatPrefab;
 
@@ -456,13 +458,17 @@ public class ExecuteEventScript : MonoBehaviour
                 GameObject boatPrefab;
                 if (_boatPrefab != null)
                 {
-                    boatPrefab = GameObject.Instantiate(_boatPrefab);
-                    //boatPrefab = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    boatPrefab.GetComponent<BoxCollider>().enabled = false;
-                    boatPrefab.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
-                    boatPrefab.AddComponent<BoatEventScript>();
-                    boatPrefab.GetComponent<BoatEventScript>().SetTargetPositionAndSpeed(new Vector3(this.transform.position.x + 1000, this.transform.position.y, this.transform.position.z), _eventSpeedOfObjects + 0.2f);
-                    boatPrefab.transform.localScale = new Vector3(10, 10, 10);
+                    if (_isPrefab)
+                    {
+                        boatPrefab = GameObject.Instantiate(_boatPrefab);
+                        //boatPrefab = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                        boatPrefab.GetComponent<BoxCollider>().enabled = false;
+                        boatPrefab.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
+                        boatPrefab.AddComponent<BoatEventScript>();
+                        boatPrefab.GetComponent<BoatEventScript>().SetTargetPositionAndSpeed(new Vector3(this.transform.position.x + 1000, this.transform.position.y, this.transform.position.z), _eventSpeedOfObjects + 0.2f);
+                        boatPrefab.transform.localScale = new Vector3(10, 10, 10);
+                        _isPrefab = true;
+                    }
                 }
                 else
                 {

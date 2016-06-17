@@ -290,12 +290,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventWrapper:
-  - _choice: 0
-    _wave: 0
+  - _choice: 13
+    _wave: 7
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 0
-    _speedOfObject: 0
+    _speedOfObject: 1
+    _timeBetweenSpawn: 0
+  - _choice: 12
+    _wave: 10
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 0
+    _speedOfObject: 1
     _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 0}
 --- !u!23 &7818998
@@ -2009,93 +2016,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 74501981}
   m_Mesh: {fileID: 4300008, guid: 0d197948f14e3f343833786a7afd9c4f, type: 3}
---- !u!1 &89825308
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 89825309}
-  - 33: {fileID: 89825313}
-  - 64: {fileID: 89825312}
-  - 23: {fileID: 89825311}
-  - 114: {fileID: 89825310}
-  m_Layer: 0
-  m_Name: Start
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &89825309
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 89825308}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0, z: 0.35}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1622451554}
-  m_RootOrder: 0
---- !u!114 &89825310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 89825308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54592a0aec44fee4d965e1335bbe3e22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!23 &89825311
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 89825308}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: a9dc003a1ef330046a8b179e2973ace4, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!64 &89825312
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 89825308}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &89825313
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 89825308}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &90247066
 GameObject:
   m_ObjectHideFlags: 0
@@ -3277,40 +3197,61 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 3
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 4
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 6
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 8
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 9
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 7
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 7
+    _wave: 13
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 7
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
     _speedOfObject: 0
     _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 0}
@@ -3703,7 +3644,14 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 13
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &229671054
 MeshRenderer:
@@ -4266,7 +4214,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 8
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &258385129
 MeshRenderer:
@@ -5074,35 +5029,49 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 6
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 7
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 3
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 8
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 3
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 9
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 14
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 9
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &321684413
 MeshRenderer:
@@ -5203,7 +5172,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 1
+    _wave: 9
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 0
+    _speedOfObject: 2
+    _timeBetweenSpawn: 0
+  - _choice: 13
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 0
+    _speedOfObject: 1
+    _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 0}
 --- !u!23 &327398404
 MeshRenderer:
@@ -5564,28 +5547,42 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 6
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 7
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 14
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &343334077
 MeshRenderer:
@@ -6939,42 +6936,56 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 5
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 7
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 8
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 9
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 14
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &454451008
 MeshRenderer:
@@ -7626,14 +7637,28 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 5
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 7
+    _wave: 14
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &525510950
 MeshRenderer:
@@ -9320,28 +9345,56 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 6
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 9
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 13
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 9
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &631694672
 MeshRenderer:
@@ -10271,7 +10324,7 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &661067749
 MeshRenderer:
@@ -10668,7 +10721,7 @@ MonoBehaviour:
     _isEveryWave: 0
     _everyXWave: 1
     _amountOfObject: 1
-    _speedOfObject: 0
+    _speedOfObject: 1
     _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 0}
 --- !u!23 &695761693
@@ -11853,21 +11906,35 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 8
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 9
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 13
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &791340168
 MeshRenderer:
@@ -12608,14 +12675,14 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &821246869
 MeshRenderer:
@@ -13325,7 +13392,7 @@ RectTransform:
   m_RootOrder: 11
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 113, y: 121}
+  m_AnchoredPosition: {x: 113, y: 197}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &874749303
@@ -13633,27 +13700,27 @@ Prefab:
     - target: {fileID: 2300000, guid: e8955fbcf38ef0f40a797950ff75ce58, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 304df74d43c212f4ebe90a35cad69892, type: 2}
+      objectReference: {fileID: 2100000, guid: 6b2736e9499f4d447af49f831de1dffd, type: 2}
     - target: {fileID: 2300010, guid: e8955fbcf38ef0f40a797950ff75ce58, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 92051cb46af90b942a464cdffc2edf38, type: 2}
+      objectReference: {fileID: 2100000, guid: f2a8fc3c56b331e4189079418f1da139, type: 2}
     - target: {fileID: 2300012, guid: e8955fbcf38ef0f40a797950ff75ce58, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 099e9f39cf640bd44a2ea631d80c5930, type: 2}
+      objectReference: {fileID: 2100000, guid: 6e776a54550d5fa4486496d17ec8aabb, type: 2}
     - target: {fileID: 2300014, guid: e8955fbcf38ef0f40a797950ff75ce58, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b73f78fc10b0989408b997c5ba524832, type: 2}
+      objectReference: {fileID: 2100000, guid: 4a312ca23307763488f6727ddf313b00, type: 2}
     - target: {fileID: 2300016, guid: e8955fbcf38ef0f40a797950ff75ce58, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b73f78fc10b0989408b997c5ba524832, type: 2}
+      objectReference: {fileID: 2100000, guid: 4a312ca23307763488f6727ddf313b00, type: 2}
     - target: {fileID: 2300018, guid: e8955fbcf38ef0f40a797950ff75ce58, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b73f78fc10b0989408b997c5ba524832, type: 2}
+      objectReference: {fileID: 2100000, guid: 4a312ca23307763488f6727ddf313b00, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8955fbcf38ef0f40a797950ff75ce58, type: 3}
   m_IsPrefabParent: 0
@@ -13895,93 +13962,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 918535767}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &928885641
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 928885642}
-  - 33: {fileID: 928885646}
-  - 64: {fileID: 928885645}
-  - 23: {fileID: 928885644}
-  - 114: {fileID: 928885643}
-  m_Layer: 0
-  m_Name: OutsideWallBack
-  m_TagString: GeneratorWall
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &928885642
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 928885641}
-  m_LocalRotation: {x: 0.5000001, y: 0.5, z: 0.5, w: 0.49999994}
-  m_LocalPosition: {x: 38.075756, y: -22.2, z: 28.5}
-  m_LocalScale: {x: 1.7193096, y: 1, z: 100}
-  m_Children: []
-  m_Father: {fileID: 1988061289}
-  m_RootOrder: 0
---- !u!114 &928885643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 928885641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 462ec3de297ec8a4b939f9705533d61b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!23 &928885644
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 928885641}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!64 &928885645
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 928885641}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &928885646
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 928885641}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &938864609
 GameObject:
   m_ObjectHideFlags: 0
@@ -14422,14 +14402,28 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 4
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &961431782
 MeshRenderer:
@@ -14666,93 +14660,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
   m_PrefabInternal: {fileID: 980631530}
---- !u!1 &988588180
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 988588181}
-  - 33: {fileID: 988588185}
-  - 64: {fileID: 988588184}
-  - 23: {fileID: 988588183}
-  - 114: {fileID: 988588182}
-  m_Layer: 0
-  m_Name: OutsideWallRight
-  m_TagString: GeneratorWall
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &988588181
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 988588180}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: 229, y: -22, z: 28.5}
-  m_LocalScale: {x: 1.7193096, y: 1, z: 100}
-  m_Children: []
-  m_Father: {fileID: 1988061289}
-  m_RootOrder: 1
---- !u!114 &988588182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 988588180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 462ec3de297ec8a4b939f9705533d61b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!23 &988588183
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 988588180}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!64 &988588184
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 988588180}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &988588185
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 988588180}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &988739213
 GameObject:
   m_ObjectHideFlags: 0
@@ -16448,14 +16355,14 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 9
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &1084270216
 MeshRenderer:
@@ -17208,8 +17115,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: 0.2624571, y: 0.10857182, z: 0.029765196, w: -0.95835406}
-  m_LocalPosition: {x: 48.054558, y: -299.1709, z: -325.72525}
+  m_LocalRotation: {x: -0.05656404, y: 0.15778856, z: 0.009025778, w: 0.9858103}
+  m_LocalPosition: {x: 224.01244, y: -508.4281, z: -520.4469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18382,28 +18289,49 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 5
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 8
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 13
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &1227126256
 MeshRenderer:
@@ -19682,93 +19610,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1361937398}
   m_Mesh: {fileID: 4300106, guid: 0d197948f14e3f343833786a7afd9c4f, type: 3}
---- !u!1 &1363326575
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1363326576}
-  - 33: {fileID: 1363326580}
-  - 64: {fileID: 1363326579}
-  - 23: {fileID: 1363326578}
-  - 114: {fileID: 1363326577}
-  m_Layer: 0
-  m_Name: OutsideWallLeft
-  m_TagString: GeneratorWall
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1363326576
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1363326575}
-  m_LocalRotation: {x: 0.7071068, y: 0.7071067, z: -0.000000115202326, w: -0.00000011520231}
-  m_LocalPosition: {x: -310.031, y: -22, z: 28.5}
-  m_LocalScale: {x: 1.7193094, y: 1, z: 100}
-  m_Children: []
-  m_Father: {fileID: 1988061289}
-  m_RootOrder: 2
---- !u!114 &1363326577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1363326575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 462ec3de297ec8a4b939f9705533d61b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!23 &1363326578
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1363326575}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!64 &1363326579
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1363326575}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &1363326580
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1363326575}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1363439701
 Prefab:
   m_ObjectHideFlags: 0
@@ -20052,35 +19893,49 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 6
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 7
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 8
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 14
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &1378388812
 MeshRenderer:
@@ -20800,14 +20655,35 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 3
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 7
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 7
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 7
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 7
+    _wave: 13
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &1429294789
 MeshRenderer:
@@ -21053,7 +20929,7 @@ MonoBehaviour:
     _isEveryWave: 0
     _everyXWave: 1
     _amountOfObject: 1
-    _speedOfObject: 0
+    _speedOfObject: 1
     _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 0}
 --- !u!23 &1448258764
@@ -21558,93 +21434,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timerGenerator: 0
   _timerDamage: 0
---- !u!1 &1506237574
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1506237575}
-  - 33: {fileID: 1506237579}
-  - 64: {fileID: 1506237578}
-  - 23: {fileID: 1506237577}
-  - 114: {fileID: 1506237576}
-  m_Layer: 0
-  m_Name: OutsideWallCity
-  m_TagString: GeneratorWall
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1506237575
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1506237574}
-  m_LocalRotation: {x: 0.49999994, y: 0.49999985, z: -0.50000024, w: -0.5000001}
-  m_LocalPosition: {x: 22, y: -22, z: 538}
-  m_LocalScale: {x: 1.7193093, y: 1, z: 100}
-  m_Children: []
-  m_Father: {fileID: 1988061289}
-  m_RootOrder: 3
---- !u!114 &1506237576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1506237574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 462ec3de297ec8a4b939f9705533d61b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!23 &1506237577
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1506237574}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!64 &1506237578
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1506237574}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &1506237579
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1506237574}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1518459091
 Prefab:
   m_ObjectHideFlags: 0
@@ -21757,7 +21546,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 8
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &1519563642
 MeshRenderer:
@@ -22379,35 +22175,49 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 5
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 6
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 8
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 3
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 9
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 14
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &1595992002
 MeshRenderer:
@@ -22677,8 +22487,7 @@ Transform:
   m_LocalRotation: {x: 0.24719697, y: -0.00031354398, z: -0.00014373568, w: 0.96896523}
   m_LocalPosition: {x: -0.6, y: 21.8, z: -69.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 89825309}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &1622451555
@@ -22762,40 +22571,68 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 3
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 4
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 3
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 5
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 8
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 7
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 7
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
+  - _choice: 8
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 0}
@@ -23254,35 +23091,49 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 4
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 5
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 3
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 6
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 9
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 13
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &1664137777
 MeshRenderer:
@@ -23548,7 +23399,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 10
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 1
+    _amountOfObject: 1
+    _speedOfObject: 1
+    _timeBetweenSpawn: 0
+  - _choice: 10
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 1
+    _amountOfObject: 1
+    _speedOfObject: 1
+    _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 0}
 --- !u!23 &1687210797
 MeshRenderer:
@@ -24627,21 +24492,49 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 7
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 13
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 9
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &1714266209
 MeshRenderer:
@@ -25342,14 +25235,14 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 3
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 3
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &1772500886
 MeshRenderer:
@@ -27302,21 +27195,49 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 8
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 6
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 3
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 8
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 1
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 14
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 7
+    _wave: 15
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &1907273173
 MeshRenderer:
@@ -27936,37 +27857,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1977853952}
---- !u!1 &1988061288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1988061289}
-  m_Layer: 0
-  m_Name: OutsideWall
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1988061289
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1988061288}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6641474, y: 22.246975, z: -69.27498}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 928885642}
-  - {fileID: 988588181}
-  - {fileID: 1363326576}
-  - {fileID: 1506237575}
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
 --- !u!1 &1989487764
 GameObject:
   m_ObjectHideFlags: 0
@@ -29447,21 +29337,28 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 5
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 7
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 7
+    _wave: 14
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 2
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &2088178920
 MeshRenderer:
@@ -29589,7 +29486,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 10
+    _wave: 8
+    _isEveryWave: 0
+    _everyXWave: 1
+    _amountOfObject: 1
+    _speedOfObject: 1
+    _timeBetweenSpawn: 0
+  - _choice: 10
+    _wave: 12
+    _isEveryWave: 0
+    _everyXWave: 1
+    _amountOfObject: 1
+    _speedOfObject: 1
+    _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 0}
 --- !u!23 &2098970722
 MeshRenderer:
@@ -29772,21 +29683,35 @@ MonoBehaviour:
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 8
     _wave: 6
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 1
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
   - _choice: 7
     _wave: 10
     _isEveryWave: 0
     _everyXWave: 0
     _amountOfObject: 2
     _speedOfObject: 0
-    _timeBetweenSpawn: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 11
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
+  - _choice: 6
+    _wave: 13
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 3
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0.5
   _boatPrefab: {fileID: 0}
 --- !u!23 &2106683301
 MeshRenderer:
