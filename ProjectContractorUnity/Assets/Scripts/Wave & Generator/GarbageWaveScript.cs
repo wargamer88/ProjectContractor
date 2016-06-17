@@ -105,10 +105,10 @@ public class GarbageWaveScript : MonoBehaviour
         //Debug.Log("garbageSpawned: " + SpawnedGarbage.Count);
         //Debug.Log("GarbageDestroyed: " + DestroyedGarbage.Count);
 
-        if (_waveNumber > 10)
-        {
-            Application.Quit();
-        }
+        //if (_waveNumber > 15)
+        //{
+        //    Application.Quit();
+        //}
 
         if (_tutorialScriptWrapper.Count > 0)
         {
