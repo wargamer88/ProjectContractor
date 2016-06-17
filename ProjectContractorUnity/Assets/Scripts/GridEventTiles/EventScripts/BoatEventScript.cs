@@ -8,6 +8,7 @@ public class BoatEventScript : MonoBehaviour {
     private List<GameObject> _garbageList;
     private GameObject _floor;
     private GameObject _depthMinePlane;
+    private List<BoatEventScript> _this;
 
     private Vector3 _targetPostion;
     private float _speed;
@@ -17,6 +18,7 @@ public class BoatEventScript : MonoBehaviour {
         _garbageList = GameObject.FindGameObjectsWithTag("Garbage").ToList();
         _floor = GameObject.FindObjectOfType<FloorScript>().gameObject;
         _depthMinePlane = GameObject.FindObjectOfType<PO>().gameObject;
+        _this = GameObject.FindObjectsOfType<BoatEventScript>().ToList();
         if (this.GetComponent<BoxCollider>())
         {
             Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), _floor.GetComponent<BoxCollider>());
@@ -24,6 +26,10 @@ public class BoatEventScript : MonoBehaviour {
             foreach (GameObject garbage in _garbageList)
             {
                 Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), garbage.GetComponent<BoxCollider>());
+            }
+            foreach (BoatEventScript boat in _this)
+            {
+                Physics.IgnoreCollision(boat.gameObject.GetComponent<BoxCollider>(), this.GetComponent<BoxCollider>());
             }
         }
     }
