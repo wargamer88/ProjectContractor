@@ -8,6 +8,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
     private GarbageType _garbageType;
     //private int _currentLane;
     private string _currentLane;
+    private GameObject _damageParticle;
     public float HP { get { return _hp; } set { _hp = value; } }
 
     private float _hp;
@@ -25,6 +26,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
                                        // Use this for initialization
     void Start () {
+        _damageParticle = (GameObject)Resources.Load("Damage");
         _originalPosition = this.gameObject.transform.position;
         if (HP == 0 && GetComponent<GarbageHPScript>())
         {
@@ -36,18 +38,18 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (_hp == 3)
-        {
-            this.GetComponent<Renderer>().material.color = Color.green;
-        }
-        if (_hp == 2)
-        {
-            this.GetComponent<Renderer>().material.color = Color.yellow;
-        }
-        if (_hp == 1)
-        {
-            this.GetComponent<Renderer>().material.color = Color.red;
-        }
+        //if (_hp == 3)
+        //{
+        //    this.GetComponent<Renderer>().material.color = Color.green;
+        //}
+        //if (_hp == 2)
+        //{
+        //    this.GetComponent<Renderer>().material.color = Color.yellow;
+        //}
+        //if (_hp == 1)
+        //{
+        //    this.GetComponent<Renderer>().material.color = Color.red;
+        //}
     }
 
     void OnCollisionEnter(Collision pOther)

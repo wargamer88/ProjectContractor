@@ -23,6 +23,7 @@ public class BulletScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        _explosionPrefab = (GameObject)Resources.Load("Explosion");
         if (_chosenBall.name != "Ball2(Clone)")
         {
             _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();

@@ -32,9 +32,6 @@ public class FishClickedOnScript : MonoBehaviour {
 
     void OnMouseDown()
     {
-
-
-
         if (this.gameObject.name == "Chompy")
         {
             if (_jumping)

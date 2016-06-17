@@ -3,8 +3,7 @@ using System.Collections;
 using System.Linq;
 
 public class GarbadgeGeneratorScript : MonoBehaviour {
-
-    [SerializeField]
+    
     private GameObject _damageParticle;
     private GeneratorPowerScript _generatorPowerScript;
     private GarbageWaveScript _garbageWaveScript;
@@ -63,7 +62,9 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        _damageParticle = (GameObject)Resources.Load("Damage");
         _generatorGotHit = false;
         _generatorPowerScript = transform.parent.GetComponent<GeneratorPowerScript>();
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
@@ -102,19 +103,19 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
         {
             _generatorPowerScript.DestroyedGenerator++;
             _isDestroyed = true;
-            _pickedSegment.GetComponent<Renderer>().material.color = Color.gray;
+            //_pickedSegment.GetComponent<Renderer>().material.color = Color.gray;
         }
         else if (_generatorHealth < 20 && _generatorHealth > 0)
         {
-            _pickedSegment.GetComponent<Renderer>().material.color = Color.red;
+            //_pickedSegment.GetComponent<Renderer>().material.color = Color.red;
         }
         else if (_generatorHealth < 50 && _generatorHealth > 19)
         {
-            _pickedSegment.GetComponent<Renderer>().material.color = Color.yellow;
+            //_pickedSegment.GetComponent<Renderer>().material.color = Color.yellow;
         }
         else if (_generatorHealth < 101 && _generatorHealth > 49)
         {
-            _pickedSegment.GetComponent<Renderer>().material.color = Color.green;
+            //_pickedSegment.GetComponent<Renderer>().material.color = Color.green;
         }
         if (_generatorHealth >= 100)
         {
