@@ -11,6 +11,7 @@ public class BoatEventScript : MonoBehaviour {
     private List<BoatEventScript> _this;
 
     private Vector3 _targetPostion;
+    public Vector3 TargetPosition { get { return _targetPostion; } }
     private float _speed;
 
     void Start()
@@ -29,7 +30,10 @@ public class BoatEventScript : MonoBehaviour {
             }
             foreach (BoatEventScript boat in _this)
             {
-                Physics.IgnoreCollision(boat.gameObject.GetComponent<BoxCollider>(), this.GetComponent<BoxCollider>());
+                if (boat.GetComponent<BoxCollider>())
+                {
+                    Physics.IgnoreCollision(boat.gameObject.GetComponent<BoxCollider>(), this.GetComponent<BoxCollider>());
+                }
             }
         }
     }
@@ -49,5 +53,29 @@ public class BoatEventScript : MonoBehaviour {
     {
         _speed = pSpeed;
         _targetPostion = pTargetPostion;
+    }
+
+    void OnCollisionEnter(Collision pOther)
+    {
+        if (pOther.gameObject.tag == "Garbage")
+        {
+            _this = GameObject.FindObjectsOfType<BoatEventScript>().ToList();
+            _garbageList = GameObject.FindGameObjectsWithTag("Garbage").ToList();
+
+            foreach (BoatEventScript boat in _this)
+            {
+                if (boat.GetComponent<BoxCollider>())
+                {
+                    Physics.IgnoreCollision(boat.gameObject.GetComponent<BoxCollider>(), this.GetComponent<BoxCollider>());
+                }
+            }
+            
+            foreach (GameObject garbage in _garbageList)
+            {
+                Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), garbage.GetComponent<BoxCollider>());
+            }
+        }
+        Debug.Log(_targetPostion);
+
     }
 }

@@ -213,7 +213,7 @@ public class ExecuteEventScript : MonoBehaviour
                 }
             }
         }
-        if (pOther.GetComponent<BoatEventScript>() && _event == _choices.BoatToTile)
+        if (pOther.GetComponent<BoatEventScript>() && _event == _choices.BoatToTile && pOther.GetComponent<BoatEventScript>().TargetPosition == this.transform.position)
         {
             if (_eventEveryXWave == 1)
             {
