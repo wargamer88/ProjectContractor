@@ -453,16 +453,30 @@ public class ExecuteEventScript : MonoBehaviour
             case _choices.ExplodesBarrel:
                 break;
             case _choices.BoatEvent:
-                GameObject boat;
+                GameObject boatPrefab;
                 if (_boatPrefab != null)
                 {
-                    boat = GameObject.Instantiate(_boatPrefab);
-                    boat.AddComponent<BoxCollider>();
+                    boatPrefab = GameObject.Instantiate(_boatPrefab);
+                    //boatPrefab = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    boatPrefab.GetComponent<BoxCollider>().enabled = false;
+                    boatPrefab.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
+                    boatPrefab.AddComponent<BoatEventScript>();
+                    boatPrefab.GetComponent<BoatEventScript>().SetTargetPositionAndSpeed(new Vector3(this.transform.position.x + 1000, this.transform.position.y, this.transform.position.z), _eventSpeedOfObjects + 0.2f);
+                    boatPrefab.transform.localScale = new Vector3(10, 10, 10);
                 }
                 else
                 {
-                    boat = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    //boatPrefab = GameObject.Instantiate(_boatPrefab);
+                    boatPrefab = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    boatPrefab.GetComponent<BoxCollider>().enabled = false;
+                    boatPrefab.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
+                    boatPrefab.AddComponent<BoatEventScript>();
+                    boatPrefab.GetComponent<BoatEventScript>().SetTargetPositionAndSpeed(new Vector3(this.transform.position.x + 1000, this.transform.position.y, this.transform.position.z), _eventSpeedOfObjects + 0.2f);
+                    boatPrefab.transform.localScale = new Vector3(10, 10, 10);
                 }
+                GameObject boat;
+                boat = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                boat.GetComponent<MeshRenderer>().enabled = false;
                 boat.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
                 boat.AddComponent<BoatEventScript>();
                 boat.AddComponent<Rigidbody>();
