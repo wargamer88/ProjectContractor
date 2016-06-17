@@ -72,7 +72,7 @@ public class PowerupsScript : MonoBehaviour {
         int SpawnRnd = 0;
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            //FishRnd = 1;
+            //FishRnd = 2;
         }
         else
         {
