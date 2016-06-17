@@ -16,6 +16,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
     private GarbageTileScript _currentTile;
     private GarbageWaveScript _garbageWaveScript;
     private HighscoreScript _highscore;
+    private NumberParticleScript _numberParticle; 
 
     //public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
     public string CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
@@ -34,6 +35,7 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         }
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
         _highscore = GameObject.FindObjectOfType<HighscoreScript>();
+        _numberParticle = GameObject.FindObjectOfType<NumberParticleScript>();
 	}
 	
 	// Update is called once per frame
@@ -91,9 +93,8 @@ public class GarbadgeDestoryScript : MonoBehaviour {
                 _garbageWaveScript.DestroyedGarbage.Add(pOther);
                 Destroy(this.gameObject);
             }
+            _numberParticle.PlaceParticleAtGarbage(this.transform.position, _garbageType);
             _highscore.AddTrashScore(_garbageType);
-            _highscore.ComboCounter += 1;
-            _highscore.ComboCheck();
         }
     }
 

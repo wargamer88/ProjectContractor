@@ -72,7 +72,7 @@ public class PowerupsScript : MonoBehaviour {
         int SpawnRnd = 0;
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            //FishRnd = 1;
+            //FishRnd = 2;
         }
         else
         {
@@ -109,7 +109,7 @@ public class PowerupsScript : MonoBehaviour {
                 GO.name = "Sharky";
                 break;
             case 2:
-                GO = (GameObject)Instantiate(_whaley, new Vector3(-160, -10, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
+                GO = (GameObject)Instantiate(_whaley, new Vector3(-160, -10, 0.4f), Quaternion.Euler(new Vector3(0, 90, 0)));
                 GO.GetComponent<WhaleyScript>().enabled = false;
                 GO.AddComponent<FishClickedOnScript>();
                 GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;

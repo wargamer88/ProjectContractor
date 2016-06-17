@@ -6,12 +6,14 @@ public class GarbageTileScript : MonoBehaviour {
 
     private List<GameObject> _garbageList;
     private List<GameObject> _tobeDestroyedList;
+    private HighscoreScript _highscore;
 
     public List<GameObject> GarbageList { get { return _garbageList; } set { _garbageList = value; } }
 
     void Start()
     {
         _garbageList = new List<GameObject>();
+        _highscore = GameObject.FindObjectOfType<HighscoreScript>();
     }
 
     void OnTriggerEnter(Collider pOther)
@@ -25,7 +27,11 @@ public class GarbageTileScript : MonoBehaviour {
         {
             if (_garbageList.Count > 0)
             {
-                DamageGarbage(pOther); 
+                DamageGarbage(pOther);
+            }
+            else
+            {
+                _highscore.ComboCounter = 0;
             }
             Destroy(pOther.gameObject);
         }
@@ -50,6 +56,8 @@ public class GarbageTileScript : MonoBehaviour {
                 if (_garbageList[i].GetComponent<GarbadgeDestoryScript>().HP <= 0)
                 {
                     _tobeDestroyedList.Add(_garbageList[i]);
+                    _highscore.ComboCounter += 1;
+                    _highscore.ComboCheck();
                 }
                 _garbageList[i].GetComponent<GarbadgeDestoryScript>().CheckHealth(pOther.gameObject);
             }

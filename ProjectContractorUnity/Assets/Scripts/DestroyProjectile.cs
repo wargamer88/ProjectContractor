@@ -3,21 +3,26 @@ using System.Collections;
 
 public class DestroyProjectile : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private HighscoreScript _highscore;
 
-    void OnCollisionEnter(Collision pOther)
+    // Use this for initialization
+    void Start()
     {
-        if (pOther.gameObject.tag == "Projectile")
+        _highscore = GameObject.FindObjectOfType<HighscoreScript>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Projectile")
         {
-            Destroy(pOther.gameObject);
+            Destroy(other.gameObject);
+            _highscore.ComboCounter = 0;
         }
     }
 }
