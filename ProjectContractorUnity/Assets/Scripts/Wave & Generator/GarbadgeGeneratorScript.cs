@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 public class GarbadgeGeneratorScript : MonoBehaviour {
@@ -61,10 +62,16 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
     private bool _generatorGotHit;
     public bool GeneratorGotHit { get { return _generatorGotHit; } set { _generatorGotHit = value; } }
 
+    private string _lane;
+
+    private List<string> _deadLaneList;
+    public List<string> DeadLaneList { get { return _deadLaneList; } }
 
     // Use this for initialization
     void Start ()
     {
+        _deadLaneList = new List<string>();
+        _deadLaneList.Add("A");
         _numberParticle = GameObject.FindObjectOfType<NumberParticleScript>();
         _damageParticle = (GameObject)Resources.Load("Damage");
         _generatorGotHit = false;
@@ -75,26 +82,31 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
         {
             _segment_front = GameObject.Find("segment_front1");
             _pickedSegment = _segment_front;
+            _lane = "A";
         }
         if (transform.name == "GeneratorWall2")
         {
             _segment_segment5 = GameObject.Find("segment_segment5");
             _pickedSegment = _segment_segment5;
+            _lane = "D";
         }
         if (transform.name == "GeneratorWall3")
         {
             _segment_segment4 = GameObject.Find("segment_segment4");
             _pickedSegment = _segment_segment4;
+            _lane = "C";
         }
         if (transform.name == "GeneratorWall4")
         {
             _segment_segment3 = GameObject.Find("segment_segment3");
             _pickedSegment = _segment_segment3;
+            _lane = "B";
         }
         if (transform.name == "GeneratorWall1")
         {
             _segment_back = GameObject.Find("segment_back1");
             _pickedSegment = _segment_back;
+            _lane = "E";
         }
     }
 	
@@ -104,6 +116,10 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
         if (_generatorHealth <= 0 && _isDestroyed == false)
         {
             _generatorPowerScript.DestroyedGenerator++;
+            if (!_deadLaneList.Contains(_lane))
+            {
+                _deadLaneList.Add(_lane);
+            }
             _isDestroyed = true;
             //_pickedSegment.GetComponent<Renderer>().material.color = Color.gray;
         }
