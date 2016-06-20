@@ -30,8 +30,8 @@ public class SharkyScript : MonoBehaviour {
         float step = _speed * Time.deltaTime;
         if (_rising)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_posX, 0.37f, -23.1f), step);
-            if (transform.position == new Vector3(_posX, 0.37f, -23.1f))
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_posX, 2f, -23.1f), step);
+            if (transform.position == new Vector3(_posX, 2f, -23.1f))
             {
                 _rising = false;
                 _floating = true;
@@ -46,8 +46,8 @@ public class SharkyScript : MonoBehaviour {
         }
         else if (_floating)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_posX, 0.37f, 85), step);
-            if (transform.position == new Vector3(_posX, 0.37f, 85))
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_posX, 2f, 160), step);
+            if (transform.position == new Vector3(_posX, 2f, 160))
             {
                 _floating = false;
                 _diving = true;
@@ -55,8 +55,8 @@ public class SharkyScript : MonoBehaviour {
         }
         else if (_diving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_posX, -165, 158), step);
-            if (transform.position == new Vector3(_posX, -165, 158))
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_posX, -165, 200), step);
+            if (transform.position == new Vector3(_posX, -165, 200))
             {
                 Destroy(this.gameObject);
             }
