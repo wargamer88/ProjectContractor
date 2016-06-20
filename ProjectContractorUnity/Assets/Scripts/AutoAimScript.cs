@@ -77,11 +77,13 @@ public class AutoAimScript : MonoBehaviour
     }
     private void _createBallAndShootingAnimation()
     {
+        Quaternion randomRotation = Random.rotation;
         GetComponent<Animator>().Play("Finished");
         GetComponent<Animator>().Play("Shoot");
         _bullet = GameObject.Instantiate(_chosenBall);
         _newShotTimer = Time.time;
         _bullet.transform.position = transform.position + _ballOffset;
+        _bullet.transform.rotation = randomRotation;
         _bullet.AddComponent<Rigidbody>();
         _bullet.GetComponent<Rigidbody>().mass = 0.01f;
         _bullet.AddComponent<BulletScript>();
