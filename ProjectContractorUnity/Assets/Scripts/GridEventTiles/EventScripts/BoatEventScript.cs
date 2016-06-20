@@ -75,7 +75,6 @@ public class BoatEventScript : MonoBehaviour {
                 Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), garbage.GetComponent<BoxCollider>());
             }
         }
-        Debug.Log(_targetPostion);
 
     }
 }
