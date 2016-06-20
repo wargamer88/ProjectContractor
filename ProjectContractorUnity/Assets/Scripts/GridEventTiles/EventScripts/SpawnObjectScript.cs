@@ -1,5 +1,6 @@
 ﻿﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpawnObjectScript : MonoBehaviour {
 
@@ -28,9 +29,11 @@ public class SpawnObjectScript : MonoBehaviour {
     private static int _amountMedium;
     private static int _amountHeavy;
     private static int _amountSuperHeavy;
+
+    private static GarbadgeGeneratorScript _garbageGeneratorScript;
     // Use this for initialization
     void Start () {
-	
+        _garbageGeneratorScript = GameObject.FindObjectOfType<GarbadgeGeneratorScript>();
 	}
 	
 	// Update is called once per frame
@@ -122,14 +125,20 @@ public class SpawnObjectScript : MonoBehaviour {
                     //}
                     //else
                     //{
-                        //if (_eventEveryWave)
-                        //{
-                        GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                    
-                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
-                        //_isEventDone = true;
-                        // _event = _choices.None;
-                        pEventAmountOfObjectsSpawned++;
+                    //if (_eventEveryWave)
+                    //{
+                    if (_garbageGeneratorScript != null)
+                    {
+                        if (!_garbageGeneratorScript.DeadLaneList.Contains(pExe.transform.name.Substring(0, 1)))
+                        {
+                            GameObject bottle = pGarbageWaveScript.LightGarbage[random];
+
+                            pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
+                            //_isEventDone = true;
+                            // _event = _choices.None;
+                            pEventAmountOfObjectsSpawned++;
+                        }
+                    }
 
                         //}
                     //}

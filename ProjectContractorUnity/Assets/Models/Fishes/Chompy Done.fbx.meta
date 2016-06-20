@@ -1,53 +1,37 @@
 fileFormatVersion: 2
-guid: 15ea116c55b3e5e4ea94ddc33802174d
-timeCreated: 1466079878
+guid: 17175e1f86de5df4cb069813313df5b0
+timeCreated: 1466418246
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Headnub
-    100002: L_B_Fin1
-    100004: L_B_Fin_Tip
-    100006: L_Fin_1
-    100008: L_Fin_2
-    100010: L_Fin_Tip
-    100012: L_Shark
-    100014: neck
-    100016: R_B_Fin1
-    100018: R_B_Fin_Tip
-    100020: R_Fin_1
-    100022: R_Fin_2
-    100024: R_Fin_Tip
-    100026: //RootNode
-    100028: Shark_Rig
-    100030: Tail_1
-    100032: Tail_2
-    100034: Tail_Base
-    100036: Tail_Tip
-    400000: Headnub
-    400002: L_B_Fin1
-    400004: L_B_Fin_Tip
-    400006: L_Fin_1
-    400008: L_Fin_2
-    400010: L_Fin_Tip
-    400012: L_Shark
-    400014: neck
-    400016: R_B_Fin1
-    400018: R_B_Fin_Tip
-    400020: R_Fin_1
-    400022: R_Fin_2
-    400024: R_Fin_Tip
-    400026: //RootNode
-    400028: Shark_Rig
-    400030: Tail_1
-    400032: Tail_2
-    400034: Tail_Base
-    400036: Tail_Tip
-    4300000: L_Shark
+    100000: Center_Body
+    100002: Chompy
+    100004: //RootNode
+    100006: Chompy_Rig
+    100008: L_Fin_Chompy
+    100010: L_Fin_Tip_Chompy
+    100012: Neck
+    100014: R_Fin_Chompy
+    100016: R_Fin_Tip_Chompy
+    100018: Tail_1
+    100020: Tail_End
+    400000: Center_Body
+    400002: Chompy
+    400004: //RootNode
+    400006: Chompy_Rig
+    400008: L_Fin_Chompy
+    400010: L_Fin_Tip_Chompy
+    400012: Neck
+    400014: R_Fin_Chompy
+    400016: R_Fin_Tip_Chompy
+    400018: Tail_1
+    400020: Tail_End
+    4300000: Chompy
     7400000: Swim
     7400002: Idle
     9500000: //RootNode
-    13700000: L_Shark
+    13700000: Chompy
   materials:
     importMaterials: 1
     materialName: 0
@@ -73,7 +57,7 @@ ModelImporter:
       name: Swim
       takeName: Swim
       firstFrame: 10
-      lastFrame: 50
+      lastFrame: 47
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -96,41 +80,25 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: L_Shark
+      - path: Chompy
         weight: 1
-      - path: Shark_Rig
+      - path: Chompy_Rig
         weight: 1
-      - path: Shark_Rig/L_Fin_1
+      - path: Chompy_Rig/Neck
         weight: 1
-      - path: Shark_Rig/L_Fin_1/L_Fin_2
+      - path: Chompy_Rig/Neck/Center_Body
         weight: 1
-      - path: Shark_Rig/L_Fin_1/L_Fin_2/L_Fin_Tip
+      - path: Chompy_Rig/Neck/Center_Body/Tail_1
         weight: 1
-      - path: Shark_Rig/neck
+      - path: Chompy_Rig/Neck/Center_Body/Tail_1/Tail_End
         weight: 1
-      - path: Shark_Rig/neck/Headnub
+      - path: Chompy_Rig/Neck/L_Fin_Chompy
         weight: 1
-      - path: Shark_Rig/R_Fin_1
+      - path: Chompy_Rig/Neck/L_Fin_Chompy/L_Fin_Tip_Chompy
         weight: 1
-      - path: Shark_Rig/R_Fin_1/R_Fin_2
+      - path: Chompy_Rig/Neck/R_Fin_Chompy
         weight: 1
-      - path: Shark_Rig/R_Fin_1/R_Fin_2/R_Fin_Tip
-        weight: 1
-      - path: Shark_Rig/Tail_1
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/L_B_Fin1
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/L_B_Fin1/L_B_Fin_Tip
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/R_B_Fin1
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/R_B_Fin1/R_B_Fin_Tip
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/Tail_Base
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/Tail_Base/Tail_Tip
+      - path: Chompy_Rig/Neck/R_Fin_Chompy/R_Fin_Tip_Chompy
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -162,41 +130,25 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: L_Shark
+      - path: Chompy
         weight: 1
-      - path: Shark_Rig
+      - path: Chompy_Rig
         weight: 1
-      - path: Shark_Rig/L_Fin_1
+      - path: Chompy_Rig/Neck
         weight: 1
-      - path: Shark_Rig/L_Fin_1/L_Fin_2
+      - path: Chompy_Rig/Neck/Center_Body
         weight: 1
-      - path: Shark_Rig/L_Fin_1/L_Fin_2/L_Fin_Tip
+      - path: Chompy_Rig/Neck/Center_Body/Tail_1
         weight: 1
-      - path: Shark_Rig/neck
+      - path: Chompy_Rig/Neck/Center_Body/Tail_1/Tail_End
         weight: 1
-      - path: Shark_Rig/neck/Headnub
+      - path: Chompy_Rig/Neck/L_Fin_Chompy
         weight: 1
-      - path: Shark_Rig/R_Fin_1
+      - path: Chompy_Rig/Neck/L_Fin_Chompy/L_Fin_Tip_Chompy
         weight: 1
-      - path: Shark_Rig/R_Fin_1/R_Fin_2
+      - path: Chompy_Rig/Neck/R_Fin_Chompy
         weight: 1
-      - path: Shark_Rig/R_Fin_1/R_Fin_2/R_Fin_Tip
-        weight: 1
-      - path: Shark_Rig/Tail_1
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/L_B_Fin1
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/L_B_Fin1/L_B_Fin_Tip
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/R_B_Fin1
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/R_B_Fin1/R_B_Fin_Tip
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/Tail_Base
-        weight: 1
-      - path: Shark_Rig/Tail_1/Tail_2/Tail_Base/Tail_Tip
+      - path: Chompy_Rig/Neck/R_Fin_Chompy/R_Fin_Tip_Chompy
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}

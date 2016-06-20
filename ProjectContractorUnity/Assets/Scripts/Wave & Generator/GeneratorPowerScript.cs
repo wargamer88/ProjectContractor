@@ -17,6 +17,7 @@ public class GeneratorPowerScript : MonoBehaviour {
 
     private int _amount = 0;
     public int Amount { set { _amount = value; } get { return _amount; } }
+
     // Use this for initialization
     void Start () {
 

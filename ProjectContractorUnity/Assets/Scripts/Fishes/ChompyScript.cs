@@ -17,7 +17,7 @@ public class ChompyScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         
-        this.transform.rotation = new Quaternion(0, -1, 0, 1);
+        //this.transform.rotation = new Quaternion(0, -1, 0, 1);
         this.GetComponent<BoxCollider>().enabled = false;
     }
 	
