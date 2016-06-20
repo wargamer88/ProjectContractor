@@ -64,14 +64,10 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
 
     private string _lane;
 
-    private List<string> _deadLaneList;
-    public List<string> DeadLaneList { get { return _deadLaneList; } }
-
     // Use this for initialization
     void Start ()
     {
-        _deadLaneList = new List<string>();
-        _deadLaneList.Add("A");
+        _lane = "";
         _numberParticle = GameObject.FindObjectOfType<NumberParticleScript>();
         _damageParticle = (GameObject)Resources.Load("Damage");
         _generatorGotHit = false;
@@ -80,15 +76,15 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
         _oldTimer = 0;
         if (transform.name == "GeneratorWall5")
         {
-            _segment_front = GameObject.Find("segment_front1");
+            _segment_front = GameObject.Find("segment_back1");
             _pickedSegment = _segment_front;
-            _lane = "A";
+            _lane = "E";
         }
         if (transform.name == "GeneratorWall2")
         {
-            _segment_segment5 = GameObject.Find("segment_segment5");
+            _segment_segment5 = GameObject.Find("segment_segment3");
             _pickedSegment = _segment_segment5;
-            _lane = "D";
+            _lane = "B";
         }
         if (transform.name == "GeneratorWall3")
         {
@@ -98,28 +94,26 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
         }
         if (transform.name == "GeneratorWall4")
         {
-            _segment_segment3 = GameObject.Find("segment_segment3");
+            _segment_segment3 = GameObject.Find("segment_segment5");
             _pickedSegment = _segment_segment3;
-            _lane = "B";
+            _lane = "D";
         }
         if (transform.name == "GeneratorWall1")
         {
-            _segment_back = GameObject.Find("segment_back1");
+            _segment_back = GameObject.Find("segment_front1");
             _pickedSegment = _segment_back;
-            _lane = "E";
+            _lane = "A";
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //Debug.Log("Generator Health: " + _generatorHealth);
+        //Debug.Log("Generator Health: " + _lane + " : " + _generatorHealth);
         if (_generatorHealth <= 0 && _isDestroyed == false)
         {
             _generatorPowerScript.DestroyedGenerator++;
-            if (!_deadLaneList.Contains(_lane))
-            {
-                _deadLaneList.Add(_lane);
-            }
+            _garbageWaveScript.DeadLaneList.Add(_lane);
+            Debug.Log(_lane + " is Dead");
             _isDestroyed = true;
             //_pickedSegment.GetComponent<Renderer>().material.color = Color.gray;
         }
