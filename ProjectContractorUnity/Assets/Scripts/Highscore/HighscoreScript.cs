@@ -201,7 +201,7 @@ public class HighscoreScript : MonoBehaviour {
 
     public void WaveClear(bool pHitAnything)
     {
-        if (pHitAnything)
+        if (!pHitAnything)
         {
             _score += _noDamageScore;
             _numberParticle.PlaceParticleCombo(ComboType.Untouchable);

@@ -84,12 +84,16 @@ public class GarbageWaveScript : MonoBehaviour
 
     private bool _canContinue = false;
 
+    private List<string> _deadLaneList;
+    public List<string> DeadLaneList { get { return _deadLaneList; } set { _deadLaneList = value; } }
+
     private int counter=0;
     private int DEBUGcounter = 0;
 
     // Use this for initialization
     void Start()
     {
+        _deadLaneList = new List<string>();
         _highScoreScript = GameObject.FindObjectOfType<HighscoreScript>();
         _spawnedGarbage = new List<GameObject>();
         _destroyedGarbage = new List<GameObject>();
@@ -225,7 +229,7 @@ public class GarbageWaveScript : MonoBehaviour
         {
             if (_generators[i].GeneratorGotHit)
             {
-                Debug.Log("Generator Got HIT!");
+ 
                 _someGeneratorGotHit = true;
             }
         }
