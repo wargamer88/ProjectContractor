@@ -166,6 +166,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 }
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Light);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                FindObjectOfType<CameraShake>().StartShake();
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.MediumGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
@@ -178,6 +179,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 }
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Medium);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                FindObjectOfType<CameraShake>().StartShake();
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.HeavyGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
@@ -190,6 +192,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 }
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Heavy);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                FindObjectOfType<CameraShake>().StartShake();
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.SpecialGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
@@ -202,6 +205,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 }
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Special);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                FindObjectOfType<CameraShake>().StartShake();
                 Destroy(pOther.gameObject);
             }
         }
