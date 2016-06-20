@@ -5,7 +5,7 @@ public class ScreenStartScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        FloatObjectScript[] floatscripts = GameObject.Find("Wave_Generator_UV _2").GetComponentsInChildren<FloatObjectScript>();
+        FloatObjectScript[] floatscripts = GameObject.Find("Wave_Generator").GetComponentsInChildren<FloatObjectScript>();
         foreach (FloatObjectScript scripts in floatscripts)
         {
             scripts.gameObject.GetComponent<FloatObjectScript>().enabled = false;
@@ -20,7 +20,7 @@ public class ScreenStartScript : MonoBehaviour {
 
     void OnMouseDown()
     {
-        FloatObjectScript[] floatscripts = GameObject.Find("Wave_Generator_UV _2").GetComponentsInChildren<FloatObjectScript>();
+        FloatObjectScript[] floatscripts = GameObject.Find("Wave_Generator").GetComponentsInChildren<FloatObjectScript>();
         foreach (FloatObjectScript scripts in floatscripts)
         { 
             scripts.gameObject.GetComponent<FloatObjectScript>().enabled = true;

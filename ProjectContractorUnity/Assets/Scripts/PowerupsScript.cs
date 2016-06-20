@@ -87,7 +87,7 @@ public class PowerupsScript : MonoBehaviour {
         switch (FishRnd)
         {
             case 0:
-                GO = (GameObject)Instantiate(_chompy, new Vector3(-120, -10, 0.4f), Quaternion.Euler(new Vector3(0, 270, 0)));
+                GO = (GameObject)Instantiate(_chompy, new Vector3(-120, -10, 0.4f), Quaternion.Euler(new Vector3(0, 90, 0)));
                 GO.GetComponent<ChompyScript>().enabled = false;
                 GO.AddComponent<FishClickedOnScript>();
                 GO.GetComponent<FishClickedOnScript>().PowerupsScript = this;
@@ -257,8 +257,7 @@ public class PowerupsScript : MonoBehaviour {
         {
             if (Garbage.GarbageType == GarbageType.Heavy)
             {
-                GameObject GO = (GameObject)Instantiate(_chompy, new Vector3(-50, 3, Garbage.transform.position.z), Quaternion.identity);
-                //GO.GetComponent<Animator>().StartPlayback();
+                GameObject GO = (GameObject)Instantiate(_chompy, new Vector3(-50, 3, Garbage.transform.position.z), Quaternion.Euler(new Vector3(0, 90, 0)));
                 GO.GetComponent<ChompyScript>().GarbageObject = Garbage.gameObject;
                 GO.GetComponent<ChompyScript>().GarbageWaveScript = _garbageWaveScript;
             }
@@ -385,7 +384,6 @@ public class PowerupsScript : MonoBehaviour {
         _heavyGarbage = 0;
         _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
         GameObject GO = (GameObject)Instantiate(_whaley, new Vector3(-0.6f, -27.4f, -39.1f), Quaternion.Euler(new Vector3(0, 0, 0)));
-        GO.GetComponent<Animator>().StartPlayback();
         GO.GetComponent<WhaleyScript>().GarbageWaveScript = _garbageWaveScript;
         GO.GetComponent<WhaleyScript>().Garbage = _garbageList;
         GO.GetComponent<BoxCollider>().enabled = false;

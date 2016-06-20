@@ -68,7 +68,139 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Swim
+      takeName: Swim
+      firstFrame: 10
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: L_Shark
+        weight: 1
+      - path: Shark_Rig
+        weight: 1
+      - path: Shark_Rig/L_Fin_1
+        weight: 1
+      - path: Shark_Rig/L_Fin_1/L_Fin_2
+        weight: 1
+      - path: Shark_Rig/L_Fin_1/L_Fin_2/L_Fin_Tip
+        weight: 1
+      - path: Shark_Rig/neck
+        weight: 1
+      - path: Shark_Rig/neck/Headnub
+        weight: 1
+      - path: Shark_Rig/R_Fin_1
+        weight: 1
+      - path: Shark_Rig/R_Fin_1/R_Fin_2
+        weight: 1
+      - path: Shark_Rig/R_Fin_1/R_Fin_2/R_Fin_Tip
+        weight: 1
+      - path: Shark_Rig/Tail_1
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/L_B_Fin1
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/L_B_Fin1/L_B_Fin_Tip
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/R_B_Fin1
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/R_B_Fin1/R_B_Fin_Tip
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/Tail_Base
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/Tail_Base/Tail_Tip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 10
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: L_Shark
+        weight: 1
+      - path: Shark_Rig
+        weight: 1
+      - path: Shark_Rig/L_Fin_1
+        weight: 1
+      - path: Shark_Rig/L_Fin_1/L_Fin_2
+        weight: 1
+      - path: Shark_Rig/L_Fin_1/L_Fin_2/L_Fin_Tip
+        weight: 1
+      - path: Shark_Rig/neck
+        weight: 1
+      - path: Shark_Rig/neck/Headnub
+        weight: 1
+      - path: Shark_Rig/R_Fin_1
+        weight: 1
+      - path: Shark_Rig/R_Fin_1/R_Fin_2
+        weight: 1
+      - path: Shark_Rig/R_Fin_1/R_Fin_2/R_Fin_Tip
+        weight: 1
+      - path: Shark_Rig/Tail_1
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/L_B_Fin1
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/L_B_Fin1/L_B_Fin_Tip
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/R_B_Fin1
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/R_B_Fin1/R_B_Fin_Tip
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/Tail_Base
+        weight: 1
+      - path: Shark_Rig/Tail_1/Tail_2/Tail_Base/Tail_Tip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

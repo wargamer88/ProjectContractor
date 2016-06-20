@@ -84,12 +84,16 @@ public class GarbageWaveScript : MonoBehaviour
 
     private bool _canContinue = false;
 
+    private List<string> _deadLaneList;
+    public List<string> DeadLaneList { get { return _deadLaneList; } set { _deadLaneList = value; } }
+
     private int counter=0;
     private int DEBUGcounter = 0;
 
     // Use this for initialization
     void Start()
     {
+        _deadLaneList = new List<string>();
         _highScoreScript = GameObject.FindObjectOfType<HighscoreScript>();
         _spawnedGarbage = new List<GameObject>();
         _destroyedGarbage = new List<GameObject>();
@@ -225,7 +229,7 @@ public class GarbageWaveScript : MonoBehaviour
         {
             if (_generators[i].GeneratorGotHit)
             {
-                Debug.Log("Generator Got HIT!");
+ 
                 _someGeneratorGotHit = true;
             }
         }
@@ -382,14 +386,28 @@ public class GarbageWaveScript : MonoBehaviour
         gameSpawnObject.AddComponent<Rigidbody>();
         gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
         gameSpawnObject.GetComponent<Rigidbody>().mass = 1000;
-        //float randomRotationX = Random.Range(0, 360);
-        //float randomRotationY = Random.Range(0, 360);
-        //float randomRotationZ = Random.Range(0, 360);
-        //gameSpawnObject.transform.rotation = new Quaternion(0,0,0,0);
+        
         gameSpawnObject.GetComponent<Rigidbody>().constraints = /*RigidbodyConstraints.FreezePositionX | */RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
         gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
         //gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
+
+        
+        if (gameSpawnObject.name != "HippyVan" && gameSpawnObject.name != "Plastic_Bottle")
+        {
+            //float randomRotationX = Random.Range(0, 360);
+            float randomRotationY = Random.Range(0, 360);
+            //float randomRotationZ = Random.Range(0, 360);
+            gameSpawnObject.transform.rotation = Quaternion.Euler(new Vector3(0, randomRotationY, 0));
+        }
+        else if (gameSpawnObject.name == "Plastic_Bottle")
+        {
+            //float randomRotationX = Random.Range(0, 360);
+            //float randomRotationY = Random.Range(0, 360);
+            float randomRotationZ = Random.Range(-45, 45);
+            gameSpawnObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, randomRotationZ));
+        }
+
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = pTile.Substring(0,1);
         gameSpawnObject.AddComponent<ExecuteEventScript>();

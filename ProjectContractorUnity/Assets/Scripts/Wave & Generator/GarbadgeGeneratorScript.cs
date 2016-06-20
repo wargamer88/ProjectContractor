@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 public class GarbadgeGeneratorScript : MonoBehaviour {
@@ -97,10 +98,12 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
     private bool _generatorGotHit;
     public bool GeneratorGotHit { get { return _generatorGotHit; } set { _generatorGotHit = value; } }
 
+    private string _lane;
 
     // Use this for initialization
     void Start ()
     {
+        _lane = "";
         _numberParticle = GameObject.FindObjectOfType<NumberParticleScript>();
         _damageParticle = (GameObject)Resources.Load("Damage");
         _generatorGotHit = false;
@@ -109,37 +112,44 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
         _oldTimer = 0;
         if (transform.name == "GeneratorWall5")
         {
-            _segment_front = GameObject.Find("segment_front1");
+            _segment_front = GameObject.Find("segment_back1");
             _pickedSegment = _segment_front;
+            _lane = "E";
         }
         if (transform.name == "GeneratorWall2")
         {
-            _segment_segment5 = GameObject.Find("segment_segment5");
+            _segment_segment5 = GameObject.Find("segment_segment3");
             _pickedSegment = _segment_segment5;
+            _lane = "B";
         }
         if (transform.name == "GeneratorWall3")
         {
             _segment_segment4 = GameObject.Find("segment_segment4");
             _pickedSegment = _segment_segment4;
+            _lane = "C";
         }
         if (transform.name == "GeneratorWall4")
         {
-            _segment_segment3 = GameObject.Find("segment_segment3");
+            _segment_segment3 = GameObject.Find("segment_segment5");
             _pickedSegment = _segment_segment3;
+            _lane = "D";
         }
         if (transform.name == "GeneratorWall1")
         {
-            _segment_back = GameObject.Find("segment_back1");
+            _segment_back = GameObject.Find("segment_front1");
             _pickedSegment = _segment_back;
+            _lane = "A";
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //Debug.Log("Generator Health: " + _generatorHealth);
+        //Debug.Log("Generator Health: " + _lane + " : " + _generatorHealth);
         if (_generatorHealth <= 0 && _isDestroyed == false)
         {
             _generatorPowerScript.DestroyedGenerator++;
+            _garbageWaveScript.DeadLaneList.Add(_lane);
+            Debug.Log(_lane + " is Dead");
             _isDestroyed = true;
             //_pickedSegment.GetComponent<MeshRenderer>().material = _cracked0;
             //_pickedSegment.GetComponent<Renderer>().material.color = Color.gray;
@@ -196,6 +206,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 }
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Light);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                FindObjectOfType<CameraShake>().StartShake();
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.MediumGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
@@ -208,6 +219,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 }
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Medium);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                FindObjectOfType<CameraShake>().StartShake();
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.HeavyGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
@@ -220,6 +232,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 }
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Heavy);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                FindObjectOfType<CameraShake>().StartShake();
                 Destroy(pOther.gameObject);
             }
             if (_garbageWaveScript.SpecialGarbage.Where(c => c.gameObject.name == pOther.gameObject.name).FirstOrDefault())
@@ -232,6 +245,7 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
                 }
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Special);
                 Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                FindObjectOfType<CameraShake>().StartShake();
                 Destroy(pOther.gameObject);
             }
         }
