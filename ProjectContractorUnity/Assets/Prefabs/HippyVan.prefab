@@ -12,6 +12,7 @@ GameObject:
   - 23: {fileID: 2313544}
   - 65: {fileID: 6546700}
   - 114: {fileID: 11426398}
+  - 114: {fileID: 11408682}
   m_Layer: 0
   m_Name: HippyVan
   m_TagString: Untagged
@@ -76,6 +77,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.014478, y: 4.460186, z: 12.540922}
   m_Center: {x: -0.06270059, y: 3.106422, z: 0.015895844}
+--- !u!114 &11408682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b514294f900ddcc42860f967cdcb9f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11426398
 MonoBehaviour:
   m_ObjectHideFlags: 1

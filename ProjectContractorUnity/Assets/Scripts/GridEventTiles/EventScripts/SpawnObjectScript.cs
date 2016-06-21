@@ -354,54 +354,125 @@ public class SpawnObjectScript : MonoBehaviour {
         //return pEventAmountOfObjectsSpawned;
         #endregion
     }
-    public static void SpawnSuperHeavy(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
+    public static int SpawnSuperHeavy(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
     {
+
+
         if (pEventSpeed == 0)
         {
-            pEventSpeed = -1;
+            pEventSpeed = 1;
         }
+
         if (pGarbageWaveScript.Wave == pEventWave)
         {
+
+            // Debug.Log("pEventWave : " + pEventWave);
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
-                //Debug.Log(_spawned);
-                if (_amountSuperHeavySpawned != pEventAmountOfObjects)
+                int random = Random.Range(0, 3);
+                //if (pExe.name == "C10" && pEventWave == 8)
+                //{
+                //    Debug.Log("Kom HIERIN");
+                //    Debug.Log("Needs to spawn: " + pEventAmountOfObjects);
+                //    Debug.Log("Already spawned: " + pEventAmountOfObjectsSpawned);
+                //}
+                if (pEventAmountOfObjectsSpawned < pEventAmountOfObjects)
                 {
+
+                    //Debug.Log("Hier zijn we nu wel");
                     _oldTime = Time.time;
-                    int random = Random.Range(0, 1);
+                    //if (pEventEveryXWave != 0 && pEventEveryWave)
+                    //{
+                    //    pEventWave = pEventWave + pEventEveryXWave;
+                    //    GameObject bottle = pGarbageWaveScript.LightGarbage[random];
+                    //    pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle,-pEventSpeed);
+                    //    pEventAmountOfObjectsSpawned++;
+                    //}
+                    //else if (pEventEveryWave)
+                    //{
+                    //    pEventWave++;
+                    //    GameObject bottle = pGarbageWaveScript.LightGarbage[random];
+                    //    pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
+                    //    pEventAmountOfObjectsSpawned++;
+                    //    //_event = _choices.SpawnBottle;
+                    //}
+                    //else
+                    //{
+                    //if (_eventEveryWave)
+                    //{
                     if (!pGarbageWaveScript.DeadLaneList.Contains(pExe.transform.name.Substring(0, 1)))
                     {
-                        if (pEventEveryXWave != 0 && pEventEveryWave)
-                        {
-                            pEventWave = pEventWave + pEventEveryXWave;
-                            GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
-                            pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, pEventSpeed, pExe.gameObject.name);
-                            _amountSuperHeavySpawned++;
-                        }
-                        else if (pEventEveryWave)
-                        {
-                            pEventWave++;
-                            GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
-                            pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, pEventSpeed, pExe.gameObject.name);
-                            _amountSuperHeavySpawned++;
-                            //_event = _choices.SpawnBottle;
-                        }
-                        else
-                        {
-                            //if (_eventEveryWave)
-                            //{
-                            GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
-                            pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, pEventSpeed, pExe.gameObject.name);
-                            //_isEventDone = true;
-                            // _event = _choices.None;
-                            //_amountSuperHeavySpawned++;
-                            //}
-                        }
+                        GameObject bottle = pGarbageWaveScript.LightGarbage[random];
+
+                        pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
+                        //_isEventDone = true;
+                        // _event = _choices.None;
                     }
-                    _amountSuperHeavySpawned++;
+
+                    pEventAmountOfObjectsSpawned++;
+                    //}
+                    //}
                     _isFirstTime = false;
+                }
+                else
+                {
+
+                    // pExe.IsEventDone = true;
                 }
             }
         }
+
+        return pEventAmountOfObjectsSpawned;
+
+        #region Old
+        //if (pEventSpeed == 0)
+        //{
+        //    pEventSpeed = -1;
+        //}
+        //if (pGarbageWaveScript.Wave == pEventWave)
+        //{
+        //    if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
+        //    {
+        //        //Debug.Log(_spawned);
+        //        if (_amountSuperHeavySpawned != pEventAmountOfObjects)
+        //        {
+        //            _oldTime = Time.time;
+        //            int random = Random.Range(0, 1);
+        //            if (!pGarbageWaveScript.DeadLaneList.Contains(pExe.transform.name.Substring(0, 1)))
+        //            {
+        //                if (pEventEveryXWave != 0 && pEventEveryWave)
+        //                {
+        //                    pEventWave = pEventWave + pEventEveryXWave;
+        //                    GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
+        //                    pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, pEventSpeed, pExe.gameObject.name);
+        //                    _amountSuperHeavySpawned++;
+        //                }
+        //                else if (pEventEveryWave)
+        //                {
+        //                    pEventWave++;
+        //                    GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
+        //                    pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, pEventSpeed, pExe.gameObject.name);
+        //                    _amountSuperHeavySpawned++;
+        //                    //_event = _choices.SpawnBottle;
+        //                }
+        //                else
+        //                {
+        //                    //if (_eventEveryWave)
+        //                    //{
+        //                    GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
+        //                    pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, pEventSpeed, pExe.gameObject.name);
+        //                    //_isEventDone = true;
+        //                    // _event = _choices.None;
+        //                    //_amountSuperHeavySpawned++;
+        //                    //}
+        //                }
+        //            }
+        //            _amountSuperHeavySpawned++;
+        //            _isFirstTime = false;
+        //        }
+        //    }
+        //} 
+
+        #endregion
     }
 }

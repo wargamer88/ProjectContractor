@@ -62,16 +62,6 @@ public class GarbadgeDestoryScript : MonoBehaviour {
             }
             pOther.gameObject.GetComponent<BulletScript>().DestroyBullet();
         }
-        if (pOther.transform.tag == "SpecialWeapon")
-        {
-            _hp = _hp - 3;
-            Destroy(pOther.gameObject);
-            CheckHealth(pOther.gameObject);
-        }
-        else if (pOther.transform.tag == "FireBarrel")
-        {
-            pOther.gameObject.GetComponent<BulletScript>().BallPowerFire();
-        }
     }
 
 

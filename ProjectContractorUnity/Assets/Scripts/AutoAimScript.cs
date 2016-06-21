@@ -5,66 +5,56 @@ using System.Linq;
 
 public class AutoAimScript : MonoBehaviour
 {
-
+    #region Variables
+    //The bullet that gets instantiated
     [SerializeField]
-    private float Speed;
+    private GameObject _chosenBullet;
 
-    [SerializeField]
-    private GameObject _chosenBall;
-    public GameObject ChosenBall { set { _chosenBall = value; } }
-
+    //The object that is the instantiated Chosenball
     private GameObject _bullet;
+    //The offset from the Catapult where the bullet will spawn
     private Vector3 _ballOffset;
-    private PowerupsScript _powerupsScript;
 
-    private int _cooldown = 0;
-    private bool _allowshoot = true;
-    public bool Allowshoot { get { return _allowshoot; } }
-
-    private float _DEBUGcounter = 0;
-    
-    private Vector3 _moveTarget;
-    private bool _isMoving = false;
-    private Vector3 _currentPos;
-
+    //The Aimplane, the plane that gets raycasted to see where to shoot the bullet at
     private GameObject _aimPlane;
-    private RaycastHit hit;
 
+    //The variable where the Hit.Point get saved thats gonna be used for Velocity
+    private RaycastHit _hit;
+
+    //Used for timing the next bullet
     private float _oldTime;
+    #endregion
 
-    [SerializeField]
-    private float _depthCooldown = 10;
-    private bool _isDepthCooldown = false;
-    public bool IsDepthCooldown { set { _isDepthCooldown = value; } get { return _isDepthCooldown; } }
-
-    private bool _isMouseUp = false;
-
-    private float _newShotTimer;
-    private bool _newShotTimerBool = false;
-
-    // Use this for initialization
+    /// <summary>
+    /// <para>Finding the AimPlane</para>
+    /// <para>Getting the Ball Offset</para>
+    /// </summary>
     void Start()
     {
-        _powerupsScript = FindObjectOfType<PowerupsScript>();
         _aimPlane = GameObject.Find("AimPlane");
         _ballOffset = new Vector3(0, 10.19f, 1.82f);
 	}
 	
-	// Update is called once per frame
+	/// <summary>
+    /// Calling autoAim for shooting
+    /// </summary>
     void Update()
     {
         AutoAim();
     }
 
+    /// <summary>
+    /// <para>Script where it is checked if you can shoot and where to shoot</para>
+    /// </summary>
     void AutoAim()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Ray vRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(vRay, out hit, 10000);
-            if (hit.collider != null)
+            Physics.Raycast(vRay, out _hit, 10000);
+            if (_hit.collider != null)
             {
-                if ((hit.collider.gameObject.name == "AimPlane" || hit.collider.gameObject.tag == "Garbage" /*|| hit.collider.gameObject.name == "LineWall" || hit.collider.gameObject.name == "Lines"*/))
+                if ((_hit.collider.gameObject.name == "AimPlane" || _hit.collider.gameObject.tag == "Garbage" /*|| _hit.collider.gameObject.name == "LineWall" || _hit.collider.gameObject.name == "Lines"*/))
                 {
                     if (Time.time > (_oldTime + 0.5f))
                     {
@@ -75,27 +65,49 @@ public class AutoAimScript : MonoBehaviour
             } 
         }
     }
+
+    /// <summary>
+    /// <para>Instantiating the Bullet with right Position and Velocity</para>
+    /// <para>Playing Animation and Adding required components to script</para>
+    /// </summary>
     private void _createBallAndShootingAnimation()
     {
+        //Get a Random Rotation for Object
         Quaternion randomRotation = Random.rotation;
+
+        //Make sure to play Shooting Animation, by switching back and forth
         GetComponent<Animator>().Play("Finished");
         GetComponent<Animator>().Play("Shoot");
-        _bullet = GameObject.Instantiate(_chosenBall);
-        _newShotTimer = Time.time;
+
+        //Instantiating Bullet
+        _bullet = GameObject.Instantiate(_chosenBullet);
+
+        //Adding Position and Random Rotation
         _bullet.transform.position = transform.position + _ballOffset;
         _bullet.transform.rotation = randomRotation;
+
+        //Adding Physics
         _bullet.AddComponent<Rigidbody>();
         _bullet.GetComponent<Rigidbody>().mass = 0.01f;
-        _bullet.AddComponent<BulletScript>();
-        _bullet.GetComponent<BulletScript>().PowerupsScript = _powerupsScript;
 
+        //Adding BulletScript, where all the behaviour of the bullet is in
+        _bullet.AddComponent<BulletScript>();
+
+        //Make sure Bullet doenst collide with aimPlane.
         Physics.IgnoreCollision(_bullet.GetComponent<SphereCollider>(), _aimPlane.GetComponent<MeshCollider>());
+
+        //Calculate Velocity
         Vector3 velocity = new Vector3(0, 0, 0);
-        velocity = hit.point - _bullet.transform.position;
+        velocity = _hit.point - _bullet.transform.position;
+
+        //Give bullet the Tag Projectile (used when finding what object it is with collision)
         _bullet.tag = "Projectile";
-        transform.LookAt(hit.point);
+
+        //Make the catapult rotate towards the point that the bullet goes to
+        transform.LookAt(_hit.point);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+
+        //Add the Velocity to the Rigidbody
         _bullet.GetComponent<Rigidbody>().AddForce(velocity);
-        _bullet.GetComponent<BulletScript>().ChosenBall = _bullet;
     }
 }

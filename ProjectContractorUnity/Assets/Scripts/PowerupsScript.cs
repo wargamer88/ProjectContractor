@@ -4,31 +4,41 @@ using System.Linq;
 using System;
 
 public class PowerupsScript : MonoBehaviour {
-    
+
+    #region Variables
+    //The different GameObjects for the Fishes
     private GameObject _chompy;
     private GameObject _sharky;
     private GameObject _whaley;
 
+    //set Time between Jumping Fishes
     private DateTime _timeJumpingFishSpawned;
 
-    private int _lightGarbage = 0;
-    private int _mediumGarbage = 0;
-    private int _heavyGarbage = 0;
-
+    //Bools to check if a Powerup has spawned
     private bool _chompySpawned = false;
     private bool _sharkySpawned = false;
     private bool _whaleySpawned = false;
 
+    //Bools to Check if you caught a Powerup
     private bool _caughtChompy = false;
     private bool _caughtSharky = false;
     private bool _caughtWhaley = false;
 
+    //GameObject where all the Garbage are spawned in
     private GameObject _garbageParent = null;
-    private List<GarbadgeDestoryScript> _garbageList;
-    private GarbageWaveScript _garbageWaveScript;
 
-	// Use this for initialization
-	void Start () {
+    //List of Garbages using GarbageDestroyScript
+    private List<GarbadgeDestoryScript> _garbageList;
+
+    //Reference to GarbageWaveScript
+    private GarbageWaveScript _garbageWaveScript; 
+    #endregion
+
+    /// <summary>
+    /// <para>Load in Chompy, Sharky and Whaley</para>
+    /// <para>Find Garbage Wave Script and set Timer</para>
+    /// </summary>
+    void Start () {
         _chompy = (GameObject)Resources.Load("Chompy");
         _sharky = (GameObject)Resources.Load("Sharky");
         _whaley = (GameObject)Resources.Load("Whaley");
@@ -36,7 +46,10 @@ public class PowerupsScript : MonoBehaviour {
         _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
     }
 	
-	// Update is called once per frame
+	/// <summary>
+    /// <para>Calls a Function that gets the Parent of the Garbage</para>
+    /// <para>Calls a Function that Randomly lets fishes jump</para>
+    /// </summary>
 	void Update () {
         _getGarbageParent();
         _rndJumpingFishes();
@@ -251,7 +264,6 @@ public class PowerupsScript : MonoBehaviour {
     private void _lightPowerup()
     {
         Debug.Log("Chompy(light garbage) activated");
-        _lightGarbage = 0;
         _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
         foreach (GarbadgeDestoryScript Garbage in _garbageList)
         {
@@ -272,7 +284,6 @@ public class PowerupsScript : MonoBehaviour {
     {
         //local variables
         Debug.Log("Sharky(medium garbage) activated");
-        _mediumGarbage = 0;
         _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
         int lane0 = 0;
         int lane1 = 0;
@@ -381,7 +392,6 @@ public class PowerupsScript : MonoBehaviour {
     /// </summary>
     private void _heavyPowerup()
     {
-        _heavyGarbage = 0;
         _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
         GameObject GO = (GameObject)Instantiate(_whaley, new Vector3(-0.6f, -27.4f, -39.1f), Quaternion.Euler(new Vector3(0, 0, 0)));
         GO.GetComponent<WhaleyScript>().GarbageWaveScript = _garbageWaveScript;
