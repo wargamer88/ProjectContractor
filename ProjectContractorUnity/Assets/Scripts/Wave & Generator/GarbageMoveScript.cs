@@ -10,7 +10,7 @@ public class GarbageMoveScript : MonoBehaviour {
 
     private float _wave = 0;
 
-    private float _frequency = 10000000000000000f;  // Speed of sine movement
+    private float _frequency = 10000000000000000f;  // _speed of sine movement
     private float _magnitude = 2f;   // Size of sine movement
 
     private float _oldTime;

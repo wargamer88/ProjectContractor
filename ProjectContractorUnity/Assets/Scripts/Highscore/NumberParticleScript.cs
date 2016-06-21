@@ -3,57 +3,49 @@ using System.Collections;
 
 public class NumberParticleScript : MonoBehaviour {
 
+    #region Variables
     #region ParticleVariables
+    //GameObjects with the Particles
     [SerializeField]
     private GameObject _plus3Particle;
-
     [SerializeField]
     private GameObject _plus5Particle;
-
     [SerializeField]
     private GameObject _plus7Particle;
-
     [SerializeField]
     private GameObject _plus10Particle;
-
     [SerializeField]
     private GameObject _plus15Particle;
-
     [SerializeField]
     private GameObject _plus20Particle;
-
     [SerializeField]
     private GameObject _plus30Particle;
-
     [SerializeField]
     private GameObject _minus10Particle;
-
     [SerializeField]
     private GameObject _minus20Particle;
-
     [SerializeField]
     private GameObject _minus30Particle;
-
     [SerializeField]
     private GameObject _minus50Particle;
     #endregion
 
+    //Location of the Combo Particle
     [SerializeField]
     private Vector3 _locationComboParticle;
 
+    //Location of the Wave Clear Particle
     [SerializeField]
-    private Vector3 _locationWaveClearParticle;
+    private Vector3 _locationWaveClearParticle; 
+    #endregion
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
+    /// <summary>
+    /// <para>Places the right AddScore particle according to which garbage it is</para>
+    /// <para>Places it above the destroyed Garbage position</para>
+    /// </summary>
+    /// <param name="pPosition"></param>
+    /// <param name="pGarbageType"></param>
     public void PlaceParticleAtGarbage(Vector3 pPosition, GarbageType pGarbageType)
     {
         pPosition = pPosition + new Vector3(0, 20, 0);
@@ -76,6 +68,12 @@ public class NumberParticleScript : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// <para>Places the lose HP Particle according to the Type of Garbage</para>
+    /// <para>Places it above the destroyed Garbage</para>
+    /// </summary>
+    /// <param name="pPosition"></param>
+    /// <param name="pGarbageType"></param>
     public void PlaceParticleAtGenerator(Vector3 pPosition, GarbageType pGarbageType)
     {
         pPosition = pPosition + new Vector3(0, 10, 0);
@@ -98,6 +96,11 @@ public class NumberParticleScript : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// <para>Places the right Combo Particle according to ComboType</para>
+    /// <para>Places it on the location put in the Inspector</para>
+    /// </summary>
+    /// <param name="pComboType"></param>
     public void PlaceParticleCombo(ComboType pComboType)
     {
         switch (pComboType)

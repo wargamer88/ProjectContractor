@@ -5,87 +5,43 @@ using System.Linq;
 
 public class BulletScript : MonoBehaviour {
 
-    private List<GameObject> _walls;
-    private List<GameObject> _generatorwalls;
-    private PowerupsScript _powerupsScript;
+    #region Variables
+    //The particle for Explosion
     private GameObject _explosionPrefab;
 
-    public GameObject ExplosionPrefab { set { _explosionPrefab = value; } }
-    public List<GameObject> Walls { set { _walls = value; } }
-    public PowerupsScript PowerupsScript { set { _powerupsScript = value; } }
+    //List of all the walls in the game
+    private List<GameObject> _walls;
 
-    private GameObject _chosenBall;
-    public GameObject ChosenBall { set { _chosenBall = value; } }
+    //List of the Generator Walls
+    private List<GameObject> _generatorwalls;  
+    #endregion
 
-    private bool _doesExist = false;
-
-    //ignoring collision with the level walls
-    // Use this for initialization
+    /// <summary>
+    /// <para>Find Explosion Particle</para>
+    /// <para>Ignore Collision with all walls and Generator Walls</para>
+    /// </summary>
     void Start()
     {
         _explosionPrefab = (GameObject)Resources.Load("Explosion");
-        if (_chosenBall.name != "Ball2(Clone)")
+        _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
+        foreach (GameObject wall in _walls)
         {
-            _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
-            foreach (GameObject wall in _walls)
-            {
-                Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), wall.GetComponent<MeshCollider>());
-            }
-            _generatorwalls = GameObject.FindGameObjectsWithTag("GeneratorWall").ToList();
-            foreach (GameObject genWall in _generatorwalls)
-            {
-                Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), genWall.GetComponent<MeshCollider>());
-            }
+            Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), wall.GetComponent<MeshCollider>());
         }
-        else
+        _generatorwalls = GameObject.FindGameObjectsWithTag("GeneratorWall").ToList();
+        foreach (GameObject genWall in _generatorwalls)
         {
-            _generatorwalls = GameObject.FindGameObjectsWithTag("GeneratorWall").ToList();
-            foreach (GameObject genWall in _generatorwalls)
-            {
-                Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), genWall.GetComponent<MeshCollider>());
-            }
+            Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), genWall.GetComponent<MeshCollider>());
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
+    /// <summary>
+    /// <para>Instantiate Explosion Prefab on the spot when the Bullets hits something</para>
+    /// <para>Destroy gameobject Bullet</para>
+    /// </summary>
     public void DestroyBullet()
     {
         Instantiate(_explosionPrefab, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
-    }
-
-    public void BallPowerDepth(Vector3 pPosition)
-    {
-        if (_doesExist == false)
-        {
-            _chosenBall.transform.position = new Vector3(pPosition.x, pPosition.y, pPosition.z);
-            _chosenBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-            _chosenBall.GetComponent<Rigidbody>().useGravity = false;
-            //_autoAimScript.IsDepthCooldown = true;
-            _doesExist = true;
-        }
-    }
-
-    public void BallPowerFire()
-    {
-        //Debug.Log("I AM A FIREBARREL");
-        if (_doesExist == false)
-        {
-            Collider[] hitObjects = Physics.OverlapSphere(_chosenBall.transform.position, 30);
-            for (int i = 0; i < hitObjects.Length; i++)
-            {
-                if (hitObjects[i].gameObject.tag == "Garbage")
-                {
-                    hitObjects[i].gameObject.GetComponent<GarbadgeDestoryScript>().HP -= 1;
-                    hitObjects[i].gameObject.GetComponent<GarbadgeDestoryScript>().CheckHealth(this.gameObject);
-                }
-            }
-            Destroy(this.gameObject);
-        }
     }
 }
