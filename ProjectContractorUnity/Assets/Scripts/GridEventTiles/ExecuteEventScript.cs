@@ -48,6 +48,7 @@ public class ExecuteEventScript : MonoBehaviour
     private int _spawnedLight = 0;
     private int _spawnedMedium = 0;
     private int _spawnedHeavy = 0;
+    private int _spawnedSuperHeavy = 0;
 
     private bool _isPrefab = true;
 
@@ -90,6 +91,7 @@ public class ExecuteEventScript : MonoBehaviour
                 _spawnedLight = 0;
                 _spawnedMedium = 0;
                 _spawnedHeavy = 0;
+                _spawnedSuperHeavy = 0;
 
                 _eventCounter++;
                 
@@ -440,7 +442,7 @@ public class ExecuteEventScript : MonoBehaviour
                 }
                 break;
             case _choices.SpawnSuperHeavy:
-                SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
+                _spawnedSuperHeavy = SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedSuperHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 break;
             case _choices.ShowTutorialBottle:
                 break;
@@ -463,7 +465,7 @@ public class ExecuteEventScript : MonoBehaviour
                         boatPrefab = GameObject.Instantiate(_boatPrefab);
                         //boatPrefab = GameObject.CreatePrimitive(PrimitiveType.Cube);
                         //boatPrefab.GetComponent<BoxCollider>().enabled = false;
-                        boatPrefab.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
+                        boatPrefab.transform.position = new Vector3(-75, boatPrefab.transform.position.y, this.transform.position.z);
                         boatPrefab.AddComponent<BoatEventScript>();
                         boatPrefab.GetComponent<BoatEventScript>().SetTargetPositionAndSpeed(new Vector3(this.transform.position.x + 1000, this.transform.position.y, this.transform.position.z), _eventSpeedOfObjects + 0.2f);
                         //boatPrefab.transform.localScale = new Vector3(10, 10, 10);

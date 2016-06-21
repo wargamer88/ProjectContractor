@@ -153,21 +153,69 @@ public class GarbadgeGeneratorScript : MonoBehaviour {
             _isDestroyed = true;
             //_pickedSegment.GetComponent<MeshRenderer>().material = _cracked0;
             //_pickedSegment.GetComponent<Renderer>().material.color = Color.gray;
+            if (_lane == "A")
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked0front;
+            }
+            else if (_lane == "E")
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked0back;
+            }
+            else
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked0segment;
+            }
         }
         else if (_generatorHealth <= 25 && _generatorHealth > 0)
         {
             //_pickedSegment.GetComponent<Renderer>().material.color = Color.red;
             //_pickedSegment.GetComponent<MeshRenderer>().material = _cracked25;
+            if (_lane == "A")
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked25front;
+            }
+            else if (_lane == "E")
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked25back;
+            }
+            else
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked25segment;
+            }
         }
         else if (_generatorHealth <= 50 && _generatorHealth > 25)
         {
             //_pickedSegment.GetComponent<Renderer>().material.color = Color.yellow;
             //_pickedSegment.GetComponent<MeshRenderer>().material = _cracked50;
+            if (_lane == "A")
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked50front;
+            }
+            else if (_lane == "E")
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked50back;
+            }
+            else
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked50segment;
+            }
         }
         else if (_generatorHealth <= 75 && _generatorHealth > 50)
         {
             //_pickedSegment.GetComponent<Renderer>().material.color = Color.green;
             //_pickedSegment.GetComponent<MeshRenderer>().material = _cracked75;
+            if (_lane == "A")
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked75front;
+            }
+            else if (_lane == "E")
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked75back;
+            }
+            else
+            {
+                _pickedSegment.GetComponent<MeshRenderer>().material = _cracked75segment;
+            }
         }
         if (_generatorHealth >= 100)
         {
