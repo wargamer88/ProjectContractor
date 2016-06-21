@@ -6644,7 +6644,7 @@ MonoBehaviour:
   _10inRowScore: 20
   _15inRowImage: {fileID: 21300000, guid: f463e36b38f874cebb1361f27e3fa82d, type: 3}
   _15inRowScore: 30
-  _maxTimeShowCombo: 0
+  _maxTimeShowCombo: 30
 --- !u!114 &658170488
 MonoBehaviour:
   m_ObjectHideFlags: 0
