@@ -242,6 +242,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cracked75front: {fileID: 0}
+  _cracked75segment: {fileID: 0}
+  _cracked75back: {fileID: 0}
+  _cracked50front: {fileID: 0}
+  _cracked50segment: {fileID: 0}
+  _cracked50back: {fileID: 0}
+  _cracked25front: {fileID: 0}
+  _cracked25segment: {fileID: 0}
+  _cracked25back: {fileID: 0}
+  _cracked0front: {fileID: 0}
+  _cracked0segment: {fileID: 0}
+  _cracked0back: {fileID: 0}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -1392,6 +1404,8 @@ GameObject:
   - 124: {fileID: 149030030}
   - 81: {fileID: 149030029}
   - 114: {fileID: 149030028}
+  - 114: {fileID: 149030035}
+  - 114: {fileID: 149030034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1481,6 +1495,28 @@ Transform:
   - {fileID: 1061172727}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &149030034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149030027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e41aec702cc2543ad0d9d7e58fb572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &149030035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149030027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ec5daf15510db46a2ab5e11d9ff6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &151542736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,6 +1559,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cracked75front: {fileID: 0}
+  _cracked75segment: {fileID: 0}
+  _cracked75back: {fileID: 0}
+  _cracked50front: {fileID: 0}
+  _cracked50segment: {fileID: 0}
+  _cracked50back: {fileID: 0}
+  _cracked25front: {fileID: 0}
+  _cracked25segment: {fileID: 0}
+  _cracked25back: {fileID: 0}
+  _cracked0front: {fileID: 0}
+  _cracked0segment: {fileID: 0}
+  _cracked0back: {fileID: 0}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -4887,6 +4935,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cracked75front: {fileID: 0}
+  _cracked75segment: {fileID: 0}
+  _cracked75back: {fileID: 0}
+  _cracked50front: {fileID: 0}
+  _cracked50segment: {fileID: 0}
+  _cracked50back: {fileID: 0}
+  _cracked25front: {fileID: 0}
+  _cracked25segment: {fileID: 0}
+  _cracked25back: {fileID: 0}
+  _cracked0front: {fileID: 0}
+  _cracked0segment: {fileID: 0}
+  _cracked0back: {fileID: 0}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -9281,6 +9341,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cracked75front: {fileID: 0}
+  _cracked75segment: {fileID: 0}
+  _cracked75back: {fileID: 0}
+  _cracked50front: {fileID: 0}
+  _cracked50segment: {fileID: 0}
+  _cracked50back: {fileID: 0}
+  _cracked25front: {fileID: 0}
+  _cracked25segment: {fileID: 0}
+  _cracked25back: {fileID: 0}
+  _cracked0front: {fileID: 0}
+  _cracked0segment: {fileID: 0}
+  _cracked0back: {fileID: 0}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -18655,6 +18727,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cracked75front: {fileID: 0}
+  _cracked75segment: {fileID: 0}
+  _cracked75back: {fileID: 0}
+  _cracked50front: {fileID: 0}
+  _cracked50segment: {fileID: 0}
+  _cracked50back: {fileID: 0}
+  _cracked25front: {fileID: 0}
+  _cracked25segment: {fileID: 0}
+  _cracked25back: {fileID: 0}
+  _cracked0front: {fileID: 0}
+  _cracked0segment: {fileID: 0}
+  _cracked0back: {fileID: 0}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1

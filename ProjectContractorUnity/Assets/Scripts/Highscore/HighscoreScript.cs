@@ -16,6 +16,7 @@ public class HighscoreScript : MonoBehaviour {
 
     #region ScoreVariables
     private int _score = 0;
+    public int Score { get { return _score; } }
 
     [SerializeField]
     private int _lightTrashScore;

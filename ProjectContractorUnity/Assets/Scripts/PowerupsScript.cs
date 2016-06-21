@@ -50,7 +50,7 @@ public class PowerupsScript : MonoBehaviour {
         {
             _mediumPowerup();
         }
-        if (Input.GetKeyDown(KeyCode.Keypad3))
+        if (Input.GetKey(KeyCode.Keypad3))
         {
             _heavyPowerup();
         }

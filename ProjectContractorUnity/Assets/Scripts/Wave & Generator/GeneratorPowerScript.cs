@@ -11,6 +11,10 @@ public class GeneratorPowerScript : MonoBehaviour {
     [SerializeField]
     private float _timerDamage = 0;
 
+    private int _amountOfWaves = 0;
+    private GarbageWaveScript _garbageWaveScript;
+    private bool _scoreSend = false;
+
     private int _destroyedGenerator = 0;
     public int DestroyedGenerator { set { _destroyedGenerator = value; } get { return _destroyedGenerator; } }
     public float GeneratorEnergy { set { _generatorEngergy = value;} get { return _generatorEngergy; } }
@@ -20,7 +24,17 @@ public class GeneratorPowerScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        _garbageWaveScript = FindObjectOfType<GarbageWaveScript>();
+        foreach (ExecuteEventScript exe in FindObjectsOfType<ExecuteEventScript>())
+        {
+            foreach (EventTileWrapperScript ETWS in exe.EventWrapper)
+            {
+                if (ETWS.EventWave > _amountOfWaves)
+                {
+                    _amountOfWaves = ETWS.EventWave;
+                }
+            }
+        }
 	}
 	
 	// Update is called once per frame
@@ -34,9 +48,17 @@ public class GeneratorPowerScript : MonoBehaviour {
         {
             //Still going to need it?
         }
-        if (_destroyedGenerator == 5)
+
+        //          LOST                            WON
+        if (_destroyedGenerator == 5 || _garbageWaveScript.Wave > _amountOfWaves)
         {
-            Debug.Log("YOU ARE DEAD");
+            if (!_scoreSend) //Making sure the score is send once
+            {
+                Debug.Log("Game Ended");
+                //FindObjectOfType<DBconnection>().UploadScore(FindObjectOfType<HighscoreScript>().Score);
+                StartCoroutine(FindObjectOfType<DBconnection>().UploadScore(FindObjectOfType<HighscoreScript>().Score));
+                _scoreSend = true;
+            }
         }
     }
 }

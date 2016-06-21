@@ -30,29 +30,30 @@ public class ChompyScript : MonoBehaviour {
 
         
 
-        if (GarbageObject == null)
+        if (_garbageObject == null)
         {
             Destroy(this.gameObject);
         }
         float step = _speed * Time.deltaTime;
-        Vector3 tempPos = GarbageObject.transform.position;
+        Vector3 tempPos = _garbageObject.transform.position;
         tempPos.y = 3;
         transform.position = Vector3.MoveTowards(transform.position, tempPos, step);
 
         if ((this.transform.position - tempPos).magnitude < 10)
         {
-            this.GetComponent<BoxCollider>().enabled = true;
+            //this.GetComponent<BoxCollider>().enabled = true;
+            DestroyGarbageObject();
         }
     }
 
-    void OnCollisionEnter(Collision pOther)
+    void DestroyGarbageObject()
     {
-        if (pOther.gameObject == _garbageObject)
+        if (_garbageObject.gameObject == _garbageObject)
         {
             Destroy(this.gameObject);
             _garbageWaveScript.DestroyedGarbage.Add(_garbageObject);
             Destroy(_garbageObject);
-            Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+            Instantiate(_damageParticle, _garbageObject.transform.position, Quaternion.identity);
         }
         else
         {
