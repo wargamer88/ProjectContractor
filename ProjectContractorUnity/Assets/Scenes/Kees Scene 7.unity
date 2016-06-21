@@ -1706,9 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e0bbb1967fd244991f28365c691da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 100
-  _chosenBall: {fileID: 184616, guid: adfd8739dac766e46996ef8f3e2e7405, type: 2}
-  _depthCooldown: 3
+  _chosenBullet: {fileID: 184616, guid: adfd8739dac766e46996ef8f3e2e7405, type: 2}
 --- !u!95 &160146620
 Animator:
   serializedVersion: 3
@@ -5046,7 +5044,7 @@ MonoBehaviour:
   _timeToRespawnIncreaseForEachWave: 0.3
   _increaseAmountOfObjectForEachWave: 1
   _lightGarbage:
-  - {fileID: 172712, guid: 2f9a0fec3b21a454e82fbe89db3f11d3, type: 2}
+  - {fileID: 179980, guid: 39887af467489384ba26831e2e01f250, type: 2}
   - {fileID: 148870, guid: 76e6b58ba34d38a4a98751c2e1e7cad1, type: 2}
   - {fileID: 120022, guid: 99e883783be9b7e45aabb8c19aa2a9bb, type: 2}
   _mediumGarbage:
@@ -6588,8 +6586,8 @@ GameObject:
   - 223: {fileID: 658170490}
   - 114: {fileID: 658170489}
   - 114: {fileID: 658170488}
-  - 114: {fileID: 658170487}
   - 114: {fileID: 658170492}
+  - 114: {fileID: 658170487}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6624,7 +6622,7 @@ MonoBehaviour:
   _10inRowScore: 20
   _15inRowImage: {fileID: 21300000, guid: f463e36b38f874cebb1361f27e3fa82d, type: 3}
   _15inRowScore: 30
-  _maxTimeShowComboText: 80
+  _maxTimeShowCombo: 30
 --- !u!114 &658170488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11719,8 +11717,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: 0.07000738, y: -0.39175424, z: 0.029873574, w: 0.91691613}
-  m_LocalPosition: {x: 31.261791, y: 21.634586, z: -3.6657448}
+  m_LocalRotation: {x: -0.08108896, y: 0.26925144, z: 0.022722227, w: 0.95938104}
+  m_LocalPosition: {x: -25.249367, y: -2.8496723, z: -5.6018257}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1618369589}
