@@ -7,6 +7,8 @@ public class ChompyScript : MonoBehaviour {
     [SerializeField]
     private float _speed = 10;
 
+    private GameObject _damageParticle;
+
     private List<GameObject> _walls;
 
     private GameObject _garbageObject;
@@ -15,8 +17,10 @@ public class ChompyScript : MonoBehaviour {
     public GarbageWaveScript GarbageWaveScript { get { return _garbageWaveScript; } set { _garbageWaveScript = value; } }
 
     // Use this for initialization
-    void Start () {
-        
+    void Start ()
+    {
+        _damageParticle = (GameObject)Resources.Load("Explosion");
+
         //this.transform.rotation = new Quaternion(0, -1, 0, 1);
         this.GetComponent<BoxCollider>().enabled = false;
     }
@@ -48,6 +52,7 @@ public class ChompyScript : MonoBehaviour {
             Destroy(this.gameObject);
             _garbageWaveScript.DestroyedGarbage.Add(_garbageObject);
             Destroy(_garbageObject);
+            Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
         }
         else
         {

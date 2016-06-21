@@ -8,7 +8,6 @@ public class GarbadgeDestoryScript : MonoBehaviour {
     private GarbageType _garbageType;
     //private int _currentLane;
     private string _currentLane;
-    private GameObject _damageParticle;
     public float HP { get { return _hp; } set { _hp = value; } }
 
     private float _hp;
@@ -27,7 +26,6 @@ public class GarbadgeDestoryScript : MonoBehaviour {
 
                                        // Use this for initialization
     void Start () {
-        _damageParticle = (GameObject)Resources.Load("Damage");
         _originalPosition = this.gameObject.transform.position;
         if (HP == 0 && GetComponent<GarbageHPScript>())
         {

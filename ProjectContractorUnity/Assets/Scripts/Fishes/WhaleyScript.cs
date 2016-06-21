@@ -9,6 +9,8 @@ public class WhaleyScript : MonoBehaviour {
     private bool _rising = true;
     private bool _diving = false;
 
+    private GameObject _damageParticle;
+
     private List<GameObject> _walls;
     private List<GarbadgeDestoryScript> _garbage;
 
@@ -19,7 +21,9 @@ public class WhaleyScript : MonoBehaviour {
     public List<GarbadgeDestoryScript> Garbage { get { return _garbage; } set { _garbage = value; } }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        _damageParticle = (GameObject)Resources.Load("Explosion");
 
     }
 	
@@ -37,6 +41,7 @@ public class WhaleyScript : MonoBehaviour {
                     if (Garbage == null) continue;
 
                     Garbage.HP--;
+                    Instantiate(_damageParticle, Garbage.transform.position, Quaternion.identity);
                     Garbage.transform.position = Garbage.OriginalPosition;
                     if (Garbage.HP == 0)
                     {
@@ -55,6 +60,7 @@ public class WhaleyScript : MonoBehaviour {
             if (transform.position == new Vector3(-1, -165, 158))
             {
                 Destroy(this.gameObject);
+                
             }
         }
 

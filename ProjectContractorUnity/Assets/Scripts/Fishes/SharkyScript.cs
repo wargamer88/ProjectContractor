@@ -8,6 +8,8 @@ public class SharkyScript : MonoBehaviour {
     private float _speed = 10;
     private float _posX;
 
+    private GameObject _damageParticle;
+
     private bool _rising = true;
     private bool _floating = false;
     private bool _diving = false;
@@ -22,7 +24,9 @@ public class SharkyScript : MonoBehaviour {
     public float PosX { get { return _posX; } set { _posX = value; } }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        _damageParticle = (GameObject)Resources.Load("Explosion");
     }
 	
 	// Update is called once per frame
@@ -40,6 +44,7 @@ public class SharkyScript : MonoBehaviour {
                 {
                     if (Garbage == null) continue;
                     Destroy(Garbage.gameObject);
+                    Instantiate(_damageParticle, Garbage.transform.position, Quaternion.identity);
                     _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
                 }
             }
