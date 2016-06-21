@@ -242,6 +242,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cracked75front: {fileID: 2100000, guid: 269a2f6d592bf8a4987c334989766bc5, type: 2}
+  _cracked75segment: {fileID: 2100000, guid: 0b52bc808d5f5c7428ba35747dd4ddf1, type: 2}
+  _cracked75back: {fileID: 2100000, guid: a0374763d43951d4a9ccf50c9fafe5cc, type: 2}
+  _cracked50front: {fileID: 2100000, guid: 46ff23391d645554bb07c8c466bdcdd3, type: 2}
+  _cracked50segment: {fileID: 2100000, guid: 02fd2655fb69ae049b796747c4963108, type: 2}
+  _cracked50back: {fileID: 2100000, guid: a945d7156b052f34f8f17313b367ca05, type: 2}
+  _cracked25front: {fileID: 2100000, guid: 74206b4d776972245a32303441683c59, type: 2}
+  _cracked25segment: {fileID: 2100000, guid: d99dd2b9984cea040809d79c8a6e8829, type: 2}
+  _cracked25back: {fileID: 2100000, guid: a65b993a89a41a74e991ce6e953018a8, type: 2}
+  _cracked0front: {fileID: 2100000, guid: 2a53faaf9363667499133dd1bf1bf066, type: 2}
+  _cracked0segment: {fileID: 2100000, guid: 213945ade4072214396d6e6c7479323b, type: 2}
+  _cracked0back: {fileID: 2100000, guid: b6ca1957ed257144080f206cbe75e8f3, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -1391,6 +1403,7 @@ GameObject:
   - 92: {fileID: 149030031}
   - 124: {fileID: 149030030}
   - 81: {fileID: 149030029}
+  - 114: {fileID: 149030028}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1398,6 +1411,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &149030028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149030027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1265e4c9eda41e546b399e2ee30093ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!81 &149030029
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1508,6 +1535,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cracked75front: {fileID: 2100000, guid: 269a2f6d592bf8a4987c334989766bc5, type: 2}
+  _cracked75segment: {fileID: 2100000, guid: 0b52bc808d5f5c7428ba35747dd4ddf1, type: 2}
+  _cracked75back: {fileID: 2100000, guid: a0374763d43951d4a9ccf50c9fafe5cc, type: 2}
+  _cracked50front: {fileID: 2100000, guid: 46ff23391d645554bb07c8c466bdcdd3, type: 2}
+  _cracked50segment: {fileID: 2100000, guid: 02fd2655fb69ae049b796747c4963108, type: 2}
+  _cracked50back: {fileID: 2100000, guid: a945d7156b052f34f8f17313b367ca05, type: 2}
+  _cracked25front: {fileID: 2100000, guid: 74206b4d776972245a32303441683c59, type: 2}
+  _cracked25segment: {fileID: 2100000, guid: d99dd2b9984cea040809d79c8a6e8829, type: 2}
+  _cracked25back: {fileID: 2100000, guid: a65b993a89a41a74e991ce6e953018a8, type: 2}
+  _cracked0front: {fileID: 2100000, guid: 2a53faaf9363667499133dd1bf1bf066, type: 2}
+  _cracked0segment: {fileID: 2100000, guid: 213945ade4072214396d6e6c7479323b, type: 2}
+  _cracked0back: {fileID: 2100000, guid: b6ca1957ed257144080f206cbe75e8f3, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -2261,6 +2300,21 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8023eb7c6cffec9448b5e0c005eafe66, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &239286583 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: feabd92e6266f9c4bb733ed11a3494cd, type: 3}
+  m_PrefabInternal: {fileID: 1467535705}
+--- !u!114 &239286584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 239286583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b514294f900ddcc42860f967cdcb9f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &244646834
 GameObject:
   m_ObjectHideFlags: 0
@@ -4872,6 +4926,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cracked75front: {fileID: 2100000, guid: 269a2f6d592bf8a4987c334989766bc5, type: 2}
+  _cracked75segment: {fileID: 2100000, guid: 0b52bc808d5f5c7428ba35747dd4ddf1, type: 2}
+  _cracked75back: {fileID: 2100000, guid: a0374763d43951d4a9ccf50c9fafe5cc, type: 2}
+  _cracked50front: {fileID: 2100000, guid: 46ff23391d645554bb07c8c466bdcdd3, type: 2}
+  _cracked50segment: {fileID: 2100000, guid: 02fd2655fb69ae049b796747c4963108, type: 2}
+  _cracked50back: {fileID: 2100000, guid: a945d7156b052f34f8f17313b367ca05, type: 2}
+  _cracked25front: {fileID: 2100000, guid: 74206b4d776972245a32303441683c59, type: 2}
+  _cracked25segment: {fileID: 2100000, guid: d99dd2b9984cea040809d79c8a6e8829, type: 2}
+  _cracked25back: {fileID: 2100000, guid: a65b993a89a41a74e991ce6e953018a8, type: 2}
+  _cracked0front: {fileID: 2100000, guid: 2a53faaf9363667499133dd1bf1bf066, type: 2}
+  _cracked0segment: {fileID: 2100000, guid: 213945ade4072214396d6e6c7479323b, type: 2}
+  _cracked0back: {fileID: 2100000, guid: b6ca1957ed257144080f206cbe75e8f3, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -9266,6 +9332,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cracked75front: {fileID: 2100000, guid: 269a2f6d592bf8a4987c334989766bc5, type: 2}
+  _cracked75segment: {fileID: 2100000, guid: 0b52bc808d5f5c7428ba35747dd4ddf1, type: 2}
+  _cracked75back: {fileID: 2100000, guid: a0374763d43951d4a9ccf50c9fafe5cc, type: 2}
+  _cracked50front: {fileID: 2100000, guid: 46ff23391d645554bb07c8c466bdcdd3, type: 2}
+  _cracked50segment: {fileID: 2100000, guid: 02fd2655fb69ae049b796747c4963108, type: 2}
+  _cracked50back: {fileID: 2100000, guid: a945d7156b052f34f8f17313b367ca05, type: 2}
+  _cracked25front: {fileID: 2100000, guid: 74206b4d776972245a32303441683c59, type: 2}
+  _cracked25segment: {fileID: 2100000, guid: d99dd2b9984cea040809d79c8a6e8829, type: 2}
+  _cracked25back: {fileID: 2100000, guid: a65b993a89a41a74e991ce6e953018a8, type: 2}
+  _cracked0front: {fileID: 2100000, guid: 2a53faaf9363667499133dd1bf1bf066, type: 2}
+  _cracked0segment: {fileID: 2100000, guid: 213945ade4072214396d6e6c7479323b, type: 2}
+  _cracked0back: {fileID: 2100000, guid: b6ca1957ed257144080f206cbe75e8f3, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
@@ -11656,8 +11734,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: -0.33684674, y: 0.034988493, z: 0.0124910455, w: 0.9408263}
-  m_LocalPosition: {x: 29.027489, y: -64.47174, z: -96.69374}
+  m_LocalRotation: {x: -0.2471968, y: -0.00043543402, z: -0.00033476547, w: 0.9689652}
+  m_LocalPosition: {x: 11.186759, y: 3.3341217, z: -56.856678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1618369589}
@@ -14950,15 +15028,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: feabd92e6266f9c4bb733ed11a3494cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47.23076
+      value: -47.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feabd92e6266f9c4bb733ed11a3494cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.068634
+      value: 32.6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feabd92e6266f9c4bb733ed11a3494cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 172.83446
+      value: 174.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feabd92e6266f9c4bb733ed11a3494cd, type: 3}
       propertyPath: m_LocalRotation.x
@@ -18640,6 +18718,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49e3e312e40e2c40a0a8c4a6779c538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cracked75front: {fileID: 2100000, guid: 269a2f6d592bf8a4987c334989766bc5, type: 2}
+  _cracked75segment: {fileID: 2100000, guid: 0b52bc808d5f5c7428ba35747dd4ddf1, type: 2}
+  _cracked75back: {fileID: 2100000, guid: a0374763d43951d4a9ccf50c9fafe5cc, type: 2}
+  _cracked50front: {fileID: 2100000, guid: 46ff23391d645554bb07c8c466bdcdd3, type: 2}
+  _cracked50segment: {fileID: 2100000, guid: 02fd2655fb69ae049b796747c4963108, type: 2}
+  _cracked50back: {fileID: 2100000, guid: a945d7156b052f34f8f17313b367ca05, type: 2}
+  _cracked25front: {fileID: 2100000, guid: 74206b4d776972245a32303441683c59, type: 2}
+  _cracked25segment: {fileID: 2100000, guid: d99dd2b9984cea040809d79c8a6e8829, type: 2}
+  _cracked25back: {fileID: 2100000, guid: a65b993a89a41a74e991ce6e953018a8, type: 2}
+  _cracked0front: {fileID: 2100000, guid: 2a53faaf9363667499133dd1bf1bf066, type: 2}
+  _cracked0segment: {fileID: 2100000, guid: 213945ade4072214396d6e6c7479323b, type: 2}
+  _cracked0back: {fileID: 2100000, guid: b6ca1957ed257144080f206cbe75e8f3, type: 2}
   _hitTimer: 1
   _repairTime: 10
   _repairForEachTime: 1
