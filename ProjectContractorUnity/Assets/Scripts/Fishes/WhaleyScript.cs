@@ -13,6 +13,7 @@ public class WhaleyScript : MonoBehaviour {
 
     private List<GameObject> _walls;
     private List<GarbadgeDestoryScript> _garbage;
+    private HighscoreScript _highscoreScript;
 
     private GameObject _garbageObject;
     private GarbageWaveScript _garbageWaveScript;
@@ -23,6 +24,7 @@ public class WhaleyScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        _highscoreScript = FindObjectOfType<HighscoreScript>();
         _damageParticle = (GameObject)Resources.Load("Explosion");
 
     }
@@ -47,6 +49,7 @@ public class WhaleyScript : MonoBehaviour {
                     {
                         _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
                         Destroy(Garbage.gameObject);
+                        _highscoreScript.AddTrashScore(Garbage.GetComponent<GarbadgeDestoryScript>().GarbageType);
                     }
                 }
                 _rising = false;
