@@ -387,20 +387,20 @@ public class GarbageWaveScript : MonoBehaviour
         gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
         gameSpawnObject.GetComponent<Rigidbody>().mass = 1000;
         
-        gameSpawnObject.GetComponent<Rigidbody>().constraints = /*RigidbodyConstraints.FreezePositionX | */RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
         gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
         //gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
         gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
 
         
-        if (gameSpawnObject.name != "HippyVan" && gameSpawnObject.name != "Plastic_Bottle")
+        if (gameSpawnObject.name != "HippyVan" && gameSpawnObject.name != "Plastic_Bottle" && gameSpawnObject.name != "Log")
         {
             //float randomRotationX = Random.Range(0, 360);
             float randomRotationY = Random.Range(0, 360);
             //float randomRotationZ = Random.Range(0, 360);
             gameSpawnObject.transform.rotation = Quaternion.Euler(new Vector3(0, randomRotationY, 0));
         }
-        else if (gameSpawnObject.name == "Plastic_Bottle")
+        else if (gameSpawnObject.name == "Plastic_Bottle" && gameSpawnObject.name != "Log")
         {
             //float randomRotationX = Random.Range(0, 360);
             //float randomRotationY = Random.Range(0, 360);

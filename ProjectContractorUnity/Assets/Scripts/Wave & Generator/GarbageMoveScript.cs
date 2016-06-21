@@ -45,6 +45,7 @@ public class GarbageMoveScript : MonoBehaviour {
 
     public void ChangeLane(Vector3 pNewPosition)
     {
+        _rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionX;
         _newPosition = pNewPosition;
         _changeLane = true;
     }
@@ -99,11 +100,13 @@ public class GarbageMoveScript : MonoBehaviour {
                 {
                     _rigidbody.velocity = new Vector3(-1.75f, 0, _rigidbody.velocity.z);
                     _changeLaneDone = false;
+                    _rigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
                 }
                 else if (_rigidbody.velocity.x < 1 && _rigidbody.velocity.x > -1 && _isMinus == false)
                 {
                     _rigidbody.velocity = new Vector3(1.75f, 0, _rigidbody.velocity.z);
                     _changeLaneDone = false;
+                    _rigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
                 }
             }
             else

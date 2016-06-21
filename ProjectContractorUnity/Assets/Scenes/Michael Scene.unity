@@ -1706,9 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e0bbb1967fd244991f28365c691da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 100
-  _chosenBall: {fileID: 184616, guid: adfd8739dac766e46996ef8f3e2e7405, type: 2}
-  _depthCooldown: 3
+  _chosenBullet: {fileID: 184616, guid: adfd8739dac766e46996ef8f3e2e7405, type: 2}
 --- !u!95 &160146620
 Animator:
   serializedVersion: 3
@@ -2626,7 +2624,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 10
+    _wave: 1
+    _isEveryWave: 0
+    _everyXWave: 1
+    _amountOfObject: 1
+    _speedOfObject: 1
+    _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 168356, guid: 95d4c990a8665f649b2196bc0dc7397e, type: 2}
 --- !u!23 &266950894
 MeshRenderer:
@@ -5061,7 +5066,7 @@ MonoBehaviour:
   _timeToRespawnIncreaseForEachWave: 0.3
   _increaseAmountOfObjectForEachWave: 1
   _lightGarbage:
-  - {fileID: 172712, guid: 2f9a0fec3b21a454e82fbe89db3f11d3, type: 2}
+  - {fileID: 179980, guid: 39887af467489384ba26831e2e01f250, type: 2}
   - {fileID: 148870, guid: 76e6b58ba34d38a4a98751c2e1e7cad1, type: 2}
   - {fileID: 120022, guid: 99e883783be9b7e45aabb8c19aa2a9bb, type: 2}
   _mediumGarbage:
@@ -6639,7 +6644,7 @@ MonoBehaviour:
   _10inRowScore: 20
   _15inRowImage: {fileID: 21300000, guid: f463e36b38f874cebb1361f27e3fa82d, type: 3}
   _15inRowScore: 30
-  _maxTimeShowComboText: 80
+  _maxTimeShowCombo: 0
 --- !u!114 &658170488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15604,7 +15609,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 12
+    _wave: 1
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 0
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 168356, guid: 95d4c990a8665f649b2196bc0dc7397e, type: 2}
 --- !u!23 &1560244782
 MeshRenderer:

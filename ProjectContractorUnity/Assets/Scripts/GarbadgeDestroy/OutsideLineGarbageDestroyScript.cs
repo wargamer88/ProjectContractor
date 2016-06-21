@@ -7,6 +7,7 @@ public class OutsideLineGarbageDestroyScript : MonoBehaviour {
     {
         if (pOther.gameObject.tag == "Garbage")
         {
+            GameObject.FindObjectOfType<GarbageWaveScript>().DestroyedGarbage.Add(pOther.gameObject);
             Destroy(pOther.gameObject);
         }
     }

@@ -34,7 +34,11 @@ public class BoatEventScript : MonoBehaviour {
     }
 	
 	void Update () {
-	}
+        if (this.transform.position == _targetPostion)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     void FixedUpdate()
     {
