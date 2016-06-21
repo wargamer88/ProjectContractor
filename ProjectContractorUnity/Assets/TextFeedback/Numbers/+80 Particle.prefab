@@ -83,7 +83,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.6
+      scalar: 0.9
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -247,7 +247,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 15
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -474,8 +474,23 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
+        - time: 0.35042405
+          value: 0.91404384
+          inSlope: -0.034474432
+          outSlope: -0.034474432
+          tangentMode: 0
+        - time: 0.4977018
+          value: 0.90776926
+          inSlope: 0.056618992
+          outSlope: 0.056618992
+          tangentMode: 0
+        - time: 0.6489955
+          value: 0.902074
+          inSlope: -0.090511195
+          outSlope: -0.090511195
+          tangentMode: 0
         - time: 1
-          value: 1
+          value: 0.15384614
           inSlope: 0
           outSlope: 0
           tangentMode: 0
