@@ -176,7 +176,7 @@ public class HighscoreScript : MonoBehaviour {
     /// </summary>
     public void ComboCheck()
     {
-        if (_comboCounter == 3)
+        if (_comboCounter == 5)
         {
             _score += _3inRowScore;
             _numberParticle.PlaceParticleCombo(ComboType.ThreeinRow);
@@ -186,7 +186,7 @@ public class HighscoreScript : MonoBehaviour {
                 _superUI.GetComponent<Image>().enabled = true; 
             }
         }
-        else if(_comboCounter == 5)
+        else if(_comboCounter == 10)
         {
             _score += _5inRowScore;
             _numberParticle.PlaceParticleCombo(ComboType.FiveinRow);
@@ -196,7 +196,7 @@ public class HighscoreScript : MonoBehaviour {
                _geweldig.GetComponent<Image>().enabled = true; 
             }
         }
-        else if(_comboCounter == 10)
+        else if(_comboCounter == 15)
         {
             _score += _10inRowScore;
             _numberParticle.PlaceParticleCombo(ComboType.TeninRow);
@@ -206,7 +206,7 @@ public class HighscoreScript : MonoBehaviour {
                 _ongelooflijk.GetComponent<Image>().enabled = true; 
             }
         }
-        else if(_comboCounter == 15)
+        else if(_comboCounter == 20)
         {
             _score += _15inRowScore;
             _numberParticle.PlaceParticleCombo(ComboType.FifteeninRow);
