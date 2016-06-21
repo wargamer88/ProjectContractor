@@ -402,7 +402,7 @@ public class SpawnObjectScript : MonoBehaviour {
                     //{
                     if (!pGarbageWaveScript.DeadLaneList.Contains(pExe.transform.name.Substring(0, 1)))
                     {
-                        GameObject bottle = pGarbageWaveScript.LightGarbage[random];
+                        GameObject bottle = pGarbageWaveScript.SpecialGarbage[0];
 
                         pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
                         //_isEventDone = true;

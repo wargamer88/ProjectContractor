@@ -13,12 +13,14 @@ public class ChompyScript : MonoBehaviour {
 
     private GameObject _garbageObject;
     private GarbageWaveScript _garbageWaveScript;
+    private HighscoreScript _highscoreScript;
     public GameObject GarbageObject { get { return _garbageObject; } set { _garbageObject = value; } }
     public GarbageWaveScript GarbageWaveScript { get { return _garbageWaveScript; } set { _garbageWaveScript = value; } }
 
     // Use this for initialization
     void Start ()
     {
+        _highscoreScript = FindObjectOfType<HighscoreScript>();
         _damageParticle = (GameObject)Resources.Load("Explosion");
 
         //this.transform.rotation = new Quaternion(0, -1, 0, 1);
@@ -52,6 +54,7 @@ public class ChompyScript : MonoBehaviour {
         {
             Destroy(this.gameObject);
             _garbageWaveScript.DestroyedGarbage.Add(_garbageObject);
+            _highscoreScript.AddTrashScore(_garbageObject.GetComponent<GarbadgeDestoryScript>().GarbageType);
             Destroy(_garbageObject);
             Instantiate(_damageParticle, _garbageObject.transform.position, Quaternion.identity);
         }
