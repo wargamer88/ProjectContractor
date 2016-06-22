@@ -3,8 +3,11 @@ using System.Collections;
 
 public class ScreenStartScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    /// <summary>
+    /// <para>disabling all the FloatObjectScript in the the parant Wave_Generator</para>
+    /// <para>and also to make sure nothing is moving the timeScale is set to 0</para>
+    /// </summary>
+    void Start () {
         FloatObjectScript[] floatscripts = GameObject.Find("Wave_Generator").GetComponentsInChildren<FloatObjectScript>();
         foreach (FloatObjectScript scripts in floatscripts)
         {
@@ -12,12 +15,12 @@ public class ScreenStartScript : MonoBehaviour {
         }
         Time.timeScale = 0;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
+    /// <summary>
+    /// <para>enabling all the FloatObjectScript in the the parant Wave_Generator</para>
+    /// <para>and also to make sure nothing is moving the timeScale is set to 1</para>
+    /// <para>And at last destroying this GameObject</para>
+    /// </summary>
     void OnMouseDown()
     {
         FloatObjectScript[] floatscripts = GameObject.Find("Wave_Generator").GetComponentsInChildren<FloatObjectScript>();

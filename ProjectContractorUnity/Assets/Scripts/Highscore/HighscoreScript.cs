@@ -89,7 +89,8 @@ public class HighscoreScript : MonoBehaviour {
 
     /// <summary>
     /// <para>set all the default Variables</para>
-    /// <para>find all the Objects needed</para>
+    /// <para>find all the Images needed</para>
+    /// <para>NumberParticleScript is put in here</para>
     /// </summary>
     void Start () {
         _score = 0;
@@ -109,13 +110,13 @@ public class HighscoreScript : MonoBehaviour {
     /// <para>Calls the Function which checks the Combo Timer to see when to hide Image</para>
     /// </summary>
 	void Update () {
-        CheckComboTimer();
+        _checkComboTimer();
 	}
 
     /// <summary>
     /// <para>Checks when to hide the Combo Images</para>
     /// </summary>
-    private void CheckComboTimer()
+    private void _checkComboTimer()
     {
         if (_comboUI.GetComponent<Image>().enabled == true || _waveClearUI.GetComponent<Image>().enabled == true || _superUI.GetComponent<Image>().enabled == true ||
             _nietaanterakenUI.GetComponent<Image>().enabled == true || _geweldig.GetComponent<Image>().enabled == true || _ongelooflijk.GetComponent<Image>().enabled == true
@@ -160,13 +161,13 @@ public class HighscoreScript : MonoBehaviour {
                 _score += _superHeavyTrashScore;
                 break;
         }
-        UpdateScore();
+        _updateScore();
     }
 
     /// <summary>
     /// <para>Adds the score to the HuD</para>
     /// </summary>
-    private void UpdateScore()
+    private void _updateScore()
     {
         _scoreUI.GetComponent<Text>().text = _score.ToString();
     }
@@ -216,7 +217,7 @@ public class HighscoreScript : MonoBehaviour {
                 _superheld.GetComponent<Image>().enabled = true; 
             }
         }
-        UpdateScore();
+        _updateScore();
     }
 
     /// <summary>

@@ -3,26 +3,24 @@ using System.Collections;
 
 public class GeneratorPowerScript : MonoBehaviour {
 
-    private float _generatorEngergy = 100;
-    private float _generatorHP = 100;
-    private float _oldTime = 0;
-    [SerializeField]
-    private float _timerGenerator = 0;
-    [SerializeField]
-    private float _timerDamage = 0;
-
+    #region Variables
+    //Amount of Waves in the game
     private int _amountOfWaves = 0;
+    //GarbageWaveScript for knowin the current wave
     private GarbageWaveScript _garbageWaveScript;
+    //bool to know if the Score is already send
     private bool _scoreSend = false;
 
+    //amount of destroyed Generators
     private int _destroyedGenerator = 0;
+
+    //properties
     public int DestroyedGenerator { set { _destroyedGenerator = value; } get { return _destroyedGenerator; } }
-    public float GeneratorEnergy { set { _generatorEngergy = value;} get { return _generatorEngergy; } }
+    #endregion
 
-    private int _amount = 0;
-    public int Amount { set { _amount = value; } get { return _amount; } }
-
-    // Use this for initialization
+    /// <summary>
+    /// get all the ExecuteEventScripts and egt the highest wave number
+    /// </summary>
     void Start () {
         _garbageWaveScript = FindObjectOfType<GarbageWaveScript>();
         foreach (ExecuteEventScript exe in FindObjectsOfType<ExecuteEventScript>())
@@ -36,26 +34,19 @@ public class GeneratorPowerScript : MonoBehaviour {
             }
         }
 	}
-	
-	// Update is called once per frame
-	void Update () { 
-        if (Time.time > (_oldTime + _timerGenerator))
-        {
-            _oldTime = Time.time;
-            _generatorEngergy = _generatorEngergy - _amount;
-        }
-        if (_generatorEngergy < 50)
-        {
-            //Still going to need it?
-        }
 
-        //          LOST                            WON
+    /// <summary>
+    /// <para>check for the lost condition, all 5 generators destroyed</para>
+    /// <para>or Check for win condition, current wave is higher than max amount calculated in Start</para>
+    /// <para>when one of those conditions is true, send the score to HEIM Mainframe</para>
+    /// </summary>
+    void Update () {
+        //                     LOST                            WON
         if (_destroyedGenerator == 5 || _garbageWaveScript.Wave > _amountOfWaves)
         {
             if (!_scoreSend) //Making sure the score is send once
             {
                 Debug.Log("Game Ended");
-                //FindObjectOfType<DBconnection>().UploadScore(FindObjectOfType<HighscoreScript>().Score);
                 StartCoroutine(FindObjectOfType<DBconnection>().UploadScore(FindObjectOfType<HighscoreScript>().Score));
                 _scoreSend = true;
             }
