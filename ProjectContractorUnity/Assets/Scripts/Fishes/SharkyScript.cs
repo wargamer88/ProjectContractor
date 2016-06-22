@@ -4,36 +4,55 @@ using System.Linq;
 
 public class SharkyScript : MonoBehaviour {
 
+    #region Variables
+    //The speed of Sharky
     [SerializeField]
     private float _speed = 10;
+
+    //this position is set from PowerupsScript, to know which lane it should swim in
     private float _posX;
-
-    private GameObject _damageParticle;
-
+    
+    //Bools for the different states Sharky is in
     private bool _rising = true;
     private bool _floating = false;
     private bool _diving = false;
 
+    //particle variable for the explosion when Sharky destroys the garbage
+    private GameObject _explosionParticle;
+    
+    //List with all the Garbage Sharky should destroy
     private List<GarbadgeDestoryScript> _garbage;
+    
+    //store GarbageWaveScript which it gets from PowerupsScript
+    private GarbageWaveScript _garbageWaveScript;
+
+    //store HighscoreScript which will be loaded in Start
     private HighscoreScript _highscoreScript;
 
-    private GameObject _garbageObject;
-    private GarbageWaveScript _garbageWaveScript;
-    public GameObject GarbageObject { get { return _garbageObject; } set { _garbageObject = value; } }
+    //properties
     public GarbageWaveScript GarbageWaveScript { get { return _garbageWaveScript; } set { _garbageWaveScript = value; } }
     public List<GarbadgeDestoryScript> Garbage { get { return _garbage; } set { _garbage = value; } }
     public float PosX { get { return _posX; } set { _posX = value; } }
+    #endregion
 
-    // Use this for initialization
+    /// <summary>
+    /// <para>load HighscoreScript</para>
+    /// <para>load Explosion prefab from resources</para>
+    /// </summary>
     void Start ()
     {
         _highscoreScript = FindObjectOfType<HighscoreScript>();
-        _damageParticle = (GameObject)Resources.Load("Explosion");
+        _explosionParticle = (GameObject)Resources.Load("Explosion");
     }
 	
-	// Update is called once per frame
+	/// <summary>
+    /// <para>First the rising of Sharky is executed</para>
+    /// <para>Then the floating of sharky</para>
+    /// <para>and then the diving of sharky</para>
+    /// </summary>
 	void Update () {
         float step = _speed * Time.deltaTime;
+
         if (_rising)
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(_posX, 2f, -23.1f), step);
@@ -47,7 +66,7 @@ public class SharkyScript : MonoBehaviour {
                     if (Garbage == null) continue;
                     Destroy(Garbage.gameObject);
                     _highscoreScript.AddTrashScore(Garbage.GetComponent<GarbadgeDestoryScript>().GarbageType);
-                    Instantiate(_damageParticle, Garbage.transform.position, Quaternion.identity);
+                    Instantiate(_explosionParticle, Garbage.transform.position, Quaternion.identity);
                     _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
                 }
             }
@@ -68,15 +87,6 @@ public class SharkyScript : MonoBehaviour {
             {
                 Destroy(this.gameObject);
             }
-        }
-    }
-
-    void OnCollisionEnter(Collision pOther)
-    {
-        if (_garbage.Contains(pOther.gameObject.GetComponent<GarbadgeDestoryScript>()))
-        {
-            _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
-            Destroy(pOther.gameObject);
         }
     }
 }

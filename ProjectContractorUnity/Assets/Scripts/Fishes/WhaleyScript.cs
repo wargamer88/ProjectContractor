@@ -4,33 +4,49 @@ using System.Linq;
 
 public class WhaleyScript : MonoBehaviour {
 
+    #region Variables
+    //The speed of Sharky
     [SerializeField]
     private float _speed = 10;
+
+    //Bools for the different states Whaley is in
     private bool _rising = true;
     private bool _diving = false;
 
+    //particle variable for the explosion when Sharky destroys the garbage
     private GameObject _damageParticle;
 
-    private List<GameObject> _walls;
+    //List with all the Garbage Sharky should destroy
     private List<GarbadgeDestoryScript> _garbage;
+
+    //store HighscoreScript which will be loaded in Start
     private HighscoreScript _highscoreScript;
 
-    private GameObject _garbageObject;
+    //store GarbageWaveScript which it gets from PowerupsScript
     private GarbageWaveScript _garbageWaveScript;
-    public GameObject GarbageObject { get { return _garbageObject; } set { _garbageObject = value; } }
-    public GarbageWaveScript GarbageWaveScript { get { return _garbageWaveScript; } set { _garbageWaveScript = value; } }
-    public List<GarbadgeDestoryScript> Garbage { get { return _garbage; } set { _garbage = value; } }
 
-    // Use this for initialization
+    //properties
+    public GarbageWaveScript GarbageWaveScript { get { return _garbageWaveScript; } set { _garbageWaveScript = value; } }
+    public List<GarbadgeDestoryScript> Garbage { get { return _garbage; } set { _garbage = value; } } 
+    #endregion
+
+    /// <summary>
+    /// <para>load HighscoreScript</para>
+    /// <para>load Explosion prefab from resources</para>
+    /// </summary>
     void Start ()
     {
         _highscoreScript = FindObjectOfType<HighscoreScript>();
         _damageParticle = (GameObject)Resources.Load("Explosion");
-
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    /// <summary>
+    /// <para>First the rising of Whaley is executed</para>
+    /// <para>When Whaley is above the water it gives Garbage 1 hp damage and puts them back to their startpoint</para>
+    /// <para>if garbage has 0 hp the garbage in is destroyed and ExplosionParticle is instantiated</para>
+    /// <para>and then the diving of Whaley is executed</para>
+    /// </summary>
+    void Update () {
         float step = _speed * Time.deltaTime;
         if (_rising)
         {
@@ -54,7 +70,6 @@ public class WhaleyScript : MonoBehaviour {
                 }
                 _rising = false;
                 _diving = true;
-
             }
         }
         else if (_diving)
@@ -66,10 +81,5 @@ public class WhaleyScript : MonoBehaviour {
                 
             }
         }
-
-
-
-
-
     }
 }

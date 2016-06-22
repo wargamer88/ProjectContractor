@@ -4,34 +4,48 @@ using System.Linq;
 
 public class ChompyScript : MonoBehaviour {
 
+    #region variables
+    //Set the speed of Chompy
     [SerializeField]
     private float _speed = 10;
 
-    private GameObject _damageParticle;
+    //particle variable for the explosion when Chompy hits the garbage
+    private GameObject _explosionParticle;
 
-    private List<GameObject> _walls;
-
+    //Garbage object to destroy by chompy
     private GameObject _garbageObject;
+    
+    //store GarbageWaveScript which it gets from PowerupsScript
     private GarbageWaveScript _garbageWaveScript;
+
+    //store HighscoreScript which will be loaded in Start
     private HighscoreScript _highscoreScript;
+
+    //properties
     public GameObject GarbageObject { get { return _garbageObject; } set { _garbageObject = value; } }
     public GarbageWaveScript GarbageWaveScript { get { return _garbageWaveScript; } set { _garbageWaveScript = value; } }
+    #endregion
 
-    // Use this for initialization
+    /// <summary>
+    /// <para>load HighscoreScript</para>
+    /// <para>load Explosion prefab from resources</para>
+    /// <para>disable the BoxCollider if this script is active</para>
+    /// </summary>
     void Start ()
     {
         _highscoreScript = FindObjectOfType<HighscoreScript>();
-        _damageParticle = (GameObject)Resources.Load("Explosion");
+        _explosionParticle = (GameObject)Resources.Load("Explosion");
 
-        //this.transform.rotation = new Quaternion(0, -1, 0, 1);
         this.GetComponent<BoxCollider>().enabled = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
 
+    /// <summary>
+    /// <para>Movement of Chompy(Y pos is fixed)</para>
+    /// <para>Destroying of Chompy and Garbage</para>
+    /// </summary>
+    void Update () {
         
-
+        //movement
         if (_garbageObject == null)
         {
             Destroy(this.gameObject);
@@ -40,34 +54,26 @@ public class ChompyScript : MonoBehaviour {
         Vector3 tempPos = _garbageObject.transform.position;
         tempPos.y = 3;
         transform.position = Vector3.MoveTowards(transform.position, tempPos, step);
-
+        
+        //destroying
         if ((this.transform.position - tempPos).magnitude < 10)
         {
-            //this.GetComponent<BoxCollider>().enabled = true;
-            DestroyGarbageObject();
+            _destroyGarbageObject();
         }
     }
 
-    void DestroyGarbageObject()
+    /// <summary>
+    /// <para>only be called if Chompy and trash have to be destroyed</para>
+    /// <para>adding garbage to GarbageWaveScript.DestroyedGarbage for equal spawned and destroyed garbage</para>
+    /// <para>adding garbage type to HighscoreScript.AddTrashScore for score updating</para>
+    /// <para>when Chompy and Garbage are destroyed instantiate the ExplosionParticle</para>
+    /// </summary>
+    private void _destroyGarbageObject()
     {
-        if (_garbageObject.gameObject == _garbageObject)
-        {
-            Destroy(this.gameObject);
-            _garbageWaveScript.DestroyedGarbage.Add(_garbageObject);
-            _highscoreScript.AddTrashScore(_garbageObject.GetComponent<GarbadgeDestoryScript>().GarbageType);
-            Destroy(_garbageObject);
-            Instantiate(_damageParticle, _garbageObject.transform.position, Quaternion.identity);
-        }
-        else
-        {
-            //if (pOther.gameObject.tag != "SpecialWeapon" || pOther.gameObject.tag != "Projectile")
-            //{
-            //    Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<BoxCollider>()); 
-            //}
-            //else 
-            //{
-            //    Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), pOther.gameObject.GetComponent<SphereCollider>());
-            //}
-        }
+        _garbageWaveScript.DestroyedGarbage.Add(_garbageObject);
+        _highscoreScript.AddTrashScore(_garbageObject.GetComponent<GarbadgeDestoryScript>().GarbageType);
+        Destroy(this.gameObject);
+        Destroy(_garbageObject);
+        Instantiate(_explosionParticle, _garbageObject.transform.position, Quaternion.identity);
     }
 }
