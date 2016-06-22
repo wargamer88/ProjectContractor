@@ -12,6 +12,7 @@ public class AutoAimScript : MonoBehaviour
 
     //The object that is the instantiated Chosenball
     private GameObject _bullet;
+
     //The offset from the Catapult where the bullet will spawn
     private Vector3 _ballOffset;
 
@@ -54,7 +55,7 @@ public class AutoAimScript : MonoBehaviour
             Physics.Raycast(vRay, out _hit, 10000);
             if (_hit.collider != null)
             {
-                if ((_hit.collider.gameObject.name == "AimPlane" || _hit.collider.gameObject.tag == "Garbage" /*|| _hit.collider.gameObject.name == "LineWall" || _hit.collider.gameObject.name == "Lines"*/))
+                if ((_hit.collider.gameObject.name == "AimPlane" || _hit.collider.gameObject.tag == "Garbage" ))
                 {
                     if (Time.time > (_oldTime + 0.5f))
                     {
@@ -76,8 +77,7 @@ public class AutoAimScript : MonoBehaviour
         Quaternion randomRotation = Random.rotation;
 
         //Make sure to play Shooting Animation, by switching back and forth
-        GetComponent<Animator>().Play("Finished");
-        GetComponent<Animator>().Play("Shoot");
+        GetComponent<Animator>().Play("Fast_Shoot");
 
         //Instantiating Bullet
         _bullet = GameObject.Instantiate(_chosenBullet);

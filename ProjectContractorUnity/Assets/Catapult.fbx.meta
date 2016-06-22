@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 5922954a66f51ee48b725e8fe5dbb167
-timeCreated: 1466077661
+guid: a1f2dd2d416d6114bb363d32ea176eac
+timeCreated: 1466429011
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -483,9 +483,11 @@ ModelImporter:
     4300174: pCube6
     4300176: pCube7
     4300178: pCube8
-    7400000: Fast_Shoot
+    7400000: Wench
     7400002: Idle
+    7400004: Fast_Shoot
     9500000: //RootNode
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -500,7 +502,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -508,10 +510,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Fast_Shoot
+      name: Wench
       takeName: Take 001
-      firstFrame: 3
-      lastFrame: 32
+      firstFrame: 1
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -747,7 +749,243 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 2
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Arm1
+        weight: 1
+      - path: Arm1/Arm
+        weight: 1
+      - path: Arm1/Buttons
+        weight: 1
+      - path: Arm1/Buttons/Button
+        weight: 1
+      - path: Arm1/Buttons/Button2
+        weight: 1
+      - path: Arm1/Buttons/Button3
+        weight: 1
+      - path: Arm1/Buttons/Button4
+        weight: 1
+      - path: Arm1/Buttons/Button5
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button1
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button6
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button7
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button8
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button9
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button10
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button11
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button12
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button13
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button14
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button15
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button16
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button17
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button18
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button19
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button20
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button21
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button22
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button23
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button24
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button25
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button26
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button27
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button28
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button29
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button30
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button31
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button32
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button33
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button34
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button35
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button36
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button37
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button38
+        weight: 1
+      - path: Arm1/Buttons/catapult_anim_v2:Button39
+        weight: 1
+      - path: Arm1/Straps
+        weight: 1
+      - path: Arm1/Straps/pCube1
+        weight: 1
+      - path: Arm1/Straps/pCube2
+        weight: 1
+      - path: Arm1/Straps/pCube3
+        weight: 1
+      - path: Arm1/Straps/pCube4
+        weight: 1
+      - path: Arm1/Straps/pCube5
+        weight: 1
+      - path: Arm1/Straps/pCube6
+        weight: 1
+      - path: Arm1/Straps/pCube7
+        weight: 1
+      - path: Arm1/Straps/pCube8
+        weight: 1
+      - path: Winch
+        weight: 1
+      - path: Winch/Pully1
+        weight: 1
+      - path: Winch/Pully1/group2
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder2
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder3
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder4
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder5
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder23
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder24
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder25
+        weight: 1
+      - path: Winch/Pully1/group2/pCylinder26
+        weight: 1
+      - path: Winch/Pully1/group2/polySurface3
+        weight: 1
+      - path: Winch/Pully1/group6
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder2 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder3 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder4 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder5 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder23 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder24 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder25 1
+        weight: 1
+      - path: Winch/Pully1/group6/pCylinder26 1
+        weight: 1
+      - path: Winch/Turn_Wheel2
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder14
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder15
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder16
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder17
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder18
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder19
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder20
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder21
+        weight: 1
+      - path: Winch/Turn_Wheel2/Gear/pCylinder22
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7/pCube20
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7/pCylinder27
+        weight: 1
+      - path: Winch/Turn_Wheel2/group7/pCylinder28
+        weight: 1
+      - path: Winch/Turn_Wheel3
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder14 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder15 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder16 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder17 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder18 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder19 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder20 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder21 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/Gear1/pCylinder22 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8/pCube20 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8/pCylinder27 1
+        weight: 1
+      - path: Winch/Turn_Wheel3/group8/pCylinder28 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Fast_Shoot
+      takeName: Take 001
+      firstFrame: 21
+      lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -982,7 +1220,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 60
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
