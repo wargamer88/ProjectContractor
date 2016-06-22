@@ -1,4 +1,4 @@
-﻿﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +48,7 @@ public class GarbageWaveScript : MonoBehaviour
     private GameObject _garbageParent;
     //Wave number and a property to look at which wave the game is
     private int _waveNumber = 0;
-    public int Wave { get {return _waveNumber; } }
+    public int Wave { get { return _waveNumber; } }
     //getting all the garbage generator scripts in the game
     private GarbadgeGeneratorScript[] _generators;
     //set if the generator is hit to true
@@ -61,7 +61,7 @@ public class GarbageWaveScript : MonoBehaviour
     private List<string> _deadLaneList;
     public List<string> DeadLaneList { get { return _deadLaneList; } set { _deadLaneList = value; } }
     //counter to reset when a place is found to place the object in the tile
-    private int _renewCounter=0;
+    private int _renewCounter = 0;
     #endregion
     /// <summary>
     ///<para>Start create the lists and searching for objects in the game</para>
@@ -113,7 +113,7 @@ public class GarbageWaveScript : MonoBehaviour
         {
             if (_generators[i].GeneratorGotHit)
             {
- 
+
                 _someGeneratorGotHit = true;
             }
         }
@@ -141,7 +141,7 @@ public class GarbageWaveScript : MonoBehaviour
         {
             _garbageType = GarbageType.Light;
         }
-        else if(_mediumGarbage.Contains(pGarbage))
+        else if (_mediumGarbage.Contains(pGarbage))
         {
             _garbageType = GarbageType.Medium;
         }
@@ -154,11 +154,26 @@ public class GarbageWaveScript : MonoBehaviour
             _garbageType = GarbageType.Special;
         }
         GameObject garbage = pGarbage;
-        GameObject gameSpawnObject = GameObject.Instantiate(garbage, new Vector3(), new Quaternion(garbage.transform.eulerAngles.x, garbage.transform.eulerAngles.y, garbage.transform.eulerAngles.z,1)) as GameObject;
+        GameObject gameSpawnObject = GameObject.Instantiate(garbage, new Vector3(), new Quaternion(garbage.transform.eulerAngles.x, garbage.transform.eulerAngles.y, garbage.transform.eulerAngles.z, 1)) as GameObject;
         gameSpawnObject.transform.parent = _garbageParent.transform;
-        pY = garbage.transform.position.y;  
+        pY = garbage.transform.position.y;
         gameSpawnObject.tag = "Garbage"; //Set tag of spawning object
-
+        if (pX != 0)
+        {
+            if (gameSpawnObject.name == "Log(Clone)")
+            {
+                gameSpawnObject.transform.position = new Vector3(pX, 2.5f, pZ);
+            }
+            else if (gameSpawnObject.name == "TV(Clone)")
+            {
+                gameSpawnObject.transform.eulerAngles = new Vector3(0, 180, 0);
+                gameSpawnObject.transform.position = new Vector3(pX, 0f, pZ);
+            }
+            else
+            {
+                gameSpawnObject.transform.position = new Vector3(pX, pY, pZ);
+            }
+        }
         #region Overlapping of objects check
         //Change position if garbage overlap
         while (!_canContinue)
@@ -215,6 +230,7 @@ public class GarbageWaveScript : MonoBehaviour
         #endregion
 
         //change rotation except for the object beneath
+        gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         if (gameSpawnObject.name != "HippyVan" && gameSpawnObject.name != "Plastic_Bottle" && gameSpawnObject.name != "Log")
         {
             float randomRotationY = Random.Range(0, 360);
@@ -235,7 +251,6 @@ public class GarbageWaveScript : MonoBehaviour
 
         gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
         gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
-        gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
 
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = pTile.Substring(0, 1);
@@ -243,6 +258,6 @@ public class GarbageWaveScript : MonoBehaviour
         gameSpawnObject.GetComponent<GarbageMoveScript>().Speed = pSpeed;
         #endregion
         //Add to the list
-        _spawnedGarbage.Add(gameSpawnObject); 
+        _spawnedGarbage.Add(gameSpawnObject);
     }
 }

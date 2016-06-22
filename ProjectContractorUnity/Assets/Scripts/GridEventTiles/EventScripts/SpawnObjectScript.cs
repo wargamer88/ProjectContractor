@@ -2,149 +2,81 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SpawnObjectScript : MonoBehaviour {
+public static class SpawnObjectScript {
 
+    #region Variables
+    //Set old time for a timer
     private static float _oldTime;
-    private static int _spawned;
+    //check if it is the first time to spawn an object to prevent multiple spawning at the same time.
     private static bool _isFirstTime = true;
-
-    public static bool IsFirstTime { set { _isFirstTime = value; } }
-
+    //Tutorial Bottle count
     private static int _amountBottle;
+    #endregion
 
-    private static Vector3 _previousPosition;
-
-    private static int _amountLightSpawned;
-    public static int AmountLightSpawned { set { _amountLightSpawned = value; } }
-    private static int _amountMediumSpawned;
-    public static int AmountMediumSpawned { set { _amountMediumSpawned = value; } }
-    private static int _amountHeavySpawned;
-    public static int AmountHeavySpawned { set { _amountHeavySpawned = value; } }
-    private static int _amountSuperHeavySpawned;
-    public static int AmountSpuerHeavySpawned { set { _amountSuperHeavySpawned = value; } }
-
-    private static int _previousWave;
-
-    private static int _amountLight;
-    private static int _amountMedium;
-    private static int _amountHeavy;
-    private static int _amountSuperHeavy;
-
-    private static List<string> _deadLaneList;
-    // Use this for initialization
-    void Start () {
-        _deadLaneList = new List<string>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
-
-    public static void SpawnBottle(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventEveryXWave, bool pEventEveryWave,GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe)
+    /// <summary>
+    /// <para>Event to Spawn a bottle if the wave is the wave that is in the inspector</para>
+    /// </summary>
+    /// <param name="pEventWave">Wave that is in the inspector</param>
+    /// <param name="pEventTimeBetween">Time that is between the spawning of object in the inspector</param>
+    /// <param name="pEventAmountOfObjects">Amount of object that needs to be spawned</param>
+    /// <param name="pGarbageWaveScript">The garbage waveScript so I can check if we are in the right wave</param>
+    /// <param name="pTilePosition">Position of the tile the object needs to be spawned in</param>
+    /// <param name="pExe">The script of the tile so can read the tile name</param>
+    public static void SpawnBottle(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects,GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe)
     {
         if (pGarbageWaveScript.Wave == pEventWave)
         {
-           
+            //timer for spawning
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
                 if (_amountBottle != pEventAmountOfObjects)
                 {
                     _oldTime = Time.time;
-                    if (pEventEveryXWave != 0 && pEventEveryWave)
-                    {
-                        pEventWave = pEventWave + pEventEveryXWave;
-                        GameObject bottle = pGarbageWaveScript.LightGarbage[0];
-                        pGarbageWaveScript.SpawnGarbage(1,pTilePosition.x + 1, 4, pTilePosition.z, bottle,-1, pExe.gameObject.name);
-                        _amountBottle++;
-                    }
-                    else if (pEventEveryWave)
-                    {
-                        pEventWave++;
-                        GameObject bottle = pGarbageWaveScript.LightGarbage[0];
-                        pGarbageWaveScript.SpawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle,-1, pExe.gameObject.name);
-                        _amountBottle++;
-                        //_event = _choices.SpawnBottle;
-                    }
-                    else
-                    {
-                        //if (_eventEveryWave)
-                        //{
-                        GameObject bottle = pGarbageWaveScript.LightGarbage[0];
-                        pGarbageWaveScript.SpawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -1, pExe.gameObject.name);
-                        //_isEventDone = true;
-                        // _event = _choices.None;
-                        _amountBottle++;
-                        //}
-                    }
-                    _isFirstTime = false;
+                    GameObject bottle = pGarbageWaveScript.LightGarbage[0];
+                    pGarbageWaveScript.SpawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -1, pExe.gameObject.name);
+                    _amountBottle++;
                 }
             }
         }
     }
-
-    public static int SpawnRandomLight(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
+    /// <summary>
+    /// <para>Event to Spawn a light garbage if the wave is the wave that is in the inspector</para>
+    /// </summary> 
+    /// <param name="pEventWave">Wave that is in the inspector</param>
+    /// <param name="pEventTimeBetween">Time that is between the spawning of object in the inspector</param>
+    /// <param name="pEventAmountOfObjects">Amount of object that needs to be spawned</param>
+    /// <param name="pGarbageWaveScript">The garbage waveScript so I can check if we are in the right wave</param>
+    /// <param name="pTilePosition">Position of the tile the object needs to be spawned in</param>
+    /// <param name="pExe">The script of the tile so can read the tile name</param>
+    /// <param name="pEventAmountOfObjectsSpawned">amount that is already spawned on another tile</param>
+    /// <param name="pEventSpeed">Speed of the object</param>
+    /// <returns></returns>
+    public static int SpawnRandomLight(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
     {
-        
+        //set speed to defualt
         if (pEventSpeed == 0)
         {
             pEventSpeed = 1;
         }
-
+        //check if current wave of tile the same is as the wave in the garbagewavescript
         if (pGarbageWaveScript.Wave == pEventWave)
         {
-            
-            // Debug.Log("pEventWave : " + pEventWave);
+            //timer for spawning
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
-                int random = Random.Range(0, 3);
-                //if (pExe.name == "C10" && pEventWave == 8)
-                //{
-                //    Debug.Log("Kom HIERIN");
-                //    Debug.Log("Needs to spawn: " + pEventAmountOfObjects);
-                //    Debug.Log("Already spawned: " + pEventAmountOfObjectsSpawned);
-                //}
+                int random = Random.Range(0, 3); //random between the light garbage
                 if (pEventAmountOfObjectsSpawned  < pEventAmountOfObjects)
                 {
-
-                    //Debug.Log("Hier zijn we nu wel");
                     _oldTime = Time.time;
-                    //if (pEventEveryXWave != 0 && pEventEveryWave)
-                    //{
-                    //    pEventWave = pEventWave + pEventEveryXWave;
-                    //    GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                    //    pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle,-pEventSpeed);
-                    //    pEventAmountOfObjectsSpawned++;
-                    //}
-                    //else if (pEventEveryWave)
-                    //{
-                    //    pEventWave++;
-                    //    GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                    //    pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
-                    //    pEventAmountOfObjectsSpawned++;
-                    //    //_event = _choices.SpawnBottle;
-                    //}
-                    //else
-                    //{
-                    //if (_eventEveryWave)
-                    //{
+                    //check if the generator of the lane is dead
                     if (!pGarbageWaveScript.DeadLaneList.Contains(pExe.transform.name.Substring(0, 1)))
                     {
                         GameObject bottle = pGarbageWaveScript.LightGarbage[random];
 
                         pGarbageWaveScript.SpawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
-                        //_isEventDone = true;
-                        // _event = _choices.None;
                     }
-
                     pEventAmountOfObjectsSpawned++;
-                        //}
-                    //}
                     _isFirstTime = false;
-                }
-                else
-                {
-
-                   // pExe.IsEventDone = true;
                 }
             }
         }
@@ -152,327 +84,125 @@ public class SpawnObjectScript : MonoBehaviour {
         return pEventAmountOfObjectsSpawned;
     }
 
-    public static int SpawnRandomMedium(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
+    /// <summary>
+    /// <para>Event to Spawn a medium garbage if the wave is the wave that is in the inspector</para>
+    /// </summary> 
+    /// <param name="pEventWave">Wave that is in the inspector</param>
+    /// <param name="pEventTimeBetween">Time that is between the spawning of object in the inspector</param>
+    /// <param name="pEventAmountOfObjects">Amount of object that needs to be spawned</param>
+    /// <param name="pGarbageWaveScript">The garbage waveScript so I can check if we are in the right wave</param>
+    /// <param name="pTilePosition">Position of the tile the object needs to be spawned in</param>
+    /// <param name="pExe">The script of the tile so can read the tile name</param>
+    /// <param name="pEventAmountOfObjectsSpawned">amount that is already spawned on another tile</param>
+    /// <param name="pEventSpeed">Speed of the object</param>
+    public static int SpawnRandomMedium(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
     {
         if (pEventSpeed == 0)
         {
             pEventSpeed = 1;
         }
+        //check if current wave of tile the same is as the wave in the garbagewavescript
         if (pGarbageWaveScript.Wave == pEventWave)
         {
-            // Debug.Log("pEventWave : " + pEventWave);
+            //timer for spawning
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
-                int random = Random.Range(0, 3);
+                int random = Random.Range(0, 3);//random between the medium garbage
                 if (pEventAmountOfObjectsSpawned < pEventAmountOfObjects)
                 {
-
-                    //Debug.Log("Hier zijn we nu wel");
                     _oldTime = Time.time;
+                    //check if the generator of the lane is dead
                     if (!pGarbageWaveScript.DeadLaneList.Contains(pExe.transform.name.Substring(0, 1)))
                     {
-                        if (pEventEveryXWave != 0 && pEventEveryWave)
-                        {
-                            pEventWave = pEventWave + pEventEveryXWave;
-                            GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
-                            pGarbageWaveScript.SpawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
-                            pEventAmountOfObjectsSpawned++;
-                        }
-                        else if (pEventEveryWave)
-                        {
-                            pEventWave++;
-                            GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
-                            pGarbageWaveScript.SpawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
-                            pEventAmountOfObjectsSpawned++;
-                            //_event = _choices.SpawnBottle;
-                        }
-                        else
-                        {
-                            //if (_eventEveryWave)
-                            //{
-                            GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
-                            pGarbageWaveScript.SpawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
-                            //_isEventDone = true;
-                            // _event = _choices.None;
-                            //pEventAmountOfObjectsSpawned++;
-                            //}
-                        }
+                        GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
+                        pGarbageWaveScript.SpawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
                     }
                     pEventAmountOfObjectsSpawned++;
                     _isFirstTime = false;
                 }
-                else
-                {
-
-                    // pExe.IsEventDone = true;
-                }
             }
         }
         return pEventAmountOfObjectsSpawned;
-
-        #region oldMediumbeforecopiedMichielLight
-        //if (pGarbageWaveScript.Wave == pEventWave)
-        //{
-        //    if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
-        //    {
-        //        Debug.Log(_spawned);
-        //        int random = Random.Range(0, 3);
-        //        if (pEventAmountOfObjects != pEventAmountOfObjectsSpawned)
-        //        {
-        //            _oldTime = Time.time;
-        //            if (pEventEveryXWave != 0 && pEventEveryWave)
-        //            {
-        //                pEventWave = pEventWave + pEventEveryXWave;
-        //                GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
-        //                pGarbageWaveScript._spawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
-        //                pEventAmountOfObjectsSpawned++;
-        //            }
-        //            else if (pEventEveryWave)
-        //            {
-        //                pEventWave++;
-        //                GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
-        //                pGarbageWaveScript._spawnGarbage(2, pTilePosition.x + 1,4, pTilePosition.z, bottle);
-        //                pEventAmountOfObjectsSpawned++;
-        //                //_event = _choices.SpawnBottle;
-        //            }
-        //            else
-        //            {
-        //                //if (_eventEveryWave)
-        //                //{
-        //                GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
-        //                pGarbageWaveScript._spawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
-        //                //_isEventDone = true;
-        //                // _event = _choices.None;
-        //                _amountMediumSpawned++;
-        //                //}
-        //            }
-        //            _isFirstTime = false;
-        //        }
-        //    }
-        //}
-        //return pEventAmountOfObjectsSpawned;
-        #endregion
     }
-
-    public static int SpawnRandomHeavy(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
+    /// <summary>
+    /// <para>Event to Spawn a heavy garbage if the wave is the wave that is in the inspector</para>
+    /// </summary> 
+    /// <param name="pEventWave">Wave that is in the inspector</param>
+    /// <param name="pEventTimeBetween">Time that is between the spawning of object in the inspector</param>
+    /// <param name="pEventAmountOfObjects">Amount of object that needs to be spawned</param>
+    /// <param name="pGarbageWaveScript">The garbage waveScript so I can check if we are in the right wave</param>
+    /// <param name="pTilePosition">Position of the tile the object needs to be spawned in</param>
+    /// <param name="pExe">The script of the tile so can read the tile name</param>
+    /// <param name="pEventAmountOfObjectsSpawned">amount that is already spawned on another tile</param>
+    /// <param name="pEventSpeed">Speed of the object</param>
+    public static int SpawnRandomHeavy(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
     {
+        //set speed to defualt
         if (pEventSpeed == 0)
         {
             pEventSpeed = 1;
         }
+        //check if current wave of tile the same is as the wave in the garbagewavescript
         if (pGarbageWaveScript.Wave == pEventWave)
         {
-            // Debug.Log("pEventWave : " + pEventWave);
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
-                int random = Random.Range(0, 2);
+                int random = Random.Range(0, 2);//random between the heavy garbage
                 if (pEventAmountOfObjectsSpawned < pEventAmountOfObjects)
                 {
-
-                   // Debug.Log("Hier zijn we nu wel");
                     _oldTime = Time.time;
+                    //check if the generator of the lane is dead
                     if (!pGarbageWaveScript.DeadLaneList.Contains(pExe.transform.name.Substring(0, 1)))
                     {
-                        if (pEventEveryXWave != 0 && pEventEveryWave)
-                        {
-                            pEventWave = pEventWave + pEventEveryXWave;
-                            GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
-                            pGarbageWaveScript.SpawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
-                            pEventAmountOfObjectsSpawned++;
-                        }
-                        else if (pEventEveryWave)
-                        {
-                            pEventWave++;
-                            GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
-                            pGarbageWaveScript.SpawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
-                            pEventAmountOfObjectsSpawned++;
-                            //_event = _choices.SpawnBottle;
-                        }
-                        else
-                        {
-                            //if (_eventEveryWave)
-                            //{
-                            GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
-                            pGarbageWaveScript.SpawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
-                            //_isEventDone = true;
-                            // _event = _choices.None;
-                            //pEventAmountOfObjectsSpawned++;
-                            //}
-                        }
+                        GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
+                        pGarbageWaveScript.SpawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
                     }
                     pEventAmountOfObjectsSpawned++;
                     _isFirstTime = false;
                 }
-                else
-                {
-
-                    // pExe.IsEventDone = true;
-                }
             }
         }
         return pEventAmountOfObjectsSpawned;
-        #region oldheavybeforecopiedMichielLight
-        //if (pGarbageWaveScript.Wave == pEventWave)
-        //{
-        //    if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
-        //    {
-        //        if (pEventAmountOfObjects != pEventAmountOfObjectsSpawned)
-        //        {
-        //            _oldTime = Time.time;
-        //            int random = Random.Range(0, 2);
-        //            if (pEventEveryXWave != 0 && pEventEveryWave)
-        //            {
-        //                pEventWave = pEventWave + pEventEveryXWave;
-        //                GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
-        //                pGarbageWaveScript._spawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
-        //                pEventAmountOfObjectsSpawned++;
-        //            }
-        //            else if (pEventEveryWave)
-        //            {
-        //                pEventWave++;
-        //                GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
-        //                pGarbageWaveScript._spawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
-        //                pEventAmountOfObjectsSpawned++;
-        //                //_event = _choices.SpawnBottle;
-        //            }
-        //            else
-        //            {
-        //                //if (_eventEveryWave)
-        //                //{
-        //                GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
-        //                pGarbageWaveScript._spawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle);
-        //                //_isEventDone = true;
-        //                // _event = _choices.None;
-        //                pEventAmountOfObjectsSpawned++;
-        //                //}
-        //            }
-        //            _isFirstTime = false;
-        //        }
-
-        //    }
-        //}
-        //return pEventAmountOfObjectsSpawned;
-        #endregion
     }
-    public static int SpawnSuperHeavy(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, int pEventEveryXWave, bool pEventEveryWave, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
+
+    /// <summary>
+    /// <para>Event to Spawn a super heavy garbage if the wave is the wave that is in the inspector</para>
+    /// </summary> 
+    /// <param name="pEventWave">Wave that is in the inspector</param>
+    /// <param name="pEventTimeBetween">Time that is between the spawning of object in the inspector</param>
+    /// <param name="pEventAmountOfObjects">Amount of object that needs to be spawned</param>
+    /// <param name="pGarbageWaveScript">The garbage waveScript so I can check if we are in the right wave</param>
+    /// <param name="pTilePosition">Position of the tile the object needs to be spawned in</param>
+    /// <param name="pExe">The script of the tile so can read the tile name</param>
+    /// <param name="pEventAmountOfObjectsSpawned">amount that is already spawned on another tile</param>
+    /// <param name="pEventSpeed">Speed of the object</param>
+    public static int SpawnSuperHeavy(int pEventWave, float pEventTimeBetween, int pEventAmountOfObjects, int pEventAmountOfObjectsSpawned, GarbageWaveScript pGarbageWaveScript, Vector3 pTilePosition, ExecuteEventScript pExe, float pEventSpeed)
     {
-
-
+        //set speed to defualt
         if (pEventSpeed == 0)
         {
             pEventSpeed = 1;
         }
-
+        //check if current wave of tile the same is as the wave in the garbagewavescript
         if (pGarbageWaveScript.Wave == pEventWave)
         {
-
-            // Debug.Log("pEventWave : " + pEventWave);
+            //timer for spawning
             if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
             {
-                int random = Random.Range(0, 3);
-                //if (pExe.name == "C10" && pEventWave == 8)
-                //{
-                //    Debug.Log("Kom HIERIN");
-                //    Debug.Log("Needs to spawn: " + pEventAmountOfObjects);
-                //    Debug.Log("Already spawned: " + pEventAmountOfObjectsSpawned);
-                //}
                 if (pEventAmountOfObjectsSpawned < pEventAmountOfObjects)
                 {
-
-                    //Debug.Log("Hier zijn we nu wel");
                     _oldTime = Time.time;
-                    //if (pEventEveryXWave != 0 && pEventEveryWave)
-                    //{
-                    //    pEventWave = pEventWave + pEventEveryXWave;
-                    //    GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                    //    pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle,-pEventSpeed);
-                    //    pEventAmountOfObjectsSpawned++;
-                    //}
-                    //else if (pEventEveryWave)
-                    //{
-                    //    pEventWave++;
-                    //    GameObject bottle = pGarbageWaveScript.LightGarbage[random];
-                    //    pGarbageWaveScript._spawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed);
-                    //    pEventAmountOfObjectsSpawned++;
-                    //    //_event = _choices.SpawnBottle;
-                    //}
-                    //else
-                    //{
-                    //if (_eventEveryWave)
-                    //{
+                    //check if the generator of the lane is dead
                     if (!pGarbageWaveScript.DeadLaneList.Contains(pExe.transform.name.Substring(0, 1)))
                     {
                         GameObject bottle = pGarbageWaveScript.SpecialGarbage[0];
-
                         pGarbageWaveScript.SpawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
-                        //_isEventDone = true;
-                        // _event = _choices.None;
                     }
-
                     pEventAmountOfObjectsSpawned++;
-                    //}
-                    //}
                     _isFirstTime = false;
-                }
-                else
-                {
-
-                    // pExe.IsEventDone = true;
                 }
             }
         }
-
         return pEventAmountOfObjectsSpawned;
-
-        #region Old
-        //if (pEventSpeed == 0)
-        //{
-        //    pEventSpeed = -1;
-        //}
-        //if (pGarbageWaveScript.Wave == pEventWave)
-        //{
-        //    if (Time.time > (_oldTime + pEventTimeBetween) || _isFirstTime)
-        //    {
-        //        //Debug.Log(_spawned);
-        //        if (_amountSuperHeavySpawned != pEventAmountOfObjects)
-        //        {
-        //            _oldTime = Time.time;
-        //            int random = Random.Range(0, 1);
-        //            if (!pGarbageWaveScript.DeadLaneList.Contains(pExe.transform.name.Substring(0, 1)))
-        //            {
-        //                if (pEventEveryXWave != 0 && pEventEveryWave)
-        //                {
-        //                    pEventWave = pEventWave + pEventEveryXWave;
-        //                    GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
-        //                    pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, pEventSpeed, pExe.gameObject.name);
-        //                    _amountSuperHeavySpawned++;
-        //                }
-        //                else if (pEventEveryWave)
-        //                {
-        //                    pEventWave++;
-        //                    GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
-        //                    pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, pEventSpeed, pExe.gameObject.name);
-        //                    _amountSuperHeavySpawned++;
-        //                    //_event = _choices.SpawnBottle;
-        //                }
-        //                else
-        //                {
-        //                    //if (_eventEveryWave)
-        //                    //{
-        //                    GameObject bottle = pGarbageWaveScript.SpecialGarbage[random];
-        //                    pGarbageWaveScript._spawnGarbage(5, pTilePosition.x + 1, 4, pTilePosition.z, bottle, pEventSpeed, pExe.gameObject.name);
-        //                    //_isEventDone = true;
-        //                    // _event = _choices.None;
-        //                    //_amountSuperHeavySpawned++;
-        //                    //}
-        //                }
-        //            }
-        //            _amountSuperHeavySpawned++;
-        //            _isFirstTime = false;
-        //        }
-        //    }
-        //} 
-
-        #endregion
     }
 }
