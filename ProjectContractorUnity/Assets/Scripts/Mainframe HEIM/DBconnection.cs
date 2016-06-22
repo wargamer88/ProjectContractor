@@ -3,10 +3,12 @@ using System.Collections;
 
 public class DBconnection : MonoBehaviour {
     
-	void Start() {
-
-	}
-
+    /// <summary>
+    /// <para>Only call with StartCoroutine with the Score as a parameter</para>
+    /// <para>This uploads the score of the player with all the info of Arguments.cs to the HEIM Mainframe</para>
+    /// </summary>
+    /// <param name="score"></param>
+    /// <returns></returns>
 	public IEnumerator UploadScore(int score) {
         Arguments argumentsScript = FindObjectOfType<Arguments>();
         Debug.Log("Score uploaded");
