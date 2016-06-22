@@ -87,6 +87,10 @@ public class ExecuteEventScript : MonoBehaviour
                 _eventAmountOfObjects = _eventWrapper[_eventCounter].AmountOfObject;
                 _eventTimeBetween = _eventWrapper[_eventCounter].TimeBetweenSpawn;
                 _currentEvent = _eventWrapper[_eventCounter];
+                if (!_garbageWaveScript.DeadLaneList.Contains(this.gameObject.name.Substring(0,1)))
+                {
+                    _garbageWaveScript.SpawnAmount += _eventAmountOfObjects;
+                }
 
                 _spawnedLight = 0;
                 _spawnedMedium = 0;
@@ -210,6 +214,7 @@ public class ExecuteEventScript : MonoBehaviour
                     _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x - 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
                     random = UnityEngine.Random.Range(0, 3);
                     _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 0.1f, 4, pOther.transform.position.z + 10, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
+                    _garbageWaveScript.SpawnAmount += 3;
                     _garbageWaveScript.DestroyedGarbage.Add(this.gameObject);
                     Destroy(this.gameObject);
                 }

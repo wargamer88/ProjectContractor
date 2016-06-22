@@ -31,7 +31,7 @@ public class FloatObjectScript : MonoBehaviour {
 
     // Update is called once per frame
 	
-    void Update()
+    void FixedUpdate()
     {
         _actionPoint = transform.position + transform.TransformDirection(buoyancyCentreOffset);
         _forceFactor = 1f - ((_actionPoint.y - waterLevel) / floatHeight);

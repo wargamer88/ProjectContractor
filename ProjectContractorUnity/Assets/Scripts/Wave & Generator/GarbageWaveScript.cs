@@ -39,15 +39,8 @@ public class GarbageWaveScript : MonoBehaviour
     public List<GameObject> HeavyGarbage { get { return _heavyGarbage; } }
     public List<GameObject> SpecialGarbage { get { return _specialGarbage; } }
 
-    [SerializeField]
-    private int _LightRange = 5;
-    [SerializeField]
-    private int _mediumRange = 8;
-    [SerializeField]
-    private int _heavyRange = 10;
-
-    [SerializeField]
-    private float _spawnAmount = 10;
+    private int _spawnAmount = 0;
+    public int SpawnAmount { get { return _spawnAmount; } set { _spawnAmount = value; } }
 
     private bool _nextWave = false;
 
@@ -113,7 +106,8 @@ public class GarbageWaveScript : MonoBehaviour
         //{
         //    Application.Quit();
         //}
-
+        //Debug.Log("SpawnAmount: " +_spawnAmount);
+        //Debug.Log("Destroyed: " + _destroyedGarbage.Count);
         if (_tutorialScriptWrapper.Count > 0)
         {
             _tutorial();
@@ -125,11 +119,12 @@ public class GarbageWaveScript : MonoBehaviour
                 //_spawnGarbage(health);
             }
             //Debug.Log("_spawnedGarbage count: " + _spawnedGarbage.Count + " == _destroyedGarbage count: " + _destroyedGarbage.Count);
-            if (_spawnedGarbage.Count <= _destroyedGarbage.Count) //&& _destroyedGarbage.Count == _spawnAmount)
+            if (_spawnedGarbage.Count <= _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
             {
                 //Debug.Log("Were here");
                 _waveNumber++;
                 _nextWave = true;
+                _spawnAmount = 0;
                 if (_waveNumber != 1)
                 {
                     CheckWave();
@@ -137,13 +132,8 @@ public class GarbageWaveScript : MonoBehaviour
             }
             if (_nextWave)
             {
-                SpawnObjectScript.AmountLightSpawned = 0;
-                SpawnObjectScript.AmountMediumSpawned = 0;
-                SpawnObjectScript.AmountHeavySpawned = 0;
-                SpawnObjectScript.AmountSpuerHeavySpawned = 0;
-                SpawnObjectScript.IsFirstTime = true;
                 _timeToRespawnObjects = _timeToRespawnObjects - _timeToRespawnIncreaseForEachWave;
-                _spawnAmount = _spawnAmount + _increaseAmountOfObjectForEachWave;
+               // _spawnAmount = _spawnAmount + _increaseAmountOfObjectForEachWave;
                 // complex algorithm beneath to upgrade wave
 
 
