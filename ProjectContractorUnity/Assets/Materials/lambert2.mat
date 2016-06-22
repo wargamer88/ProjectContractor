@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: fbcad891bb8b0a949b086b5da366b8d9, type: 3}
+          m_Texture: {fileID: 2800000, guid: 69d834a616ce1b9438c368db5ce91506, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 41553d53aa8b7de4b9252d54d8fcec69, type: 3}
+          m_Texture: {fileID: 2800000, guid: a99584276847a0e458ddada1b1b40de1, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -40,7 +40,7 @@ Material:
         first:
           name: _ParallaxMap
         second:
-          m_Texture: {fileID: 2800000, guid: d57eb4585e5021646a7e159b9d95940b, type: 3}
+          m_Texture: {fileID: 2800000, guid: 69d834a616ce1b9438c368db5ce91506, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -94,7 +94,7 @@ Material:
       data:
         first:
           name: _Parallax
-        second: 0.005
+        second: 0.05
       data:
         first:
           name: _ZWrite
@@ -102,11 +102,11 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0
+        second: 0.5
       data:
         first:
           name: _BumpScale
-        second: 0.1
+        second: 0.15
       data:
         first:
           name: _OcclusionStrength
@@ -135,4 +135,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 1}

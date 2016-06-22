@@ -2217,14 +2217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper:
-  - _choice: 12
-    _wave: 15
-    _isEveryWave: 0
-    _everyXWave: 0
-    _amountOfObject: 0
-    _speedOfObject: 0
-    _timeBetweenSpawn: 0
+  _eventWrapper: []
   _boatPrefab: {fileID: 168356, guid: 95d4c990a8665f649b2196bc0dc7397e, type: 2}
 --- !u!23 &235933763
 MeshRenderer:
@@ -2655,7 +2648,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 10
+    _wave: 1
+    _isEveryWave: 0
+    _everyXWave: 1
+    _amountOfObject: 1
+    _speedOfObject: 1
+    _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 168356, guid: 95d4c990a8665f649b2196bc0dc7397e, type: 2}
 --- !u!23 &266950894
 MeshRenderer:
@@ -5102,6 +5102,10 @@ MonoBehaviour:
   - {fileID: 180222, guid: 608bbba27e077204d973fe601d3f6c2d, type: 2}
   _specialGarbage:
   - {fileID: 155896, guid: 1e3b26f9c205c0a4db6c1ba0e6c03c61, type: 2}
+  _LightRange: 5
+  _mediumRange: 8
+  _heavyRange: 10
+  _spawnAmount: 10
   _spawnGarbageIndependantFromWavesTimer: 10
   _tutorialScriptWrapper: []
 --- !u!114 &485678984
@@ -5523,14 +5527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper:
-  - _choice: 12
-    _wave: 15
-    _isEveryWave: 0
-    _everyXWave: 0
-    _amountOfObject: 0
-    _speedOfObject: 0
-    _timeBetweenSpawn: 0
+  _eventWrapper: []
   _boatPrefab: {fileID: 168356, guid: 95d4c990a8665f649b2196bc0dc7397e, type: 2}
 --- !u!23 &531667206
 MeshRenderer:
@@ -8347,14 +8344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper:
-  - _choice: 12
-    _wave: 15
-    _isEveryWave: 0
-    _everyXWave: 0
-    _amountOfObject: 0
-    _speedOfObject: 0
-    _timeBetweenSpawn: 0
+  _eventWrapper: []
   _boatPrefab: {fileID: 168356, guid: 95d4c990a8665f649b2196bc0dc7397e, type: 2}
 --- !u!23 &813311463
 MeshRenderer:
@@ -11686,8 +11676,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: -0.20565537, y: 0.65161633, z: 0.19004115, w: 0.7049727}
-  m_LocalPosition: {x: -7.902337, y: -8.707386, z: -58.0529}
+  m_LocalRotation: {x: -0.2471968, y: -0.00043543402, z: -0.00033476547, w: 0.9689652}
+  m_LocalPosition: {x: 11.186759, y: 3.3341217, z: -56.856678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1618369589}
@@ -15643,7 +15633,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper: []
+  _eventWrapper:
+  - _choice: 12
+    _wave: 1
+    _isEveryWave: 0
+    _everyXWave: 0
+    _amountOfObject: 0
+    _speedOfObject: 0
+    _timeBetweenSpawn: 0
   _boatPrefab: {fileID: 168356, guid: 95d4c990a8665f649b2196bc0dc7397e, type: 2}
 --- !u!23 &1560244782
 MeshRenderer:
@@ -18096,7 +18093,7 @@ MonoBehaviour:
     _wave: 1
     _isEveryWave: 0
     _everyXWave: 0
-    _amountOfObject: 0
+    _amountOfObject: 1
     _speedOfObject: 0
     _timeBetweenSpawn: 0
   - _choice: 6
@@ -18364,14 +18361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper:
-  - _choice: 12
-    _wave: 3
-    _isEveryWave: 0
-    _everyXWave: 0
-    _amountOfObject: 0
-    _speedOfObject: 0
-    _timeBetweenSpawn: 0
+  _eventWrapper: []
   _boatPrefab: {fileID: 168356, guid: 95d4c990a8665f649b2196bc0dc7397e, type: 2}
 --- !u!23 &1790787603
 MeshRenderer:
@@ -21409,14 +21399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5f853d19df02b4fa9b07645f69953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventWrapper:
-  - _choice: 12
-    _wave: 15
-    _isEveryWave: 0
-    _everyXWave: 0
-    _amountOfObject: 0
-    _speedOfObject: 0
-    _timeBetweenSpawn: 0
+  _eventWrapper: []
   _boatPrefab: {fileID: 168356, guid: 95d4c990a8665f649b2196bc0dc7397e, type: 2}
 --- !u!23 &2143633631
 MeshRenderer:
