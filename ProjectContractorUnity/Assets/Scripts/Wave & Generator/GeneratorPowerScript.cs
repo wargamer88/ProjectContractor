@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GeneratorPowerScript : MonoBehaviour {
@@ -14,6 +15,11 @@ public class GeneratorPowerScript : MonoBehaviour {
     //amount of destroyed Generators
     private int _destroyedGenerator = 0;
 
+    private GameObject _gefeliciteerd;
+    private GameObject _verslagen;
+    private bool _wonOrLost = false;
+    private System.DateTime _timeForSendScore;
+
     //properties
     public int DestroyedGenerator { set { _destroyedGenerator = value; } get { return _destroyedGenerator; } }
     #endregion
@@ -22,6 +28,12 @@ public class GeneratorPowerScript : MonoBehaviour {
     /// get all the ExecuteEventScripts and egt the highest wave number
     /// </summary>
     void Start () {
+        _gefeliciteerd = GameObject.Find("Gefeliciteerd");
+        _gefeliciteerd.SetActive(false);
+
+        _verslagen = GameObject.Find("Verslagen");
+        _verslagen.SetActive(false);
+
         _garbageWaveScript = FindObjectOfType<GarbageWaveScript>();
         foreach (ExecuteEventScript exe in FindObjectsOfType<ExecuteEventScript>())
         {
@@ -41,15 +53,32 @@ public class GeneratorPowerScript : MonoBehaviour {
     /// <para>when one of those conditions is true, send the score to HEIM Mainframe</para>
     /// </summary>
     void Update () {
-        //                     LOST                            WON
-        if (_destroyedGenerator == 5 || _garbageWaveScript.Wave > _amountOfWaves)
+        if (!_wonOrLost)
         {
-            if (!_scoreSend) //Making sure the score is send once
+            //                     LOST                            WON
+            if (_destroyedGenerator == 5 || _garbageWaveScript.Wave > _amountOfWaves)
             {
-                Debug.Log("Game Ended");
-                StartCoroutine(FindObjectOfType<DBconnection>().UploadScore(FindObjectOfType<HighscoreScript>().Score));
-                _scoreSend = true;
+                _wonOrLost = true;
+                if (_destroyedGenerator == 5)
+                {
+                    _verslagen.SetActive(true);
+                    _verslagen.GetComponentInChildren<Text>().text = "Score\n" + FindObjectOfType<HighscoreScript>().Score.ToString();
+                    _timeForSendScore = System.DateTime.UtcNow.AddSeconds(5);
+                }
+                else if (_garbageWaveScript.Wave > _amountOfWaves)
+                {
+                    _gefeliciteerd.SetActive(true);
+                    _gefeliciteerd.GetComponentInChildren<Text>().text = "Score\n" + FindObjectOfType<HighscoreScript>().Score.ToString();
+                    _timeForSendScore = System.DateTime.UtcNow.AddSeconds(5);
+                }
             }
         }
+        if (_wonOrLost && !_scoreSend && System.DateTime.UtcNow > _timeForSendScore) //Making sure the score is send once
+        {
+            Debug.Log("Game Ended");
+            StartCoroutine(FindObjectOfType<DBconnection>().UploadScore(FindObjectOfType<HighscoreScript>().Score));
+            _scoreSend = true;
+        }
+
     }
 }

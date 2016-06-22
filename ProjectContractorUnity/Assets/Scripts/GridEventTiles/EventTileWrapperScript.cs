@@ -1,9 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// <para>Enum with all the choices for a event</para>
+/// </summary>
+[System.Serializable]
+public enum _choices
+{
+    None,
+    IncreaseSpeed,
+    SpawnBottle,
+    ShowTutorialBottle,
+    SpawnBarrel,
+    ExplodesBarrel,
+    SpawnRandomLight,
+    SpawnRandomMedium,
+    SpawnRandomHeavy,
+    SpawnSuperHeavy,
+    BoatEvent,
+    BoatToTile,
+    ChangeLanes,
+    MiltiTrash,
+}
+
+/// <summary>
+/// <para>class to make objects from, used in ExecuteEventScript</para>
+/// </summary>
 [System.Serializable]
 public class EventTileWrapperScript {
-
+    
     private int _indexNumber = 0;
     public int IndexNumber { get { return _indexNumber; } set { _indexNumber = value; } }
 
