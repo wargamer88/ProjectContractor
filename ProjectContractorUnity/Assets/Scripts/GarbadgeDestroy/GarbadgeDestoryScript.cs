@@ -4,27 +4,37 @@ using System.Collections.Generic;
 
 public class GarbadgeDestoryScript : MonoBehaviour {
 
-    [SerializeField]
+    #region Variables
+    //field and property for the garbage type 
     private GarbageType _garbageType;
-    //private int _currentLane;
-    private string _currentLane;
-    public float HP { get { return _hp; } set { _hp = value; } }
-
-    private float _hp;
-    private Vector3 _originalPosition;
-    private GarbageTileScript _currentTile;
-    private GarbageWaveScript _garbageWaveScript;
-    private HighscoreScript _highscore;
-    private NumberParticleScript _numberParticle; 
-
-    //public int CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
-    public string CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
-    
-    public Vector3 OriginalPosition { get { return _originalPosition; } }
-    public GarbageTileScript CurrentTile { get { return _currentTile; } set { _currentTile = value; } }
     public GarbageType GarbageType { get { return _garbageType; } set { _garbageType = value; } }
 
-                                       // Use this for initialization
+    //The lane where the garbage is spawning
+    private string _currentLane;
+    public string CurrentLane { get { return _currentLane; } set { _currentLane = value; } }
+    public GarbageTileScript CurrentTile { get { return _currentTile; } set { _currentTile = value; } }
+    //Health of the spawning object
+    private float _hp;
+    public float HP { get { return _hp; } set { _hp = value; } }
+    //field of original position for objects
+    private Vector3 _originalPosition;
+    public Vector3 OriginalPosition { get { return _originalPosition; } }
+    //Current tile of object
+    private GarbageTileScript _currentTile;
+    //field to put in the object that fill be filled at start for garbageWave
+    private GarbageWaveScript _garbageWaveScript;
+    //field for the highscore object
+    private HighscoreScript _highscore;
+    //field for particle object
+    private NumberParticleScript _numberParticle; 
+    # endregion
+
+
+    /// <summary>
+    /// <para>Set original position of object</para>
+    /// <para>If no HP in GarbageHPScript then use default</para>
+    /// <para>search for objects</para>
+    /// </summary>
     void Start () {
         _originalPosition = this.gameObject.transform.position;
         if (HP == 0 && GetComponent<GarbageHPScript>())
@@ -35,23 +45,11 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         _highscore = GameObject.FindObjectOfType<HighscoreScript>();
         _numberParticle = GameObject.FindObjectOfType<NumberParticleScript>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        //if (_hp == 3)
-        //{
-        //    this.GetComponent<Renderer>().material.color = Color.green;
-        //}
-        //if (_hp == 2)
-        //{
-        //    this.GetComponent<Renderer>().material.color = Color.yellow;
-        //}
-        //if (_hp == 1)
-        //{
-        //    this.GetComponent<Renderer>().material.color = Color.red;
-        //}
-    }
-
+    /// <summary>
+    /// <para>Unity function event when something is hitting</para>
+    /// <para>If the hit is a projectile it call destory bullet and call method damageGarbage in current tile</para>
+    /// </summary>
+    /// <param name="pOther">Other object that is hitting</param>
     void OnCollisionEnter(Collision pOther)
     {
         if (pOther.transform.tag == "Projectile")
@@ -64,25 +62,19 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         }
     }
 
-
+    /// <summary>
+    /// <para>Check the health of the garbage and if the health is zero or lower call particle, add the score, add to destroyed list and destroy the bullet and garbage</para>
+    /// </summary>
+    /// <param name="pOther">Can be a projecttile but it is something that can hit the garbage</param>
     public void CheckHealth(GameObject pOther)
     {
         if (_hp <= 0)
         {
-            if (_garbageWaveScript.TutorialWavesLeft > 0)
-            {
-                pOther.GetComponent<BulletScript>().DestroyBullet();
-                _garbageWaveScript.GetComponent<TutorialWaveSpawnScript>().DestroyedGarbage.Add(pOther);
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                pOther.GetComponent<BulletScript>().DestroyBullet();
-                _garbageWaveScript.DestroyedGarbage.Add(pOther);
-                Destroy(this.gameObject);
-            }
             _numberParticle.PlaceParticleAtGarbage(this.transform.position, _garbageType);
             _highscore.AddTrashScore(_garbageType);
+            pOther.GetComponent<BulletScript>().DestroyBullet();
+            _garbageWaveScript.DestroyedGarbage.Add(pOther);
+            Destroy(this.gameObject);
         }
     }
 

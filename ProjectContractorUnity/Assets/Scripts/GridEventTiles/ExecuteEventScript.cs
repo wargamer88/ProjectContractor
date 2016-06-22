@@ -161,7 +161,7 @@ public class ExecuteEventScript : MonoBehaviour
                     GameObject bottle = _garbageWaveScript.LightGarbage[0];
                     for (int i = 0; i < 3; i++)
                     {
-                        _garbageWaveScript._spawnGarbage(1, this.transform.position.x + i, 1, this.transform.position.z, bottle);
+                        _garbageWaveScript.SpawnGarbage(1, this.transform.position.x + i, 1, this.transform.position.z, bottle);
                     }
                     Destroy(pOther);
                     Destroy(this);
@@ -209,11 +209,11 @@ public class ExecuteEventScript : MonoBehaviour
                 {
                     pOther.GetComponent<ExecuteEventScript>().EventWave = 0;
                     int random = UnityEngine.Random.Range(0, 3);
-                    _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
+                    _garbageWaveScript.SpawnGarbage(1, pOther.transform.position.x + 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
                     random = UnityEngine.Random.Range(0, 3);
-                    _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x - 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
+                    _garbageWaveScript.SpawnGarbage(1, pOther.transform.position.x - 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
                     random = UnityEngine.Random.Range(0, 3);
-                    _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 0.1f, 4, pOther.transform.position.z + 10, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
+                    _garbageWaveScript.SpawnGarbage(1, pOther.transform.position.x + 0.1f, 4, pOther.transform.position.z + 10, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
                     _garbageWaveScript.SpawnAmount += 3;
                     _garbageWaveScript.DestroyedGarbage.Add(this.gameObject);
                     Destroy(this.gameObject);
@@ -455,7 +455,7 @@ public class ExecuteEventScript : MonoBehaviour
                 if (_garbageWaveScript.Wave == _eventWave)
                 {
                     GameObject Barrel = _garbageWaveScript.MediumGarbage[1];
-                    _garbageWaveScript._spawnGarbage(3, this.transform.position.x + 1, 1, this.transform.position.z, Barrel);
+                    _garbageWaveScript.SpawnGarbage(3, this.transform.position.x + 1, 1, this.transform.position.z, Barrel);
                     _event = _choices.None;
                 }
                 break;
