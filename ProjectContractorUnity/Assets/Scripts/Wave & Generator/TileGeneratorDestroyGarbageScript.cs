@@ -3,24 +3,34 @@ using System.Collections;
 
 public class TileGeneratorDestroyGarbageScript : MonoBehaviour {
 
+    #region Variables
+    //A reference to the damageParticle for when Garbage hits Generator
     private GameObject _damageParticle;
+    //A reference to GarbageGeneratorScript to lower the Health of Generator
     private GarbadgeGeneratorScript _generatorScript;
+    //A reference to add Garbage to Destroyed Objects, so Next Wave is Possible
     private GarbageWaveScript _garbageWaveScript;
-    private NumberParticleScript _numberParticle;
+    //A Reference to NumberParticleScript so that you can place the -Health Particles
+    private NumberParticleScript _numberParticle; 
+    #endregion
 
-    // Use this for initialization
+    /// <summary>
+    /// <para>Load in Damage Particle from Resources</para>
+    /// <para>Find garbageWaveScript, GarbageGeneratorScript and NumberParticleScript</para>
+    /// </summary>
     void Start () {
         _damageParticle = (GameObject)Resources.Load("Damage");
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
         _generatorScript = GameObject.FindObjectOfType<GarbadgeGeneratorScript>();
         _numberParticle = GameObject.FindObjectOfType<NumberParticleScript>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
+    /// <summary>
+    /// <para>Check if Garbage hits Generator using Grid</para>
+    /// <para>If true, lower HP of Generator with GarbageType, Add to Destroyed List</para>
+    /// <para>Place Particle and Destroy Garbage Object</para>
+    /// </summary>
+    /// <param name="pOther"></param>
     void OnTriggerExit(Collider pOther)
     {
         if (pOther.gameObject.tag == "Garbage")

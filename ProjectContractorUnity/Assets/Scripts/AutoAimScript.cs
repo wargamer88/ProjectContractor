@@ -35,19 +35,19 @@ public class AutoAimScript : MonoBehaviour
         _aimPlane = GameObject.Find("AimPlane");
         _ballOffset = new Vector3(0, 10.19f, 1.82f);
 	}
-	
-	/// <summary>
-    /// Calling autoAim for shooting
+
+    /// <summary>
+    /// <para>Calling autoAim for shooting</para>
     /// </summary>
     void Update()
     {
-        AutoAim();
+        _autoAim();
     }
 
     /// <summary>
     /// <para>Script where it is checked if you can shoot and where to shoot</para>
     /// </summary>
-    void AutoAim()
+    private void _autoAim()
     {
         if (Input.GetMouseButtonDown(0))
         {

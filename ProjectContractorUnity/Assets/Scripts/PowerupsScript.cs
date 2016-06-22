@@ -35,7 +35,7 @@ public class PowerupsScript : MonoBehaviour {
     #endregion
 
     /// <summary>
-    /// <para>Load in Chompy, Sharky and Whaley</para>
+    /// <para>Load in Chompy, Sharky and Whaley from resources</para>
     /// <para>Find Garbage Wave Script and set Timer</para>
     /// </summary>
     void Start () {
@@ -49,12 +49,14 @@ public class PowerupsScript : MonoBehaviour {
 	/// <summary>
     /// <para>Calls a Function that gets the Parent of the Garbage</para>
     /// <para>Calls a Function that Randomly lets fishes jump</para>
+    /// <para>Calls a Function that Checks status of Powerups</para>
     /// </summary>
 	void Update () {
         _getGarbageParent();
         _rndJumpingFishes();
         _checkPowerupStatus();
 
+        //-----------------Temporary DEBUG
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             _lightPowerup();
@@ -67,8 +69,12 @@ public class PowerupsScript : MonoBehaviour {
         {
             _heavyPowerup();
         }
+        //-----------------------------------
     }
 
+    /// <summary>
+    /// Return Garbage Parent
+    /// </summary>
     private void _getGarbageParent()
     {
         if (_garbageParent == null)
@@ -77,10 +83,11 @@ public class PowerupsScript : MonoBehaviour {
         }
     }
     
+    /// <summary>
+    /// <para>Functons that randomly let fishes Jump</para>
+    /// </summary>
     private void _rndJumpingFishes()
     {
-        
-
         int FishRnd = 4;
         int SpawnRnd = 0;
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -137,6 +144,10 @@ public class PowerupsScript : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// <para>Checks if you clicked on one of the Fishes</para>
+    /// <para>Instantiate the Powerup</para>
+    /// </summary>
     private void _checkPowerupStatus()
     {
         //Spawning clickable Chompy
@@ -217,6 +228,11 @@ public class PowerupsScript : MonoBehaviour {
         }
     }
     
+    /// <summary>
+    /// <para>If clicked on fish return the right type</para>
+    /// </summary>
+    /// <param name="pJumping"></param>
+    /// <param name="pPowerupType"></param>
     public void FishClickedOn(bool pJumping, GarbageType pPowerupType)
     {
         switch (pPowerupType)
@@ -258,7 +274,7 @@ public class PowerupsScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// Check light powerup criteria and execute the powerup if criteria match
+    /// <para>Check light powerup criteria and execute the powerup if criteria match</para>
     /// <para>chompy: Snipes anything with 3+ hp</para>
     /// </summary>
     private void _lightPowerup()
@@ -277,7 +293,7 @@ public class PowerupsScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// Check medium powerup criteria and execute the powerup if criteria match
+    /// <para>Check medium powerup criteria and execute the powerup if criteria match</para>
     /// <para>Sharky: Wipes the most populated lane</para>
     /// </summary>
     private void _mediumPowerup()
@@ -387,7 +403,7 @@ public class PowerupsScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// Check heavy powerup criteria and execute the powerup if criteria match
+    /// <para>Check heavy powerup criteria and execute the powerup if criteria match</para>
     /// <para>Whaley: Damages everything by 1 and pushes back the lane</para>
     /// </summary>
     private void _heavyPowerup()
