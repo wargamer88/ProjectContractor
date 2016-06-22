@@ -1,7 +1,11 @@
-﻿﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
+/// <summary>
+/// <para>GarbageType is enum that can be used to indicate the object.</para>
+/// </summary>
 public enum GarbageType
 {
     none,
@@ -13,18 +17,8 @@ public enum GarbageType
 
 public class GarbageWaveScript : MonoBehaviour
 {
-
-    private List<int> _spawnXPoint = new List<int>() { -32, -13, 5, 25, 44 };
-    private bool _canSpawn = true;
-    private GameObject _aimPlane;
-
-    [SerializeField]
-    private float _timeToRespawnObjects = 1;
-    [SerializeField]
-    private float _timeToRespawnIncreaseForEachWave = 1;
-    [SerializeField]
-    private float _increaseAmountOfObjectForEachWave = 1;
-
+    #region variables
+    //Garbage list that is filled from the inspector
     [SerializeField]
     private List<GameObject> _lightGarbage;
     [SerializeField]
@@ -33,193 +27,93 @@ public class GarbageWaveScript : MonoBehaviour
     private List<GameObject> _heavyGarbage;
     [SerializeField]
     private List<GameObject> _specialGarbage;
-
+    //Properties so you can check if the object is in the list
     public List<GameObject> LightGarbage { get { return _lightGarbage; } }
     public List<GameObject> MediumGarbage { get { return _mediumGarbage; } }
     public List<GameObject> HeavyGarbage { get { return _heavyGarbage; } }
     public List<GameObject> SpecialGarbage { get { return _specialGarbage; } }
-
+    //Amount of object that needs to be spawned in a wave.
     private int _spawnAmount = 0;
     public int SpawnAmount { get { return _spawnAmount; } set { _spawnAmount = value; } }
-
+    //true or false when wave is done
     private bool _nextWave = false;
-
+    //List of spawned objects
     private List<GameObject> _spawnedGarbage;
-
-    public List<GameObject> SpawnedGarbage { get { return _spawnedGarbage; }}
-
+    //List of destroyed garbage and a property so other script can also add the object if it will be destroyed
     private List<GameObject> _destroyedGarbage;
     public List<GameObject> DestroyedGarbage { get { return _destroyedGarbage; } set { _destroyedGarbage = value; } }
-
-
-    private GameObject _chosenGarbage;
+    //Field for the garbage type
     private GarbageType _garbageType;
+    //An empty object to putt all the garbage in
     private GameObject _garbageParent;
-
+    //Wave number and a property to look at which wave the game is
     private int _waveNumber = 0;
-
-    public int Wave { get {return _waveNumber; } }
-    public bool NextWave { get { return _nextWave; } }
-
-    [SerializeField]
-    private float _spawnGarbageIndependantFromWavesTimer = 10;
-
-    private float _oldTimer;
-
-    [SerializeField]
-    private List<TutorialWaveScript> _tutorialScriptWrapper = new List<TutorialWaveScript>();
-
+    public int Wave { get { return _waveNumber; } }
+    //getting all the garbage generator scripts in the game
     private GarbadgeGeneratorScript[] _generators;
+    //set if the generator is hit to true
     private bool _someGeneratorGotHit = false;
+    //variable to put in the highscore script in
     private HighscoreScript _highScoreScript;
-
-    public int TutorialWavesLeft { get { return _tutorialScriptWrapper.Count; } }
-
+    //boolean if the garabge can spawn so the while can continue
     private bool _canContinue = false;
-
+    //Dead lane list contains A,B,C,D and/or E if the generators are destoryed on that lane.
     private List<string> _deadLaneList;
     public List<string> DeadLaneList { get { return _deadLaneList; } set { _deadLaneList = value; } }
-
-    private int counter=0;
-    private int DEBUGcounter = 0;
-
-    // Use this for initialization
+    //counter to reset when a place is found to place the object in the tile
+    private int _renewCounter = 0;
+    #endregion
+    /// <summary>
+    ///<para>Start create the lists and searching for objects in the game</para>
+    /// </summary>
     void Start()
     {
         _deadLaneList = new List<string>();
         _highScoreScript = GameObject.FindObjectOfType<HighscoreScript>();
         _spawnedGarbage = new List<GameObject>();
         _destroyedGarbage = new List<GameObject>();
-        _aimPlane = GameObject.Find("AimPlane");
         _garbageParent = new GameObject();
         _garbageParent.name = "Garbage Parent";
         _generators = GameObject.FindObjectsOfType<GarbadgeGeneratorScript>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// <para>Update checked if the amount of spawned and destroyed the same is and destroyed and should spawn (spawn amount) the same is</para>
+    /// <para>When is true update wave number and reset the ammount for the wave</para>
+    /// </summary>
     void Update()
     {
-        //Debug.Log("garbageSpawned: " + SpawnedGarbage.Count);
-        //Debug.Log("GarbageDestroyed: " + DestroyedGarbage.Count);
-
-        //if (_waveNumber > 15)
-        //{
-        //    Application.Quit();
-        //}
-        //Debug.Log("SpawnAmount: " +_spawnAmount);
-        //Debug.Log("Destroyed: " + _destroyedGarbage.Count);
-        if (_tutorialScriptWrapper.Count > 0)
+        if (_spawnedGarbage.Count <= _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
         {
-            _tutorial();
+            _waveNumber++;
+            _nextWave = true;
+            _spawnAmount = 0;
+            if (_waveNumber != 1)
+            {
+                _checkWave();
+            }
         }
-        else
+        if (_nextWave)
         {
-            if (_canSpawn && _spawnedGarbage.Count < _spawnAmount && _waveNumber != 0 && _waveNumber != 1)
-            {
-                //_spawnGarbage(health);
-            }
-            //Debug.Log("_spawnedGarbage count: " + _spawnedGarbage.Count + " == _destroyedGarbage count: " + _destroyedGarbage.Count);
-            if (_spawnedGarbage.Count <= _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
-            {
-                //Debug.Log("Were here");
-                _waveNumber++;
-                _nextWave = true;
-                _spawnAmount = 0;
-                if (_waveNumber != 1)
-                {
-                    CheckWave();
-                }
-            }
-            if (_nextWave)
-            {
-                _timeToRespawnObjects = _timeToRespawnObjects - _timeToRespawnIncreaseForEachWave;
-               // _spawnAmount = _spawnAmount + _increaseAmountOfObjectForEachWave;
-                // complex algorithm beneath to upgrade wave
+            this.GetComponent<WaveCanvasScript>().ChangeWaveNumber(_waveNumber);
 
+            _spawnedGarbage = new List<GameObject>();
+            _destroyedGarbage = new List<GameObject>();
+            _nextWave = false;
 
-                this.GetComponent<WaveCanvasScript>().ChangeWaveNumber(_waveNumber);
-
-                _spawnedGarbage = new List<GameObject>();
-                _destroyedGarbage = new List<GameObject>();
-                _nextWave = false;
-
-            }
-            //_spawnGarbageAnyTime(health);
-
-            #region old garbage spawning
-            //if (_canSpawn)
-            //{
-            //    int random = Random.Range(0, 5);
-            //    List<int> oldRandoms = new List<int>();
-            //    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            //    cube.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
-            //    cube.AddComponent<GarbageMoveScript>();
-            //    //cube.GetComponent<BoxCollider>().isTrigger = true;
-            //    cube.AddComponent<Rigidbody>();
-            //    cube.GetComponent<Rigidbody>().useGravity = false;
-            //    cube.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
-            //    cube.GetComponent<Renderer>().material.color = Color.green;
-            //    cube.AddComponent<GarbadgeDestoryScript>();
-            //    oldRandoms.Add(random);
-            //    random = Random.Range(0, 4);
-            //    if (!oldRandoms.Contains(random))
-            //    {
-            //        //GameObject.Instantiate(PrimitiveType.Cube, new Vector3(), Quaternion.identity);
-            //        GameObject cube1 = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            //        cube1.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
-            //        cube1.AddComponent<GarbageMoveScript>();
-            //        //cube.GetComponent<BoxCollider>().isTrigger = true;
-            //        cube1.AddComponent<Rigidbody>();
-            //        cube1.GetComponent<Rigidbody>().useGravity = false;
-            //        cube1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
-            //        cube1.GetComponent<Renderer>().material.color = Color.blue;
-            //        cube1.AddComponent<GarbadgeDestoryScript>();
-            //        oldRandoms.Add(random);
-            //    }
-            //    random = Random.Range(0, 4);
-            //    if (!oldRandoms.Contains(random))
-            //    {
-            //        //GameObject.Instantiate(PrimitiveType.Cube, new Vector3(), Quaternion.identity);
-            //        GameObject cube2 = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            //        cube2.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
-            //        cube2.AddComponent<GarbageMoveScript>();
-            //        //cube.GetComponent<BoxCollider>().isTrigger = true;
-            //        cube2.AddComponent<Rigidbody>();
-            //        cube2.GetComponent<Rigidbody>().useGravity = false;
-            //        cube2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
-            //        cube2.GetComponent<Renderer>().material.color = Color.black;
-            //        cube2.AddComponent<GarbadgeDestoryScript>();
-            //        oldRandoms.Add(random);
-            //    }
-            //    random = Random.Range(0, 4);
-            //    if (!oldRandoms.Contains(random))
-            //    {
-            //        //GameObject.Instantiate(PrimitiveType.Cube, new Vector3(), Quaternion.identity);
-            //        GameObject cube3 = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            //        cube3.transform.position = new Vector3(_spawnXPoint[random], 0, 95);
-            //        cube3.AddComponent<GarbageMoveScript>();
-            //        //cube.GetComponent<BoxCollider>().isTrigger = true;
-            //        cube3.AddComponent<Rigidbody>();
-            //        cube3.GetComponent<Rigidbody>().useGravity = false;
-            //        cube3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX /*| RigidbodyConstraints.FreezePositionY*/ | RigidbodyConstraints.FreezeRotation;
-            //        cube3.GetComponent<Renderer>().material.color = Color.yellow;
-            //        cube3.AddComponent<GarbadgeDestoryScript>();
-            //        oldRandoms.Add(random);
-            //    }
-            //    _canSpawn = false;
-            //    StartCoroutine(_waitForSeconds());
-            //}
-            #endregion
         }
     }
 
-    private void CheckWave()
+    /// <summary>
+    /// Check if something hit the generator in the wave.
+    /// </summary>
+    private void _checkWave()
     {
         for (int i = 0; i < _generators.Length; i++)
         {
             if (_generators[i].GeneratorGotHit)
             {
- 
+
                 _someGeneratorGotHit = true;
             }
         }
@@ -231,19 +125,23 @@ public class GarbageWaveScript : MonoBehaviour
         _someGeneratorGotHit = false;
     }
 
-    private IEnumerator _waitForSeconds()
-    {
-        yield return new WaitForSeconds(_timeToRespawnObjects);
-        _canSpawn = true;
-    }
-
-    public void _spawnGarbage(float pHealth, float pX, float pY, float pZ, GameObject pGarbage, float pSpeed = -1, string pTile = "")
+    /// <summary>
+    /// <para>Spawn the garbage for the wave.</para>
+    /// </summary>
+    /// <param name="pHealth">Health for the garbage if nothing is in HP script on the prefab</param>
+    /// <param name="pX">X position of the spawning garbage</param>
+    /// <param name="pY">Y position of the spawning garbage</param>
+    /// <param name="pZ">Z position of the spawning garbage</param>
+    /// <param name="pGarbage">Object that needs to be spawned</param>
+    /// <param name="pSpeed">Speed of the object. If not filled it's -1</param>
+    /// <param name="pTile">Tile name of the tile the object spawns in</param>
+    public void SpawnGarbage(float pHealth, float pX, float pY, float pZ, GameObject pGarbage, float pSpeed = -1, string pTile = "")
     {
         if (_lightGarbage.Contains(pGarbage))
         {
             _garbageType = GarbageType.Light;
         }
-        else if(_mediumGarbage.Contains(pGarbage))
+        else if (_mediumGarbage.Contains(pGarbage))
         {
             _garbageType = GarbageType.Medium;
         }
@@ -254,29 +152,19 @@ public class GarbageWaveScript : MonoBehaviour
         else if (_specialGarbage.Contains(pGarbage))
         {
             _garbageType = GarbageType.Special;
-    }
-
-        GameObject garbage;
-        if (pGarbage == null)
-        {
-            garbage = _chosenGarbage;
         }
-        else
-        {
-            garbage = pGarbage;
-        }
-        GameObject gameSpawnObject = GameObject.Instantiate(garbage, new Vector3(), new Quaternion(garbage.transform.eulerAngles.x, garbage.transform.eulerAngles.y, garbage.transform.eulerAngles.z,1)) as GameObject;
+        GameObject garbage = pGarbage;
+        GameObject gameSpawnObject = GameObject.Instantiate(garbage, new Vector3(), new Quaternion(garbage.transform.eulerAngles.x, garbage.transform.eulerAngles.y, garbage.transform.eulerAngles.z, 1)) as GameObject;
         gameSpawnObject.transform.parent = _garbageParent.transform;
         pY = garbage.transform.position.y;
-        int randomSpawn = 0;
+        gameSpawnObject.tag = "Garbage"; //Set tag of spawning object
         if (pX != 0)
         {
-            //Debug.Log(pX);
             if (gameSpawnObject.name == "Log(Clone)")
             {
                 gameSpawnObject.transform.position = new Vector3(pX, 2.5f, pZ);
             }
-            else if(gameSpawnObject.name == "TV(Clone)")
+            else if (gameSpawnObject.name == "TV(Clone)")
             {
                 gameSpawnObject.transform.eulerAngles = new Vector3(0, 180, 0);
                 gameSpawnObject.transform.position = new Vector3(pX, 0f, pZ);
@@ -286,47 +174,14 @@ public class GarbageWaveScript : MonoBehaviour
                 gameSpawnObject.transform.position = new Vector3(pX, pY, pZ);
             }
         }
-        else if (pZ != 95)
-        {
-            randomSpawn = (int)pX;
-            if (gameSpawnObject.name == "Log(Clone)")
-            {
-                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 2.5f, pZ);
-            }
-            else if (gameSpawnObject.name == "TV(Clone)")
-            {
-                gameSpawnObject.transform.eulerAngles = new Vector3(0, 180, 0);
-                gameSpawnObject.transform.position = new Vector3(pX, 0f, pZ);
-            }
-            else
-            {
-                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
-            }
-        }
-        else
-        {
-            randomSpawn = Random.Range(0, 5);
-            if (gameSpawnObject.name == "Log(Clone)")
-            {
-                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], 2.5f, pZ);
-            }
-            else if (gameSpawnObject.name == "TV(Clone)")
-            {
-                gameSpawnObject.transform.eulerAngles = new Vector3(0, 180, 0);
-                gameSpawnObject.transform.position = new Vector3(pX, 0f, pZ);
-            }
-            else
-            {
-                gameSpawnObject.transform.position = new Vector3(_spawnXPoint[randomSpawn], pY, pZ);
-            }
-        }
-        gameSpawnObject.tag = "Garbage";
+        #region Overlapping of objects check
+        //Change position if garbage overlap
         while (!_canContinue)
         {
             Collider[] allColliders = Physics.OverlapSphere(gameSpawnObject.transform.position, 3);
             foreach (Collider collider in allColliders)
             {
-                counter++;
+                _renewCounter++;
                 if (collider.tag == "Garbage" && collider.gameObject != gameSpawnObject)
                 {
                     int randomPos = Random.Range(0, 4);
@@ -334,21 +189,21 @@ public class GarbageWaveScript : MonoBehaviour
                     {
                         gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x + 1.5f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
                         _canContinue = false;
-                        counter = 0;
+                        _renewCounter = 0;
                         break;
                     }
                     else if (randomPos == 1)
                     {
                         gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x - 1.5f, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z);
                         _canContinue = false;
-                        counter = 0;
+                        _renewCounter = 0;
                         break;
                     }
                     else if (randomPos == 2)
                     {
                         gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z + 1.5f);
                         _canContinue = false;
-                        counter = 0;
+                        _renewCounter = 0;
                         break;
                     }
                     else if (randomPos == 3)
@@ -356,7 +211,7 @@ public class GarbageWaveScript : MonoBehaviour
 
                         gameSpawnObject.transform.position = new Vector3(gameSpawnObject.transform.position.x, gameSpawnObject.transform.position.y, gameSpawnObject.transform.position.z - 1.5f);
                         _canContinue = false;
-                        counter = 0;
+                        _renewCounter = 0;
                         break;
                     }
                     else
@@ -364,59 +219,45 @@ public class GarbageWaveScript : MonoBehaviour
                         _canContinue = false;
                     }
                 }
-                if (counter == allColliders.Length)
+                if (_renewCounter == allColliders.Length)
                 {
                     _canContinue = true;
-                    counter = 0;
+                    _renewCounter = 0;
                 }
             }
         }
         _canContinue = false;
-        gameSpawnObject.AddComponent<GarbageMoveScript>();
-        gameSpawnObject.AddComponent<Rigidbody>();
-        gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
-        gameSpawnObject.GetComponent<Rigidbody>().mass = 1000;
-        
-        gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-        gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
-        //gameSpawnObject.GetComponent<GarbadgeDestoryScript>().HP = pHealth;
-        gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
+        #endregion
 
-        
+        //change rotation except for the object beneath
+        gameSpawnObject.gameObject.name = gameSpawnObject.gameObject.name.Replace("(Clone)", "");
         if (gameSpawnObject.name != "HippyVan" && gameSpawnObject.name != "Plastic_Bottle" && gameSpawnObject.name != "Log")
         {
-            //float randomRotationX = Random.Range(0, 360);
             float randomRotationY = Random.Range(0, 360);
-            //float randomRotationZ = Random.Range(0, 360);
             gameSpawnObject.transform.rotation = Quaternion.Euler(new Vector3(0, randomRotationY, 0));
         }
         else if (gameSpawnObject.name == "Plastic_Bottle" && gameSpawnObject.name != "Log")
         {
-            //float randomRotationX = Random.Range(0, 360);
-            //float randomRotationY = Random.Range(0, 360);
             float randomRotationZ = Random.Range(-45, 45);
             gameSpawnObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, randomRotationZ));
         }
 
+        #region Adding and changing components 
+        //Adding and changing components to the spawning objects
+        gameSpawnObject.AddComponent<GarbageMoveScript>();
+        gameSpawnObject.AddComponent<Rigidbody>();
+        gameSpawnObject.GetComponent<Rigidbody>().useGravity = false;
+        gameSpawnObject.GetComponent<Rigidbody>().mass = 1000;
+
+        gameSpawnObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        gameSpawnObject.AddComponent<GarbadgeDestoryScript>();
+
         gameSpawnObject.GetComponent<GarbadgeDestoryScript>().GarbageType = _garbageType;
-        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = pTile.Substring(0,1);
+        gameSpawnObject.GetComponent<GarbadgeDestoryScript>().CurrentLane = pTile.Substring(0, 1);
         gameSpawnObject.AddComponent<ExecuteEventScript>();
         gameSpawnObject.GetComponent<GarbageMoveScript>().Speed = pSpeed;
+        #endregion
+        //Add to the list
         _spawnedGarbage.Add(gameSpawnObject);
-        _canSpawn = false;
-        StartCoroutine(_waitForSeconds());
-    }
-
-    private void _tutorial()
-    {
-        if (this.GetComponent<TutorialWaveSpawnScript>().IsComplete)
-        {
-            this.GetComponent<TutorialWaveSpawnScript>().IsComplete = false;
-            _tutorialScriptWrapper.RemoveAt(0);
-        }
-        else
-        {
-            this.GetComponent<TutorialWaveSpawnScript>().SpawnTutorial(false, _tutorialScriptWrapper[0].AmountOf, (GarbageType)_tutorialScriptWrapper[0].Garbage, _lightGarbage, _mediumGarbage, _heavyGarbage, _specialGarbage, _timeToRespawnObjects);
-        }
     }
 }

@@ -7,11 +7,13 @@ using UnityEngine.UI;
 
 public class ExecuteEventScript : MonoBehaviour
 {
+    //Garbage and Tile both has this script!
+    //The eventWrapper where you can change the waves in the inspector and property to get the wrapper if the garbage hit the tile.
     [SerializeField]
     private List<EventTileWrapperScript> _eventWrapper = new List<EventTileWrapperScript>();
-
     public List<EventTileWrapperScript> EventWrapper { get { return _eventWrapper; } set { _eventWrapper = value; } }
 
+    //Variables of the eventwrapper
     private _choices _event;
     private int _eventWave;
     private int _eventEveryXWave;
@@ -19,9 +21,11 @@ public class ExecuteEventScript : MonoBehaviour
     private int _eventAmountOfObjects;
     private float _eventSpeedOfObjects;
     private float _eventTimeBetween;
+    //current eventwrapper
     private EventTileWrapperScript _currentEvent;
-
+    //property event to know the event from garbage
     public _choices Event { get { return _event; } }
+    //property event wave to know the wave from garbage
     public int EventWave { get { return _eventWave; } set { _eventWave = value; } }
 
     public float EventSpeed { get { return _eventSpeedOfObjects; } }
@@ -161,7 +165,7 @@ public class ExecuteEventScript : MonoBehaviour
                     GameObject bottle = _garbageWaveScript.LightGarbage[0];
                     for (int i = 0; i < 3; i++)
                     {
-                        _garbageWaveScript._spawnGarbage(1, this.transform.position.x + i, 1, this.transform.position.z, bottle);
+                        _garbageWaveScript.SpawnGarbage(1, this.transform.position.x + i, 1, this.transform.position.z, bottle);
                     }
                     Destroy(pOther);
                     Destroy(this);
@@ -209,11 +213,11 @@ public class ExecuteEventScript : MonoBehaviour
                 {
                     pOther.GetComponent<ExecuteEventScript>().EventWave = 0;
                     int random = UnityEngine.Random.Range(0, 3);
-                    _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
+                    _garbageWaveScript.SpawnGarbage(1, pOther.transform.position.x + 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
                     random = UnityEngine.Random.Range(0, 3);
-                    _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x - 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
+                    _garbageWaveScript.SpawnGarbage(1, pOther.transform.position.x - 5, 4, pOther.transform.position.z - 3, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
                     random = UnityEngine.Random.Range(0, 3);
-                    _garbageWaveScript._spawnGarbage(1, pOther.transform.position.x + 0.1f, 4, pOther.transform.position.z + 10, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
+                    _garbageWaveScript.SpawnGarbage(1, pOther.transform.position.x + 0.1f, 4, pOther.transform.position.z + 10, _garbageWaveScript.LightGarbage[random], -pOther.GetComponent<ExecuteEventScript>().EventSpeed, pOther.GetComponent<ExecuteEventScript>().gameObject.name);
                     _garbageWaveScript.SpawnAmount += 3;
                     _garbageWaveScript.DestroyedGarbage.Add(this.gameObject);
                     Destroy(this.gameObject);
@@ -345,7 +349,7 @@ public class ExecuteEventScript : MonoBehaviour
             case _choices.IncreaseSpeed:
                 break;
             case _choices.SpawnBottle:
-                SpawnObjectScript.SpawnBottle(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this);
+                SpawnObjectScript.SpawnBottle(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _garbageWaveScript, this.transform.position,this);
                 #region Old SpawnBottle
                 //if (_garbageWaveScript.Wave == _eventWave)
                 //{
@@ -389,7 +393,7 @@ public class ExecuteEventScript : MonoBehaviour
                 break;
             case _choices.SpawnRandomLight:
                 
-                _spawnedLight = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedLight, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
+                _spawnedLight = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedLight, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
                 {
                     if (_garbageWaveScript.Wave == _eventWave)
@@ -409,7 +413,7 @@ public class ExecuteEventScript : MonoBehaviour
                 
                 break;
             case _choices.SpawnRandomMedium:
-                _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
+                _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
                 {
                     if (_garbageWaveScript.Wave == _eventWave)
@@ -428,7 +432,7 @@ public class ExecuteEventScript : MonoBehaviour
                 }
                 break;
             case _choices.SpawnRandomHeavy:
-                _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
+                _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
                 {
                     if (_garbageWaveScript.Wave == _eventWave)
@@ -447,7 +451,7 @@ public class ExecuteEventScript : MonoBehaviour
                 }
                 break;
             case _choices.SpawnSuperHeavy:
-                _spawnedSuperHeavy = SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedSuperHeavy, _eventEveryXWave, _eventEveryWave, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
+                _spawnedSuperHeavy = SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedSuperHeavy, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 break;
             case _choices.ShowTutorialBottle:
                 break;
@@ -455,7 +459,7 @@ public class ExecuteEventScript : MonoBehaviour
                 if (_garbageWaveScript.Wave == _eventWave)
                 {
                     GameObject Barrel = _garbageWaveScript.MediumGarbage[1];
-                    _garbageWaveScript._spawnGarbage(3, this.transform.position.x + 1, 1, this.transform.position.z, Barrel);
+                    _garbageWaveScript.SpawnGarbage(3, this.transform.position.x + 1, 1, this.transform.position.z, Barrel);
                     _event = _choices.None;
                 }
                 break;
