@@ -140,6 +140,7 @@ public class PowerupsScript : MonoBehaviour {
             if (Garbage.GarbageType == GarbageType.Heavy)
             {
                 GameObject GO = (GameObject)Instantiate(_chompy, new Vector3(-50, 3, Garbage.transform.position.z), Quaternion.Euler(new Vector3(0, 90, 0)));
+                GO.GetComponentInChildren<ParticleSystem>().Stop();
                 GO.GetComponent<ChompyScript>().GarbageObject = Garbage.gameObject;
                 GO.GetComponent<ChompyScript>().GarbageWaveScript = _garbageWaveScript;
             }
@@ -249,6 +250,7 @@ public class PowerupsScript : MonoBehaviour {
 
 
         GameObject GO = (GameObject)Instantiate(_sharky, new Vector3(sharkyPosX, -27.4f, -39.1f), Quaternion.identity);
+        GO.GetComponentInChildren<ParticleSystem>().Stop();
         GO.GetComponent<SharkyScript>().Garbage = currentGarbage;
         GO.GetComponent<SharkyScript>().GarbageWaveScript = _garbageWaveScript;
         GO.GetComponent<SharkyScript>().PosX = sharkyPosX;
@@ -263,6 +265,7 @@ public class PowerupsScript : MonoBehaviour {
     {
         _garbageList = _garbageParent.GetComponentsInChildren<GarbadgeDestoryScript>().ToList();
         GameObject GO = (GameObject)Instantiate(_whaley, new Vector3(-0.6f, -27.4f, -39.1f), Quaternion.Euler(new Vector3(0, 0, 0)));
+        GO.GetComponentInChildren<ParticleSystem>().Stop();
         GO.GetComponent<WhaleyScript>().GarbageWaveScript = _garbageWaveScript;
         GO.GetComponent<WhaleyScript>().Garbage = _garbageList;
         GO.GetComponent<BoxCollider>().enabled = false;
