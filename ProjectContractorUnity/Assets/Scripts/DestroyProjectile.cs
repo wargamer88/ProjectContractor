@@ -3,20 +3,23 @@ using System.Collections;
 
 public class DestroyProjectile : MonoBehaviour {
 
-    private HighscoreScript _highscore;
+    #region Variables
+    //a Reference to HighScoreScript for ComboCounter
+    private HighscoreScript _highscore; 
+    #endregion
 
-    // Use this for initialization
+    /// <summary>
+    /// <para>find the _highscore Script</para>
+    /// </summary>
     void Start()
     {
         _highscore = GameObject.FindObjectOfType<HighscoreScript>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    /// <summary>
+    /// <para>if Projectile makes collision delete object and reset Combo</para>
+    /// </summary>
+    /// <param name="other"></param>
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Projectile")

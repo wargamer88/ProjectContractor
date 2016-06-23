@@ -4,15 +4,17 @@ using System.Collections.Generic;
 
 public class GarbageTileScript : MonoBehaviour {
 
+    #region Variables
     //A list of Garbage, to see which Garbage are in the Tile
     private List<GameObject> _garbageList;
     //A List of Garbage that can be removed from GarbageList, because its null
     private List<GameObject> _tobeDestroyedList;
     //A Reference to HighScoreScript for Score
-    private HighscoreScript _highscore;
+    private HighscoreScript _highscore; 
 
     //Property for GarbageList
     public List<GameObject> GarbageList { get { return _garbageList; } set { _garbageList = value; } }
+    #endregion
 
     /// <summary>
     /// <para>_garbageList get Initialized</para>

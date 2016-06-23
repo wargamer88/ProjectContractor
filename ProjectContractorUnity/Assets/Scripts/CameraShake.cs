@@ -3,24 +3,31 @@ using System.Collections;
 
 public class CameraShake : MonoBehaviour
 {
-	// Transform of the camera to shake. Grabs the gameObject's transform
-	// if null.
-	private Transform camTransform;
+    #region Variables
+    // Transform of the camera to shake. Grabs the gameObject's transform
+    // if null.
+    private Transform camTransform;
 
     // How long the object should shake for.
     private float _scriptShakeDuration = 0f;
     [SerializeField]
-	private float shakeDuration = 0f;
+    private float shakeDuration = 0f;
 
     // Amplitude of the shake. A larger value shakes the camera harder.
     [SerializeField]
     private float shakeAmount = 0.7f;
+    //How fast the shakeDuration lowers
     [SerializeField]
-    private float decreaseFactor = 1.0f;
+    private float decreaseFactor = 1.0f; 
 
-	Vector3 originalPos;
+    // Original Position of the Camera
+    Vector3 originalPos;
+    #endregion
 
-	void Awake()
+    /// <summary>
+    /// <para> When Awake get the Transform of the Camera</para>
+    /// </summary>
+    void Awake()
 	{
 		if (camTransform == null)
 		{
@@ -28,11 +35,17 @@ public class CameraShake : MonoBehaviour
 		}
 	}
 
+    /// <summary>
+    /// <para>When enabled get OriginalPos of Camera</para>
+    /// </summary>
 	void OnEnable()
 	{
 		originalPos = camTransform.localPosition;
 	}
 
+    /// <summary>
+    /// <para>Shake the Camera</para>
+    /// </summary>
 	void Update()
 	{
 		if (_scriptShakeDuration > 0)
@@ -48,6 +61,9 @@ public class CameraShake : MonoBehaviour
 		}
 	}
 
+    /// <summary>
+    /// <para>when Start Shake set the Timer for how long Shake should last</para>
+    /// </summary>
     public void StartShake()
     {
         _scriptShakeDuration = shakeDuration;
