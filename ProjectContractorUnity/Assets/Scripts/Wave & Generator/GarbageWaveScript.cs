@@ -62,6 +62,10 @@ public class GarbageWaveScript : MonoBehaviour
     public List<string> DeadLaneList { get { return _deadLaneList; } set { _deadLaneList = value; } }
     //counter to reset when a place is found to place the object in the tile
     private int _renewCounter = 0;
+    //Boolean for if the Game has Ended
+    private bool _endGame = false;
+    //Property for EndGame used in GeneratorPowerScript
+    public bool EndGame { set { _endGame = value; } }
     #endregion
     /// <summary>
     ///<para>Start create the lists and searching for objects in the game</para>
@@ -83,7 +87,7 @@ public class GarbageWaveScript : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (_spawnedGarbage.Count <= _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
+        if (_spawnedGarbage.Count <= _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount && !_endGame)
         {
             _waveNumber++;
             _nextWave = true;

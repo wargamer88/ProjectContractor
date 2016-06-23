@@ -111,7 +111,8 @@ public class HighscoreScript : MonoBehaviour {
     /// </summary>
 	void Update () {
         _checkComboTimer();
-	}
+        _updateScore();
+    }
 
     /// <summary>
     /// <para>Checks when to hide the Combo Images</para>
@@ -125,13 +126,7 @@ public class HighscoreScript : MonoBehaviour {
             _timer++;
             if (_timer >= _maxTimeShowCombo)
             {
-                _comboUI.GetComponent<Image>().enabled = false;
-                _nietaanterakenUI.GetComponent<Image>().enabled = false;
-                _superUI.GetComponent<Image>().enabled = false;
-                _geweldig.GetComponent<Image>().enabled = false;
-                _ongelooflijk.GetComponent<Image>().enabled = false;
-                _superheld.GetComponent<Image>().enabled = false;
-                _waveClearUI.GetComponent<Image>().enabled = false;
+                DisableUI();
                 _timer = 0;
             }
         }

@@ -58,6 +58,7 @@ public class GeneratorPowerScript : MonoBehaviour {
             //                     LOST                            WON
             if (_destroyedGenerator == 5 || _garbageWaveScript.Wave > _amountOfWaves)
             {
+                GameObject.FindObjectOfType<GarbageWaveScript>().EndGame = true;
                 _wonOrLost = true;
                 GameObject[] garbage = GameObject.FindGameObjectsWithTag("Garbage");
                 FindObjectOfType<HighscoreScript>().DisableUI();
