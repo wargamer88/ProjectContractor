@@ -62,6 +62,8 @@ public class GarbageWaveScript : MonoBehaviour
     public List<string> DeadLaneList { get { return _deadLaneList; } set { _deadLaneList = value; } }
     //counter to reset when a place is found to place the object in the tile
     private int _renewCounter = 0;
+    //Get the script that looks if all the generators are still alive
+    private GeneratorPowerScript _generatorPowerScript;
     #endregion
     /// <summary>
     ///<para>Start create the lists and searching for objects in the game</para>
@@ -75,6 +77,7 @@ public class GarbageWaveScript : MonoBehaviour
         _garbageParent = new GameObject();
         _garbageParent.name = "Garbage Parent";
         _generators = GameObject.FindObjectsOfType<GarbadgeGeneratorScript>();
+        _generatorPowerScript = GameObject.FindObjectOfType<GeneratorPowerScript>();
     }
 
     /// <summary>
@@ -83,15 +86,20 @@ public class GarbageWaveScript : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (_spawnedGarbage.Count <= _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount)
+        if (_spawnedGarbage.Count <= _destroyedGarbage.Count && _destroyedGarbage.Count >= _spawnAmount || _destroyedGarbage.Count >= _spawnedGarbage.Count)
         {
-            _waveNumber++;
-            _nextWave = true;
-            _spawnAmount = 0;
-            if (_waveNumber != 1)
+            //Check if there is still garbage left. Hotfix 2.0
+            if (GameObject.FindGameObjectsWithTag("Garbage").Length  == 0)
             {
-                _checkWave();
+                _waveNumber++;
+                _nextWave = true;
+                _spawnAmount = 0;
+                if (_waveNumber != 1)
+                {
+                    _checkWave();
+                }
             }
+            
         }
         if (_nextWave)
         {
