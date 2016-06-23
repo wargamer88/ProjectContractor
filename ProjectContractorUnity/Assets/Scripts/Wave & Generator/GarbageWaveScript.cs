@@ -90,18 +90,18 @@ public class GarbageWaveScript : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (_spawnedGarbage.Count <= _destroyedGarbage.Count && _destroyedGarbage.Count >= _spawnAmount || _destroyedGarbage.Count >= _spawnedGarbage.Count && !_endGame)
+        if (_spawnedGarbage.Count <= _destroyedGarbage.Count && (_destroyedGarbage.Count >= _spawnAmount || _destroyedGarbage.Count >= _spawnedGarbage.Count))
         {
             //Check if there is still garbage left. Hotfix 2.0
-            if (GameObject.FindGameObjectsWithTag("Garbage").Length  == 0)
-        {
-            _waveNumber++;
-            _nextWave = true;
-            _spawnAmount = 0;
-            if (_waveNumber != 1)
+            if (GameObject.FindGameObjectsWithTag("Garbage").Length  == 0 && !_endGame)
             {
-                _checkWave();
-            }
+                _waveNumber++;
+                _nextWave = true;
+                _spawnAmount = 0;
+                if (_waveNumber != 1)
+                {
+                    _checkWave();
+                }
             }
             
         }
@@ -190,7 +190,7 @@ public class GarbageWaveScript : MonoBehaviour
         //Change position if garbage overlap
         while (!_canContinue)
         {
-            Collider[] allColliders = Physics.OverlapSphere(gameSpawnObject.transform.position, 3);
+            Collider[] allColliders = Physics.OverlapSphere(gameSpawnObject.transform.position, 5);
             foreach (Collider collider in allColliders)
             {
                 _renewCounter++;

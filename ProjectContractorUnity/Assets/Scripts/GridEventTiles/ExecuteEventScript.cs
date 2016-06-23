@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ExecuteEventScript : MonoBehaviour
 {
     //Garbage and Tile both has this script!
+    #region Variables
     //The eventWrapper where you can change the waves in the inspector and property to get the wrapper if the garbage hit the tile.
     [SerializeField]
     private List<EventTileWrapperScript> _eventWrapper = new List<EventTileWrapperScript>();
@@ -27,62 +28,52 @@ public class ExecuteEventScript : MonoBehaviour
     public _choices Event { get { return _event; } }
     //property event wave to know the wave from garbage
     public int EventWave { get { return _eventWave; } set { _eventWave = value; } }
-
+    //property of the speed for the increase speed event.
     public float EventSpeed { get { return _eventSpeedOfObjects; } }
-
+    //Which event in the list on the tile.
     private int _eventCounter = 0;
-
-
+    //reference to garbageWaveScript for the wave and spawning the object
     private GarbageWaveScript _garbageWaveScript;
-    private GameObject _aimPlane;
+    //Image of the tutorial hand
     private Image _hand;
 
-    private bool _isDestroyed = false;
-    public bool IsDestroyed { set { _isDestroyed = value; } }
-
-    private bool _isEventDone = false;
-
-    public bool IsEventDone { set { _isEventDone = value; } get { return _isEventDone; } }
-
-    private float _oldTime;
-
-    private bool _isFirstTime = true;
-
-
+    //spawned object counter.
     private int _spawnedLight = 0;
     private int _spawnedMedium = 0;
     private int _spawnedHeavy = 0;
     private int _spawnedSuperHeavy = 0;
-
+    //If _boatfred is set.
     private bool _isPrefab = true;
-
+    //SerializedField to put in the prefab
     [SerializeField]
     private GameObject _boatPrefab;
+    #endregion
 
-
-    // Use this for initialization
+    /// <summary>
+    /// <para>Search for the garbage wave script and hand</para>
+    /// <para>Set tile foreach tile</para>
+    /// </summary>
     void Start()
     {
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
         _hand = GameObject.Find("Hand").GetComponent<Image>();
-        _aimPlane = GameObject.Find("AimPlane");
-
-       // StartOrRestartTile();
         foreach (EventTileWrapperScript addTile in _eventWrapper)
         {
             addTile.Tile = this.transform.name;
         }
-        //_eventList = GetComponent<EventTileScript>().Choices;
     }
 
-    public void StartOrRestartTile(bool restart = false)
+    /// <summary>
+    /// <para>Start Or Restart tile is a function for the wave when it's started and set the next action in the wrapper </para>
+    /// </summary>
+    private void _startOrRestartTile()
     {
-
-        
+        //check if Tile has the tag because also garbage has this script.
         if (this.tag == "GridTile" && EventWrapper.Count > 0 && _eventCounter < EventWrapper.Count)
         {
             if (_eventWrapper[_eventCounter].EventWave == _garbageWaveScript.Wave)
             {
+                //set all the wrapper variables in script variables.
                 _event = _eventWrapper[_eventCounter].ChosenEvent;
                 _eventWave = _eventWrapper[_eventCounter].EventWave;
                 _eventEveryWave = _eventWrapper[_eventCounter].IsEveryWave;
@@ -91,11 +82,12 @@ public class ExecuteEventScript : MonoBehaviour
                 _eventAmountOfObjects = _eventWrapper[_eventCounter].AmountOfObject;
                 _eventTimeBetween = _eventWrapper[_eventCounter].TimeBetweenSpawn;
                 _currentEvent = _eventWrapper[_eventCounter];
+                //Get the count of the total amount of spawning objects;
                 if (!_garbageWaveScript.DeadLaneList.Contains(this.gameObject.name.Substring(0,1)))
                 {
                     _garbageWaveScript.SpawnAmount += _eventAmountOfObjects;
                 }
-
+                //set the spawned objects
                 _spawnedLight = 0;
                 _spawnedMedium = 0;
                 _spawnedHeavy = 0;
@@ -106,23 +98,13 @@ public class ExecuteEventScript : MonoBehaviour
             }
         }
     }
-
-
-    // Update is called once per frame
+    /// <summary>
+    /// <para>If it is not the first wave. Disbale the hand if it was enabled</para>
+    /// <para>Get the new wave to read the event wrapper</para>
+    /// <para>Look at the events</para>
+    /// </summary>
     void Update()
     {
-        //if (_eventWrapper.Count != 0)
-        //{
-        //    if (_garbageWaveScript.SpawnedGarbage.Count == _eventAmountOfObjects && _garbageWaveScript.Wave == _eventWave)
-        //    {
-        //        StartOrRestartTile(true);
-        //    }
-        //}
-        //if (_isEventDone && _garbageWaveScript.Wave == _eventWave)
-        //{
-        //    StartOrRestartTile(true);
-        //    _isEventDone = false;
-        //}
         if (_garbageWaveScript.Wave != 1)
         {
             if (_hand.enabled)
@@ -130,36 +112,26 @@ public class ExecuteEventScript : MonoBehaviour
                 _hand.enabled = false;
             }
         }
-        StartOrRestartTile();
+        _startOrRestartTile();
 
         _switchEvent();
     }
-
+    /// <summary>
+    /// <para>OnTriggerEnter will do twice once for the tile and once for the garabge. When the hit it looks if there is a event on the tile</para>
+    /// </summary>
+    /// <param name="pOther">Hit of other object</param>
     void OnTriggerEnter(Collider pOther)
     {
-        //if (pOther.GetComponent<ExecuteEventScript>().EventWrapper.Count != 0)
-        //{
-        //    Debug.Log(pOther.GetComponent<ExecuteEventScript>().EventWrapper[0].EventWave);
-        //}
-        //if (pOther.GetComponent<ExecuteEventScript>().EventWrapper.Count != 0)
-        //{
-        //    if (this.tag == "Garbage" && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWrapper[0].EventWave)
-        //    {
-        //        pOther.GetComponent<ExecuteEventScript>().StartOrRestartTile(true);
-        //    }
-        //}
-
         if (pOther.GetComponent<ExecuteEventScript>())
         {
+            //Tutorial hand is shown if garbage hit the tile with the event.
             if (this.tag == "Garbage" && pOther.GetComponent<ExecuteEventScript>().EventWrapper.Count != 0)
             {
-                //Debug.Log(_eventWave);
-                //Debug.Log("garbagewave " + _garbageWaveScript.Wave);
                 if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.ShowTutorialBottle && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
                 {
                     _hand.enabled = true;
-                    _isEventDone = true;
                 }
+                //if the event is explode barrel it looks and put new objects.
                 else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.ExplodesBarrel && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
                 {
                     GameObject bottle = _garbageWaveScript.LightGarbage[0];
@@ -170,10 +142,12 @@ public class ExecuteEventScript : MonoBehaviour
                     Destroy(pOther);
                     Destroy(this);
                 }
+                //If event is increase speed the garbage will increase the speed with the speed that is in the inspector
                 else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.IncreaseSpeed && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
                 {
                     this.GetComponent<GarbageMoveScript>().Speed = -pOther.GetComponent<ExecuteEventScript>().EventSpeed;
                 }
+                //If event is change lane. The garbage that hit this tile will randomly change lane to the right or left if possible.
                 else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.ChangeLanes && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
                 {
                     string letter = pOther.name.Substring(0, 1);
@@ -209,6 +183,7 @@ public class ExecuteEventScript : MonoBehaviour
                     this.GetComponent<GarbageMoveScript>().ChangeLane(nextTile.transform.position);
 
                 }
+                //If event is miltitrash the first object that hit this tile will change into 3 other garbage and destroy the original one
                 else if (pOther.GetComponent<ExecuteEventScript>().Event == _choices.MiltiTrash && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWave)
                 {
                     pOther.GetComponent<ExecuteEventScript>().EventWave = 0;
@@ -224,6 +199,7 @@ public class ExecuteEventScript : MonoBehaviour
                 }
             }
         }
+        //If the other hit has the component script Boat Event and if the target position of the boat is this tile then spawn an garbage. I use everyXwave variable to choose wich kind of garbage will spawn
         if (pOther.GetComponent<BoatEventScript>() && _event == _choices.BoatToTile && pOther.GetComponent<BoatEventScript>().TargetPosition == this.transform.position)
         {
             if (_eventEveryXWave == 1)
@@ -238,161 +214,23 @@ public class ExecuteEventScript : MonoBehaviour
             {
                 _event = _choices.SpawnRandomHeavy;
             }
-            //_eventAmountOfObjects
             Destroy(pOther.gameObject);
 
-            //for (int i = 0; i < _eventAmountOfObjects; i++)
-            //{
-            //    _event = _choices.SpawnRandomLight;
-            //    _eventAmountOfObjects = 1;
-            //    _eventSpeedOfObjects = 1;
-            //    this.EventWrapper.Add(_currentEvent);
-            //    if (i + 1 == _eventAmountOfObjects)
-            //    {
-            //        Destroy(pOther);
-            //    }
-            //}
-
         }
-
-        //    //second Part deleting Part of Wrapper
-        //    if (GetComponent<ExecuteEventScript>() != null)
-        //    {
-        //        //if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0 || _garbageWaveScript.DestroyedGarbage.Count+1 == _eventAmountOfObjects)
-        //        //{
-        //            if (GetComponent<ExecuteEventScript>().EventWrapper.Count != 0)
-        //            {
-        //                if (this.gameObject.name == this.GetComponent<ExecuteEventScript>().EventWrapper[0].Tile && _isEventDone)
-        //                {
-        //                    if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<ExecuteEventScript>().EventWrapper.Count == 1)
-        //                    {
-        //                        GetComponent<ExecuteEventScript>().EventWrapper.RemoveAt(0);
-        //                        _startOrRestartTile();
-        //                        // Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
-        //                    }
-        //                    else if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<ExecuteEventScript>().EventWrapper.Count > 1)
-        //                    {
-        //                        GetComponent<ExecuteEventScript>().EventWrapper.RemoveAt(0);
-        //                        //Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
-        //                        _startOrRestartTile();
-        //                    }
-        //                }
-        //            }
-        //        //}
-        //    }
     }
-
-    void OnTriggerExit(Collider pOther)
-    {
-        //if (pOther.GetComponent<ExecuteEventScript>().EventWrapper.Count != 0)
-        //{
-        //    if (this.tag == "Garbage" && _garbageWaveScript.Wave == pOther.GetComponent<ExecuteEventScript>().EventWrapper[0].EventWave && pOther.GetComponent<ExecuteEventScript>().IsEventDone)
-        //    {
-        //        //_isEventDone = false;
-        //        pOther.GetComponent<ExecuteEventScript>().IsEventDone = false;
-        //        pOther.GetComponent<ExecuteEventScript>().StartOrRestartTile(true);
-        //    }
-        //}
-
-        
-        #region oude code
-        //if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0 || _garbageWaveScript.DestroyedGarbage.Count+1 == _eventAmountOfObjects)
-        //    //{
-        //    if (_isEventDone)
-        //    {
-        //        if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<ExecuteEventScript>().EventWrapper.Count == 1)
-        //        {
-        //            GetComponent<ExecuteEventScript>().EventWrapper.RemoveAt(0);
-        //            _isEventDone = false;
-        //            _startOrRestartTile();
-        //            // Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
-        //        }
-        //        else if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<ExecuteEventScript>().EventWrapper.Count > 1)
-        //        {
-        //            GetComponent<ExecuteEventScript>().EventWrapper.RemoveAt(0);
-        //            _isEventDone = false;
-        //            //Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
-        //            _startOrRestartTile();
-        //        }
-        //    }
-        //    //} 
-        #endregion
-    }
-
-    #region oude code
-    //public void NextWave()
-    //{
-    //    if (!_eventEveryWave && _eventEveryXWave == 0 && _eventAmountOfObjects == 0 || _garbageWaveScript.DestroyedGarbage.Count+1 == _eventAmountOfObjects)
-    //    {
-    //        if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<ExecuteEventScript>().EventWrapper.Count == 1)
-    //        {
-    //            GetComponent<ExecuteEventScript>().EventWrapper.RemoveAt(0);
-    //            _startOrRestartTile();
-    //            // Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
-    //        }
-    //        else if (_garbageWaveScript.Wave == this._eventWave && this.GetComponent<ExecuteEventScript>().EventWrapper.Count > 1)
-    //        {
-    //            GetComponent<ExecuteEventScript>().EventWrapper.RemoveAt(0);
-    //            //Debug.Log(this.GetComponent<EventTileScript>().EventWrapper.Count);
-    //            _startOrRestartTile();
-    //        }
-    //    }
-    //} 
-    #endregion
-
+    /// <summary>
+    /// <para>Switch event are events that start at the start of the wave. Mostly spawning objects.</para>
+    /// </summary>
     private void _switchEvent()
     {
         switch (_event)
         {
-            case _choices.None:
-                break;
-            case _choices.IncreaseSpeed:
-                break;
+            //Spawns a bottle for the tutorial
             case _choices.SpawnBottle:
                 SpawnObjectScript.SpawnBottle(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _garbageWaveScript, this.transform.position,this);
-                #region Old SpawnBottle
-                //if (_garbageWaveScript.Wave == _eventWave)
-                //{
-                //    Debug.Log(_spawned);
-                //    if (Time.time > (_oldTime + _eventTimeBetween) || _isFirstTime)
-                //    {
-                //        if ( _spawned != _eventAmountOfObjects)
-                //        {
-                //            _oldTime = Time.time;
-                //            if (_eventEveryXWave != 0 && _eventEveryWave)
-                //            {
-                //                _eventWave = _eventWave + _eventEveryXWave;
-                //                GameObject bottle = _garbageWaveScript.LightGarbage[0];
-                //                _garbageWaveScript._spawnGarbage(1, this.transform.position.x + 1, 1, this.transform.position.z, bottle);
-                //                _spawned++;
-                //            }
-                //            else if (_eventEveryWave)
-                //            {
-                //                _eventWave++;
-                //                GameObject bottle = _garbageWaveScript.LightGarbage[0];
-                //                _garbageWaveScript._spawnGarbage(1, this.transform.position.x + 1, 1, this.transform.position.z, bottle);
-                //                _spawned++;
-                //                //_event = _choices.SpawnBottle;
-                //            }
-                //            else
-                //            {
-                //                //if (_eventEveryWave)
-                //                //{
-                //                GameObject bottle = _garbageWaveScript.LightGarbage[0];
-                //                _garbageWaveScript._spawnGarbage(1, this.transform.position.x + 1, 1, this.transform.position.z, bottle);
-                //                _isEventDone = true;
-                //               // _event = _choices.None;
-                //                _spawned++;
-                //                //}
-                //            }
-                //            _isFirstTime = false;
-                //        }
-                //    }
-                //}
-                #endregion
                 break;
+            //Spawn random light. Also if everywave or every amount of wave is filled.
             case _choices.SpawnRandomLight:
-                
                 _spawnedLight = SpawnObjectScript.SpawnRandomLight(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedLight, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
                 {
@@ -410,8 +248,8 @@ public class ExecuteEventScript : MonoBehaviour
                         _eventWrapper.Add(_currentEvent);
                     }
                 }
-                
                 break;
+            //Spawn random Medium. Also if everywave or every amount of wave is filled.
             case _choices.SpawnRandomMedium:
                 _spawnedMedium = SpawnObjectScript.SpawnRandomMedium(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedMedium, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
@@ -431,6 +269,7 @@ public class ExecuteEventScript : MonoBehaviour
                     }
                 }
                 break;
+            //Spawn random heavy. Also if everywave or every amount of wave is filled.
             case _choices.SpawnRandomHeavy:
                 _spawnedHeavy = SpawnObjectScript.SpawnRandomHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedHeavy, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 if (_eventEveryWave && _eventEveryXWave != 0)
@@ -450,11 +289,11 @@ public class ExecuteEventScript : MonoBehaviour
                     }
                 }
                 break;
+            //Spawn random super heavy. Also if everywave or every amount of wave is filled.
             case _choices.SpawnSuperHeavy:
                 _spawnedSuperHeavy = SpawnObjectScript.SpawnSuperHeavy(_eventWave, _eventTimeBetween, _eventAmountOfObjects, _spawnedSuperHeavy, _garbageWaveScript, this.transform.position,this, _eventSpeedOfObjects);
                 break;
-            case _choices.ShowTutorialBottle:
-                break;
+             //Spawn only a barrel
             case _choices.SpawnBarrel:
                 if (_garbageWaveScript.Wave == _eventWave)
                 {
@@ -463,8 +302,8 @@ public class ExecuteEventScript : MonoBehaviour
                     _event = _choices.None;
                 }
                 break;
-            case _choices.ExplodesBarrel:
-                break;
+            //When boat event first check if prefab is set to show the prefab otherwise the cube
+            //create a invisiable cube that can hit the grid and change the event so the tile can read the event.
             case _choices.BoatEvent:
                 GameObject boatPrefab;
                 if (_boatPrefab != null)
@@ -472,18 +311,14 @@ public class ExecuteEventScript : MonoBehaviour
                     if (_isPrefab)
                     {
                         boatPrefab = GameObject.Instantiate(_boatPrefab);
-                        //boatPrefab = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                        //boatPrefab.GetComponent<BoxCollider>().enabled = false;
                         boatPrefab.transform.position = new Vector3(-75, boatPrefab.transform.position.y, this.transform.position.z);
                         boatPrefab.AddComponent<BoatEventScript>();
                         boatPrefab.GetComponent<BoatEventScript>().SetTargetPositionAndSpeed(new Vector3(this.transform.position.x + 1000, this.transform.position.y, this.transform.position.z), _eventSpeedOfObjects + 0.2f);
-                        //boatPrefab.transform.localScale = new Vector3(10, 10, 10);
                         _isPrefab = false;
                     }
                 }
                 else
                 {
-                    //boatPrefab = GameObject.Instantiate(_boatPrefab);
                     boatPrefab = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     boatPrefab.GetComponent<BoxCollider>().enabled = false;
                     boatPrefab.transform.position = new Vector3(-75, this.transform.position.y, this.transform.position.z);
