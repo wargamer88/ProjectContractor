@@ -62,6 +62,8 @@ public class GarbageWaveScript : MonoBehaviour
     public List<string> DeadLaneList { get { return _deadLaneList; } set { _deadLaneList = value; } }
     //counter to reset when a place is found to place the object in the tile
     private int _renewCounter = 0;
+    //Get the script that looks if all the generators are still alive
+    private GeneratorPowerScript _generatorPowerScript;
     //Boolean for if the Game has Ended
     private bool _endGame = false;
     //Property for EndGame used in GeneratorPowerScript
@@ -79,6 +81,7 @@ public class GarbageWaveScript : MonoBehaviour
         _garbageParent = new GameObject();
         _garbageParent.name = "Garbage Parent";
         _generators = GameObject.FindObjectsOfType<GarbadgeGeneratorScript>();
+        _generatorPowerScript = GameObject.FindObjectOfType<GeneratorPowerScript>();
     }
 
     /// <summary>
@@ -87,7 +90,10 @@ public class GarbageWaveScript : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (_spawnedGarbage.Count <= _destroyedGarbage.Count && _destroyedGarbage.Count == _spawnAmount && !_endGame)
+        if (_spawnedGarbage.Count <= _destroyedGarbage.Count && _destroyedGarbage.Count >= _spawnAmount || _destroyedGarbage.Count >= _spawnedGarbage.Count && !_endGame)
+        {
+            //Check if there is still garbage left. Hotfix 2.0
+            if (GameObject.FindGameObjectsWithTag("Garbage").Length  == 0)
         {
             _waveNumber++;
             _nextWave = true;
@@ -96,6 +102,8 @@ public class GarbageWaveScript : MonoBehaviour
             {
                 _checkWave();
             }
+            }
+            
         }
         if (_nextWave)
         {
