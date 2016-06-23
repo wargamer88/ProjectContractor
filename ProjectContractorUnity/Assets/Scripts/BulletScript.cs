@@ -13,16 +13,21 @@ public class BulletScript : MonoBehaviour {
     private List<GameObject> _walls;
 
     //List of the Generator Walls
-    private List<GameObject> _generatorwalls;  
+    private List<GameObject> _generatorwalls;
+
+    //Reference to Highscore to Reset Combo
+    private HighscoreScript _highscore;
     #endregion
 
     /// <summary>
     /// <para>Find Explosion Particle</para>
+    /// <para>Find HighscoreScript</para>
     /// <para>Ignore Collision with all walls and Generator Walls</para>
     /// </summary>
     void Start()
     {
         _explosionPrefab = (GameObject)Resources.Load("Explosion");
+        _highscore = GameObject.FindObjectOfType<HighscoreScript>();
         _walls = GameObject.FindGameObjectsWithTag("LineWall").ToList();
         foreach (GameObject wall in _walls)
         {
@@ -32,6 +37,26 @@ public class BulletScript : MonoBehaviour {
         foreach (GameObject genWall in _generatorwalls)
         {
             Physics.IgnoreCollision(this.GetComponent<SphereCollider>(), genWall.GetComponent<MeshCollider>());
+        }
+    }
+
+    /// <summary>
+    /// <para>Calls a function that checks if projectile needs to be destroyed</para>
+    /// </summary>
+    void Update()
+    {
+        _checkProjectileHeight();
+    }
+
+    /// <summary>
+    /// <para>Check if bullet is below certain point, if so remove projectile</para>
+    /// </summary>
+    private void _checkProjectileHeight()
+    {
+        if (this.transform.position.y < -4)
+        {
+            _highscore.ComboCounter = 0;
+            Destroy(this.gameObject);
         }
     }
 
