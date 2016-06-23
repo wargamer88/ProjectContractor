@@ -2,13 +2,9 @@
 using System.Collections;
 
 public class DestroyNonLoopingParticleScript : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
+	/// <summary>
+    /// <para>If animation Stopped destroy Particle</para>
+    /// </summary>
 	void Update () {
         if (GetComponent<ParticleSystem>().isStopped)
         {

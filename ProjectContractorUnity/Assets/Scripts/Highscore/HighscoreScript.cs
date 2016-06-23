@@ -77,11 +77,11 @@ public class HighscoreScript : MonoBehaviour {
     //Reference to the Particle Script
     private NumberParticleScript _numberParticle;
 
-    //The counter to see how your combo is progressing
-    private int _comboCounter;
-
     //The Timer used for Showing the Images
     private float _timer;
+
+    //The counter to see how your combo is progressing
+    private int _comboCounter;
 
     //The property for reading and editing the ComboCounter
     public int ComboCounter { get { return _comboCounter; } set { _comboCounter = value; } } 
