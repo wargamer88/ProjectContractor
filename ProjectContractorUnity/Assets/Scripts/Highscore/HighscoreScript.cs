@@ -227,6 +227,7 @@ public class HighscoreScript : MonoBehaviour {
     /// <param name="pHitAnything"></param>
     public void WaveClear(bool pHitAnything)
     {
+        DisableUI();
         if (!pHitAnything)
         {
             _score += _noDamageScore;
@@ -245,5 +246,18 @@ public class HighscoreScript : MonoBehaviour {
         }
         _score += _finishWaveScore;
         _numberParticle.PlaceParticleCombo(ComboType.FinishWave);
+    }
+    /// <summary>
+    /// <para>Disable all Images</para>
+    /// </summary>
+    public void DisableUI()
+    {
+        _comboUI.GetComponent<Image>().enabled = false;
+        _nietaanterakenUI.GetComponent<Image>().enabled = false;
+        _superUI.GetComponent<Image>().enabled = false;
+        _geweldig.GetComponent<Image>().enabled = false;
+        _ongelooflijk.GetComponent<Image>().enabled = false;
+        _superheld.GetComponent<Image>().enabled = false;
+        _waveClearUI.GetComponent<Image>().enabled = false;
     }
 }
