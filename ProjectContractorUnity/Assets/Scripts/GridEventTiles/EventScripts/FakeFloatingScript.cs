@@ -2,17 +2,17 @@
 using System.Collections;
 
 public class FakeFloatingScript : MonoBehaviour {
-
-    private float _floating = 0;
+    
+    //timer to switch
     private float _timer = 1f;
+    //timer to save the time.time
     private float _oldTimer = 0;
+    //Changing up to down and down to up
     private bool _isChanged = true;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
+
+	/// <summary>
+    /// If the game is running then change over time the IsChanged and instead of + do minus and the other way around
+    /// </summary>
 	void Update ()
     {
         if (Time.timeScale == 1)

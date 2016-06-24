@@ -5,19 +5,10 @@ using System.Linq;
 
 public class LineGarbageHolderScript : MonoBehaviour {
 
-    private List<GameObject> _garbage;
-	void Start () {
-        if (GameObject.FindGameObjectsWithTag("Garbage").Length > 0)
-        {
-            _garbage = GameObject.FindGameObjectsWithTag("Garbage").ToList();
-        }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+    /// <summary>
+    /// <para>If the garbage hit the wall. Try to set it back in the game.</para>
+    /// </summary>
+    /// <param name="pOther"></param>
     void OnTriggerEnter(Collider pOther)
     {
         if (pOther.tag == "Garbage")
