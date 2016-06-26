@@ -28,6 +28,7 @@ public class ScreenStartScript : MonoBehaviour {
         { 
             scripts.gameObject.GetComponent<FloatObjectScript>().enabled = true;
         }
+        FindObjectOfType<PowerupsScript>().GameStarted = true;
         Time.timeScale = 1;
         Destroy(this.gameObject);
     }

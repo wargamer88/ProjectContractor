@@ -11,6 +11,9 @@ public class PowerupsScript : MonoBehaviour {
     private GameObject _sharky;
     private GameObject _whaley;
 
+    //Set to true from ScreenStartScript is game is started
+    private bool _gameStarted = false;
+
     //set Time between Jumping Fishes
     private DateTime _timeJumpingFishSpawned;
 
@@ -21,7 +24,21 @@ public class PowerupsScript : MonoBehaviour {
     private List<GarbadgeDestoryScript> _garbageList;
 
     //Reference to GarbageWaveScript
-    private GarbageWaveScript _garbageWaveScript; 
+    private GarbageWaveScript _garbageWaveScript;
+
+    //properties
+    public bool GameStarted
+    {
+        set
+        {
+            if (!_gameStarted)
+            {
+                _gameStarted = value;
+                _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
+            }
+        }
+    }
+
     #endregion
 
     /// <summary>
@@ -33,7 +50,6 @@ public class PowerupsScript : MonoBehaviour {
         _sharky = (GameObject)Resources.Load("Sharky");
         _whaley = (GameObject)Resources.Load("Whaley");
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
-        _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
     }
 	
 	/// <summary>
@@ -41,8 +57,12 @@ public class PowerupsScript : MonoBehaviour {
     /// <para>Calls a Function that Randomly lets fishes jump</para>
     /// </summary>
 	void Update () {
-        _getGarbageParent();
-        _rndJumpingFishes();
+        if (_gameStarted)
+        {
+            _getGarbageParent();
+            _rndJumpingFishes();
+        }
+
 
     }
 
