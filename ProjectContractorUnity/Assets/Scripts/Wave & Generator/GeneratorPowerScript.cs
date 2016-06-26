@@ -71,12 +71,14 @@ public class GeneratorPowerScript : MonoBehaviour {
                 {
                     _verslagen.SetActive(true);
                     _verslagen.GetComponentInChildren<Text>().text = "Score\n" + FindObjectOfType<HighscoreScript>().Score.ToString();
+                    FindObjectOfType<CameraShake>().StopShake();
                     _timeForSendScore = System.DateTime.UtcNow.AddSeconds(5);
                 }
                 else if (_garbageWaveScript.Wave > _amountOfWaves)
                 {
                     _gefeliciteerd.SetActive(true);
                     _gefeliciteerd.GetComponentInChildren<Text>().text = "Score\n" + FindObjectOfType<HighscoreScript>().Score.ToString();
+                    FindObjectOfType<CameraShake>().StopShake();
                     _timeForSendScore = System.DateTime.UtcNow.AddSeconds(5);
                 }
             }

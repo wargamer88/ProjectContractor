@@ -18,10 +18,10 @@ public class CameraShake : MonoBehaviour
     private float shakeAmount = 0.7f;
     //How fast the shakeDuration lowers
     [SerializeField]
-    private float decreaseFactor = 1.0f; 
+    private float decreaseFactor = 1.0f;
 
     // Original Position of the Camera
-    Vector3 originalPos;
+    private Vector3 originalPos;
     #endregion
 
     /// <summary>
@@ -67,5 +67,10 @@ public class CameraShake : MonoBehaviour
     public void StartShake()
     {
         _scriptShakeDuration = shakeDuration;
+    }
+
+    public void StopShake()
+    {
+        _scriptShakeDuration = 0;
     }
 }
