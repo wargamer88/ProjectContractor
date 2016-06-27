@@ -3,12 +3,16 @@ using System.Collections;
 
 public class FloatObjectScript : MonoBehaviour {
 
+    //WaterLevel is where you input the height of the water
     [SerializeField]
     private float waterLevel = 4;
+    //Floatheight is how heigh the object should float
     [SerializeField]
     private float floatHeight = 2;
+    //bounceDamp is for how big it should bounce
     [SerializeField]
     private float bounceDamp = 0.05f;
+    //buoyancyCentreOffset is the offset of the bounciness
     [SerializeField]
     private Vector3 buoyancyCentreOffset;
 
