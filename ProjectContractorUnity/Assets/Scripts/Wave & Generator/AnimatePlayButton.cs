@@ -31,7 +31,7 @@ public class AnimatePlayButton : MonoBehaviour {
         if (_materials.Length == 0)
             return;
 
-        _indexChanger += 0.15f;
+        _indexChanger += 1f;
         _index = (int)_indexChanger;
         if (_index >= _materials.Length)
         {
