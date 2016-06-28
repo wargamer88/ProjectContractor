@@ -5,9 +5,9 @@ using System.Collections;
 public class AnimatePlayButton : MonoBehaviour {
 
     #region Variables
-    //Array of Sprites to Animate
+    //Array of materials to Animate
     [SerializeField]
-    private Sprite[] _sprites;
+    private Material[] _materials;
 
     //Current image
     private int _index = 0;
@@ -16,7 +16,7 @@ public class AnimatePlayButton : MonoBehaviour {
     #endregion
 
     /// <summary>
-    /// <para>Call AnimateImage</para>
+    /// <para>Call AnimateQuad</para>
     /// </summary>
     void Update()
     {
@@ -28,16 +28,16 @@ public class AnimatePlayButton : MonoBehaviour {
     /// </summary>
     private void _animateImage()
     {
-        if (_sprites.Length == 0)
+        if (_materials.Length == 0)
             return;
 
         _indexChanger += 0.15f;
         _index = (int)_indexChanger;
-        if (_index >= _sprites.Length)
+        if (_index >= _materials.Length)
         {
             _indexChanger = 0;
             _index = 0;
         }
-        GetComponent<Image>().sprite = _sprites[_index];
+        GetComponent<MeshRenderer>().material = _materials[_index];
     }
 }
