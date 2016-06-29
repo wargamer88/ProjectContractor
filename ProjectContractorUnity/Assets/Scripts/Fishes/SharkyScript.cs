@@ -61,19 +61,28 @@ public class SharkyScript : MonoBehaviour {
                 _rising = false;
                 _floating = true;
 
-                foreach (GarbadgeDestoryScript Garbage in _garbage)
-                {
-                    if (Garbage == null) continue;
-                    Destroy(Garbage.gameObject);
-                    _highscoreScript.AddTrashScore(Garbage.GetComponent<GarbadgeDestoryScript>().GarbageType);
-                    Instantiate(_explosionParticle, Garbage.transform.position, Quaternion.identity);
-                    _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
-                }
+                
             }
         }
         else if (_floating)
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(_posX, 2f, 160), step);
+
+            //destroying
+            foreach (GarbadgeDestoryScript Garbage in _garbage)
+            {
+                if (Garbage == null) continue;
+                if ((this.transform.position - Garbage.transform.position).magnitude < 10)
+                {
+                    Destroy(Garbage.gameObject);
+                    _highscoreScript.AddTrashScore(Garbage.GetComponent<GarbadgeDestoryScript>().GarbageType);
+                    Instantiate(_explosionParticle, Garbage.transform.position, Quaternion.identity);
+                    _garbageWaveScript.DestroyedGarbage.Add(Garbage.gameObject);
+                }
+                
+            }
+            
+
             if (transform.position == new Vector3(_posX, 2f, 160))
             {
                 _floating = false;

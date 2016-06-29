@@ -34,7 +34,11 @@ public class PowerupsScript : MonoBehaviour {
             if (!_gameStarted)
             {
                 _gameStarted = value;
-                _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
+                if (value)
+                {
+                    _timeJumpingFishSpawned = System.DateTime.Now.AddSeconds(30);
+                }
+                
             }
         }
     }

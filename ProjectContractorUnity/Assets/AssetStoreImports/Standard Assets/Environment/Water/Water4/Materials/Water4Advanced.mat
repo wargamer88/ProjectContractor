@@ -275,6 +275,10 @@ Material:
         second: {r: 1, g: 1, b: 0, a: 0}
       data:
         first:
+          name: _BumpMap_ST
+        second: {r: 1, g: 1, b: 0, a: 0}
+      data:
+        first:
           name: WaveSpeed
         second: {r: 1.086165, g: 4.440575, b: 12.105146, a: -3.0206447}
       data:
