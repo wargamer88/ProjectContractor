@@ -68,6 +68,8 @@ public class GarbageWaveScript : MonoBehaviour
     private bool _endGame = false;
     //Property for EndGame used in GeneratorPowerScript
     public bool EndGame { set { _endGame = value; } }
+    //Script to make sure New building can spawn
+    private BuildCityScript _cityConstruction;
     #endregion
     /// <summary>
     ///<para>Start create the lists and searching for objects in the game</para>
@@ -82,6 +84,7 @@ public class GarbageWaveScript : MonoBehaviour
         _garbageParent.name = "Garbage Parent";
         _generators = GameObject.FindObjectsOfType<GarbadgeGeneratorScript>();
         _generatorPowerScript = GameObject.FindObjectOfType<GeneratorPowerScript>();
+        _cityConstruction = GameObject.FindObjectOfType<BuildCityScript>();
     }
 
     /// <summary>
@@ -96,6 +99,7 @@ public class GarbageWaveScript : MonoBehaviour
             if (GameObject.FindGameObjectsWithTag("Garbage").Length  == 0 && !_endGame)
             {
                 _waveNumber++;
+                _cityConstruction.DoneBuilding = false;
                 _nextWave = true;
                 _spawnAmount = 0;
                 if (_waveNumber != 1)

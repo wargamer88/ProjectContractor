@@ -3856,7 +3856,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c345f67b220f97c4aa237e141c004ccb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -80.7
+      value: -122.7
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c345f67b220f97c4aa237e141c004ccb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3897,6 +3897,10 @@ Prefab:
     - target: {fileID: 400002, guid: c345f67b220f97c4aa237e141c004ccb, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: c345f67b220f97c4aa237e141c004ccb, type: 3}
+      propertyPath: m_TagString
+      value: SkyScrapers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c345f67b220f97c4aa237e141c004ccb, type: 3}
@@ -7424,6 +7428,7 @@ GameObject:
   - 114: {fileID: 658170488}
   - 114: {fileID: 658170492}
   - 114: {fileID: 658170487}
+  - 114: {fileID: 658170493}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7570,6 +7575,27 @@ MonoBehaviour:
   _minus50Particle: {fileID: 136018, guid: 799ec4a7a1ad7e54ebdf19587f9fe410, type: 2}
   _locationComboParticle: {x: 0, y: 5, z: -40}
   _locationWaveClearParticle: {x: 15, y: 20, z: -30}
+--- !u!114 &658170493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 658170486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96439f59fa2124439390e389b9bfeb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scaffoldings:
+  - {fileID: 150568, guid: bcac4f3d41ea50a408f42c73e3ea80d5, type: 2}
+  - {fileID: 171554, guid: 8345768a23905c949bf6dfdc26de6ac3, type: 2}
+  - {fileID: 114822, guid: 18c75b06a75379048b9be9f5f7aa1de1, type: 2}
+  - {fileID: 140866, guid: 3471896011ca6f24b92c2569d547ad87, type: 2}
+  _finalBuildingHeights:
+  - -85.4
+  - -90.1
+  - -94.9
+  - -90.7
 --- !u!1 &661067745
 GameObject:
   m_ObjectHideFlags: 0
@@ -10430,7 +10456,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -82.9
+      value: -120.5
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10471,6 +10497,10 @@ Prefab:
     - target: {fileID: 400002, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
+      propertyPath: m_TagString
+      value: SkyScrapers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
@@ -12296,8 +12326,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: 0.35876843, y: 0.062392406, z: 0.024069337, w: -0.93102795}
-  m_LocalPosition: {x: 7.502208, y: -28.18525, z: -81.05182}
+  m_LocalRotation: {x: -0.22375064, y: 0.27982974, z: 0.06722329, w: 0.93118846}
+  m_LocalPosition: {x: -207.90306, y: -31.255169, z: 334.9533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1618369589}
@@ -16519,7 +16549,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3fa8d6e9bec538f43abf616051316959, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -80.1
+      value: -120.9
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3fa8d6e9bec538f43abf616051316959, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16560,6 +16590,10 @@ Prefab:
     - target: {fileID: 400002, guid: 3fa8d6e9bec538f43abf616051316959, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 3fa8d6e9bec538f43abf616051316959, type: 3}
+      propertyPath: m_TagString
+      value: SkyScrapers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fa8d6e9bec538f43abf616051316959, type: 3}
@@ -21109,7 +21143,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 51d8ce6c85cbe9243bc52b74361faea8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -77.4
+      value: -126.2
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 51d8ce6c85cbe9243bc52b74361faea8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21150,6 +21184,10 @@ Prefab:
     - target: {fileID: 400002, guid: 51d8ce6c85cbe9243bc52b74361faea8, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 51d8ce6c85cbe9243bc52b74361faea8, type: 3}
+      propertyPath: m_TagString
+      value: SkyScrapers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51d8ce6c85cbe9243bc52b74361faea8, type: 3}
