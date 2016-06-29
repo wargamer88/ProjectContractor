@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cf763f0eab4a44825e50a39c4a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingHeight: 0.025
+  floatingHeight: 0.0075
   _timer: 1
 --- !u!114 &433894
 MonoBehaviour:
@@ -866,7 +866,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -538.6, y: -60}
+  m_AnchoredPosition: {x: -489, y: -73}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51309507
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cf763f0eab4a44825e50a39c4a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingHeight: 0.025
+  floatingHeight: 0.0075
   _timer: 1
 --- !u!114 &93945466
 MonoBehaviour:
@@ -5599,7 +5599,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -621.17, y: -76}
+  m_AnchoredPosition: {x: -569, y: -89}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &483375908
@@ -8026,7 +8026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cf763f0eab4a44825e50a39c4a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingHeight: 0.025
+  floatingHeight: 0.0075
   _timer: 1
 --- !u!114 &699743276
 MonoBehaviour:
@@ -9627,7 +9627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cf763f0eab4a44825e50a39c4a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingHeight: 0.025
+  floatingHeight: 0.0075
   _timer: 1
 --- !u!114 &855932172
 MonoBehaviour:
@@ -11911,7 +11911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cf763f0eab4a44825e50a39c4a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingHeight: 0.025
+  floatingHeight: 0.0075
   _timer: 1
 --- !u!114 &1105745809
 MonoBehaviour:
@@ -12029,7 +12029,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -540.2, y: -88.8}
+  m_AnchoredPosition: {x: -491, y: -102}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107347995
@@ -12361,7 +12361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cf763f0eab4a44825e50a39c4a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingHeight: 0.025
+  floatingHeight: 0.0075
   _timer: 1
 --- !u!114 &1137279367
 MonoBehaviour:
@@ -14594,7 +14594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cf763f0eab4a44825e50a39c4a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingHeight: 0.025
+  floatingHeight: 0.0075
   _timer: 1
 --- !u!114 &1310866329
 MonoBehaviour:
@@ -15176,7 +15176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cf763f0eab4a44825e50a39c4a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingHeight: 0.025
+  floatingHeight: 0.0075
   _timer: 1
 --- !u!114 &1368691843
 MonoBehaviour:
@@ -20812,7 +20812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cf763f0eab4a44825e50a39c4a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingHeight: 0.025
+  floatingHeight: 0.0075
   _timer: 1
 --- !u!114 &1967340282
 MonoBehaviour:
@@ -20974,7 +20974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cf763f0eab4a44825e50a39c4a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingHeight: 0.025
+  floatingHeight: 0.0075
   _timer: 1
 --- !u!114 &1981040633
 MonoBehaviour:
