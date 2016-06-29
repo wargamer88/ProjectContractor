@@ -41,7 +41,9 @@ public class TileGeneratorDestroyGarbageScript : MonoBehaviour {
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Light);
-                Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                Vector3 tempPos = pOther.transform.position;
+                tempPos.y = 3;
+                Instantiate(_damageParticle, tempPos, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
             else if (pOther.GetComponent<GarbadgeDestoryScript>().GarbageType == GarbageType.Medium)
@@ -50,7 +52,9 @@ public class TileGeneratorDestroyGarbageScript : MonoBehaviour {
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Medium);
-                Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                Vector3 tempPos = pOther.transform.position;
+                tempPos.y = 3;
+                Instantiate(_damageParticle, tempPos, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
             else if (pOther.GetComponent<GarbadgeDestoryScript>().GarbageType == GarbageType.Heavy)
@@ -59,7 +63,9 @@ public class TileGeneratorDestroyGarbageScript : MonoBehaviour {
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Heavy);
-                Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                Vector3 tempPos = pOther.transform.position;
+                tempPos.y = 3;
+                Instantiate(_damageParticle, tempPos, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
             else if (pOther.GetComponent<GarbadgeDestoryScript>().GarbageType == GarbageType.Special)
@@ -68,7 +74,9 @@ public class TileGeneratorDestroyGarbageScript : MonoBehaviour {
                 _garbageWaveScript.DestroyedGarbage.Add(pOther.gameObject);
                 pOther.gameObject.GetComponent<GarbadgeDestoryScript>().CurrentTile.GarbageList.Remove(pOther.gameObject);
                 _numberParticle.PlaceParticleAtGenerator(pOther.transform.position, GarbageType.Special);
-                Instantiate(_damageParticle, pOther.transform.position, Quaternion.identity);
+                Vector3 tempPos = pOther.transform.position;
+                tempPos.y = 3;
+                Instantiate(_damageParticle, tempPos, Quaternion.identity);
                 Destroy(pOther.gameObject);
             }
         }
