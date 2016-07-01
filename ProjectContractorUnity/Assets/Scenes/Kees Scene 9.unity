@@ -866,7 +866,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -489, y: -73}
+  m_AnchoredPosition: {x: -399.4, y: -69.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51309507
@@ -4027,7 +4027,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c345f67b220f97c4aa237e141c004ccb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -80.7
+      value: -122.7
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c345f67b220f97c4aa237e141c004ccb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4068,6 +4068,10 @@ Prefab:
     - target: {fileID: 400002, guid: c345f67b220f97c4aa237e141c004ccb, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: c345f67b220f97c4aa237e141c004ccb, type: 3}
+      propertyPath: m_TagString
+      value: SkyScrapers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c345f67b220f97c4aa237e141c004ccb, type: 3}
@@ -5599,7 +5603,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -569, y: -89}
+  m_AnchoredPosition: {x: -479.4, y: -85.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &483375908
@@ -7434,6 +7438,7 @@ GameObject:
   - 114: {fileID: 658170488}
   - 114: {fileID: 658170492}
   - 114: {fileID: 658170487}
+  - 114: {fileID: 658170493}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7580,6 +7585,27 @@ MonoBehaviour:
   _minus50Particle: {fileID: 136018, guid: 799ec4a7a1ad7e54ebdf19587f9fe410, type: 2}
   _locationComboParticle: {x: 0, y: 5, z: -40}
   _locationWaveClearParticle: {x: 15, y: 20, z: -30}
+--- !u!114 &658170493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 658170486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96439f59fa2124439390e389b9bfeb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scaffoldings:
+  - {fileID: 150568, guid: bcac4f3d41ea50a408f42c73e3ea80d5, type: 2}
+  - {fileID: 171554, guid: 8345768a23905c949bf6dfdc26de6ac3, type: 2}
+  - {fileID: 114822, guid: 18c75b06a75379048b9be9f5f7aa1de1, type: 2}
+  - {fileID: 140866, guid: 3471896011ca6f24b92c2569d547ad87, type: 2}
+  _finalBuildingHeights:
+  - -85.4
+  - -90.1
+  - -94.9
+  - -90.7
 --- !u!1 &661067745
 GameObject:
   m_ObjectHideFlags: 0
@@ -10503,7 +10529,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -82.9
+      value: -120.5
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10544,6 +10570,10 @@ Prefab:
     - target: {fileID: 400002, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
+      propertyPath: m_TagString
+      value: SkyScrapers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8476940fe73697c4d8e3815fe4e0ee29, type: 3}
@@ -11443,7 +11473,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1061172726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06, z: 0.35}
+  m_LocalPosition: {x: 0, y: 0.03, z: 0.35}
   m_LocalScale: {x: 0.34810457, y: 0.3481044, z: 0.3481044}
   m_Children: []
   m_Father: {fileID: 149030033}
@@ -12029,7 +12059,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -491, y: -102}
+  m_AnchoredPosition: {x: -401.4, y: -98.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107347995
@@ -12502,8 +12532,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141524011}
-  m_LocalRotation: {x: -0.30521253, y: 0.55221, z: 0.22717124, w: 0.7418239}
-  m_LocalPosition: {x: -27.062248, y: -30.77155, z: -10.636368}
+  m_LocalRotation: {x: -0.097480536, y: 0.2475261, z: 0.025018504, w: 0.9636402}
+  m_LocalPosition: {x: -36.69001, y: 12.860458, z: 444.74762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1618369589}
@@ -14216,7 +14246,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 479430, guid: f2101e14251314eecbe12fb51857946e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.0104
+      value: 0.0174
       objectReference: {fileID: 0}
     - target: {fileID: 479430, guid: f2101e14251314eecbe12fb51857946e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -16820,7 +16850,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400016, guid: a1f2dd2d416d6114bb363d32ea176eac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.65
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: a1f2dd2d416d6114bb363d32ea176eac, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16886,7 +16916,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3fa8d6e9bec538f43abf616051316959, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -80.1
+      value: -120.9
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3fa8d6e9bec538f43abf616051316959, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16931,6 +16961,10 @@ Prefab:
     - target: {fileID: 100002, guid: 3fa8d6e9bec538f43abf616051316959, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 3fa8d6e9bec538f43abf616051316959, type: 3}
+      propertyPath: m_TagString
+      value: SkyScrapers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fa8d6e9bec538f43abf616051316959, type: 3}
@@ -21319,15 +21353,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 47bc7ddf5249d4742830a72d84ac323c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07279999
+      value: -0.033
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47bc7ddf5249d4742830a72d84ac323c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.019599985
+      value: -0.0191
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47bc7ddf5249d4742830a72d84ac323c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.04459997
+      value: -0.0473
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47bc7ddf5249d4742830a72d84ac323c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -21645,7 +21679,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 51d8ce6c85cbe9243bc52b74361faea8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -77.4
+      value: -126.2
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 51d8ce6c85cbe9243bc52b74361faea8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21686,6 +21720,10 @@ Prefab:
     - target: {fileID: 400002, guid: 51d8ce6c85cbe9243bc52b74361faea8, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 51d8ce6c85cbe9243bc52b74361faea8, type: 3}
+      propertyPath: m_TagString
+      value: SkyScrapers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51d8ce6c85cbe9243bc52b74361faea8, type: 3}
