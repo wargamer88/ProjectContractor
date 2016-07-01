@@ -1,0 +1,706 @@
+fileFormatVersion: 2
+guid: a1487b87b9eca4ae58f7113dff725476
+timeCreated: 1467293585
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: back
+    100002: bottom
+    100004: Head
+    100006: imagePlane2
+    100008: imagePlane3
+    100010: imagePlane4
+    100012: LeftArm
+    100014: LeftArmJoint
+    100016: LeftFootJoint
+    100018: LeftHandJoint
+    100020: LeftLeg
+    100022: LeftLegJoint
+    100024: pCylinder1
+    100026: polySurface1
+    100028: polySurface10
+    100030: polySurface11
+    100032: polySurface12
+    100034: polySurface13
+    100036: polySurface14
+    100038: polySurface14 1
+    100040: polySurface15
+    100042: polySurface16
+    100044: polySurface17
+    100046: polySurface18
+    100048: polySurface19
+    100050: polySurface2
+    100052: polySurface20
+    100054: polySurface21
+    100056: polySurface3
+    100058: polySurface4
+    100060: polySurface4 1
+    100062: polySurface5
+    100064: polySurface6
+    100066: polySurface7
+    100068: polySurface8
+    100070: polySurface9
+    100072: pPlane1
+    100074: pPlane11
+    100076: pPlane12
+    100078: pPlane14
+    100080: pPlane17
+    100082: pPlane2
+    100084: pPlane20
+    100086: pPlane3
+    100088: pPlane7
+    100090: pPlane9
+    100092: pSphere1
+    100094: RightArm
+    100096: RightArmJoint1
+    100098: RightFoodJoint
+    100100: RightHandJoint
+    100102: RightLeg
+    100104: RightLegJoint
+    100106: Supervisor1
+    100108: //RootNode
+    100110: Torso
+    100112: transform1
+    100114: transform11
+    100116: transform12
+    100118: transform13
+    100120: transform15
+    100122: transform19
+    100124: transform2
+    100126: transform20
+    100128: transform23
+    100130: transform25
+    100132: transform26
+    100134: transform27
+    100136: transform28
+    100138: transform29
+    100140: transform3
+    100142: transform30
+    100144: transform31
+    100146: transform32
+    100148: transform33
+    100150: transform34
+    100152: transform35
+    100154: transform36
+    100156: transform37
+    100158: transform38
+    100160: transform39
+    100162: transform4
+    100164: transform40
+    100166: transform41
+    100168: transform42
+    100170: transform43
+    100172: transform44
+    100174: transform45
+    100176: transform46
+    100178: transform5
+    100180: transform6
+    100182: transform7
+    100184: transform8
+    400000: back
+    400002: bottom
+    400004: Head
+    400006: imagePlane2
+    400008: imagePlane3
+    400010: imagePlane4
+    400012: LeftArm
+    400014: LeftArmJoint
+    400016: LeftFootJoint
+    400018: LeftHandJoint
+    400020: LeftLeg
+    400022: LeftLegJoint
+    400024: pCylinder1
+    400026: polySurface1
+    400028: polySurface10
+    400030: polySurface11
+    400032: polySurface12
+    400034: polySurface13
+    400036: polySurface14
+    400038: polySurface14 1
+    400040: polySurface15
+    400042: polySurface16
+    400044: polySurface17
+    400046: polySurface18
+    400048: polySurface19
+    400050: polySurface2
+    400052: polySurface20
+    400054: polySurface21
+    400056: polySurface3
+    400058: polySurface4
+    400060: polySurface4 1
+    400062: polySurface5
+    400064: polySurface6
+    400066: polySurface7
+    400068: polySurface8
+    400070: polySurface9
+    400072: pPlane1
+    400074: pPlane11
+    400076: pPlane12
+    400078: pPlane14
+    400080: pPlane17
+    400082: pPlane2
+    400084: pPlane20
+    400086: pPlane3
+    400088: pPlane7
+    400090: pPlane9
+    400092: pSphere1
+    400094: RightArm
+    400096: RightArmJoint1
+    400098: RightFoodJoint
+    400100: RightHandJoint
+    400102: RightLeg
+    400104: RightLegJoint
+    400106: Supervisor1
+    400108: //RootNode
+    400110: Torso
+    400112: transform1
+    400114: transform11
+    400116: transform12
+    400118: transform13
+    400120: transform15
+    400122: transform19
+    400124: transform2
+    400126: transform20
+    400128: transform23
+    400130: transform25
+    400132: transform26
+    400134: transform27
+    400136: transform28
+    400138: transform29
+    400140: transform3
+    400142: transform30
+    400144: transform31
+    400146: transform32
+    400148: transform33
+    400150: transform34
+    400152: transform35
+    400154: transform36
+    400156: transform37
+    400158: transform38
+    400160: transform39
+    400162: transform4
+    400164: transform40
+    400166: transform41
+    400168: transform42
+    400170: transform43
+    400172: transform44
+    400174: transform45
+    400176: transform46
+    400178: transform5
+    400180: transform6
+    400182: transform7
+    400184: transform8
+    2300000: Head
+    2300002: LeftArm
+    2300004: LeftLeg
+    2300006: RightArm
+    2300008: RightLeg
+    2300010: Torso
+    3300000: Head
+    3300002: LeftArm
+    3300004: LeftLeg
+    3300006: RightArm
+    3300008: RightLeg
+    3300010: Torso
+    4300000: RightArm
+    4300002: Head
+    4300004: LeftArm
+    4300006: LeftLeg
+    4300008: RightLeg
+    4300010: Torso
+    7400000: Cheer
+    7400002: Idle
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Cheer
+      takeName: Take 001
+      firstFrame: 48
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: back
+        weight: 1
+      - path: bottom
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: imagePlane2
+        weight: 1
+      - path: imagePlane3
+        weight: 1
+      - path: imagePlane4
+        weight: 1
+      - path: LeftArm
+        weight: 1
+      - path: LeftArmJoint
+        weight: 1
+      - path: LeftArmJoint/LeftHandJoint
+        weight: 1
+      - path: LeftLeg
+        weight: 1
+      - path: LeftLegJoint
+        weight: 1
+      - path: LeftLegJoint/LeftFootJoint
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform2
+        weight: 1
+      - path: polySurface3
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      - path: polySurface4/transform37
+        weight: 1
+      - path: polySurface14
+        weight: 1
+      - path: polySurface14/transform45
+        weight: 1
+      - path: pPlane1
+        weight: 1
+      - path: pPlane1/transform3
+        weight: 1
+      - path: pPlane2
+        weight: 1
+      - path: pPlane2/transform4
+        weight: 1
+      - path: pPlane3
+        weight: 1
+      - path: pPlane3/polySurface1
+        weight: 1
+      - path: pPlane3/polySurface1/transform6
+        weight: 1
+      - path: pPlane3/polySurface2
+        weight: 1
+      - path: pPlane3/polySurface2/transform7
+        weight: 1
+      - path: pPlane3/transform5
+        weight: 1
+      - path: pPlane7
+        weight: 1
+      - path: pPlane7/transform11
+        weight: 1
+      - path: pPlane9
+        weight: 1
+      - path: pPlane9/transform8
+        weight: 1
+      - path: pPlane11
+        weight: 1
+      - path: pPlane11/transform13
+        weight: 1
+      - path: pPlane12
+        weight: 1
+      - path: pPlane12/transform12
+        weight: 1
+      - path: pPlane14
+        weight: 1
+      - path: pPlane14/transform46
+        weight: 1
+      - path: pPlane17
+        weight: 1
+      - path: pPlane17/transform15
+        weight: 1
+      - path: pPlane20
+        weight: 1
+      - path: pPlane20/transform19
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform1
+        weight: 1
+      - path: RightArm
+        weight: 1
+      - path: RightArmJoint1
+        weight: 1
+      - path: RightArmJoint1/RightHandJoint
+        weight: 1
+      - path: RightLeg
+        weight: 1
+      - path: RightLegJoint
+        weight: 1
+      - path: RightLegJoint/RightFoodJoint
+        weight: 1
+      - path: Supervisor1
+        weight: 1
+      - path: Supervisor1/polySurface4 1
+        weight: 1
+      - path: Supervisor1/polySurface4 1/transform28
+        weight: 1
+      - path: Supervisor1/polySurface5
+        weight: 1
+      - path: Supervisor1/polySurface5/transform27
+        weight: 1
+      - path: Supervisor1/polySurface6
+        weight: 1
+      - path: Supervisor1/polySurface6/transform26
+        weight: 1
+      - path: Supervisor1/polySurface7
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface8
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface8/transform30
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface9
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface9/transform31
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface11
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface11/transform34
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface12
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface12/transform33
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface14 1
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface14 1/transform44
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface15
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface15/transform39
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface16
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface16/transform41
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface17
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface17/transform43
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface18
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface18/transform42
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface19
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface19/transform38
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface20
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface20/transform40
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface21
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface21/transform36
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/transform35
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/transform32
+        weight: 1
+      - path: Supervisor1/polySurface7/transform29
+        weight: 1
+      - path: Supervisor1/transform25
+        weight: 1
+      - path: Torso
+        weight: 1
+      - path: transform20
+        weight: 1
+      - path: transform23
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 80
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: back
+        weight: 1
+      - path: bottom
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: imagePlane2
+        weight: 1
+      - path: imagePlane3
+        weight: 1
+      - path: imagePlane4
+        weight: 1
+      - path: LeftArm
+        weight: 1
+      - path: LeftArmJoint
+        weight: 1
+      - path: LeftArmJoint/LeftHandJoint
+        weight: 1
+      - path: LeftLeg
+        weight: 1
+      - path: LeftLegJoint
+        weight: 1
+      - path: LeftLegJoint/LeftFootJoint
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform2
+        weight: 1
+      - path: polySurface3
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      - path: polySurface4/transform37
+        weight: 1
+      - path: polySurface14
+        weight: 1
+      - path: polySurface14/transform45
+        weight: 1
+      - path: pPlane1
+        weight: 1
+      - path: pPlane1/transform3
+        weight: 1
+      - path: pPlane2
+        weight: 1
+      - path: pPlane2/transform4
+        weight: 1
+      - path: pPlane3
+        weight: 1
+      - path: pPlane3/polySurface1
+        weight: 1
+      - path: pPlane3/polySurface1/transform6
+        weight: 1
+      - path: pPlane3/polySurface2
+        weight: 1
+      - path: pPlane3/polySurface2/transform7
+        weight: 1
+      - path: pPlane3/transform5
+        weight: 1
+      - path: pPlane7
+        weight: 1
+      - path: pPlane7/transform11
+        weight: 1
+      - path: pPlane9
+        weight: 1
+      - path: pPlane9/transform8
+        weight: 1
+      - path: pPlane11
+        weight: 1
+      - path: pPlane11/transform13
+        weight: 1
+      - path: pPlane12
+        weight: 1
+      - path: pPlane12/transform12
+        weight: 1
+      - path: pPlane14
+        weight: 1
+      - path: pPlane14/transform46
+        weight: 1
+      - path: pPlane17
+        weight: 1
+      - path: pPlane17/transform15
+        weight: 1
+      - path: pPlane20
+        weight: 1
+      - path: pPlane20/transform19
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform1
+        weight: 1
+      - path: RightArm
+        weight: 1
+      - path: RightArmJoint1
+        weight: 1
+      - path: RightArmJoint1/RightHandJoint
+        weight: 1
+      - path: RightLeg
+        weight: 1
+      - path: RightLegJoint
+        weight: 1
+      - path: RightLegJoint/RightFoodJoint
+        weight: 1
+      - path: Supervisor1
+        weight: 1
+      - path: Supervisor1/polySurface4 1
+        weight: 1
+      - path: Supervisor1/polySurface4 1/transform28
+        weight: 1
+      - path: Supervisor1/polySurface5
+        weight: 1
+      - path: Supervisor1/polySurface5/transform27
+        weight: 1
+      - path: Supervisor1/polySurface6
+        weight: 1
+      - path: Supervisor1/polySurface6/transform26
+        weight: 1
+      - path: Supervisor1/polySurface7
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface8
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface8/transform30
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface9
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface9/transform31
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface11
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface11/transform34
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface12
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface12/transform33
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface14 1
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface14 1/transform44
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface15
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface15/transform39
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface16
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface16/transform41
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface17
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface17/transform43
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface18
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface18/transform42
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface19
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface19/transform38
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface20
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface20/transform40
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface21
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/polySurface21/transform36
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/polySurface13/transform35
+        weight: 1
+      - path: Supervisor1/polySurface7/polySurface10/transform32
+        weight: 1
+      - path: Supervisor1/polySurface7/transform29
+        weight: 1
+      - path: Supervisor1/transform25
+        weight: 1
+      - path: Torso
+        weight: 1
+      - path: transform20
+        weight: 1
+      - path: transform23
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
