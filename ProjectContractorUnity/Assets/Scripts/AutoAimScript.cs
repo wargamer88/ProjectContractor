@@ -63,7 +63,11 @@ public class AutoAimScript : MonoBehaviour
                         _createBallAndShootingAnimation();
                     }
                 }
-            } 
+            }
+            if (GameObject.FindObjectOfType<IdleCloseScript>())
+            {
+                GameObject.FindObjectOfType<IdleCloseScript>().RestartIdle();
+            }
         }
     }
 

@@ -84,7 +84,9 @@ public class HighscoreScript : MonoBehaviour {
     private int _comboCounter;
 
     //The property for reading and editing the ComboCounter
-    public int ComboCounter { get { return _comboCounter; } set { _comboCounter = value; } } 
+    public int ComboCounter { get { return _comboCounter; } set { _comboCounter = value; } }
+
+    private CharacterScript _characterScript;
     #endregion
 
     /// <summary>
@@ -104,7 +106,9 @@ public class HighscoreScript : MonoBehaviour {
         _comboUI = GameObject.Find("ComboImage");
         _waveClearUI = GameObject.Find("WaveCleared");
         _numberParticle = GameObject.FindObjectOfType<NumberParticleScript>();
-	}
+        _characterScript = GameObject.FindObjectOfType<CharacterScript>();
+
+    }
 	
 	/// <summary>
     /// <para>Calls the Function which checks the Combo Timer to see when to hide Image</para>
@@ -186,6 +190,7 @@ public class HighscoreScript : MonoBehaviour {
         {
             _score += _5inRowScore;
             _numberParticle.PlaceParticleCombo(ComboType.FiveinRow);
+            _characterScript.CheerCharacters();
             if (_5inRowImage != null)
             {
                _geweldig.GetComponent<Image>().sprite = _5inRowImage;
@@ -196,6 +201,7 @@ public class HighscoreScript : MonoBehaviour {
         {
             _score += _10inRowScore;
             _numberParticle.PlaceParticleCombo(ComboType.TeninRow);
+            _characterScript.CheerCharacters();
             if (_10inRowImage != null)
             {
                 _ongelooflijk.GetComponent<Image>().sprite = _10inRowImage;
@@ -206,6 +212,7 @@ public class HighscoreScript : MonoBehaviour {
         {
             _score += _15inRowScore;
             _numberParticle.PlaceParticleCombo(ComboType.FifteeninRow);
+            _characterScript.CheerCharacters();
             if (_15inRowImage != null)
             {
                 _superheld.GetComponent<Image>().sprite = _15inRowImage;
@@ -241,6 +248,7 @@ public class HighscoreScript : MonoBehaviour {
         }
         _score += _finishWaveScore;
         _numberParticle.PlaceParticleCombo(ComboType.FinishWave);
+        _characterScript.CheerCharacters();
     }
     /// <summary>
     /// <para>Disable all Images</para>

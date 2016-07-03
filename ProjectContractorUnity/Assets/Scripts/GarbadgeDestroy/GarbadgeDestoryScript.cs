@@ -26,7 +26,12 @@ public class GarbadgeDestoryScript : MonoBehaviour {
     //field for the highscore object
     private HighscoreScript _highscore;
     //field for particle object
-    private NumberParticleScript _numberParticle; 
+    private NumberParticleScript _numberParticle;
+
+    private bool _isStartDamage;
+    private Material _oldMaterial;
+    private float _startTime;
+    private float _showDamageTime;
     # endregion
 
 
@@ -40,11 +45,28 @@ public class GarbadgeDestoryScript : MonoBehaviour {
         if (HP == 0 && GetComponent<GarbageHPScript>())
         {
             _hp = GetComponent<GarbageHPScript>().HP;
+            _showDamageTime = this.GetComponent<GarbageHPScript>().ShowDamageTimer;
         }
         _garbageWaveScript = GameObject.FindObjectOfType<GarbageWaveScript>();
         _highscore = GameObject.FindObjectOfType<HighscoreScript>();
         _numberParticle = GameObject.FindObjectOfType<NumberParticleScript>();
+        _oldMaterial = this.GetComponent<MeshRenderer>().material;
 	}
+    /// <summary>
+    /// Update is only for a little timer to show that it's damaged.
+    /// </summary>
+    void Update()
+    {
+        if (_isStartDamage)
+        {
+            this.GetComponent<MeshRenderer>().material = this.GetComponent<GarbageHPScript>().DamageMaterial;
+            if (Time.time > (_startTime + _showDamageTime))
+            {
+                _isStartDamage = false;
+                this.GetComponent<MeshRenderer>().material = _oldMaterial;
+            }
+        }
+    }
     /// <summary>
     /// <para>Unity function event when something is hitting</para>
     /// <para>If the hit is a projectile it call destory bullet and call method damageGarbage in current tile</para>
@@ -68,6 +90,11 @@ public class GarbadgeDestoryScript : MonoBehaviour {
     /// <param name="pOther">Can be a projecttile but it is something that can hit the garbage</param>
     public void CheckHealth(GameObject pOther)
     {
+        if (_hp > 0)
+        {
+            _startTime = Time.time;
+            _isStartDamage = true;
+        }
         if (_hp <= 0)
         {
             _numberParticle.PlaceParticleAtGarbage(this.transform.position, _garbageType);
