@@ -16,7 +16,7 @@ public class IdleCloseScript : MonoBehaviour {
                 _endIdle--;
                 if (_endIdle == 0)
                 {
-                    Application.Quit();
+                    StartCoroutine(FindObjectOfType<DBconnection>().UploadScore(FindObjectOfType<HighscoreScript>().Score));
                 }
             }
         }
