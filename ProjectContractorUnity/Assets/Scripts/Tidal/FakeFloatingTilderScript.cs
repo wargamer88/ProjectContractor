@@ -20,7 +20,7 @@ public class FakeFloatingTilderScript : MonoBehaviour
     /// <summary>
     /// If the game is running then change over time the IsChanged and instead of + do minus and the other way around
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
         if (Time.timeScale == 1)
         {

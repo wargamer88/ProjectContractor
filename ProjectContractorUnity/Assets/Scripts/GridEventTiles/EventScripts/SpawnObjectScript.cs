@@ -35,7 +35,9 @@ public static class SpawnObjectScript {
                     GameObject bottle = pGarbageWaveScript.LightGarbage[0];
                     pGarbageWaveScript.SpawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -1, pExe.gameObject.name);
                     _amountBottle++;
+                    pGarbageWaveScript.StartWave = true;
                 }
+
             }
         }
     }
@@ -77,6 +79,7 @@ public static class SpawnObjectScript {
                     }
                     pEventAmountOfObjectsSpawned++;
                     _isFirstTime = false;
+                    pGarbageWaveScript.StartWave = true;
                 }
             }
         }
@@ -116,6 +119,7 @@ public static class SpawnObjectScript {
                     {
                         GameObject bottle = pGarbageWaveScript.MediumGarbage[random];
                         pGarbageWaveScript.SpawnGarbage(2, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
+                        pGarbageWaveScript.StartWave = true;
                     }
                     pEventAmountOfObjectsSpawned++;
                     _isFirstTime = false;
@@ -156,6 +160,7 @@ public static class SpawnObjectScript {
                     {
                         GameObject bottle = pGarbageWaveScript.HeavyGarbage[random];
                         pGarbageWaveScript.SpawnGarbage(3, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
+                        pGarbageWaveScript.StartWave = true;
                     }
                     pEventAmountOfObjectsSpawned++;
                     _isFirstTime = false;
@@ -197,6 +202,7 @@ public static class SpawnObjectScript {
                     {
                         GameObject bottle = pGarbageWaveScript.SpecialGarbage[0];
                         pGarbageWaveScript.SpawnGarbage(1, pTilePosition.x + 1, 4, pTilePosition.z, bottle, -pEventSpeed, pExe.gameObject.name);
+                        pGarbageWaveScript.StartWave = true;
                     }
                     pEventAmountOfObjectsSpawned++;
                     _isFirstTime = false;

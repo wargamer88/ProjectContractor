@@ -70,6 +70,9 @@ public class GarbageWaveScript : MonoBehaviour
     public bool EndGame { set { _endGame = value; } }
     //Script to make sure New building can spawn
     private BuildCityScript _cityConstruction;
+
+    private bool _startWave = true;
+    public bool StartWave { get { return _startWave; } set { _startWave = value; } }
     #endregion
     /// <summary>
     ///<para>Start create the lists and searching for objects in the game</para>
@@ -96,12 +99,13 @@ public class GarbageWaveScript : MonoBehaviour
         if (_spawnedGarbage.Count <= _destroyedGarbage.Count && (_destroyedGarbage.Count >= _spawnAmount || _destroyedGarbage.Count >= _spawnedGarbage.Count))
         {
             //Check if there is still garbage left. Hotfix 2.0
-            if (GameObject.FindGameObjectsWithTag("Garbage").Length  == 0 && !_endGame)
+            if (GameObject.FindGameObjectsWithTag("Garbage").Length  == 0 && !_endGame && _startWave)
             {
                 _waveNumber++;
                 _cityConstruction.DoneBuilding = false;
                 _nextWave = true;
                 _spawnAmount = 0;
+                _startWave = false;
                 if (_waveNumber != 1)
                 {
                     _checkWave();
