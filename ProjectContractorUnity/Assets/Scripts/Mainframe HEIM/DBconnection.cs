@@ -10,8 +10,9 @@ public class DBconnection : MonoBehaviour {
     /// <param name="score"></param>
     /// <returns></returns>
 	public IEnumerator UploadScore(int score) {
+        int Tscore = Mathf.RoundToInt(((float)score / 2233f) * 100f);
         Arguments argumentsScript = FindObjectOfType<Arguments>();
-        WWW post = new WWW(argumentsScript.ConURL + "insertScore.php?userID=" + argumentsScript.UserID + "&gameID=" + argumentsScript.GameID + "&score=" + score);
+        WWW post = new WWW(argumentsScript.ConURL + "insertScore.php?userID=" + argumentsScript.UserID + "&gameID=" + argumentsScript.GameID + "&score=" + Tscore);
 		yield return post;
         Debug.Log("Score uploaded");
         Application.Quit();

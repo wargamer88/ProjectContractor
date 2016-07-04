@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 3
+  _damage: {fileID: 2100000, guid: 3546e29d9ffc14148b0e51205adcf1db, type: 2}
+  _showDamageTimer: 1
 --- !u!114 &11463342
 MonoBehaviour:
   m_ObjectHideFlags: 1

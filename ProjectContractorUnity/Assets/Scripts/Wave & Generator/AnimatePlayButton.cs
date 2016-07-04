@@ -13,7 +13,14 @@ public class AnimatePlayButton : MonoBehaviour {
     private int _index = 0;
     //the IndexCounter
     private float _indexChanger = 0;
+
+    private System.DateTime _oldTime;
     #endregion
+
+    void Start()
+    {
+        _oldTime = System.DateTime.UtcNow;
+    }
 
     /// <summary>
     /// <para>Call AnimateQuad</para>
@@ -31,7 +38,11 @@ public class AnimatePlayButton : MonoBehaviour {
         if (_materials.Length == 0)
             return;
 
-        _indexChanger += 1f;
+        if (System.DateTime.UtcNow >= (_oldTime.AddMilliseconds(70)))
+        {
+            _oldTime = System.DateTime.UtcNow;
+            _indexChanger += 1f;
+        }
         _index = (int)_indexChanger;
         if (_index >= _materials.Length)
         {
