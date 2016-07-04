@@ -218,6 +218,7 @@ public class HighscoreScript : MonoBehaviour {
                 _superheld.GetComponent<Image>().sprite = _15inRowImage;
                 _superheld.GetComponent<Image>().enabled = true; 
             }
+            _comboCounter = 0;
         }
         _updateScore();
     }
